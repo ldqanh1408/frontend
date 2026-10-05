@@ -42,13 +42,27 @@ jobs:
       - name: Run requested suites
         id: run
         continue-on-error: true
+        env:
+          MIRROR_DIR: ${{ runner.temp }}/release-mirror
         run: node frontend-acceptance/harness/run.mjs
+      - name: Encrypt release mirror (repo is public)
+        if: always()
+        run: |
+          if [ -d "$RUNNER_TEMP/release-mirror" ]; then
+            OUT=frontend-acceptance/work/release-mirror.enc; mkdir -p "$OUT"
+            tar -C "$RUNNER_TEMP" -czf "$RUNNER_TEMP/mirror.tgz" release-mirror
+            openssl rand -out "$RUNNER_TEMP/k.bin" 32
+            openssl enc -aes-256-cbc -pbkdf2 -salt -in "$RUNNER_TEMP/mirror.tgz" -out "$OUT/mirror.tgz.enc" -pass file:"$RUNNER_TEMP/k.bin"
+            openssl pkeyutl -encrypt -pubin -inkey frontend-acceptance/harness/mirror-pubkey.pem -pkeyopt rsa_padding_mode:oaep -in "$RUNNER_TEMP/k.bin" -out "$OUT/key.bin.enc"
+            sha256sum "$RUNNER_TEMP/mirror.tgz" | cut -d' ' -f1 > "$OUT/mirror.tgz.sha256"
+            rm -f "$RUNNER_TEMP/k.bin"
+          fi
       - name: Commit results back to branch
         if: always()
         run: |
           git config user.name "atlas-acceptance-bot"
           git config user.email "atlas-acceptance-bot@users.noreply.github.com"
-          git add -A frontend-acceptance/evidence/runs frontend-acceptance/work/release-mirror || true
+          git add -A frontend-acceptance/evidence/runs frontend-acceptance/work/release-mirror.enc || true
           if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
           REQ=$(node -e "console.log(require('./frontend-acceptance/run-request.json').request_id)")
           git commit -m "acceptance results ${REQ} (run ${GITHUB_RUN_ID})"

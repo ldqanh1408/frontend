@@ -57,7 +57,9 @@ async function get(url, opts = {}) {
 
 export default async function ({ runDir, target }) {
   const rec = new Recorder(runDir, 'mirror');
-  const mirrorDir = ensureDir(path.join(ROOT, 'work', 'release-mirror'));
+  // Byte mirror goes OUTSIDE the repo; the workflow encrypts it with harness/mirror-pubkey.pem before committing
+  // (the repo is public; only the auditor's private key, kept out of the repo, can decrypt it).
+  const mirrorDir = ensureDir(process.env.MIRROR_DIR || path.join(process.env.RUNNER_TEMP || '/tmp', 'release-mirror'));
   const headerLog = {};
 
   // Root document

@@ -1,18 +1,178 @@
 {
   "request_id": "R3-001-xengine",
-  "purpose": "Next run (needs Claude GitHub App so the workflow can be pushed): release mirror + routes on chromium/firefox/webkit, FE02 at 6 widths, axe dark/light, perf cold/warm, FX-SERVICE draft",
-  "suites": ["mirror", "discover", "injected"],
+  "purpose": "Run 3 via GitHub Actions: release hash + encrypted mirror, discovery, injected scripts on chromium/firefox/webkit (deeplink, FE02 6 widths, axe dark/light, perf_cold, fx_service draft), trusted keyboard (APG), perf (cold/warm/mobile throttled, INP, heap), screenshots",
+  "suites": [
+    "mirror",
+    "discover",
+    "injected",
+    "keyboard",
+    "perf",
+    "screenshots"
+  ],
   "injected": [
-    { "script": "deeplink", "engines": ["chromium", "firefox", "webkit"], "viewport": { "width": 1280, "height": 800 } },
-    { "script": "fe02", "pre": ["detector"], "engines": ["chromium", "firefox", "webkit"], "viewport": { "width": 320, "height": 800, "isMobile": true, "hasTouch": true, "deviceScaleFactor": 2 } },
-    { "script": "fe02", "pre": ["detector"], "engines": ["chromium"], "viewport": { "width": 375, "height": 812, "isMobile": true, "hasTouch": true, "deviceScaleFactor": 3 } },
-    { "script": "fe02", "pre": ["detector"], "engines": ["chromium"], "viewport": { "width": 768, "height": 1024, "hasTouch": true, "deviceScaleFactor": 2 } },
-    { "script": "fe02", "pre": ["detector"], "engines": ["chromium"], "viewport": { "width": 1280, "height": 800 } },
-    { "script": "fe02", "pre": ["detector"], "engines": ["chromium"], "viewport": { "width": 1440, "height": 900 } },
-    { "script": "fe02", "pre": ["detector"], "engines": ["chromium", "firefox", "webkit"], "viewport": { "width": 1920, "height": 1080 } },
-    { "script": "axe", "engines": ["chromium"], "viewport": { "width": 1440, "height": 900 }, "globals": { "__AXE_THEME": "dark" }, "tag": "dark" },
-    { "script": "axe", "engines": ["chromium"], "viewport": { "width": 1440, "height": 900 }, "globals": { "__AXE_THEME": "light" }, "tag": "light" },
-    { "script": "perf_cold", "engines": ["chromium"], "viewport": { "width": 1440, "height": 900 }, "globals": { "__WARM_N": 10 } },
-    { "script": "fx_service", "engines": ["chromium"], "url": "/harness-blank", "viewport": { "width": 1440, "height": 900 }, "globals": { "__FX_MODE": "effective" }, "timeout": 60000 }
-  ]
+    {
+      "script": "deeplink",
+      "engines": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      }
+    },
+    {
+      "script": "fe02",
+      "pre": [
+        "detector"
+      ],
+      "engines": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "viewport": {
+        "width": 320,
+        "height": 800,
+        "isMobile": true,
+        "hasTouch": true,
+        "deviceScaleFactor": 2
+      }
+    },
+    {
+      "script": "fe02",
+      "pre": [
+        "detector"
+      ],
+      "engines": [
+        "chromium"
+      ],
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "isMobile": true,
+        "hasTouch": true,
+        "deviceScaleFactor": 3
+      }
+    },
+    {
+      "script": "fe02",
+      "pre": [
+        "detector"
+      ],
+      "engines": [
+        "chromium"
+      ],
+      "viewport": {
+        "width": 768,
+        "height": 1024,
+        "hasTouch": true,
+        "deviceScaleFactor": 2
+      }
+    },
+    {
+      "script": "fe02",
+      "pre": [
+        "detector"
+      ],
+      "engines": [
+        "chromium"
+      ],
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      }
+    },
+    {
+      "script": "fe02",
+      "pre": [
+        "detector"
+      ],
+      "engines": [
+        "chromium"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "script": "fe02",
+      "pre": [
+        "detector"
+      ],
+      "engines": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    {
+      "script": "axe",
+      "engines": [
+        "chromium"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "globals": {
+        "__AXE_THEME": "dark"
+      },
+      "tag": "dark"
+    },
+    {
+      "script": "axe",
+      "engines": [
+        "chromium"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "globals": {
+        "__AXE_THEME": "light"
+      },
+      "tag": "light"
+    },
+    {
+      "script": "perf_cold",
+      "engines": [
+        "chromium"
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "globals": {
+        "__WARM_N": 10
+      }
+    },
+    {
+      "script": "fx_service",
+      "engines": [
+        "chromium"
+      ],
+      "url": "/harness-blank",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "globals": {
+        "__FX_MODE": "effective"
+      },
+      "timeout": 60000
+    }
+  ],
+  "keyboard_engines": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "perf_runs": 10
 }
