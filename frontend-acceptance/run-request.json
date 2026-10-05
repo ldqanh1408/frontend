@@ -1,77 +1,15 @@
 {
-  "request_id": "R3-002-fx-layout",
-  "purpose": "Run 3b: fixed deeplink script on 3 engines, runner hash check following redirects, FX-SERVICE trusted scenarios (12 modes + expiry + observer), layout hit-test (FND-018 root cause) on 3 engines, FE02 375/768 on firefox/webkit",
+  "request_id": "R3-003-kbd-perf",
+  "purpose": "Re-run of run #2 suites lost to a commit conflict: trusted keyboard (chromium/firefox/webkit), perf (cold/warm/mobile throttled, INP, heap), screenshots",
   "suites": [
-    "mirror",
-    "injected",
-    "fxservice",
-    "layout"
+    "keyboard",
+    "perf",
+    "screenshots"
   ],
-  "injected": [
-    {
-      "script": "deeplink",
-      "engines": [
-        "chromium",
-        "firefox",
-        "webkit"
-      ],
-      "viewport": {
-        "width": 1280,
-        "height": 800
-      },
-      "timeout": 150000
-    },
-    {
-      "script": "fe02",
-      "pre": [
-        "detector"
-      ],
-      "engines": [
-        "firefox",
-        "webkit"
-      ],
-      "viewport": {
-        "width": 375,
-        "height": 812,
-        "isMobile": true,
-        "hasTouch": true,
-        "deviceScaleFactor": 3
-      }
-    },
-    {
-      "script": "fe02",
-      "pre": [
-        "detector"
-      ],
-      "engines": [
-        "firefox",
-        "webkit"
-      ],
-      "viewport": {
-        "width": 768,
-        "height": 1024,
-        "hasTouch": true,
-        "deviceScaleFactor": 2
-      }
-    },
-    {
-      "script": "fe02",
-      "pre": [
-        "detector"
-      ],
-      "engines": [
-        "firefox",
-        "webkit"
-      ],
-      "viewport": {
-        "width": 1440,
-        "height": 900
-      }
-    }
-  ],
-  "layout_engines": [
+  "keyboard_engines": [
     "chromium",
     "firefox",
     "webkit"
-  ]
+  ],
+  "perf_runs": 10
 }

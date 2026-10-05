@@ -47,6 +47,7 @@ jobs:
         run: node frontend-acceptance/harness/run.mjs
       - name: Encrypt release mirror (repo is public)
         if: always()
+        continue-on-error: true
         run: |
           if [ -d "$RUNNER_TEMP/release-mirror" ]; then
             OUT=frontend-acceptance/work/release-mirror.enc; mkdir -p "$OUT"
@@ -67,7 +68,9 @@ jobs:
           REQ=$(node -e "console.log(require('./frontend-acceptance/run-request.json').request_id)")
           git commit -m "acceptance results ${REQ} (run ${GITHUB_RUN_ID})"
           for i in 1 2 3 4 5; do
-            git pull --rebase --no-edit origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            # results dirs are per request; on add/add conflicts keep this run's files (-X theirs = the replayed results commit)
+            git pull --rebase -X theirs --no-edit origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            git rebase --abort 2>/dev/null || true
             sleep $((i*5))
           done
           exit 1
