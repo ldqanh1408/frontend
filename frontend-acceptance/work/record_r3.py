@@ -151,7 +151,7 @@ def ingest(run_name):
         add(case_id='FE02-WALK-001', gate='FE-02', requirement_ref='walkthrough desktop + mobile (visual evidence only)', input_mode='synthetic-DOM', viewport='375x812,1440x900', theme='dark+light',
             steps='Screenshot every route after h1 + DOM settle', expected='72 screenshots captured after correct render (h1 matched); visual review vs Figma pending',
             actual=f"captured={len(shots)} h1_mismatch={sum(1 for s in shots if not s['h1ok'])} errors={len(si['errors'])}", result='NOT_RUN',
-            evidence_ids=e, reason='Screenshots captured as evidence; visual parity review against Figma frames not possible (per-view frames absent from the supplied Figma file).')
+            evidence_ids=e, reason='Screenshots captured as evidence; Figma comparison is done in run 4 (FIGMA-001, text/structure parity).')
 
 
     # ---------------- FX-SERVICE (trusted) ----------------
@@ -266,8 +266,7 @@ for cid, why in [('CODE-008', 'scenario not yet scripted: needs a seeded source 
                  ('PERF-WORKLOAD-001', 'not yet scripted (synthetic workloads)'), ('FX-BRANCH-001', 'partly covered by FX-SVC-EXPIRY/OBSERVER/HTTP409; remaining: revoked mid-flow, stale revision on GET, offline/reconnect, role projection, reverse-order, retry/resume/cancel race, Observer redaction')]:
     if cid in T and T[cid]['result'] == 'BLOCKED':
         refresh(cid, 'NOT_RUN', GHNOTE + why)
-if 'FIGMA-001' in T:
-    refresh('FIGMA-001', 'BLOCKED', 'BLOCKED_INPUT: Figma file 0md9BEFI1rU0aRAvf98TWO supplied, but only pages "00 · Start here" and "03 · Design system" exist; the per-view pages "01/02 · Current UI · Dark/Light" referenced by the file are absent, so view-level frame pairs cannot be compared', evidence_ids='EV-FIG-501')
+# FIGMA-001 is re-evaluated in record_r4.py (run 4 read all 10 Figma pages; the run-2/3 'only 2 pages' statement was wrong).
 if 'FE02-SCROLL-001-CHROMIUM' in T and 'FE02-TARGET-001' in T:
     refresh('FE02-TARGET-001', 'FAIL', 'Root cause found by FE02-SCROLL-001: the flag is not theme-related; after a view change initiated outside <main> the page scrolls 52–60 px and the breadcrumb sits under the fixed header (Chromium, WebKit)',
             actual=T['FE02-SCROLL-001-CHROMIUM']['actual'][:600], evidence_ids=T['FE02-SCROLL-001-CHROMIUM']['evidence_ids'], input_mode='trusted-input', browser_version=T['FE02-SCROLL-001-CHROMIUM']['browser_version'])
@@ -291,7 +290,7 @@ if ii:
 if 'A11Y-TARGET-001' in T and 'FE02-SCROLL-001-CHROMIUM' in T:
     refresh('A11Y-TARGET-001', 'FAIL', 'Run-2 observation (light pass after the theme click) re-attributed in run 3: the overlap comes from the post-navigation scroll offset that puts the breadcrumb under the fixed header (FND-018), not from the theme')
 if 'FE02-WALK-001' in T:
-    refresh('FE02-WALK-001', 'NOT_RUN', 'Screenshots captured (72) and spot-checked by the auditor (375 light #agents shows the breadcrumb hidden under the header = FND-018; 1440 dark #specifications renders as expected); visual parity vs Figma not possible (per-view frames absent)')
+    refresh('FE02-WALK-001', 'NOT_RUN', 'Screenshots captured (72) and spot-checked by the auditor (375 light #agents shows the breadcrumb hidden under the header = FND-018; 1440 dark #specifications renders as expected); visual parity vs Figma handled in run 4 (FIGMA-001)')
 
 
 # ---------------- findings updated by run 3 ----------------

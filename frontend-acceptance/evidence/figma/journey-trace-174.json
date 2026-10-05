@@ -1,0 +1,1692 @@
+{
+ "file_key": "0md9BEFI1rU0aRAvf98TWO",
+ "source": "04 · E2E Model / 478:130933 MODEL/trace/0…168 (read-only use_figma)",
+ "note": "ACTION ≤90, ORACLE ≤110, RECOVERY ≤90 chars as read; NATIVE SPECS omitted. Figma marks every step \"Execution NOT_RUN\".",
+ "design_v8_journeys": [
+  {
+   "id": "J01",
+   "name": "Access",
+   "flow": "Login → invitation → workspace → project",
+   "recovery": "Wrong account, expired invite, revoked access"
+  },
+  {
+   "id": "J02",
+   "name": "Setup",
+   "flow": "Connect repository → reconcile → readiness",
+   "recovery": "Disconnect, empty repo, insufficient permission"
+  },
+  {
+   "id": "J03",
+   "name": "Author spec",
+   "flow": "Draft → save → diff → freeze → review",
+   "recovery": "Offline, dirty tab, frozen draft, conflict/lease"
+  },
+  {
+   "id": "J04",
+   "name": "Understand code",
+   "flow": "File/symbol → source → references → evidence",
+   "recovery": "Stale/partial index, denied/binary/large file"
+  },
+  {
+   "id": "J05",
+   "name": "Prepare plan",
+   "flow": "Specs + source + memory → context review → generation → plan",
+   "recovery": "Stale/revoked context, generation failure"
+  },
+  {
+   "id": "J06",
+   "name": "Admit run",
+   "flow": "Workflow version → contract → policy/budget/sandbox → admission",
+   "recovery": "Budget/capacity/lock, missing contract, changed policy"
+  },
+  {
+   "id": "J07",
+   "name": "Execute",
+   "flow": "Parallel tasks → checkpoint → resume → artifacts",
+   "recovery": "Heartbeat stale, rejected signal, wrong snapshot"
+  },
+  {
+   "id": "J08",
+   "name": "Recover run",
+   "flow": "Pause/cancel/retry → reconcile → cleanup",
+   "recovery": "Unknown outcome, reconnect, cleanup-held/failed"
+  },
+  {
+   "id": "J09",
+   "name": "Review outputs",
+   "flow": "Durable artifact → manifest/snapshot → handoff",
+   "recovery": "Not durable, snapshot unavailable, revoked resource"
+  },
+  {
+   "id": "J10",
+   "name": "Governance",
+   "flow": "Risk/security → independent reviewers → signed gate",
+   "recovery": "Scanner unavailable, secret confirmed, missing reviewer"
+  },
+  {
+   "id": "J11",
+   "name": "Deliver",
+   "flow": "Diff → PR → exact-head CI → merge",
+   "recovery": "CI failed/old head, conflict, PR unknown/partial merge"
+  },
+  {
+   "id": "J12",
+   "name": "Close loop",
+   "flow": "Acceptance → verification → cleanup → memory",
+   "recovery": "Acceptance failed, unknown verification, locks held"
+  },
+  {
+   "id": "J13",
+   "name": "Admin lifecycle",
+   "flow": "Registry/provider/policy/memory change → impact → activation",
+   "recovery": "Revoke, archived project, restore/reconcile"
+  },
+  {
+   "id": "J14",
+   "name": "Observe",
+   "flow": "Trace/metrics/profile → diagnostic handoff → export",
+   "recovery": "No/partial data, incompatible profile, export failure"
+  }
+ ],
+ "decisions_open": [
+  "D01",
+  "D02",
+  "D03",
+  "D04",
+  "D05",
+  "D06",
+  "D07",
+  "D08",
+  "D09",
+  "D10",
+  "D11",
+  "D12",
+  "D13",
+  "D14",
+  "UXD-01",
+  "UXD-02",
+  "UXD-03",
+  "UXD-04",
+  "UXD-05",
+  "UXD-06",
+  "UXD-07",
+  "UXD-08",
+  "UXD-09",
+  "UXD-10",
+  "UXD-11",
+  "UXD-12",
+  "UXD-13",
+  "UXD-14",
+  "EX-LOCK-03",
+  "OBSERVER_READ_ONLY",
+  "API TBD"
+ ],
+ "steps": [
+  {
+   "step_id": "UXJ-01-S01",
+   "journey_id": "UXJ-01",
+   "ux_ref": "UX-IAM-01",
+   "actor": "New user / Admin",
+   "action": "Sign in and confirm account",
+   "oracle": "Validated actor and intended-route session receipt",
+   "recovery": "Reject reused/expired state; recover network without losing authorized intent"
+  },
+  {
+   "step_id": "UXJ-01-S02",
+   "journey_id": "UXJ-01",
+   "ux_ref": "UX-TEN-01",
+   "actor": "New user / Admin",
+   "action": "Create org/workspace/project",
+   "oracle": "One durable scoped hierarchy and initial Admin membership",
+   "recovery": "Duplicate slug/create race resolves once; cannot grant System config"
+  },
+  {
+   "step_id": "UXJ-01-S03",
+   "journey_id": "UXJ-01",
+   "ux_ref": "UX-TEN-02",
+   "actor": "New user / Admin",
+   "action": "Open readiness and configure real dependencies",
+   "oracle": "Each mandatory item has actual connection/config/index/grant evidence",
+   "recovery": "Incomplete/unknown items remain blockers with responsible next screen"
+  },
+  {
+   "step_id": "UXJ-01-S04",
+   "journey_id": "UXJ-01",
+   "ux_ref": "UX-SHELL-01",
+   "actor": "New user / Admin",
+   "action": "Open project library/repo from stable route",
+   "oracle": "Authorized scope and deep-link context retained",
+   "recovery": "Old/wrong-scope route gives safe denial, not another tenant"
+  },
+  {
+   "step_id": "UXJ-02-S01",
+   "journey_id": "UXJ-02",
+   "ux_ref": "UX-IAM-02",
+   "actor": "Admin / invited member",
+   "action": "Issue invite and inspect delivery",
+   "oracle": "Actual invitation token/delivery receipt",
+   "recovery": "Unavailable delivery retains pending status"
+  },
+  {
+   "step_id": "UXJ-02-S02",
+   "journey_id": "UXJ-02",
+   "ux_ref": "UX-IAM-01",
+   "actor": "Admin / invited member",
+   "action": "Choose intended identity",
+   "oracle": "Server account matches invitation recipient",
+   "recovery": "Wrong account shown with account change/reject path"
+  },
+  {
+   "step_id": "UXJ-02-S03",
+   "journey_id": "UXJ-02",
+   "ux_ref": "UX-IAM-02",
+   "actor": "Admin / invited member",
+   "action": "Accept invitation",
+   "oracle": "Exactly one scoped membership with assigned role",
+   "recovery": "Concurrent accept/revoke/expiry has recorded winner"
+  },
+  {
+   "step_id": "UXJ-02-S04",
+   "journey_id": "UXJ-02",
+   "ux_ref": "UX-IAM-03",
+   "actor": "Admin / invited member",
+   "action": "Inspect effective role union then revoke while online",
+   "oracle": "Current server grant explainable; revoked effects rejected",
+   "recovery": "Last Admin protected; stale client cannot keep protected access"
+  },
+  {
+   "step_id": "UXJ-03-S01",
+   "journey_id": "UXJ-03",
+   "ux_ref": "UX-TEN-02",
+   "actor": "Project maintainer",
+   "action": "Choose repo through authorized installation",
+   "oracle": "Provider installation/repository grant verified",
+   "recovery": "Revoked or wrong-installation stays disconnected"
+  },
+  {
+   "step_id": "UXJ-03-S02",
+   "journey_id": "UXJ-03",
+   "ux_ref": "UX-CODE-01",
+   "actor": "Project maintainer",
+   "action": "Resolve branch and browse immutable source",
+   "oracle": "Header/tree/file share actual full OID",
+   "recovery": "Moved branch shows refresh/pinned choice"
+  },
+  {
+   "step_id": "UXJ-03-S03",
+   "journey_id": "UXJ-03",
+   "ux_ref": "UX-CODE-06",
+   "actor": "Project maintainer",
+   "action": "Start and inspect index job",
+   "oracle": "Actual per-file diagnostics/analyzer/source versions",
+   "recovery": "Malformed/rate-limited files preserve partial state"
+  },
+  {
+   "step_id": "UXJ-03-S04",
+   "journey_id": "UXJ-03",
+   "ux_ref": "UX-CODE-10",
+   "actor": "Project maintainer",
+   "action": "Handle missed/forged/replayed webhook and reconnect",
+   "oracle": "HMAC/inbox dedupe and source/check gap reconciliation",
+   "recovery": "Invalid signature denied; duplicate delivery does not duplicate mutation"
+  },
+  {
+   "step_id": "UXJ-04-S01",
+   "journey_id": "UXJ-04",
+   "ux_ref": "UX-LLM-01",
+   "actor": "AI admin / operator",
+   "action": "Add/test provider secret",
+   "oracle": "Actual diagnostic receipt and server secret handle",
+   "recovery": "No request/unknown status cannot say Healthy"
+  },
+  {
+   "step_id": "UXJ-04-S02",
+   "journey_id": "UXJ-04",
+   "ux_ref": "UX-LLM-02",
+   "actor": "AI admin / operator",
+   "action": "Approve compatible routing",
+   "oracle": "Versioned model/tool/context capability routing",
+   "recovery": "Incompatible fallback blocked with clear reason"
+  },
+  {
+   "step_id": "UXJ-04-S03",
+   "journey_id": "UXJ-04",
+   "ux_ref": "UX-LLM-03",
+   "actor": "AI admin / operator",
+   "action": "Allocate and reserve constrained budget",
+   "oracle": "Durable balances and concurrent cap",
+   "recovery": "Unknown charge keeps hold; reset boundaries not fabricated"
+  },
+  {
+   "step_id": "UXJ-04-S04",
+   "journey_id": "UXJ-04",
+   "ux_ref": "UX-LLM-04",
+   "actor": "AI admin / operator",
+   "action": "Resolve rate limit/rotate/fallback and explicitly resume",
+   "oracle": "Actual attempt/credential/routing/usage correlation",
+   "recovery": "No auto-resume/refill or blind charged retry"
+  },
+  {
+   "step_id": "UXJ-05-S01",
+   "journey_id": "UXJ-05",
+   "ux_ref": "UX-SPEC-01",
+   "actor": "Viewer / author",
+   "action": "Expand selected collection/folders",
+   "oracle": "Paged authorized children and real aggregate scope",
+   "recovery": "Unknown/denied subtree count is not leaked"
+  },
+  {
+   "step_id": "UXJ-05-S02",
+   "journey_id": "UXJ-05",
+   "ux_ref": "UX-SPEC-04",
+   "actor": "Viewer / author",
+   "action": "Search full corpus and open exact result",
+   "oracle": "Stable doc ID/revision/breadcrumb from real result",
+   "recovery": "Partial/stale results disclose limits and refresh route"
+  },
+  {
+   "step_id": "UXJ-05-S03",
+   "journey_id": "UXJ-05",
+   "ux_ref": "UX-SPEC-05",
+   "actor": "Viewer / author",
+   "action": "Use independent outline/preview/source",
+   "oracle": "Selected content produces actual outline/sections",
+   "recovery": "Readonly and unsupported content modes explicit"
+  },
+  {
+   "step_id": "UXJ-05-S04",
+   "journey_id": "UXJ-05",
+   "ux_ref": "UX-SHELL-03",
+   "actor": "Viewer / author",
+   "action": "Share/reopen stable document route",
+   "oracle": "Authorized resource/section/revision restored",
+   "recovery": "Rename/move resolves identity or explicit historical location"
+  },
+  {
+   "step_id": "UXJ-06-S01",
+   "journey_id": "UXJ-06",
+   "ux_ref": "UX-SPEC-05",
+   "actor": "Specification author / reviewer",
+   "action": "Create/edit Markdown source and preview",
+   "oracle": "Actual content and generated selected-doc outline",
+   "recovery": "Invalid render/source preserves unsaved draft"
+  },
+  {
+   "step_id": "UXJ-06-S02",
+   "journey_id": "UXJ-06",
+   "ux_ref": "UX-SPEC-07",
+   "actor": "Specification author / reviewer",
+   "action": "Save and reconnect/restart",
+   "oracle": "Exact server revision/hash separate from local backup",
+   "recovery": "409/offline/revoke preserves allowable local draft"
+  },
+  {
+   "step_id": "UXJ-06-S03",
+   "journey_id": "UXJ-06",
+   "ux_ref": "UX-SPEC-09",
+   "actor": "Specification author / reviewer",
+   "action": "Add stable requirements/acceptance cases/source links",
+   "oracle": "Requirement IDs and original case references persisted",
+   "recovery": "Ambiguous/missing criteria highlighted"
+  },
+  {
+   "step_id": "UXJ-06-S04",
+   "journey_id": "UXJ-06",
+   "ux_ref": "UX-SPEC-10",
+   "actor": "Specification author / reviewer",
+   "action": "Request review/comment/resolve at pinned revision",
+   "oracle": "Actual reviewer/thread/decision receipts",
+   "recovery": "Changed revision or revoked reviewer renews review"
+  },
+  {
+   "step_id": "UXJ-07-S01",
+   "journey_id": "UXJ-07",
+   "ux_ref": "UX-COLLAB-01",
+   "actor": "Two authorized authors",
+   "action": "Join same authorized doc branch from two clients",
+   "oracle": "Actual room grant and synced CRDT updates",
+   "recovery": "Wrong branch/project/revoked ticket denied"
+  },
+  {
+   "step_id": "UXJ-07-S02",
+   "journey_id": "UXJ-07",
+   "ux_ref": "UX-SPEC-07",
+   "actor": "Two authorized authors",
+   "action": "Observe remote ACK and authoritative save",
+   "oracle": "Distinct update ACK and durable commit receipts",
+   "recovery": "Socket connection alone does not claim Saved"
+  },
+  {
+   "step_id": "UXJ-07-S03",
+   "journey_id": "UXJ-07",
+   "ux_ref": "UX-COLLAB-02",
+   "actor": "Two authorized authors",
+   "action": "Freeze while second client has in-flight/offline edits",
+   "oracle": "Authoritative revision cut/write epoch fenced",
+   "recovery": "Late patch cannot mutate Frozen revision"
+  },
+  {
+   "step_id": "UXJ-07-S04",
+   "journey_id": "UXJ-07",
+   "ux_ref": "UX-SPEC-07",
+   "actor": "Two authorized authors",
+   "action": "Recover late client work as new draft/review",
+   "oracle": "Preserved offline diff under current authorization",
+   "recovery": "Revoke blocks upload; user sees explicit recovery path"
+  },
+  {
+   "step_id": "UXJ-08-S01",
+   "journey_id": "UXJ-08",
+   "ux_ref": "UX-SPEC-08",
+   "actor": "Author / authorized spec merge reviewer",
+   "action": "Create branch and compare actual base/ours/theirs",
+   "oracle": "Version ancestry and region classification",
+   "recovery": "No common base is declared"
+  },
+  {
+   "step_id": "UXJ-08-S02",
+   "journey_id": "UXJ-08",
+   "ux_ref": "UX-SPEC-10",
+   "actor": "Author / authorized spec merge reviewer",
+   "action": "Review required regions/paragraphs",
+   "oracle": "Actual human decisions at proposal fingerprint",
+   "recovery": "Lease expiry and reviewer revoke block commit"
+  },
+  {
+   "step_id": "UXJ-08-S03",
+   "journey_id": "UXJ-08",
+   "ux_ref": "UX-SPEC-08",
+   "actor": "Author / authorized spec merge reviewer",
+   "action": "Resolve and commit reviewed merge",
+   "oracle": "One authoritative merged revision",
+   "recovery": "Concurrent head/rename/delete invalidates stale merge but retains draft"
+  },
+  {
+   "step_id": "UXJ-08-S04",
+   "journey_id": "UXJ-08",
+   "ux_ref": "UX-SPEC-07",
+   "actor": "Author / authorized spec merge reviewer",
+   "action": "Reopen merged content/history",
+   "oracle": "Persisted source/revision/actor evidence",
+   "recovery": "Lost response reconciles operation rather than repeating merge"
+  },
+  {
+   "step_id": "UXJ-09-S01",
+   "journey_id": "UXJ-09",
+   "ux_ref": "UX-SPEC-11",
+   "actor": "Tech Lead / author",
+   "action": "Preflight saved docs/requirements/dependencies",
+   "oracle": "Exact eligible selection manifest",
+   "recovery": "Missing/dirty/denied dependency blocks cut"
+  },
+  {
+   "step_id": "UXJ-09-S02",
+   "journey_id": "UXJ-09",
+   "ux_ref": "UX-COLLAB-02",
+   "actor": "Tech Lead / author",
+   "action": "Confirm real freeze barrier",
+   "oracle": "Frozen receipt only after authoritative cut",
+   "recovery": "In-flight edits handled explicitly"
+  },
+  {
+   "step_id": "UXJ-09-S03",
+   "journey_id": "UXJ-09",
+   "ux_ref": "UX-SPEC-12",
+   "actor": "Tech Lead / author",
+   "action": "Submit idempotently to preparation job",
+   "oracle": "Same submission/job on duplicate key",
+   "recovery": "Freeze does not auto-run or auto-approve plan"
+  },
+  {
+   "step_id": "UXJ-09-S04",
+   "journey_id": "UXJ-09",
+   "ux_ref": "UX-SPEC-12",
+   "actor": "Tech Lead / author",
+   "action": "Unlock/supersede and submit a new revision",
+   "oracle": "Affected run/approval impact and old-writer fence",
+   "recovery": "Late output rejected; after merge use corrective delivery"
+  },
+  {
+   "step_id": "UXJ-10-S01",
+   "journey_id": "UXJ-10",
+   "ux_ref": "UX-CODE-06",
+   "actor": "Developer / analyst",
+   "action": "Index actual selected OID with malformed/excluded files",
+   "oracle": "Per-file supported/analyzer/partial receipt",
+   "recovery": "Timeout/cancel/Qdrant failure declares incomplete coverage"
+  },
+  {
+   "step_id": "UXJ-10-S02",
+   "journey_id": "UXJ-10",
+   "ux_ref": "UX-CODE-04",
+   "actor": "Developer / analyst",
+   "action": "Open definition/reference/peek",
+   "oracle": "Actual relation source and declared semantic/syntax method",
+   "recovery": "Ambiguous or unsupported relation is not exact jump"
+  },
+  {
+   "step_id": "UXJ-10-S03",
+   "journey_id": "UXJ-10",
+   "ux_ref": "UX-CODE-03",
+   "actor": "Developer / analyst",
+   "action": "Search scoped file/content/symbol",
+   "oracle": "Actual authorized query results at OID",
+   "recovery": "Invalid query and denied/stale hits handled"
+  },
+  {
+   "step_id": "UXJ-10-S04",
+   "journey_id": "UXJ-10",
+   "ux_ref": "UX-CODE-07",
+   "actor": "Developer / analyst",
+   "action": "Inspect impact/test/requirement edge and metric version",
+   "oracle": "Traceable candidate vs verified test distinctions",
+   "recovery": "NaN/negative/incompatible metric stays Unknown"
+  },
+  {
+   "step_id": "UXJ-11-S01",
+   "journey_id": "UXJ-11",
+   "ux_ref": "UX-AGENT-03",
+   "actor": "Catalog maintainer / Tech Lead",
+   "action": "Register/import and validate resource version",
+   "oracle": "Source/digest/schema/compatibility evidence",
+   "recovery": "Poisoned/untrusted/invalid resource quarantined"
+  },
+  {
+   "step_id": "UXJ-11-S02",
+   "journey_id": "UXJ-11",
+   "ux_ref": "UX-AGENT-06",
+   "actor": "Catalog maintainer / Tech Lead",
+   "action": "Validate mandatory rules/output/tool scope",
+   "oracle": "Effective allowed manifest",
+   "recovery": "Override cannot weaken mandatory network/path/output rules"
+  },
+  {
+   "step_id": "UXJ-11-S03",
+   "journey_id": "UXJ-11",
+   "ux_ref": "UX-AGENT-09",
+   "actor": "Catalog maintainer / Tech Lead",
+   "action": "Pin reviewed resources to workflow/plan",
+   "oracle": "Explicit consumer versions and contracts",
+   "recovery": "Incompatible or revoked resource blocks assignment"
+  },
+  {
+   "step_id": "UXJ-11-S04",
+   "journey_id": "UXJ-11",
+   "ux_ref": "UX-AGENT-12",
+   "actor": "Catalog maintainer / Tech Lead",
+   "action": "Preview impact and revoke during active work",
+   "oracle": "Current policy/fence/consumer outcome receipts",
+   "recovery": "Historical evidence retained; unsafe new/effective use denied"
+  },
+  {
+   "step_id": "UXJ-12-S01",
+   "journey_id": "UXJ-12",
+   "ux_ref": "UX-MEM-01",
+   "actor": "Memory maintainer / reviewer",
+   "action": "Choose actual layer/scope/source",
+   "oracle": "Authorized catalog and evidence state",
+   "recovery": "Hidden source/count excluded"
+  },
+  {
+   "step_id": "UXJ-12-S02",
+   "journey_id": "UXJ-12",
+   "ux_ref": "UX-MEM-02",
+   "actor": "Memory maintainer / reviewer",
+   "action": "Import/resolve duplicate/partial result",
+   "oracle": "Per-record actual ingestion receipts",
+   "recovery": "Retry failed subset without duplicates"
+  },
+  {
+   "step_id": "UXJ-12-S03",
+   "journey_id": "UXJ-12",
+   "ux_ref": "UX-MEM-02",
+   "actor": "Memory maintainer / reviewer",
+   "action": "Independently promote eligible record",
+   "oracle": "Reviewer/source evidence and verified status",
+   "recovery": "Missing/poisoned evidence not eligible"
+  },
+  {
+   "step_id": "UXJ-12-S04",
+   "journey_id": "UXJ-12",
+   "ux_ref": "UX-MEM-04",
+   "actor": "Memory maintainer / reviewer",
+   "action": "Migrate/revoke and inspect dependent packages",
+   "oracle": "Actual index/metric/grant/lineage change",
+   "recovery": "Cached vector result cannot bypass revoke"
+  },
+  {
+   "step_id": "UXJ-13-S01",
+   "journey_id": "UXJ-13",
+   "ux_ref": "UX-CODE-08",
+   "actor": "Plan author / reviewer",
+   "action": "Select source ranges and inspect actual provenance",
+   "oracle": "Exact allowed OID/ranges/analyzer metadata",
+   "recovery": "Secret/denied/stale selection blocked or excluded explicitly"
+  },
+  {
+   "step_id": "UXJ-13-S02",
+   "journey_id": "UXJ-13",
+   "ux_ref": "UX-MEM-03",
+   "actor": "Plan author / reviewer",
+   "action": "Select mandatory/optional memory and model",
+   "oracle": "Actual token/capability bounds and grants",
+   "recovery": "Mandatory overflow requires explicit scope change"
+  },
+  {
+   "step_id": "UXJ-13-S03",
+   "journey_id": "UXJ-13",
+   "ux_ref": "UX-MEM-03",
+   "actor": "Plan author / reviewer",
+   "action": "Create immutable context package",
+   "oracle": "Actual content hashes/manifest/permission receipts",
+   "recovery": "No silent dropping of mandatory rule/source"
+  },
+  {
+   "step_id": "UXJ-13-S04",
+   "journey_id": "UXJ-13",
+   "ux_ref": "UX-WF-04",
+   "actor": "Plan author / reviewer",
+   "action": "Handoff pinned package to generation",
+   "oracle": "Same package/spec/source/workflow fingerprint",
+   "recovery": "Timeout/cancel/retry keeps original immutable identity or renewed review"
+  },
+  {
+   "step_id": "UXJ-14-S01",
+   "journey_id": "UXJ-14",
+   "ux_ref": "UX-WF-01",
+   "actor": "Workflow author / Tech Lead",
+   "action": "Choose system template or custom definition",
+   "oracle": "Immutable template vs editable derived version",
+   "recovery": "System template cannot be overwritten"
+  },
+  {
+   "step_id": "UXJ-14-S02",
+   "journey_id": "UXJ-14",
+   "ux_ref": "UX-WF-02",
+   "actor": "Workflow author / Tech Lead",
+   "action": "Configure typed nodes/dependencies/agents",
+   "oracle": "Actual validated DAG/output boundaries",
+   "recovery": "Cycle/missing mandatory node shows actionable node/field errors"
+  },
+  {
+   "step_id": "UXJ-14-S03",
+   "journey_id": "UXJ-14",
+   "ux_ref": "UX-WF-03",
+   "actor": "Workflow author / Tech Lead",
+   "action": "Generate fallback proposal if no eligible workflow",
+   "oracle": "Actual eligible default/provider/budget proposal receipt",
+   "recovery": "Missing default/resources does not manufacture workflow"
+  },
+  {
+   "step_id": "UXJ-14-S04",
+   "journey_id": "UXJ-14",
+   "ux_ref": "UX-WF-05",
+   "actor": "Workflow author / Tech Lead",
+   "action": "Review and approve current definition/plan separately",
+   "oracle": "Current eligible actor and fingerprint",
+   "recovery": "Generated proposal never silently activates or starts"
+  },
+  {
+   "step_id": "UXJ-15-S01",
+   "journey_id": "UXJ-15",
+   "ux_ref": "UX-WF-04",
+   "actor": "Tech Lead / plan reviewer",
+   "action": "Review tasks/dependency outputs/checkpoints",
+   "oracle": "Actual typed plan revision/input manifest",
+   "recovery": "No-op/missing parent/contract mismatch declared"
+  },
+  {
+   "step_id": "UXJ-15-S02",
+   "journey_id": "UXJ-15",
+   "ux_ref": "UX-WF-05",
+   "actor": "Tech Lead / plan reviewer",
+   "action": "Approve exact current fingerprint",
+   "oracle": "Durable independent plan decision",
+   "recovery": "Upstream change or superseded output invalidates"
+  },
+  {
+   "step_id": "UXJ-15-S03",
+   "journey_id": "UXJ-15",
+   "ux_ref": "UX-EXEC-01",
+   "actor": "Tech Lead / plan reviewer",
+   "action": "Admit eligible approved plan",
+   "oracle": "Same submission/plan/version produces one durable run",
+   "recovery": "Concurrent start dedupes and quota/role recheck required"
+  },
+  {
+   "step_id": "UXJ-15-S04",
+   "journey_id": "UXJ-15",
+   "ux_ref": "UX-AGENT-10",
+   "actor": "Tech Lead / plan reviewer",
+   "action": "Open run task/agent version/input/output",
+   "oracle": "Linked actual identities across every surface",
+   "recovery": "No silent latest version/current commit substitution"
+  },
+  {
+   "step_id": "UXJ-16-S01",
+   "journey_id": "UXJ-16",
+   "ux_ref": "UX-EXEC-01",
+   "actor": "Operator / checkpoint reviewer",
+   "action": "Inspect task readiness/capacity/budget/dependency",
+   "oracle": "Actual server admission blockers",
+   "recovery": "No sandbox/lock while required checkpoint/dependency blocked"
+  },
+  {
+   "step_id": "UXJ-16-S02",
+   "journey_id": "UXJ-16",
+   "ux_ref": "UX-WF-06",
+   "actor": "Operator / checkpoint reviewer",
+   "action": "Review current checkpoint evidence",
+   "oracle": "Barrier and eligible actor identity",
+   "recovery": "Missing role/stale artifact blocks decision"
+  },
+  {
+   "step_id": "UXJ-16-S03",
+   "journey_id": "UXJ-16",
+   "ux_ref": "UX-WF-06",
+   "actor": "Operator / checkpoint reviewer",
+   "action": "Approve/reject checkpoint explicitly",
+   "oracle": "Recorded current decision/winner",
+   "recovery": "Deadline warns; never auto-approves"
+  },
+  {
+   "step_id": "UXJ-16-S04",
+   "journey_id": "UXJ-16",
+   "ux_ref": "UX-EXEC-01",
+   "actor": "Operator / checkpoint reviewer",
+   "action": "Observe one admitted fenced attempt",
+   "oracle": "Durable scheduler/lease/budget receipt",
+   "recovery": "Two schedulers cannot double-admit or publish"
+  },
+  {
+   "step_id": "UXJ-17-S01",
+   "journey_id": "UXJ-17",
+   "ux_ref": "UX-EXEC-03",
+   "actor": "Operator / developer",
+   "action": "Inspect assigned agent/input/grants and tool authorization",
+   "oracle": "Actual pinned version/current tool/path/policy decision",
+   "recovery": "Forbidden path/tool/network denied"
+  },
+  {
+   "step_id": "UXJ-17-S02",
+   "journey_id": "UXJ-17",
+   "ux_ref": "UX-EXEC-05",
+   "actor": "Operator / developer",
+   "action": "Observe canonical multi-file lock order/fence",
+   "oracle": "Actual scoped monotonic lease ownership",
+   "recovery": "Zombie/opposite-lock-order race safely rejected/recovered"
+  },
+  {
+   "step_id": "UXJ-17-S03",
+   "journey_id": "UXJ-17",
+   "ux_ref": "UX-EXEC-04",
+   "actor": "Operator / developer",
+   "action": "Inspect actual sandbox logs/PTY/output bytes",
+   "oracle": "Process/tool/sidecar/runtime receipts",
+   "recovery": "Unready/violating container/hook does not execute unsafely"
+  },
+  {
+   "step_id": "UXJ-17-S04",
+   "journey_id": "UXJ-17",
+   "ux_ref": "UX-EXEC-07",
+   "actor": "Operator / developer",
+   "action": "Validate output and consume finalized parent artifact",
+   "oracle": "Contract/digest/lineage and combined-tree evidence",
+   "recovery": "Retries exhausted or superseded producer blocks consumer"
+  },
+  {
+   "step_id": "UXJ-18-S01",
+   "journey_id": "UXJ-18",
+   "ux_ref": "UX-EXEC-02",
+   "actor": "Operator / platform owner",
+   "action": "Request pause and inspect command stages",
+   "oracle": "Ledger + actual safe-point receipt",
+   "recovery": "Accepted is not Effective"
+  },
+  {
+   "step_id": "UXJ-18-S02",
+   "journey_id": "UXJ-18",
+   "ux_ref": "UX-EXEC-06",
+   "actor": "Operator / platform owner",
+   "action": "Kill/restart and select verified compatible snapshot",
+   "oracle": "Real immutable bytes/runtime/input/fence compatibility",
+   "recovery": "Missing/corrupt snapshot cannot claim lossless restore"
+  },
+  {
+   "step_id": "UXJ-18-S03",
+   "journey_id": "UXJ-18",
+   "ux_ref": "UX-EXEC-06",
+   "actor": "Operator / platform owner",
+   "action": "Retry/resume under current source/policy/grants",
+   "oracle": "New fenced attempt/admission receipt",
+   "recovery": "Superseded input/revoke/unknown charged effect blocks unsafe resume"
+  },
+  {
+   "step_id": "UXJ-18-S04",
+   "journey_id": "UXJ-18",
+   "ux_ref": "UX-EXEC-08",
+   "actor": "Operator / platform owner",
+   "action": "Cancel vs publish/merge and observe cleanup",
+   "oracle": "Recorded effect winner and fenced cleanup outcome",
+   "recovery": "Merged PR requires corrective change; late writer cannot publish"
+  },
+  {
+   "step_id": "UXJ-19-S01",
+   "journey_id": "UXJ-19",
+   "ux_ref": "UX-EXEC-07",
+   "actor": "Developer / Security Officer",
+   "action": "Assemble actual combined tree/artifacts",
+   "oracle": "Current integrated source and finalized inputs",
+   "recovery": "Missing/conflicting parent output blocks tests"
+  },
+  {
+   "step_id": "UXJ-19-S02",
+   "journey_id": "UXJ-19",
+   "ux_ref": "UX-GOV-01",
+   "actor": "Developer / Security Officer",
+   "action": "Run actual security/test/output checks",
+   "oracle": "Report producer/version/hash/current fingerprint",
+   "recovery": "Unavailable scan remains Unknown"
+  },
+  {
+   "step_id": "UXJ-19-S03",
+   "journey_id": "UXJ-19",
+   "ux_ref": "UX-GOV-01",
+   "actor": "Developer / Security Officer",
+   "action": "Inspect real finding/veto and review false positive",
+   "oracle": "Independent disposition and remediation evidence",
+   "recovery": "Secret or hard veto cannot be overridden by arbitrary checkbox"
+  },
+  {
+   "step_id": "UXJ-19-S04",
+   "journey_id": "UXJ-19",
+   "ux_ref": "UX-GOV-02",
+   "actor": "Developer / Security Officer",
+   "action": "Handoff current trusted evidence to eligible reviewers",
+   "oracle": "Same current fingerprint",
+   "recovery": "Policy/role/head drift renews readiness"
+  },
+  {
+   "step_id": "UXJ-20-S01",
+   "journey_id": "UXJ-20",
+   "ux_ref": "UX-GOV-02",
+   "actor": "Independent Tech Lead / Security Officer",
+   "action": "Inspect eligible slots/authors/current policy",
+   "oracle": "Actual person/grant/quorum evaluation",
+   "recovery": "Same person two roles or custom role name cannot fake independence"
+  },
+  {
+   "step_id": "UXJ-20-S02",
+   "journey_id": "UXJ-20",
+   "ux_ref": "UX-GOV-06",
+   "actor": "Independent Tech Lead / Security Officer",
+   "action": "Comment/remind or assign missing qualified reviewer",
+   "oracle": "Revision-bound actual thread/reminder",
+   "recovery": "Read/timeout is never approval"
+  },
+  {
+   "step_id": "UXJ-20-S03",
+   "journey_id": "UXJ-20",
+   "ux_ref": "UX-GOV-02",
+   "actor": "Independent Tech Lead / Security Officer",
+   "action": "Sign/reject concurrently",
+   "oracle": "Recorded decision winner/fingerprint",
+   "recovery": "Revoke/demotion/head/policy change invalidates stale signatures"
+  },
+  {
+   "step_id": "UXJ-20-S04",
+   "journey_id": "UXJ-20",
+   "ux_ref": "UX-GOV-03",
+   "actor": "Independent Tech Lead / Security Officer",
+   "action": "Refresh current guard before merge effect",
+   "oracle": "Current server eligibility/evidence again",
+   "recovery": "Previously green UI alone cannot authorize effect"
+  },
+  {
+   "step_id": "UXJ-21-S01",
+   "journey_id": "UXJ-21",
+   "ux_ref": "UX-GOV-03",
+   "actor": "Authorized maintainer / reviewers",
+   "action": "Create PR from current authorized diff",
+   "oracle": "Provider PR receipt or explicit unknown outcome",
+   "recovery": "Lost response reconciles by correlation rather than duplicates"
+  },
+  {
+   "step_id": "UXJ-21-S02",
+   "journey_id": "UXJ-21",
+   "ux_ref": "UX-GOV-03",
+   "actor": "Authorized maintainer / reviewers",
+   "action": "Refresh required trusted checks at actual head",
+   "oracle": "Provider check IDs/context/head receipt",
+   "recovery": "Unknown/missing/old-head checks remain blocking"
+  },
+  {
+   "step_id": "UXJ-21-S03",
+   "journey_id": "UXJ-21",
+   "ux_ref": "UX-CODE-05",
+   "actor": "Authorized maintainer / reviewers",
+   "action": "Handle rebase/conflict/new head",
+   "oracle": "Actual diff/base/head and stale-signature invalidation",
+   "recovery": "Manual close/reopen/merge and late failed check remain visible"
+  },
+  {
+   "step_id": "UXJ-21-S04",
+   "journey_id": "UXJ-21",
+   "ux_ref": "UX-GOV-03",
+   "actor": "Authorized maintainer / reviewers",
+   "action": "Conditional merge with current guard",
+   "oracle": "Provider confirmed exact-head merge OID",
+   "recovery": "Branch policy/permission/quorum rechecked; cancel does not undo merged history"
+  },
+  {
+   "step_id": "UXJ-22-S01",
+   "journey_id": "UXJ-22",
+   "ux_ref": "UX-GOV-04",
+   "actor": "BA / independent acceptance reviewer",
+   "action": "Collect required PRs/merged revision/cases",
+   "oracle": "Actual combined closure scope",
+   "recovery": "Partial merge/missing mandatory case stays incomplete"
+  },
+  {
+   "step_id": "UXJ-22-S02",
+   "journey_id": "UXJ-22",
+   "ux_ref": "UX-GOV-04",
+   "actor": "BA / independent acceptance reviewer",
+   "action": "Run original positive/negative/race acceptance",
+   "oracle": "Independent actual business oracle at merged revision",
+   "recovery": "Low drift/checkbox/AST parse not sufficient"
+  },
+  {
+   "step_id": "UXJ-22-S03",
+   "journey_id": "UXJ-22",
+   "ux_ref": "UX-SPEC-13",
+   "actor": "BA / independent acceptance reviewer",
+   "action": "Observe per-requirement and collection progress",
+   "oracle": "Verified/unknown/failed outcomes and missing members",
+   "recovery": "No fabricated percentage from unrelated task count"
+  },
+  {
+   "step_id": "UXJ-22-S04",
+   "journey_id": "UXJ-22",
+   "ux_ref": "UX-GOV-04",
+   "actor": "BA / independent acceptance reviewer",
+   "action": "Handle failed rescan/revert/new source change",
+   "oracle": "Reopened/corrective delivery with lineage",
+   "recovery": "Stale IMPLEMENTED invalidated appropriately"
+  },
+  {
+   "step_id": "UXJ-23-S01",
+   "journey_id": "UXJ-23",
+   "ux_ref": "UX-MEM-05",
+   "actor": "Memory reviewer / operator",
+   "action": "Create incident/lesson draft from actual run",
+   "oracle": "Real successful or failed-run provenance",
+   "recovery": "Failed DAG is allowed incident draft, not success evidence"
+  },
+  {
+   "step_id": "UXJ-23-S02",
+   "journey_id": "UXJ-23",
+   "ux_ref": "UX-MEM-02",
+   "actor": "Memory reviewer / operator",
+   "action": "Review and promote only eligible knowledge",
+   "oracle": "Independent evidence/reviewer receipt",
+   "recovery": "Unverified content excluded from retrieval"
+  },
+  {
+   "step_id": "UXJ-23-S03",
+   "journey_id": "UXJ-23",
+   "ux_ref": "UX-EXEC-08",
+   "actor": "Memory reviewer / operator",
+   "action": "Finalize artifacts and stop/fence/reclaim",
+   "oracle": "Actual retained hashes/process stop/lease journal",
+   "recovery": "Persist or cleanup failure keeps explicit remaining holds"
+  },
+  {
+   "step_id": "UXJ-23-S04",
+   "journey_id": "UXJ-23",
+   "ux_ref": "UX-GOV-05",
+   "actor": "Memory reviewer / operator",
+   "action": "Inspect retained audit/evidence after cleanup",
+   "oracle": "Authorized immutable referenced bytes remain available",
+   "recovery": "Retry cleanup cannot delete required memory/artifact lineage"
+  },
+  {
+   "step_id": "UXJ-24-S01",
+   "journey_id": "UXJ-24",
+   "ux_ref": "UX-COLLAB-03",
+   "actor": "Member / reviewer",
+   "action": "Reconnect and replay inbox/activity cursor",
+   "oracle": "Deduped durable scoped items",
+   "recovery": "Dropped stream or stale target does not lose unread work"
+  },
+  {
+   "step_id": "UXJ-24-S02",
+   "journey_id": "UXJ-24",
+   "ux_ref": "UX-COLLAB-03",
+   "actor": "Member / reviewer",
+   "action": "Read comment/diff/activity while browsing history",
+   "oracle": "Current redacted revision anchors with preserved scroll",
+   "recovery": "No forced autoscroll or exposed private raw reasoning"
+  },
+  {
+   "step_id": "UXJ-24-S03",
+   "journey_id": "UXJ-24",
+   "ux_ref": "UX-GOV-06",
+   "actor": "Member / reviewer",
+   "action": "Open current target/comment/reminder",
+   "oracle": "Same authorized current gate/diff",
+   "recovery": "Read never signs/approves"
+  },
+  {
+   "step_id": "UXJ-24-S04",
+   "journey_id": "UXJ-24",
+   "ux_ref": "UX-GOV-05",
+   "actor": "Member / reviewer",
+   "action": "Inspect required audit persistence",
+   "oracle": "Actual critical-effect audit policy evidence",
+   "recovery": "Unavailable append follows signed rule; no fake durable audit"
+  },
+  {
+   "step_id": "UXJ-25-S01",
+   "journey_id": "UXJ-25",
+   "ux_ref": "UX-OBS-01",
+   "actor": "System Observer",
+   "action": "Authenticate separate Observer grant",
+   "oracle": "Actual environment/scope entitlement",
+   "recovery": "Workspace role alone rejected"
+  },
+  {
+   "step_id": "UXJ-25-S02",
+   "journey_id": "UXJ-25",
+   "ux_ref": "UX-OBS-02",
+   "actor": "System Observer",
+   "action": "Inspect stale/missing/partial collector data",
+   "oracle": "Actual freshness/units/cohort/quality",
+   "recovery": "No data is not zero load or Healthy"
+  },
+  {
+   "step_id": "UXJ-25-S03",
+   "journey_id": "UXJ-25",
+   "ux_ref": "UX-OBS-03",
+   "actor": "System Observer",
+   "action": "Drill trace/profile and check compatibility",
+   "oracle": "Actual authorized bytes and compatible sample metadata",
+   "recovery": "Incompatible profiles blocked"
+  },
+  {
+   "step_id": "UXJ-25-S04",
+   "journey_id": "UXJ-25",
+   "ux_ref": "UX-OBS-04",
+   "actor": "System Observer",
+   "action": "Create export then revoke before download",
+   "oracle": "Real job/redaction/hash and current download policy",
+   "recovery": "Ready artifact does not bypass revoked session/scope"
+  },
+  {
+   "step_id": "UXJ-26-S01",
+   "journey_id": "UXJ-26",
+   "ux_ref": "UX-CFG-01",
+   "actor": "Authorized config owner",
+   "action": "Inspect System/Org/Workspace/Project precedence",
+   "oracle": "Actual server effective digest/source",
+   "recovery": "Parent scope remains read-only without grant"
+  },
+  {
+   "step_id": "UXJ-26-S02",
+   "journey_id": "UXJ-26",
+   "ux_ref": "UX-CFG-01",
+   "actor": "Authorized config owner",
+   "action": "Override/save/reset concurrently",
+   "oracle": "Revision-checked durable config",
+   "recovery": "409 retains input; reset inherits nearest parent"
+  },
+  {
+   "step_id": "UXJ-26-S03",
+   "journey_id": "UXJ-26",
+   "ux_ref": "UX-CFG-02",
+   "actor": "Authorized config owner",
+   "action": "Preview current policy change impact",
+   "oracle": "Affected pending gate/run/admission fingerprints",
+   "recovery": "Weakening safety to approve current work is blocked"
+  },
+  {
+   "step_id": "UXJ-26-S04",
+   "journey_id": "UXJ-26",
+   "ux_ref": "UX-GOV-02",
+   "actor": "Authorized config owner",
+   "action": "Re-evaluate pending signatures/current guard",
+   "oracle": "Current policy/eligibility evidence",
+   "recovery": "Old green signature cannot silently remain valid"
+  },
+  {
+   "step_id": "UXJ-27-S01",
+   "journey_id": "UXJ-27",
+   "ux_ref": "UX-IAM-04",
+   "actor": "Admin / project owner",
+   "action": "Preview actor/run/gate/ownership impact",
+   "oracle": "Current active dependencies and replacement responsibilities",
+   "recovery": "Last eligible owner/reviewer conflicts remain blockers"
+  },
+  {
+   "step_id": "UXJ-27-S02",
+   "journey_id": "UXJ-27",
+   "ux_ref": "UX-TEN-04",
+   "actor": "Admin / project owner",
+   "action": "Archive/transfer with accepted target and retention",
+   "oracle": "Actual durable hierarchy/hold journal",
+   "recovery": "Active unfenced work or unknown spend prevents purge"
+  },
+  {
+   "step_id": "UXJ-27-S03",
+   "journey_id": "UXJ-27",
+   "ux_ref": "UX-SAAS-03",
+   "actor": "Admin / project owner",
+   "action": "Export/delete only eligible scoped objects",
+   "oracle": "Actual per-object lifecycle outcomes",
+   "recovery": "Referenced required evidence/hold cannot be removed"
+  },
+  {
+   "step_id": "UXJ-27-S04",
+   "journey_id": "UXJ-27",
+   "ux_ref": "UX-TEN-04",
+   "actor": "Admin / project owner",
+   "action": "Restore with latest revocation/deletion state",
+   "oracle": "Actual current grant/tombstone reconciliation",
+   "recovery": "Restore never auto-opens revoked session/run"
+  },
+  {
+   "step_id": "UXJ-28-S01",
+   "journey_id": "UXJ-28",
+   "ux_ref": "UX-EXEC-09",
+   "actor": "Platform / security QA / owner",
+   "action": "Contain Redis/queue/worker/DB/Temporal/S3 failure",
+   "oracle": "Actual durable operation/fence/outbox state",
+   "recovery": "No two writers or lost unknown effects"
+  },
+  {
+   "step_id": "UXJ-28-S02",
+   "journey_id": "UXJ-28",
+   "ux_ref": "UX-OBS-05",
+   "actor": "Platform / security QA / owner",
+   "action": "Restore/replay against external newer state",
+   "oracle": "Measured restore + deletion/authorization/effect journal reconciliation",
+   "recovery": "No resurrected erased tenant or duplicate external PR/charge"
+  },
+  {
+   "step_id": "UXJ-28-S03",
+   "journey_id": "UXJ-28",
+   "ux_ref": "UX-SHELL-02",
+   "actor": "Platform / security QA / owner",
+   "action": "Verify mock boundary and authority after recovery",
+   "oracle": "Production cannot import synthetic success handlers",
+   "recovery": "Test seed remains isolated from production"
+  },
+  {
+   "step_id": "UXJ-28-S04",
+   "journey_id": "UXJ-28",
+   "ux_ref": "UX-OBS-05",
+   "actor": "Platform / security QA / owner",
+   "action": "Run signed workload/tenant/isolation/canary gates",
+   "oracle": "Independent deployment/browser/service/security/DR evidence",
+   "recovery": "Local fixture passes do not authorize release"
+  },
+  {
+   "step_id": "UXJ-29-S01",
+   "journey_id": "UXJ-29",
+   "ux_ref": "UX-SPEC-01",
+   "actor": "Document maintainer",
+   "action": "Load only expanded paged children",
+   "oracle": "Authorized stable folder/doc IDs and meaningful count",
+   "recovery": "Partial/unknown counts explicit"
+  },
+  {
+   "step_id": "UXJ-29-S02",
+   "journey_id": "UXJ-29",
+   "ux_ref": "UX-SPEC-02",
+   "actor": "Document maintainer",
+   "action": "Move/rename/reorder with revision and impact preview",
+   "oracle": "Atomic valid parent/scope mutation",
+   "recovery": "Cycles, stale parent, permission change rejected"
+  },
+  {
+   "step_id": "UXJ-29-S03",
+   "journey_id": "UXJ-29",
+   "ux_ref": "UX-SPEC-04",
+   "actor": "Document maintainer",
+   "action": "Find renamed/moved document globally",
+   "oracle": "Stable ID resolves current/history path",
+   "recovery": "Current and frozen historical path labels stay separate"
+  },
+  {
+   "step_id": "UXJ-29-S04",
+   "journey_id": "UXJ-29",
+   "ux_ref": "UX-SPEC-13",
+   "actor": "Document maintainer",
+   "action": "Inspect affected requirements/frozen set links",
+   "oracle": "References remain pinned and broken candidates visible",
+   "recovery": "Catalog-only rename cannot rewrite old frozen content manifest"
+  },
+  {
+   "step_id": "UXJ-30-S01",
+   "journey_id": "UXJ-30",
+   "ux_ref": "UX-SPEC-03",
+   "actor": "Specification author",
+   "action": "Preview folder/file mapping, format and duplicates",
+   "oracle": "Exact proposed doc catalog change",
+   "recovery": "Unsupported/malformed/oversize rows shown before action"
+  },
+  {
+   "step_id": "UXJ-30-S02",
+   "journey_id": "UXJ-30",
+   "ux_ref": "UX-SPEC-03",
+   "actor": "Specification author",
+   "action": "Import then retry failed subset after lost response",
+   "oracle": "Idempotent per-item committed/skipped/failed/unknown receipt",
+   "recovery": "No duplicates or all-success from partial job"
+  },
+  {
+   "step_id": "UXJ-30-S03",
+   "journey_id": "UXJ-30",
+   "ux_ref": "UX-SPEC-09",
+   "actor": "Specification author",
+   "action": "Review imported acceptance/references",
+   "oracle": "Stable requirements and resolved actual links",
+   "recovery": "Unresolved references remain missing/ambiguous"
+  },
+  {
+   "step_id": "UXJ-30-S04",
+   "journey_id": "UXJ-30",
+   "ux_ref": "UX-SPEC-14",
+   "actor": "Specification author",
+   "action": "Export selected exact revision set",
+   "oracle": "Actual manifest/content hashes and authorized download",
+   "recovery": "Partial export and changed permission remain explicit"
+  },
+  {
+   "step_id": "UXJ-31-S01",
+   "journey_id": "UXJ-31",
+   "ux_ref": "UX-SPEC-11",
+   "actor": "Tech Lead / BA",
+   "action": "Select documents and resolve closure/bounds",
+   "oracle": "Exact eligible version-set proposal",
+   "recovery": "Cross-scope/missing/dirty member blocks selection"
+  },
+  {
+   "step_id": "UXJ-31-S02",
+   "journey_id": "UXJ-31",
+   "ux_ref": "UX-COLLAB-02",
+   "actor": "Tech Lead / BA",
+   "action": "Create a signed authoritative revision cut",
+   "oracle": "Immutable complete manifest or explicit preparation failure",
+   "recovery": "No mixed partially frozen set labeled complete"
+  },
+  {
+   "step_id": "UXJ-31-S03",
+   "journey_id": "UXJ-31",
+   "ux_ref": "UX-MEM-03",
+   "actor": "Tech Lead / BA",
+   "action": "Build context using the same set/requirements/source",
+   "oracle": "Actual package manifest and token/grant receipts",
+   "recovery": "Oversized mandatory content cannot be silently dropped"
+  },
+  {
+   "step_id": "UXJ-31-S04",
+   "journey_id": "UXJ-31",
+   "ux_ref": "UX-WF-05",
+   "actor": "Tech Lead / BA",
+   "action": "Review/admit same version-set fingerprint",
+   "oracle": "Actual plan/run linked to frozen manifest",
+   "recovery": "Any relevant upstream/policy change requires renewed current review"
+  },
+  {
+   "step_id": "UXJ-32-S01",
+   "journey_id": "UXJ-32",
+   "ux_ref": "UX-CODE-01",
+   "actor": "Developer / maintainer",
+   "action": "Select repo/ref and lazily browse files",
+   "oracle": "Resolved full OID shared by all views",
+   "recovery": "Denied/deleted/moved ref declared"
+  },
+  {
+   "step_id": "UXJ-32-S02",
+   "journey_id": "UXJ-32",
+   "ux_ref": "UX-CODE-02",
+   "actor": "Developer / maintainer",
+   "action": "Read code/select lines/copy permalink/history",
+   "oracle": "Immutable actual source/blob/range link",
+   "recovery": "Large/binary/LFS/renamed content handled honestly"
+  },
+  {
+   "step_id": "UXJ-32-S03",
+   "journey_id": "UXJ-32",
+   "ux_ref": "UX-CODE-04",
+   "actor": "Developer / maintainer",
+   "action": "Inspect symbols/refs with method/quality",
+   "oracle": "Actual declared syntax/semantic evidence",
+   "recovery": "Unsupported/ambiguous is not verified jump"
+  },
+  {
+   "step_id": "UXJ-32-S04",
+   "journey_id": "UXJ-32",
+   "ux_ref": "UX-CODE-09",
+   "actor": "Developer / maintainer",
+   "action": "Enter authorized edit workspace and stage/diff/commit proposal",
+   "oracle": "Actual scoped worktree and protected Git operation",
+   "recovery": "Dirty branch switch preserves draft; unknown push reconciled"
+  },
+  {
+   "step_id": "UXJ-32-S05",
+   "journey_id": "UXJ-32",
+   "ux_ref": "UX-GOV-03",
+   "actor": "Developer / maintainer",
+   "action": "Create/verify actual PR/check/merge",
+   "oracle": "Trusted exact-head provider receipts",
+   "recovery": "Current guards required; browsing itself never grants execution"
+  },
+  {
+   "step_id": "UXJ-33-S01",
+   "journey_id": "UXJ-33",
+   "ux_ref": "UX-AGENT-01",
+   "actor": "Agent maintainer / reviewer",
+   "action": "Create stable agent/version draft",
+   "oracle": "Durable definition identity distinct from runtime",
+   "recovery": "Duplicating config retains provenance but does not copy approvals"
+  },
+  {
+   "step_id": "UXJ-33-S02",
+   "journey_id": "UXJ-33",
+   "ux_ref": "UX-AGENT-02",
+   "actor": "Agent maintainer / reviewer",
+   "action": "Configure effective model/tool/memory/output/limits",
+   "oracle": "Validated actual bounded config manifest",
+   "recovery": "Inherited safety policy cannot be weakened"
+  },
+  {
+   "step_id": "UXJ-33-S03",
+   "journey_id": "UXJ-33",
+   "ux_ref": "UX-AGENT-07",
+   "actor": "Agent maintainer / reviewer",
+   "action": "Resolve exact project readiness blockers",
+   "oracle": "Actual current dependency/grant/capability/budget receipts",
+   "recovery": "Published remains Unrunnable while blocker unknown"
+  },
+  {
+   "step_id": "UXJ-33-S04",
+   "journey_id": "UXJ-33",
+   "ux_ref": "UX-AGENT-08",
+   "actor": "Agent maintainer / reviewer",
+   "action": "Run controlled independent smoke/evaluation",
+   "oracle": "Actual isolated tool/provider/case/output/cost receipts",
+   "recovery": "Partial/unknown/failed mandatory checks block signed release policy"
+  },
+  {
+   "step_id": "UXJ-33-S05",
+   "journey_id": "UXJ-33",
+   "ux_ref": "UX-AGENT-09",
+   "actor": "Agent maintainer / reviewer",
+   "action": "Publish and pin explicit version to workflow proposal",
+   "oracle": "Actual version/review/consumer manifest",
+   "recovery": "Latest publication does not mutate approved/running plan"
+  },
+  {
+   "step_id": "UXJ-34-S01",
+   "journey_id": "UXJ-34",
+   "ux_ref": "UX-AGENT-04",
+   "actor": "Catalog maintainer / security reviewer",
+   "action": "Register/test/discover MCP tools",
+   "oracle": "Actual protocol/tool schema/health receipt",
+   "recovery": "Wrong protocol/credentials/stale health rejected"
+  },
+  {
+   "step_id": "UXJ-34-S02",
+   "journey_id": "UXJ-34",
+   "ux_ref": "UX-AGENT-03",
+   "actor": "Catalog maintainer / security reviewer",
+   "action": "Review/publish approved resource version and allowlist",
+   "oracle": "Immutable bounded tool/resource manifest",
+   "recovery": "Tool schema drift or unknown source needs renewed review"
+  },
+  {
+   "step_id": "UXJ-34-S03",
+   "journey_id": "UXJ-34",
+   "ux_ref": "UX-AGENT-05",
+   "actor": "Catalog maintainer / security reviewer",
+   "action": "Validate hook/plugin/sidecar/runtime/OS compatibility",
+   "oracle": "Real supported image/digest/capability evidence",
+   "recovery": "Unimplemented Firecracker/Kata/OS fallback never says Ready"
+  },
+  {
+   "step_id": "UXJ-34-S04",
+   "journey_id": "UXJ-34",
+   "ux_ref": "UX-AGENT-06",
+   "actor": "Catalog maintainer / security reviewer",
+   "action": "Admit only approved output/tool/network/path contract",
+   "oracle": "Actual server grant at effect time",
+   "recovery": "Prompt/tool metadata cannot escalate authority"
+  },
+  {
+   "step_id": "UXJ-35-S01",
+   "journey_id": "UXJ-35",
+   "ux_ref": "UX-AGENT-03",
+   "actor": "Catalog owner / operator",
+   "action": "Publish new immutable resource/agent version",
+   "oracle": "Actual digest/version/readiness receipts",
+   "recovery": "No overwrite of old version"
+  },
+  {
+   "step_id": "UXJ-35-S02",
+   "journey_id": "UXJ-35",
+   "ux_ref": "UX-AGENT-09",
+   "actor": "Catalog owner / operator",
+   "action": "Inspect consumers and propose version migration",
+   "oracle": "Affected workflow/plan/delivery diff",
+   "recovery": "No auto-upgrade of active attempt"
+  },
+  {
+   "step_id": "UXJ-35-S03",
+   "journey_id": "UXJ-35",
+   "ux_ref": "UX-AGENT-12",
+   "actor": "Catalog owner / operator",
+   "action": "Revoke old resource/grant during protected effect",
+   "oracle": "Current effect denial/fence and recorded winner",
+   "recovery": "Retain historical evidence; cancellation after merge has corrective path"
+  },
+  {
+   "step_id": "UXJ-35-S04",
+   "journey_id": "UXJ-35",
+   "ux_ref": "UX-EXEC-08",
+   "actor": "Catalog owner / operator",
+   "action": "Verify cleanup and safe replacement admission",
+   "oracle": "Actual reclaimed/fenced resources and reapproved new input",
+   "recovery": "Unsafe late writer or unknown charge remains blocked"
+  },
+  {
+   "step_id": "UXJ-36-S01",
+   "journey_id": "UXJ-36",
+   "ux_ref": "UX-SPEC-11",
+   "actor": "Author → Tech Lead → operator → independent reviewer",
+   "action": "Freeze actual requirements/revision set",
+   "oracle": "Authoritative selected manifest",
+   "recovery": "Missing/dirty/denied inputs block"
+  },
+  {
+   "step_id": "UXJ-36-S02",
+   "journey_id": "UXJ-36",
+   "ux_ref": "UX-MEM-03",
+   "actor": "Author → Tech Lead → operator → independent reviewer",
+   "action": "Pin actual source/context/resources/model",
+   "oracle": "Immutable allowed package",
+   "recovery": "Mandatory overflow or stale provenance blocks"
+  },
+  {
+   "step_id": "UXJ-36-S03",
+   "journey_id": "UXJ-36",
+   "ux_ref": "UX-WF-05",
+   "actor": "Author → Tech Lead → operator → independent reviewer",
+   "action": "Approve typed plan/current fingerprint",
+   "oracle": "Actual eligible approval and same run admission",
+   "recovery": "No demo plan/run swap"
+  },
+  {
+   "step_id": "UXJ-36-S04",
+   "journey_id": "UXJ-36",
+   "ux_ref": "UX-EXEC-07",
+   "actor": "Author → Tech Lead → operator → independent reviewer",
+   "action": "Execute actual bounded agent tasks and test combined output",
+   "oracle": "Actual sandbox/tool/output contract/hash/lineage",
+   "recovery": "Tool failure and unknown effects reconcile"
+  },
+  {
+   "step_id": "UXJ-36-S05",
+   "journey_id": "UXJ-36",
+   "ux_ref": "UX-GOV-03",
+   "actor": "Author → Tech Lead → operator → independent reviewer",
+   "action": "Review current evidence and merge actual exact-head PR",
+   "oracle": "Independent quorum/check/provider merge receipt",
+   "recovery": "Stale reviewer/head/CI/policy cannot effect"
+  },
+  {
+   "step_id": "UXJ-36-S06",
+   "journey_id": "UXJ-36",
+   "ux_ref": "UX-GOV-04",
+   "actor": "Author → Tech Lead → operator → independent reviewer",
+   "action": "Verify mandatory business outcomes",
+   "oracle": "Independent positive/negative/race cases at merged revision",
+   "recovery": "Run Completed or low drift cannot close delivery"
+  },
+  {
+   "step_id": "UXJ-36-S07",
+   "journey_id": "UXJ-36",
+   "ux_ref": "UX-EXEC-08",
+   "actor": "Author → Tech Lead → operator → independent reviewer",
+   "action": "Stop/fence/reclaim with retained evidence",
+   "oracle": "Actual cleanup journal/artifact retention",
+   "recovery": "Failed cleanup remains visible and retryable"
+  },
+  {
+   "step_id": "UXJ-37-S01",
+   "journey_id": "UXJ-37",
+   "ux_ref": "UX-DESK-01",
+   "actor": "Desktop developer / device owner",
+   "action": "Install/connect actual signed device session",
+   "oracle": "Typed narrow IPC/current device grant",
+   "recovery": "Wrong account/revoked device denied"
+  },
+  {
+   "step_id": "UXJ-37-S02",
+   "journey_id": "UXJ-37",
+   "ux_ref": "UX-DESK-02",
+   "actor": "Desktop developer / device owner",
+   "action": "Open allowed local repo/index/edit offline",
+   "oracle": "Actual local Git/source/draft authority",
+   "recovery": "Symlink/root escape blocked; no remote Saved claim"
+  },
+  {
+   "step_id": "UXJ-37-S03",
+   "journey_id": "UXJ-37",
+   "ux_ref": "UX-DESK-03",
+   "actor": "Desktop developer / device owner",
+   "action": "Use eligible local sandbox/PTY/run control",
+   "oracle": "Actual supported OS/isolation/process/fence receipt",
+   "recovery": "No unsafe fallback for absent gVisor/runtime capability"
+  },
+  {
+   "step_id": "UXJ-37-S04",
+   "journey_id": "UXJ-37",
+   "ux_ref": "UX-DESK-04",
+   "actor": "Desktop developer / device owner",
+   "action": "Update/reconnect/revoke while preserving work",
+   "oracle": "Signed compatibility/update/current policy evidence",
+   "recovery": "Drafts retained; old device protected effects denied"
+  },
+  {
+   "step_id": "UXJ-38-S01",
+   "journey_id": "UXJ-38",
+   "ux_ref": "UX-SAAS-01",
+   "actor": "Org admin / finance owner / operator",
+   "action": "Inspect/allocate seats and concurrent quota",
+   "oracle": "Actual entitlement/seat version",
+   "recovery": "Duplicate concurrent admissions denied"
+  },
+  {
+   "step_id": "UXJ-38-S02",
+   "journey_id": "UXJ-38",
+   "ux_ref": "UX-SAAS-02",
+   "actor": "Org admin / finance owner / operator",
+   "action": "Handle billing/usage/unknown charge",
+   "oracle": "Provider/ledger reconciliation receipts",
+   "recovery": "Duplicate webhook/mismatched invoice remains explicit"
+  },
+  {
+   "step_id": "UXJ-38-S03",
+   "journey_id": "UXJ-38",
+   "ux_ref": "UX-EXEC-08",
+   "actor": "Org admin / finance owner / operator",
+   "action": "Safely stop/reclaim while suspended",
+   "oracle": "Authorized current operator cleanup receipt",
+   "recovery": "Expired entitlement does not prevent safe stop"
+  },
+  {
+   "step_id": "UXJ-38-S04",
+   "journey_id": "UXJ-38",
+   "ux_ref": "UX-SAAS-01",
+   "actor": "Org admin / finance owner / operator",
+   "action": "Reactivate under signed provider/entitlement policy",
+   "oracle": "Current reconciled admission permission",
+   "recovery": "No auto-resume of previously stopped run"
+  },
+  {
+   "step_id": "UXJ-39-S01",
+   "journey_id": "UXJ-39",
+   "ux_ref": "UX-SPEC-14",
+   "actor": "Document maintainer / Viewer",
+   "action": "Preview referenced requirements/sets/PRs and archive",
+   "oracle": "Current scoped impact/retention receipt",
+   "recovery": "Referenced evidence cannot be hard deleted"
+  },
+  {
+   "step_id": "UXJ-39-S02",
+   "journey_id": "UXJ-39",
+   "ux_ref": "UX-SPEC-02",
+   "actor": "Document maintainer / Viewer",
+   "action": "Restore at current parent/name/permission policy",
+   "oracle": "Actual revision-checked restore and stable ID",
+   "recovery": "Collision or denied parent requires explicit resolution"
+  },
+  {
+   "step_id": "UXJ-39-S03",
+   "journey_id": "UXJ-39",
+   "ux_ref": "UX-SPEC-04",
+   "actor": "Document maintainer / Viewer",
+   "action": "Open old shared link/search result",
+   "oracle": "Authorized current or historical identity",
+   "recovery": "No denied ancestor/content count leak"
+  },
+  {
+   "step_id": "UXJ-39-S04",
+   "journey_id": "UXJ-39",
+   "ux_ref": "UX-SPEC-13",
+   "actor": "Document maintainer / Viewer",
+   "action": "Verify historical and current delivery references",
+   "oracle": "Pinned historical manifest still intact",
+   "recovery": "Restore does not auto-approve/reopen unsafe old execution"
+  },
+  {
+   "step_id": "UXJ-40-S01",
+   "journey_id": "UXJ-40",
+   "ux_ref": "UX-SHELL-05",
+   "actor": "Keyboard and assistive technology user",
+   "action": "Navigate tree and expand/select without pointer",
+   "oracle": "Correct focus/selection/ARIA and authorized loaded children",
+   "recovery": "Virtualization restores focused row; optional large counts remain honest"
+  },
+  {
+   "step_id": "UXJ-40-S02",
+   "journey_id": "UXJ-40",
+   "ux_ref": "UX-SPEC-02",
+   "actor": "Keyboard and assistive technology user",
+   "action": "Move using pointer/menu/keyboard alternative",
+   "oracle": "Same actual valid move/impact receipt as drag",
+   "recovery": "No cycle or inaccessible only-drag control"
+  },
+  {
+   "step_id": "UXJ-40-S03",
+   "journey_id": "UXJ-40",
+   "ux_ref": "UX-SHELL-04",
+   "actor": "Keyboard and assistive technology user",
+   "action": "Resize panes and resolve form error summary",
+   "oracle": "Readable critical controls at zoom/narrow width",
+   "recovery": "Labels and focus not hidden by sticky toolbar"
+  },
+  {
+   "step_id": "UXJ-40-S04",
+   "journey_id": "UXJ-40",
+   "ux_ref": "UX-EXEC-02",
+   "actor": "Keyboard and assistive technology user",
+   "action": "Use task list and visible run control/checkpoint",
+   "oracle": "Same authorized actual command/decision",
+   "recovery": "Unsupported action reason visible; no hover-only graph controls"
+  },
+  {
+   "step_id": "UXJ-40-S05",
+   "journey_id": "UXJ-40",
+   "ux_ref": "UX-GOV-02",
+   "actor": "Keyboard and assistive technology user",
+   "action": "Complete eligible review via keyboard and AT",
+   "oracle": "Current actual decision and accessible feedback",
+   "recovery": "No color-only quorum/error or focus theft"
+  },
+  {
+   "step_id": "UXJ-41-S01",
+   "journey_id": "UXJ-41",
+   "ux_ref": "UX-SHELL-02",
+   "actor": "Any authorized member / operator",
+   "action": "Submit actual mutation with scoped idempotency/revision",
+   "oracle": "Durable operation receipt at declared stage",
+   "recovery": "Unknown response retains intent and operation ID"
+  },
+  {
+   "step_id": "UXJ-41-S02",
+   "journey_id": "UXJ-41",
+   "ux_ref": "UX-EXEC-02",
+   "actor": "Any authorized member / operator",
+   "action": "Observe command/event gap without duplicate effect",
+   "oracle": "Snapshot/cursor/sequence reconciliation",
+   "recovery": "Stale/wrong-scope events cannot regress or complete state"
+  },
+  {
+   "step_id": "UXJ-41-S03",
+   "journey_id": "UXJ-41",
+   "ux_ref": "UX-GOV-03",
+   "actor": "Any authorized member / operator",
+   "action": "Reconcile unknown external PR/merge",
+   "oracle": "Actual provider correlation and current guard",
+   "recovery": "No blind second PR/merge/charge"
+  },
+  {
+   "step_id": "UXJ-41-S04",
+   "journey_id": "UXJ-41",
+   "ux_ref": "UX-SHELL-03",
+   "actor": "Any authorized member / operator",
+   "action": "Restore route/draft/current authority",
+   "oracle": "Same authorized identity and stable context",
+   "recovery": "Disconnected UI does not retain revoked effect permission"
+  },
+  {
+   "step_id": "UXJ-42-S01",
+   "journey_id": "UXJ-42",
+   "ux_ref": "UX-AGENT-12",
+   "actor": "Org owner / catalog/document maintainer",
+   "action": "Inspect dependencies and retire agent/resources",
+   "oracle": "Signed current impact/revoke behavior",
+   "recovery": "Referenced version remains auditable"
+  },
+  {
+   "step_id": "UXJ-42-S02",
+   "journey_id": "UXJ-42",
+   "ux_ref": "UX-SPEC-14",
+   "actor": "Org owner / catalog/document maintainer",
+   "action": "Retain/archive frozen doc and delivery references",
+   "oracle": "Actual retained manifest/content bytes",
+   "recovery": "No deletion of mandatory active evidence"
+  },
+  {
+   "step_id": "UXJ-42-S03",
+   "journey_id": "UXJ-42",
+   "ux_ref": "UX-GOV-05",
+   "actor": "Org owner / catalog/document maintainer",
+   "action": "Export redacted authorized immutable evidence",
+   "oracle": "Actual job/digest/current access policy",
+   "recovery": "Revoke/expiry/partial job blocks inappropriate download"
+  },
+  {
+   "step_id": "UXJ-42-S04",
+   "journey_id": "UXJ-42",
+   "ux_ref": "UX-SAAS-03",
+   "actor": "Org owner / catalog/document maintainer",
+   "action": "Apply eligible retention/erasure journal",
+   "oracle": "Actual scope/objects/holds/deletion receipts",
+   "recovery": "Restore cannot revive erased content/access"
+  }
+ ]
+}

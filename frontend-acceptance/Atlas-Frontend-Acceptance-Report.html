@@ -9,7 +9,7 @@ pre{background:var(--card);border:1px solid var(--line);border-radius:8px;paddin
 th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}th{background:var(--card);position:sticky;top:0}
 td strong{white-space:nowrap}.FAIL{color:var(--fail);font-weight:700}.PASS{color:var(--pass);font-weight:700}.INCOMPLETE,.BLOCKED{color:var(--warn);font-weight:700}
 a{color:var(--accent)}
-</style></head><body><main><h1>Atlas Frontend Production Acceptance — Báo cáo (run 2 + run 3, 2026-10-05)</h1>
+</style></head><body><main><h1>Atlas Frontend Production Acceptance — Báo cáo (run 2 + 3 + 4, 2026-10-05)</h1>
 <pre><code class="language-text">FRONTEND ACCEPTANCE TARGET
 
 Provider: Cloudflare
@@ -23,8 +23,63 @@ Remote/local equivalence: UNVERIFIED
 VERDICT:
 NO_GO_FRONTEND
 </code></pre>
-<p>Phạm vi: 210 canonical view (denominator theo v2; <strong>0/210 liệt kê được</strong> vì thiếu inventory) · 18 module route · Chromium 141 / Firefox 142 / WebKit 26 (Playwright, GitHub Actions) + Chromium của Cloudflare Browser Rendering · AUDIT_ONLY. Backend không được chứng nhận.</p>
-<p><strong>Tóm tắt.</strong> Deployment không đổi so với run 1; 120/120 payload khớp manifest. Routing, dialog, combobox, skip link, drawer mobile và hiệu năng tải trang đạt. Verdict <strong>NO_GO_FRONTEND</strong>: FE-02/03/04/05/06 có requirement bắt buộc FAIL — FND-018 (breadcrumb bị header che sau khi đổi view), FND-001 + FND-021 (tabs), FND-017 (title), FND-002 (CSP), FND-003 (cache), FND-022 (heap, budget giả định), FND-005 (toast cũ sau 401/hết phiên). FE-01 INCOMPLETE vì thiếu inventory/spec/source. Không có P0; P1 chỉ có FND-004 và FND-012 (kế thừa, chưa retest được).</p>
+<p>Phạm vi: <strong>210 view theo Planned inventory của Figma</strong> (file <code>0md9BEFI1rU0aRAvf98TWO</code>, node 342:5) · 18 module route · 49 definition type · 42 journey / 174 bước (traceability Figma) · Chromium 141 / Firefox 142 / WebKit 26 (Playwright, GitHub Actions) + Chromium của Cloudflare Browser Rendering · AUDIT_ONLY. Backend không được chứng nhận.</p>
+<blockquote>
+<p><strong>Đính chính:</strong> run 2–3 ghi "file Figma chỉ có 2 page" — sai. <code>get_metadata</code> chỉ liệt kê page đã tải; Plugin API cho thấy đủ 10 page. Run 4 dùng Figma làm chuẩn cho inventory 210 view, so sánh Current UI, field contract 49 type và 174 bước journey. Xem <code>evidence/figma/start-here-metadata.md</code>.</p>
+</blockquote>
+<h2>0. Đã nghiệm thu được gì (run 4, theo Figma)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Kết quả trên bản deploy</th>
+<th>Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Definition type tới được từ UI module, tiêu đề đúng Figma</td>
+<td><strong>49/49 PASS</strong></td>
+<td>DEF-NAV-*</td>
+</tr>
+<tr>
+<td>Số field + nhóm section (tên, thứ tự, số lượng) đúng Figma</td>
+<td><strong>49/49 PASS</strong></td>
+<td>DEF-COUNT-*</td>
+</tr>
+<tr>
+<td>Field contract đúng Figma (key, nhãn, bắt buộc, đơn vị, min/max, option)</td>
+<td><strong>46/46 type mở được PASS — 855 control, 0 khác biệt</strong>; 3 type BLOCKED do FND-004</td>
+<td>DEF-FIELDS-*</td>
+</tr>
+<tr>
+<td>Tạo definition cục bộ</td>
+<td><strong>46/49 PASS</strong>; 3 FAIL trên cả Chromium/Firefox/WebKit (FND-004)</td>
+<td>DEF-CREATE-*, DEF-RETEST-FND-004</td>
+</tr>
+<tr>
+<td>Không có dữ liệu giả/mock trong bản production; action bảo vệ luôn hiển thị kèm lý do chặn</td>
+<td>PASS</td>
+<td>OBS-NOMOCK-001, OBS-BLOCKERS-001</td>
+</tr>
+<tr>
+<td>Giao diện so với Figma Current UI (18 route × dark/light)</td>
+<td><strong>FAIL 36/36</strong> — tiêu đề trùng 5/18, mô tả 0/18, IA điều hướng 7/21, thiếu 273/421 điều khiển Figma</td>
+<td>FIGMA-001, FIGMA-PARITY-*</td>
+</tr>
+<tr>
+<td>210 view của Figma</td>
+<td>COMPLETE 0 · PARTIAL 129 · NOT_IMPLEMENTED 0 · UNVERIFIED 81; chức năng phía frontend: PASS 107, FAIL 9, BLOCKED 76, NOT_RUN 18</td>
+<td>FE01-210-001</td>
+</tr>
+<tr>
+<td>174 bước journey (Figma)</td>
+<td>PASS 1 · FAIL 9 · BLOCKED 160 · NOT_RUN 4</td>
+<td>FE06-UXJ-042</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Tóm tắt.</strong> Deployment không đổi; 120/120 payload khớp manifest. Phần authoring (49 definition type) khớp Figma đến từng field, trừ 3 type không tạo được (FND-004, P1). Giao diện module <strong>không</strong> theo Figma Current UI: IA điều hướng, tiêu đề, mô tả và bố cục/điều khiển khác (FND-023/024/025). Verdict <strong>NO_GO_FRONTEND</strong>: mọi gate có requirement bắt buộc FAIL — FE-01 (FND-004, lệch thiết kế), FE-02 (FND-018), FE-03 (FND-001/021/017/018), FE-04 (FND-002), FE-05 (FND-003/022), FE-06 (FND-005, FND-004 chặn journey). Không có P0; P1: FND-004, FND-012.</p>
 <h2>1. Sáu gate</h2>
 <div class="table-wrap"><table>
 <thead>
@@ -38,9 +93,9 @@ NO_GO_FRONTEND
 <tbody>
 <tr>
 <td>FE-01 Functional parity &amp; routing</td>
-<td><strong class="INCOMPLETE">INCOMPLETE</strong></td>
-<td>120/120 payload khớp manifest (Cloudflare browser + GitHub runner); 18/18 route deep link/reload/query/route lạ PASS trên Chromium 141, Firefox 142, WebKit 26 — case: 20 (PASS 15, FAIL 0, BLOCKED 3, NOT_RUN 0, N/A 2)</td>
-<td>210 view_id không liệt kê được (thiếu Screen-Inventory/Archive CSV, spec, source); FND-004/FND-012 chưa retest; Figma thiếu page per-view</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td>120/120 payload khớp manifest; 18/18 route deep link/reload 3 engine; 49/49 definition type tới được và đúng tiêu đề Figma; 49/49 số field + nhóm section khớp Figma; 46/46 type mở được khớp Figma đến từng field (855 control, 0 khác biệt); 210/210 view Figma đã ánh xạ — case: 255 (PASS 206, FAIL 44, BLOCKED 3, NOT_RUN 0, N/A 2)</td>
+<td>FAIL: FND-004 (3/49 type không tạo được, 3 engine); thiết kế lệch Figma — FND-023 (IA điều hướng), FND-024 (tiêu đề 13/18, mô tả 18/18), FND-025 (273/421 điều khiển Figma không có); 0/210 view COMPLETE, 81 UNVERIFIED (FND-012)</td>
 </tr>
 <tr>
 <td>FE-02 Responsive</td>
@@ -57,7 +112,7 @@ NO_GO_FRONTEND
 <tr>
 <td>FE-04 Runtime / workers / storage</td>
 <td><strong class="FAIL">FAIL</strong></td>
-<td>0 lỗi runtime; 6 worker phục vụ MIME đúng; routing đồng nhất 3 engine — case: 15 (PASS 6, FAIL 3, BLOCKED 0, NOT_RUN 6, N/A 0)</td>
+<td>0 lỗi runtime; 6 worker phục vụ MIME đúng; routing đồng nhất 3 engine — case: 25 (PASS 10, FAIL 9, BLOCKED 0, NOT_RUN 6, N/A 0)</td>
 <td>FAIL: không CSP/security headers (FND-002); worker lifecycle, IndexedDB, 2 tab, Monaco/F12 chưa script</td>
 </tr>
 <tr>
@@ -69,18 +124,18 @@ NO_GO_FRONTEND
 <tr>
 <td>FE-06 Journeys &amp; fixtures / UAT</td>
 <td><strong class="FAIL">FAIL</strong></td>
-<td>FX-SERVICE (fixture có nhãn, click thật): 14/16 PASS — 1 POST khi double-click, stage đúng, 4xx/5xx/mạng/timeout/mismatch ⇒ Unknown, 401/hết phiên ⇒ disconnect, observer không gửi lệnh — case: 21 (PASS 14, FAIL 3, BLOCKED 3, NOT_RUN 1, N/A 0)</td>
-<td>FAIL: FND-005 (toast thành công cũ còn sau 401/hết phiên); 42 journey + UAT BLOCKED (thiếu CSV); FX-EXEC-001 SPEC_UNRESOLVED</td>
+<td>FX-SERVICE (fixture có nhãn, click thật): 14/16 PASS — 1 POST khi double-click, stage đúng, 4xx/5xx/mạng/timeout/mismatch ⇒ Unknown, 401/hết phiên ⇒ disconnect, observer không gửi lệnh — case: 22 (PASS 15, FAIL 4, BLOCKED 2, NOT_RUN 1, N/A 0)</td>
+<td>FAIL: FND-005; journey Figma (42/174 bước): 1 PASS, 9 FAIL (FND-004 ×7, FND-018, FND-005), 160 BLOCKED (cần service thật / AT), 4 NOT_RUN; UAT 113+194 BLOCKED (Figma không chứa dòng UAT); FX-EXEC-001 SPEC_UNRESOLVED</td>
 </tr>
 </tbody>
 </table></div>
-<h2>2. Implementation (210 canonical view)</h2>
+<h2>2. Implementation (210 view của Figma Planned inventory)</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Trạng thái</th>
-<th>Run 2+3 (OBSERVED)</th>
-<th>Run 1 (INHERITED, chưa xác minh lại)</th>
+<th>Run 4 (OBSERVED)</th>
+<th>Run 1 (INHERITED, đã thay thế)</th>
 </tr>
 </thead>
 <tbody>
@@ -91,7 +146,7 @@ NO_GO_FRONTEND
 </tr>
 <tr>
 <td>PARTIAL</td>
-<td>0</td>
+<td>129</td>
 <td>74</td>
 </tr>
 <tr>
@@ -101,13 +156,702 @@ NO_GO_FRONTEND
 </tr>
 <tr>
 <td>UNVERIFIED</td>
-<td>210</td>
+<td>81</td>
 <td>129</td>
 </tr>
 </tbody>
 </table></div>
-<p>Không view_id nào được suy ra từ tiêu đề/route (invariant 20). <code>Screen-Coverage.csv</code> giữ header với 0 hàng; <code>Route-Coverage.csv</code> (PROPOSED_EXTENSION) ghi 18 module route. Figma cho biết thiết kế có "184 Current views… 210 planned views" nhưng file không chứa page per-view.</p>
-<h2>3. Test denominator</h2>
+<p>Quy tắc (coverage.py): mỗi view nối với bản deploy qua (a) node Current UI trong inventory → frame → route, (b) registry schema của chính bundle đã deploy (49 schema ↔ view slug), kiểm chứng runtime bằng DEF-<em>. 96 view có frame Current, 116 view có form authoring. PARTIAL = có route/form nhưng màn hình riêng theo Figma chưa có và parity FAIL. UNVERIFIED (81) = 10 mục Figma đánh dấu review-scope + 71 route/state chỉ xuất hiện khi có điều kiện service (dữ liệu run, quyền bị thu hồi…) hoặc dữ liệu seed cục bộ — không chứng minh được là thiếu, nên </em><em>không</em>* gán NOT_IMPLEMENTED. Không view nào COMPLETE: chính inventory Figma xếp 4 view tốt nhất là "Present · visual (not code-ready)". Figma presence: Missing 104, Partial 92, Present · visual 4, Review scope 10.</p>
+<h2>3. Figma Current UI vs bản deploy (1440×1000, Chromium 141)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Frame Figma (Dark)</th>
+<th>h1 Figma</th>
+<th>h1 deploy</th>
+<th>Mô tả</th>
+<th>Điều khiển Figma: exact / tương đương / thiếu</th>
+<th>Dark</th>
+<th>Light</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#home</td>
+<td>236:729</td>
+<td>Turn specifications into traceable work</td>
+<td>Build with a clear trail. (MISSING)</td>
+<td>MISSING</td>
+<td>2 / 0 / 14 của 16</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#specifications</td>
+<td>236:985</td>
+<td>Specifications</td>
+<td>Specifications (EXACT)</td>
+<td>MISSING</td>
+<td>4 / 4 / 17 của 25</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#code</td>
+<td>236:1306</td>
+<td>Code intelligence</td>
+<td>Code intelligence (EXACT)</td>
+<td>MISSING</td>
+<td>1 / 5 / 9 của 15</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#collaboration</td>
+<td>236:3496</td>
+<td>Collaboration</td>
+<td>Collaboration (EXACT)</td>
+<td>MISSING</td>
+<td>2 / 7 / 18 của 27</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#agents</td>
+<td>236:1608</td>
+<td>Agents</td>
+<td>Agents (EXACT)</td>
+<td>MISSING</td>
+<td>7 / 7 / 5 của 19</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#resources</td>
+<td>236:1866</td>
+<td>Resource registry</td>
+<td>Resources (MISSING)</td>
+<td>MISSING</td>
+<td>1 / 5 / 11 của 17</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#workflow</td>
+<td>236:2121</td>
+<td>Workflow definitions &amp; plans</td>
+<td>Workflow (MISSING)</td>
+<td>MISSING</td>
+<td>0 / 3 / 12 của 15</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#memory</td>
+<td>236:2967</td>
+<td>Memory &amp; context</td>
+<td>Memory (MISSING)</td>
+<td>MISSING</td>
+<td>2 / 7 / 11 của 20</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#execution</td>
+<td>236:2375</td>
+<td>Runs &amp; agent activity</td>
+<td>Execution (MISSING)</td>
+<td>MISSING</td>
+<td>5 / 7 / 21 của 33</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#governance</td>
+<td>236:2674</td>
+<td>Reviews &amp; delivery</td>
+<td>Delivery &amp; acceptance (MISSING)</td>
+<td>MISSING</td>
+<td>5 / 7 / 21 của 33</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#gateway</td>
+<td>236:3226</td>
+<td>AI access &amp; budget</td>
+<td>AI gateway (MISSING)</td>
+<td>MISSING</td>
+<td>5 / 7 / 17 của 29</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#configuration</td>
+<td>236:3752</td>
+<td>Configuration &amp; policy</td>
+<td>Configuration (MISSING)</td>
+<td>MISSING</td>
+<td>1 / 4 / 14 của 19</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#identity</td>
+<td>236:4007</td>
+<td>People &amp; access</td>
+<td>Identity &amp; access (MISSING)</td>
+<td>MISSING</td>
+<td>2 / 6 / 18 của 26</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#tenancy</td>
+<td>236:4258</td>
+<td>Organization &amp; projects</td>
+<td>Organization &amp; projects (EXACT)</td>
+<td>MISSING</td>
+<td>3 / 8 / 14 của 25</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#saas</td>
+<td>236:4512</td>
+<td>Usage, billing &amp; data</td>
+<td>Usage &amp; billing (MISSING)</td>
+<td>MISSING</td>
+<td>2 / 8 / 18 của 28</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#desktop</td>
+<td>236:4776</td>
+<td>Desktop &amp; local runtime</td>
+<td>Desktop companion (MISSING)</td>
+<td>MISSING</td>
+<td>4 / 4 / 21 của 29</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#observer</td>
+<td>236:5048</td>
+<td>Operations observer</td>
+<td>Observer (MISSING)</td>
+<td>MISSING</td>
+<td>1 / 5 / 22 của 28</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+<tr>
+<td>#connection</td>
+<td>236:5309</td>
+<td>Connection &amp; operation receipts</td>
+<td>Connection &amp; operations (MISSING)</td>
+<td>MISSING</td>
+<td>3 / 4 / 10 của 17</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td><strong class="FAIL">FAIL</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Điều hướng: Figma BUILD / KNOWLEDGE &amp; SERVICES / ADMINISTRATION, bản deploy 7/21 exact; order different; deployed groups: WORKSPACE / OPERATIONS; mismatches: BUILD→missing; Workflow &amp; planning→Workflow; Runs &amp; activity→Execution; Reviews &amp; delivery→Delivery &amp; acceptance; KNOWLEDGE &amp; SERVICES→missing; Memory &amp; context→Memory; AI access &amp; budget→AI gateway; Configuration &amp; policy→Configuration; ADMINISTRATION→missing; People &amp; access→Identity &amp; access; Usage, billing &amp; data. Ảnh chụp: <code>evidence/runs/R4-001-figma/figma_parity/{dark,light}/*.jpg</code> (70). Không so pixel được (sandbox không tải được ảnh render Figma); phần nội dung minh hoạ trong frame ("Design example") bị loại khỏi oracle.</p>
+<h2>4. Field contract 49 definition type (oracle = frame "unified fields")</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Route</th>
+<th>Figma field</th>
+<th>Tới được</th>
+<th>Tạo</th>
+<th>Số field + section</th>
+<th>Field contract</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent definition</td>
+<td>#agents</td>
+<td>35</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Model resource</td>
+<td>#resources</td>
+<td>29</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>MCP server</td>
+<td>#resources</td>
+<td>29</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Tool contract</td>
+<td>#resources</td>
+<td>22</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Sandbox template</td>
+<td>#resources</td>
+<td>29</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Agent skill</td>
+<td>#resources</td>
+<td>17</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Agent rule</td>
+<td>#resources</td>
+<td>14</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Agent plugin</td>
+<td>#resources</td>
+<td>17</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Lifecycle hook</td>
+<td>#resources</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Runtime sidecar</td>
+<td>#resources</td>
+<td>19</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Memory record</td>
+<td>#memory</td>
+<td>23</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Memory retrieval policy</td>
+<td>#memory</td>
+<td>16</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Context package request</td>
+<td>#memory</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Repository connection</td>
+<td>#code</td>
+<td>20</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Code index policy</td>
+<td>#code</td>
+<td>20</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Source query</td>
+<td>#code</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Document properties</td>
+<td>#specifications</td>
+<td>16</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Specification submission request</td>
+<td>#specifications</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Provider credential request</td>
+<td>#gateway</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Model routing policy</td>
+<td>#gateway</td>
+<td>17</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Budget and reservation policy</td>
+<td>#gateway</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Workflow definition policy</td>
+<td>#workflow</td>
+<td>19</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Task execution contract</td>
+<td>#workflow</td>
+<td>24</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Run admission request</td>
+<td>#execution</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Human checkpoint decision</td>
+<td>#execution</td>
+<td>14</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Retry / resume request</td>
+<td>#execution</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td>PASS</td>
+<td>BLOCKED</td>
+</tr>
+<tr>
+<td>Cancel and cleanup request</td>
+<td>#execution</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Delivery review</td>
+<td>#governance</td>
+<td>16</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Pull request and merge request</td>
+<td>#governance</td>
+<td>16</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Post-merge acceptance</td>
+<td>#governance</td>
+<td>17</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Membership invitation</td>
+<td>#identity</td>
+<td>12</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Role and grant policy</td>
+<td>#identity</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Access revocation request</td>
+<td>#identity</td>
+<td>13</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Organization</td>
+<td>#tenancy</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Workspace</td>
+<td>#tenancy</td>
+<td>14</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Project onboarding</td>
+<td>#tenancy</td>
+<td>18</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Archive / transfer / deletion request</td>
+<td>#tenancy</td>
+<td>14</td>
+<td>PASS</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td>PASS</td>
+<td>BLOCKED</td>
+</tr>
+<tr>
+<td>Scoped configuration override</td>
+<td>#configuration</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Runtime capability policy</td>
+<td>#configuration</td>
+<td>16</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Anchored discussion</td>
+<td>#collaboration</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Durable collaboration cut request</td>
+<td>#collaboration</td>
+<td>13</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Subscription and seats request</td>
+<td>#saas</td>
+<td>14</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Billing reconciliation request</td>
+<td>#saas</td>
+<td>14</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Data export / erasure request</td>
+<td>#saas</td>
+<td>14</td>
+<td>PASS</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td>PASS</td>
+<td>BLOCKED</td>
+</tr>
+<tr>
+<td>Desktop device binding</td>
+<td>#desktop</td>
+<td>17</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Companion update request</td>
+<td>#desktop</td>
+<td>15</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Telemetry query</td>
+<td>#observer</td>
+<td>19</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Diagnostic export request</td>
+<td>#observer</td>
+<td>17</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Incident and operations handoff</td>
+<td>#connection</td>
+<td>18</td>
+<td>PASS</td>
+<td><strong class="PASS">PASS</strong></td>
+<td>PASS</td>
+<td>PASS</td>
+</tr>
+</tbody>
+</table></div>
+<h2>5. Journey (Figma traceability: 42 journey / 174 bước)</h2>
+<p>Mỗi bước: phần frontend quan sát được kiểm bằng case hiện có; phần ORACLE cần receipt của service thật ⇒ BLOCKED_BACKEND. Chi tiết 174 dòng: <code>Atlas-Frontend-Journey-Results.csv</code>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Kết quả</th>
+<th>Số bước</th>
+<th>Ví dụ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PASS</td>
+<td>1</td>
+<td>UXJ-28-S03 Verify mock boundary and authority after recovery — FE-scope oracle fully observable on the client</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>9</td>
+<td>UXJ-18-S02 Kill/restart and select verified compatible snapshot — Authoring request "run-recovery" for this step cannot be created (FND-004, DEF-CREATE-run-; UXJ-18-S03 Retry/resume under current source/policy/grants — Authoring request "run-recovery" for this step cannot be created (FND-004, DEF-CREATE-run-; UXJ-27-S02 Archive/transfer with accepted target and retention — Authoring request "scope-lifecycle" for this step cannot be created (FND-004, DEF-CREATE-s; UXJ-27-S03 Export/delete only eligible scoped objects — Authoring request "data-lifecycle" for this step cannot be created (FND-004, DEF-CREATE-da</td>
+</tr>
+<tr>
+<td>NOT_RUN</td>
+<td>4</td>
+<td>UXJ-06-S01 Create/edit Markdown source and preview — FE scope "Local Markdown edit + preview + generated outline (Monaco; trusted typing requir; UXJ-14-S02 Configure typed nodes/dependencies/agents — FE scope "Local DAG validation with actionable node/field errors (local, no service)" not ; UXJ-40-S01 Navigate tree and expand/select without pointer — FE scope evidence not applicable/run: {'FE03-KBD-TREE': 'NOT_APPLICABLE', 'FE03-KBD-TREE-F; UXJ-40-S02 Move using pointer/menu/keyboard alternative — FE scope "Keyboard/menu alternative to drag move" not yet scripted (needs seeded local dat</td>
+</tr>
+<tr>
+<td>BLOCKED</td>
+<td>160</td>
+<td>UXJ-01-S01 Sign in and confirm account — BLOCKED_BACKEND: the ORACLE requires an authorized service receipt (atlas-ui/v1 proposed, ; UXJ-01-S02 Create org/workspace/project — BLOCKED_BACKEND: the ORACLE requires an authorized service receipt (atlas-ui/v1 proposed, ; UXJ-01-S03 Open readiness and configure real dependencies — BLOCKED_BACKEND: the ORACLE requires an authorized service receipt (atlas-ui/v1 proposed, ; UXJ-01-S04 Open project library/repo from stable route — FE scope PASS (CF-PRE-008, FE01-ROUTE-001, FE01-ROUTE-002, FE01-ROUTE-003, FE04-XENGINE-RO</td>
+</tr>
+</tbody>
+</table></div>
+<p>Figma cũng có 14 journey DESIGN_V8 (J01–J14) và 8 journey xuyên suốt (X01–X08) ở page 07, khác namespace với UXJ-01…42; Figma ghi tất cả "Prototype NOT_VERIFIED · UAT NOT_RUN". Decision register: 28 quyết định (D01–D14, UXD-01–14) + EX-LOCK-03 + OBSERVER_READ_ONLY + API TBD đều "Proposed not approved" — liên quan FND-006, FND-012, BE-01.</p>
+<h2>6. Test denominator</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -122,18 +866,18 @@ NO_GO_FRONTEND
 </thead>
 <tbody>
 <tr>
-<td>132</td>
-<td>79</td>
-<td>25</td>
+<td>378</td>
+<td>275</td>
+<td>76</td>
 <td>17</td>
-<td>6</td>
+<td>5</td>
 <td>5</td>
 <td>0</td>
 </tr>
 </tbody>
 </table></div>
-<p>Mỗi biến thể engine là một case riêng (<code>-FIREFOX</code>, <code>-WEBKIT</code>); case tổng hợp (FE02-AUTO-216, FE03-KBD-001, FX-SERVICE-001, PERF-007, PERF-INP-001, FE04-XENGINE-001) được tính thêm. Không dùng % để bù gate.</p>
-<h2>4. Findings</h2>
+<p>Mỗi biến thể engine/theme là một case riêng; case tổng hợp (FIGMA-001, DEF-FIGMA-001, FE01-210-001, FE06-UXJ-042, FE02-AUTO-216, FE03-KBD-001, FX-SERVICE-001, PERF-007, PERF-INP-001, FE04-XENGINE-001) được tính thêm. Không dùng % để bù gate.</p>
+<h2>7. Findings</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -174,9 +918,9 @@ NO_GO_FRONTEND
 <td>FND-004</td>
 <td>P1</td>
 <td>FE-01</td>
-<td>3/49 definition types cannot be created: default name contains "/" rejected by name validator</td>
-<td>OPEN (inherited, not retested)</td>
-<td>DEF-RETEST-FND-004</td>
+<td>3/49 definition type không tạo được: tên mặc định "<tiêu đề> <uuid>" chứa "/" bị chính validator tên của app từ chối</td>
+<td>OPEN (retested run 4: reproduces on 3 engines)</td>
+<td>DEF-CREATE-run-recovery,DEF-CREATE-scope-lifecycle,DEF-CREATE-data-lifecycle (+ -FIREFOX/-WEBKIT)</td>
 </tr>
 <tr>
 <td>FND-005</td>
@@ -238,8 +982,8 @@ NO_GO_FRONTEND
 <td>FND-012</td>
 <td>P1</td>
 <td>FE-01</td>
-<td>7 canonical screens NOT_IMPLEMENTED; 129 views without any case</td>
-<td>OPEN (inherited, not retested)</td>
+<td>0/210 view COMPLETE; 81/210 view chưa kiểm được (UNVERIFIED) vì cần service/fixture hoặc thuộc review-scope của Figma</td>
+<td>OPEN (re-evaluated run 4 against the Figma inventory; run-1 "7 NOT_IMPLEMENTED" not reproduced as provable absence)</td>
 <td>FE01-210-001</td>
 </tr>
 <tr>
@@ -322,10 +1066,34 @@ NO_GO_FRONTEND
 <td>OPEN (new in run 3; needs product budget)</td>
 <td>PERF-008</td>
 </tr>
+<tr>
+<td>FND-023</td>
+<td>P2</td>
+<td>FE-01</td>
+<td>Điều hướng (IA) khác Figma: nhóm WORKSPACE / OPERATIONS thay vì BUILD / KNOWLEDGE &amp; SERVICES / ADMINISTRATION; 11/18 nhãn khác; thứ tự khác</td>
+<td>OPEN (new in run 4)</td>
+<td>FIGMA-PARITY-NAV</td>
+</tr>
+<tr>
+<td>FND-024</td>
+<td>P2</td>
+<td>FE-01</td>
+<td>Tiêu đề trang khác Figma ở 13/18 route; câu mô tả (purpose) khác ở 18/18 route</td>
+<td>OPEN (new in run 4)</td>
+<td>FIGMA-PARITY-<ROUTE>-DARK/LIGHT</td>
+</tr>
+<tr>
+<td>FND-025</td>
+<td>P2</td>
+<td>FE-01</td>
+<td>Bố cục/điều khiển module khác Figma: 273/421 điều khiển cấu trúc trong frame Figma không có trên bản deploy</td>
+<td>OPEN (new in run 4)</td>
+<td>FIGMA-PARITY-<ROUTE>-DARK/LIGHT</td>
+</tr>
 </tbody>
 </table></div>
-<p><strong>Top P0/P1</strong>: không có P0. P1 kế thừa chưa retest: FND-004 (kỳ vọng 49/49 definition type tạo được; cần Field-Dictionary + schema_oracle), FND-012 (kỳ vọng mỗi view có case; cần inventory/spec/source). P2 mới/được xác nhận trong run 3: FND-018, FND-021, FND-001, FND-005.</p>
-<h2>5. Specifications / Code Intelligence / Agent Lifecycle</h2>
+<p><strong>Top P0/P1</strong>: không có P0. P1: FND-004 (xác nhận lại run 4 trên 3 engine — 3 type có "/" trong tiêu đề không tạo được, chặn 7 bước journey và 9 view); FND-012 (0/210 COMPLETE, 81 UNVERIFIED). P2 mới ở run 4: FND-023/024/025 (lệch thiết kế Figma).</p>
+<h2>8. Specifications / Code Intelligence / Agent Lifecycle</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -337,22 +1105,22 @@ NO_GO_FRONTEND
 <tbody>
 <tr>
 <td>Specifications</td>
-<td>Route render, deep link/reload 3 engine, tablist "Document inspector" theo APG (arrow/Home/End/roving)</td>
-<td>FND-001/FND-021 (tabs); import/persistence/race/2-tab (SPEC-RETEST-001), Monaco gõ phím, tree (thư viện rỗng) chưa script</td>
+<td>Route + deep link 3 engine; Document properties &amp; Specification submission request: tạo được, field contract khớp Figma; tablist "Document inspector" theo APG</td>
+<td>Tiêu đề/mô tả/điều khiển khác Figma (FND-024/025); FND-001/FND-021; Monaco, import, history/diff (UNVERIFIED) chưa script</td>
 </tr>
 <tr>
 <td>Code intelligence</td>
-<td>Route render, 0 lỗi runtime</td>
-<td>F12/references (CODE-008), 6 worker lifecycle (FE04-WORKER-001) chưa script — cần source snapshot mẫu</td>
+<td>Route; Repository connection, Code index policy, Source query khớp Figma</td>
+<td>FND-025 (thiếu "Import folder", "Analyze JS/TS", "Symbols &amp; quality"…); F12/worker chưa script</td>
 </tr>
 <tr>
-<td>Agent lifecycle / service modules</td>
-<td>FX-SERVICE trên #agents: 1 POST/double-click kèm Idempotency-Key + CSRF + If-Match; stage Received/Accepted/Rejected/Effective; mọi lỗi sau gửi ⇒ Unknown "do not resend"; journal ghi operation ID + evidence; observer không gửi lệnh</td>
-<td>FND-005; 14 module còn lại chỉ đi qua cùng component ServiceModule (chưa chạy từng module); DTO chưa duyệt (FX-EXEC-001)</td>
+<td>Agent / resource / service modules</td>
+<td>49/49 type tới được; 46 type tạo + khớp field; FX-SERVICE: 1 POST/double-click, stage đúng, Unknown "do not resend", 401 ⇒ disconnect</td>
+<td>FND-004 (Retry / resume, Archive / transfer / deletion, Data export / erasure); FND-005; bố cục service records khác Figma (FND-025)</td>
 </tr>
 </tbody>
 </table></div>
-<h2>6. Môi trường thực tế</h2>
+<h2>9. Môi trường thực tế</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -406,34 +1174,55 @@ NO_GO_FRONTEND
 <td>keyboard 3 engine (harness đã sửa), INP ≥30 tương tác, heap 30/60/90 chu kỳ</td>
 <td>OK</td>
 </tr>
+<tr>
+<td>Figma read (run 4)</td>
+<td>09:00–09:55Z</td>
+<td>Figma MCP use_figma (Plugin API, chỉ đọc)</td>
+<td>10 page; Planned inventory 210; 18+18 frame module; 49 frame unified fields (852 field); journey register, decision register, traceability 174 bước</td>
+<td>Sửa kết luận sai "chỉ có 2 page" của run 2–3</td>
+</tr>
+<tr>
+<td>R4-001 (run 37289868204)</td>
+<td>09:25–09:28Z</td>
+<td>GitHub Actions, Chromium 141, click thật</td>
+<td>Figma parity 18 route × dark/light (+70 ảnh); definitions 49 type</td>
+<td>Definitions: 2 lỗi harness (view lazy-load chưa đợi; khoảng trắng nhãn section) — kết quả definitions bị thay bằng R4-002, không tính FAIL</td>
+</tr>
+<tr>
+<td>R4-002 (run 37290670654)</td>
+<td>09:33–09:36Z</td>
+<td>GitHub Actions, Chromium 141 + Firefox 142 + WebKit 26</td>
+<td>definitions 49 type (harness đã sửa) + FND-004 trên Firefox/WebKit</td>
+<td>OK</td>
+</tr>
 </tbody>
 </table></div>
 <ul>
-<li>AT thật: không có (FE03-AT-001 NOT_RUN_AT; kịch bản thủ công ở Accessibility.md). Thiết bị thật: không có (emulation). Browser pane: không có.</li>
-<li>Kết quả của Cloudflare Browser Rendering và GitHub Actions được ghi thành case riêng (<code>-GH</code>, <code>-FIREFOX</code>, <code>-WEBKIT</code>); số liệu run 1 chỉ được trích dẫn với nhãn INHERITED.</li>
+<li>AT thật: không có (FE03-AT-001, UXJ-40-S05). Thiết bị thật: không có. Browser pane: không có. figma.com bị proxy chặn ⇒ không tải ảnh render Figma.</li>
 </ul>
-<h2>7. Backend boundary</h2>
-<p>Xem <code>Atlas-Frontend-Backend-Dependencies.md</code>. DTO <code>atlas-ui/v1</code> vẫn "proposed"; FX-SERVICE chỉ chứng minh hành vi frontend với fixture có nhãn, không chứng minh service thật. 4xx-definitive (FND-006) SPEC_UNRESOLVED.</p>
-<h2>8. Deliverables</h2>
+<h2>10. Backend boundary</h2>
+<p>Xem <code>Atlas-Frontend-Backend-Dependencies.md</code>. DTO <code>atlas-ui/v1</code> vẫn "proposed" (Figma decision register: "API TBD — 49 authoring schemas AUTHORING_PROPOSAL"); 160/174 bước journey BLOCKED_BACKEND.</p>
+<h2>11. Deliverables</h2>
 <ul>
 <li>Atlas-Frontend-Acceptance-Report.md / .html</li>
 <li>Atlas-Frontend-Acceptance-Manifest.json</li>
-<li>Atlas-Frontend-Screen-Coverage.csv (header, 0 hàng)</li>
-<li>Atlas-Frontend-Route-Coverage.csv</li>
+<li>Atlas-Frontend-Screen-Coverage.csv (210 hàng, theo Figma)</li>
+<li>Atlas-Frontend-Route-Coverage.csv (18 route)</li>
 <li>Atlas-Frontend-Test-Results.csv</li>
 <li>Atlas-Frontend-Findings.csv</li>
-<li>Atlas-Frontend-Journey-Results.csv (header)</li>
-<li>Atlas-Frontend-UAT-Classification.csv (header)</li>
+<li>Atlas-Frontend-Journey-Results.csv (174 bước)</li>
+<li>Atlas-Frontend-UAT-Classification.csv (header — Figma không chứa dòng UAT)</li>
 <li>Atlas-Frontend-Accessibility.md</li>
 <li>Atlas-Frontend-Performance.json / .md</li>
 <li>Atlas-Frontend-Backend-Dependencies.md</li>
 <li>Atlas-Frontend-Remediation-Plan.md</li>
 <li>Atlas-Frontend-Cloudflare-Deployment.md</li>
-<li>evidence/ (runs R2-<em>, R3-</em>, 72 screenshots, standards, figma) + evidence-index.json (mọi path đã assert)</li>
-<li>work/ (ledgers + scripts)</li>
-<li>harness/ (Browser Rendering scripts + Playwright suites + workflow)</li>
+<li>evidence/figma/ (inventory 210, frame map, field oracle 49, journey trace 174, page list + đính chính)</li>
+<li>evidence/runs R2-<em>, R3-</em>, R4-* (+ 70 ảnh parity, 49 ảnh definitions) + evidence-index.json</li>
+<li>work/ (ledgers + scripts: figma_data.py, figma_journeys.py, record_r2/3/4.py, coverage.py, build.py)</li>
+<li>harness/ (Playwright suites figma_parity.mjs, definitions.mjs, …)</li>
 </ul>
-<h2>9. Exact remaining cases</h2>
+<h2>12. Exact remaining cases</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -463,20 +1252,28 @@ NO_GO_FRONTEND
 <td>Trusted input, Firefox/WebKit and CDP are now available via GitHub Actions (run 3); scenario not yet scripted: needs a seeded source snapshot (Import source folder) with an AST oracle</td>
 </tr>
 <tr>
-<td>DEF-RETEST-FND-004</td>
+<td>DEF-FIELDS-data-lifecycle</td>
 <td>FE-01</td>
 <td>BLOCKED</td>
-<td>all types create successfully</td>
-<td>—</td>
-<td>BLOCKED_INPUT_MISSING: Atlas-Field-Dictionary.csv / work/schema_oracle.json not provided in this session (only the master prompt was uploaded; no handover zip). BLOCKED_CLOUDFLARE_BROWSER_QUOTA: Cloudflare Browser Rendering (the only remote browser available t</td>
+<td>14 Figma fields, all attributes identical, no extra keys</td>
+<td>EV-DEF-701,EV-DEF-702,EV-FIG-706</td>
+<td>BLOCKED_BY_FND-004: editor did not open</td>
 </tr>
 <tr>
-<td>FE01-210-001</td>
+<td>DEF-FIELDS-run-recovery</td>
 <td>FE-01</td>
 <td>BLOCKED</td>
-<td>210 rows with case evidence</td>
-<td>—</td>
-<td>BLOCKED_INPUT_MISSING: Atlas-Screen-Inventory.csv, Atlas-Archive-Canonical-Frontend.csv, State-Matrix, RBAC, Field-Dictionary, source frontend/workspace-web not provided in this session (only the master prompt was uploaded; no handover zip).</td>
+<td>15 Figma fields, all attributes identical, no extra keys</td>
+<td>EV-DEF-701,EV-DEF-702,EV-FIG-706</td>
+<td>BLOCKED_BY_FND-004: editor did not open</td>
+</tr>
+<tr>
+<td>DEF-FIELDS-scope-lifecycle</td>
+<td>FE-01</td>
+<td>BLOCKED</td>
+<td>14 Figma fields, all attributes identical, no extra keys</td>
+<td>EV-DEF-701,EV-DEF-702,EV-FIG-706</td>
+<td>BLOCKED_BY_FND-004: editor did not open</td>
 </tr>
 <tr>
 <td>FE02-COARSE-001</td>
@@ -500,7 +1297,7 @@ NO_GO_FRONTEND
 <td>NOT_RUN</td>
 <td>72 screenshots captured after correct render (h1 matched); visual review vs Figma pending</td>
 <td>EV-SHOT-601</td>
-<td>Screenshots captured (72) and spot-checked by the auditor (375 light #agents shows the breadcrumb hidden under the header = FND-018; 1440 dark #specifications renders as expected); visual parity vs Figma not possible (per-view frames absent)</td>
+<td>Run 4: 70 deployed screenshots at 1440x1000 dark/light captured next to the Figma Current UI comparison (FIGMA-001); pixel diff vs Figma renders not possible (figma.com unreachable from the sandbox).</td>
 </tr>
 <tr>
 <td>FE02-ZOOM-001</td>
@@ -564,23 +1361,7 @@ NO_GO_FRONTEND
 <td>BLOCKED</td>
 <td>classified</td>
 <td>—</td>
-<td>BLOCKED_INPUT_MISSING: Atlas-Original-UAT-113.csv, Atlas-UX-UAT-194.csv not provided in this session (only the master prompt was uploaded; no handover zip).</td>
-</tr>
-<tr>
-<td>FE06-UXJ-042</td>
-<td>FE-06</td>
-<td>BLOCKED</td>
-<td>all applicable steps PASS</td>
-<td>—</td>
-<td>BLOCKED_INPUT_MISSING: Atlas-Source-Journeys-42.csv not provided in this session (only the master prompt was uploaded; no handover zip).</td>
-</tr>
-<tr>
-<td>FIGMA-001</td>
-<td>FE-01</td>
-<td>BLOCKED</td>
-<td>visual parity</td>
-<td>EV-FIG-501</td>
-<td>BLOCKED_INPUT: Figma file 0md9BEFI1rU0aRAvf98TWO supplied, but only pages "00 · Start here" and "03 · Design system" exist; the per-view pages "01/02 · Current UI · Dark/Light" referenced by the file are absent, so view-level frame pairs cannot be compared</td>
+<td>BLOCKED_INPUT: Figma states "113 original UAT remain NOT_RUN" and "UAT NOT_RUN" but contains no UAT rows (IDs/Given-When-Then); Atlas-Original-UAT-113.csv and Atlas-UX-UAT-194.csv still not supplied. Journey-level acceptance now runs from the Figma traceabilit</td>
 </tr>
 <tr>
 <td>FX-BRANCH-001</td>
@@ -632,12 +1413,13 @@ NO_GO_FRONTEND
 </tr>
 </tbody>
 </table></div>
-<h2>10. Giới hạn và sự cố</h2>
+<h2>13. Giới hạn và sự cố</h2>
 <ul>
 <li>Không có source ⇒ không có COMPLETE; local/remote equivalence UNVERIFIED (chỉ chứng minh remote == manifest).</li>
-<li>Detector/axe chạy ở trạng thái mặc định và trạng thái kết nối fixture trên #agents; không suy ra cho 210 view.</li>
-<li>Harness có lỗi ở một số lượt (deeplink cũ, hash runner không theo redirect, 4 kiểm tra bàn phím ở R3-003); tất cả đã sửa và chạy lại, kết quả lỗi harness không được tính FAIL.</li>
-<li>Sự cố: run CI bị huỷ đã commit bản mirror plaintext của payload công khai lên branch public; đã gỡ khỏi cây (41948df) nhưng còn trong lịch sử git. Muốn xoá hẳn cần force-push (chưa làm, chờ chủ repo quyết định).</li>
-<li>Link ChatGPT người dùng gửi không đọc được (chatgpt.com bị proxy chặn).</li>
+<li>Figma parity đo trên text/cấu trúc (tiêu đề, mô tả, IA, điều khiển, field contract); không so pixel. Nội dung minh hoạ trong frame bị loại.</li>
+<li>Registry schema đọc tĩnh từ bundle đã deploy (hash khớp manifest) chỉ dùng để nối view ↔ form; mọi kết luận PASS/FAIL đến từ chạy runtime.</li>
+<li>Harness có lỗi ở một số lượt (deeplink cũ, hash runner, 4 kiểm tra bàn phím R3-003, 2 lỗi definitions R4-001); tất cả đã sửa và chạy lại, kết quả lỗi harness không tính FAIL.</li>
+<li>Sự cố: run CI bị huỷ đã commit bản mirror plaintext của payload công khai; đã gỡ khỏi cây (41948df) nhưng còn trong lịch sử git (chờ chủ repo quyết định force-push).</li>
+<li>Đính chính: kết luận "Figma chỉ có 2 page" của run 2–3 là sai và đã được thay ở run 4.</li>
 </ul>
-<p><em>Generated 2026-10-05T08:55Z từ work/tests.json + work/findings.json bằng work/build.py.</em></p></main></body></html>
+<p><em>Generated 2026-10-05T10:05Z từ work/tests.json + work/findings.json + work/journeys-r4.json bằng work/build.py.</em></p></main></body></html>

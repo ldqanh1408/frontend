@@ -1,19 +1,34 @@
 {
  "canonical_denominator": 210,
- "canonical_rows_resolved": 0,
+ "canonical_rows_resolved": 210,
+ "source": "Figma 04 · E2E Model / Planned inventory (342:5)",
  "implementation_status": {
   "COMPLETE": 0,
-  "PARTIAL": 0,
+  "PARTIAL": 129,
   "NOT_IMPLEMENTED": 0,
-  "UNVERIFIED": 210
+  "UNVERIFIED": 81
  },
- "implementation_status_basis": "OBSERVED_THIS_RUN: no canonical view could be enumerated (inventory missing) ⇒ all 210 UNVERIFIED",
+ "functional_result": {
+  "BLOCKED": 76,
+  "PASS": 107,
+  "NOT_RUN": 18,
+  "FAIL": 9
+ },
+ "figma_presence": {
+  "Missing": 104,
+  "Partial": 92,
+  "Present · visual": 4,
+  "Review scope": 10
+ },
+ "implementation_status_basis": "(no view_id is inferred from a title, invariant 20):\n  * Figma presence \"Review scope\" → UNVERIFIED (Figma: consolidation proposed, removal/out-of-scope NOT confirmed).\n  * otherwise, (a) or (b) present → PARTIAL. Never COMPLETE: Figma itself classifies its best rows as \"Present · visual — not\n    code-ready\", every route fails design parity (FIGMA-PARITY-*) and service outcomes are BLOCKED_BACKEND.\n  * otherwise → UNVERIFIED, never NOT_IMPLEMENTED: Figma marks the first 130 rows as routes and the last 80 as states. A state\n    only renders inside its route under a service condition (run data, revoked grant, stale index…) that cannot be produced\n    without an authorized service or seeded fixture, so its absence is not provable. For the 11 route rows without (a)/(b) the\n    deployed UI exposes service-gated entry controls for the same intent (e.g. \"Sign in\", \"History & attribution\", \"Out",
  "inherited_run1": {
   "COMPLETE": 0,
   "PARTIAL": 74,
   "NOT_IMPLEMENTED": 7,
   "UNVERIFIED": 129,
-  "label": "INHERITED_EVIDENCE (v2 prompt §6.7), not re-verified"
+  "label": "INHERITED_EVIDENCE (v2 prompt §6.7), superseded by run 4"
  },
- "routes_observed": 18
+ "routes_observed": 18,
+ "views_with_schema": 116,
+ "views_with_figma_frame": 96
 }

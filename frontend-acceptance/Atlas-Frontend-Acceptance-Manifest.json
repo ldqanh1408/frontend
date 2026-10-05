@@ -1,10 +1,10 @@
 {
- "run_id": "R2+R3-2026-10-05",
+ "run_id": "R2+R3+R4-2026-10-05",
  "prompt": "Atlas-Frontend-Acceptance-Master-Prompt-v2 (handover edition)",
  "mode": "MODE_FRESH",
  "mode_reason": "No handover package (Atlas-Frontend-Acceptance.zip) or ledger in this session ⇒ MODE_FRESH per v2 §0.2. Deployment identity re-verified identical to run 1 (MATCH). Run-1 facts quoted in the prompt are labelled INHERITED_EVIDENCE.",
  "resumed_from": null,
- "generated_at": "2026-10-05T08:55Z",
+ "generated_at": "2026-10-05T10:05Z",
  "audit_mode": "AUDIT_ONLY",
  "target": {
   "provider": "Cloudflare",
@@ -35,7 +35,10 @@
  "local_remote_equivalence": "UNVERIFIED",
  "inputs_present": [
   "Atlas-Frontend-Acceptance-Master-Prompt-v2.md",
-  "Figma file 0md9BEFI1rU0aRAvf98TWO (pages 00 · Start here, 03 · Design system only)"
+  "Figma file 0md9BEFI1rU0aRAvf98TWO — 10 pages (00 Start here, 01/02 Current UI Dark/Light, 03 Design system, 04 E2E Model, 05/06 Gap closure, 07 Prototype flows, 08 Dev handoff, 90 Archive); used as design source of truth for the 210-view inventory, Current UI parity, 49 field contracts, 42 journeys / 174 steps and the decision register"
+ ],
+ "input_corrections": [
+  "Runs 2–3 reported that the Figma file had only 2 pages; wrong — get_metadata lists only loaded pages. Run 4 read all 10 pages through the Plugin API and re-evaluated FIGMA-001, FE01-210-001, DEF-RETEST-FND-004 and FE06-UXJ-042."
  ],
  "inputs_unreadable": [
   "https://chatgpt.com/share/6ac35844-… (chatgpt.com blocked by the egress proxy)"
@@ -50,7 +53,7 @@
   "Atlas-RBAC-Matrix.csv",
   "Atlas-Field-Dictionary.csv",
   "schema sources",
-  "Atlas-Source-Journeys-42.csv",
+  "Atlas-Source-Journeys-42.csv (superseded by Figma traceability)",
   "Atlas-Original-UAT-113.csv",
   "Atlas-UX-UAT-194.csv",
   "Atlas-UIUX-Hardening.md",
@@ -58,9 +61,9 @@
   "build/test logs",
   "source frontend/workspace-web",
   "AGENTS.md",
-  "Figma per-view pages (01/02 · Current UI)",
   "v1 prompt (attachment.txt)"
  ],
+ "inputs_note": "Atlas-Screen-Inventory.csv / Atlas-Field-Dictionary.csv are replaced by the Figma Planned inventory (342:5) and the 49 unified-fields frames.",
  "run_history": [
   {
    "run": "R2-001…004",
@@ -102,6 +105,27 @@
    "time": "08:40–08:42Z",
    "environment": "như trên",
    "scope": "keyboard 3 engine (harness đã sửa), INP ≥30 tương tác, heap 30/60/90 chu kỳ",
+   "note": "OK"
+  },
+  {
+   "run": "Figma read (run 4)",
+   "time": "09:00–09:55Z",
+   "environment": "Figma MCP use_figma (Plugin API, chỉ đọc)",
+   "scope": "10 page; Planned inventory 210; 18+18 frame module; 49 frame unified fields (852 field); journey register, decision register, traceability 174 bước",
+   "note": "Sửa kết luận sai \"chỉ có 2 page\" của run 2–3"
+  },
+  {
+   "run": "R4-001 (run 37289868204)",
+   "time": "09:25–09:28Z",
+   "environment": "GitHub Actions, Chromium 141, click thật",
+   "scope": "Figma parity 18 route × dark/light (+70 ảnh); definitions 49 type",
+   "note": "Definitions: 2 lỗi harness (view lazy-load chưa đợi; khoảng trắng nhãn section) — kết quả definitions bị thay bằng R4-002, không tính FAIL"
+  },
+  {
+   "run": "R4-002 (run 37290670654)",
+   "time": "09:33–09:36Z",
+   "environment": "GitHub Actions, Chromium 141 + Firefox 142 + WebKit 26",
+   "scope": "definitions 49 type (harness đã sửa) + FND-004 trên Firefox/WebKit",
    "note": "OK"
   }
  ],
@@ -178,8 +202,8 @@
   },
   {
    "capability": "Figma MCP",
-   "status": "AVAILABLE",
-   "limitation": "file lacks per-view pages",
+   "status": "AVAILABLE (use_figma Plugin API read-only; all 10 pages)",
+   "limitation": "get_metadata lists only loaded pages (cause of the run-2/3 error); frame renders not downloadable from the sandbox (figma.com blocked) ⇒ text/structure parity, no pixel diff",
    "affected_cases": [
     "FIGMA-001"
    ]
@@ -194,35 +218,50 @@
  "denominators": {
   "canonical_views": {
    "canonical_denominator": 210,
-   "canonical_rows_resolved": 0,
+   "canonical_rows_resolved": 210,
+   "source": "Figma 04 · E2E Model / Planned inventory (342:5)",
    "implementation_status": {
     "COMPLETE": 0,
-    "PARTIAL": 0,
+    "PARTIAL": 129,
     "NOT_IMPLEMENTED": 0,
-    "UNVERIFIED": 210
+    "UNVERIFIED": 81
    },
-   "implementation_status_basis": "OBSERVED_THIS_RUN: no canonical view could be enumerated (inventory missing) ⇒ all 210 UNVERIFIED",
+   "functional_result": {
+    "BLOCKED": 76,
+    "PASS": 107,
+    "NOT_RUN": 18,
+    "FAIL": 9
+   },
+   "figma_presence": {
+    "Missing": 104,
+    "Partial": 92,
+    "Present · visual": 4,
+    "Review scope": 10
+   },
+   "implementation_status_basis": "(no view_id is inferred from a title, invariant 20):\n  * Figma presence \"Review scope\" → UNVERIFIED (Figma: consolidation proposed, removal/out-of-scope NOT confirmed).\n  * otherwise, (a) or (b) present → PARTIAL. Never COMPLETE: Figma itself classifies its best rows as \"Present · visual — not\n    code-ready\", every route fails design parity (FIGMA-PARITY-*) and service outcomes are BLOCKED_BACKEND.\n  * otherwise → UNVERIFIED, never NOT_IMPLEMENTED: Figma marks the first 130 rows as routes and the last 80 as states. A state\n    only renders inside its route under a service condition (run data, revoked grant, stale index…) that cannot be produced\n    without an authorized service or seeded fixture, so its absence is not provable. For the 11 route rows without (a)/(b) the\n    deployed UI exposes service-gated entry controls for the same intent (e.g. \"Sign in\", \"History & attribution\", \"Out",
    "inherited_run1": {
     "COMPLETE": 0,
     "PARTIAL": 74,
     "NOT_IMPLEMENTED": 7,
     "UNVERIFIED": 129,
-    "label": "INHERITED_EVIDENCE (v2 prompt §6.7), not re-verified"
+    "label": "INHERITED_EVIDENCE (v2 prompt §6.7), superseded by run 4"
    },
-   "routes_observed": 18
+   "routes_observed": 18,
+   "views_with_schema": 116,
+   "views_with_figma_frame": 96
   },
   "tests": {
-   "PASS": 79,
+   "PASS": 275,
    "NOT_RUN": 17,
-   "FAIL": 25,
+   "FAIL": 76,
    "NOT_APPLICABLE": 5,
-   "BLOCKED": 6,
-   "total": 132
+   "BLOCKED": 5,
+   "total": 378
   },
   "exclusions": []
  },
  "gates": {
-  "FE-01": "INCOMPLETE",
+  "FE-01": "FAIL",
   "FE-02": "FAIL",
   "FE-03": "FAIL",
   "FE-04": "FAIL",
@@ -235,6 +274,7 @@
   "The cancelled CI run 37280321117 committed a plaintext byte mirror of the public release payload (work/release-mirror/) to the public branch; it was untracked in commit 41948df but remains in git history. Bytes are identical to what workers.dev serves publicly."
  ],
  "harness_defects_corrected": [
+  "R4-001 definitions: lazily loaded Definitions view not awaited (9 false DEF-NAV FAIL) and section label/count spacing (49 false DEF-COUNT FAIL) — fixed, superseded by R4-002",
   "deeplink.js iframe reuse (hash-only src change fires no load) — fixed",
   "runner hash check did not follow /index.html 307 — fixed",
   "keyboard: end-of-tab-sequence counted as hidden, reopen started inside main, tablist remount, drawer read from wrong element — fixed in R3-004; R3-003 keyboard FAILs superseded"

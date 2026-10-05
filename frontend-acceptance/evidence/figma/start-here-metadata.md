@@ -1,21 +1,38 @@
-# Figma file metadata (read 2026-10-05T08:00Z via Figma MCP get_metadata)
+# Figma file — pages and how it was read (corrected 2026-10-05, run 4)
 
-File key `0md9BEFI1rU0aRAvf98TWO` ("AI Engineering Workspace — Full UI"), link supplied by the user.
+File key `0md9BEFI1rU0aRAvf98TWO` ("AI Engineering Workspace — Full UI"), link supplied by the user. Read only; nothing written.
 
-Top-level pages returned by the MCP: `258:728 00 · Start here`, `132:728 03 · Design system`.
-Pages referenced by the file's own text but **not present** in the listing: `01 · Current UI · Dark`, `02 · Current UI · Light`, `90 · Archive`.
+## Correction
 
-Text on frame `258:729 Atlas/Start here` (verbatim excerpts):
+Runs 2–3 stated that the file had only the pages "00 · Start here" and "03 · Design system", and blocked FIGMA-001 on that basis.
+**That was wrong.** The MCP `get_metadata` listing returns only pages already loaded in the editor session. The Plugin API
+(`use_figma`, `figma.root.children`) lists all 10 pages:
+
+| Page id | Name | Used in run 4 for |
+|---|---|---|
+| 258:728 | 00 · Start here | file scope statements (below) |
+| 236:728 | 01 · Current UI · Dark | 18 module frames `Atlas/Dark/<route>` → FIGMA-PARITY-*-DARK; 17 state frames; 49 `<type> · unified fields` frames → DEF-* oracle |
+| 254:728 | 02 · Current UI · Light | 18 `Atlas/Light/<route>` frames → FIGMA-PARITY-*-LIGHT |
+| 132:728 | 03 · Design system | components (not compared in run 4) |
+| 342:3 | 04 · E2E Model | Planned inventory 210 (342:5) → canonical denominator; Journey register (342:8); Decision register (342:9); traceability 42 journeys / 174 steps (478:130933) → FE06-UXJ-042 |
+| 359:592 | 05 · Gap closure · Dark | target designs for views missing in Current UI (referenced in coverage limitations) |
+| 359:593 | 06 · Gap closure · Light | idem |
+| 359:594 | 07 · Prototype flows | E2E review hub 501:117219 (the deployed app links here via "Open design review"); J01/J02 flows |
+| 359:595 | 08 · Dev handoff | not used in run 4 |
+| 278:728 | 90 · Archive | not used |
+
+Transcriptions (fixed before the browser runs): `planned-inventory-210.{json,csv}`, `current-ui-frames.json`,
+`definition-field-oracle-49.json`, `journey-trace-174.json`, `../../harness/data/figma-oracle.json`; generator `work/figma_data.py`, `work/figma_journeys.py`.
+
+## Start-here statements (verbatim excerpts, frame 258:729)
+
 - "184 Current views in Dark and Light · 49 authoring types per theme · 852 field instances."
 - "This is a design and frontend review. It does not certify production or all 97 implementation packages. Illustrative content is labelled on every product frame."
-- "The available package is frontend source. Backend repository/API and staging have not been supplied. Real browser, assistive technology and original UAT remain NOT_RUN."
-- "74 scoped Node/JSDOM checks passed. Authoring schemas and static release built; real backend E2E, browser/AT and original UAT remain NOT_RUN."
 - "97 UI packages, 210 planned views and 113 original UAT cases are not all completed or passed."
 - "Proposed decisions and EX-LOCK-03 conflict remain open."
-- Skill baseline: "nextlevelbuilder/ui-ux-pro-max-skill · commit 09170eec67eefd46a7ae85de61b40c194020f997"
 
-Frame `503:3 Atlas · consolidated E2E handoff · 04 Oct 2026`: "655 paired canonical/prototype scenarios · 210 planned mappings · 39 proposed li[…]"; "113 original UAT + 194 proposed UX acceptance cases remain NOT_RUN. 14 BA + 14 U[…]" (text truncated in metadata).
+## Limits of the comparison
 
-Page `03 · Design system` top-level frames: Atlas / Design system (133:728), TreeRow, EmptyState, ReadinessItem, Receipt, TaskCard, Component state matrix (255:894), MultilineField (+ state reference), AuditRow (+ review Dark/Light), ChoiceRow, ChoiceRow + Receipt · J01–J02 review, ExplorerRow, EditorTab, EditorLine, RelationNode, J03–J04 · IDE primitive review.
-
-Consequence for FIGMA-001: per-view Dark/Light frames are not available in this file version, so pairwise view comparison stays BLOCKED; component-level comparison is possible later (design-system page).
+- Pixel comparison was not possible: figma.com render URLs are unreachable from the sandbox (egress proxy) and are short-lived credentials that must not be committed. Parity is measured on text/structure (titles, purpose lines, navigation IA, controls, field contracts) plus deployed screenshots.
+- Illustrative sample content inside frames ("Design example · Illustrative UI content") is excluded from the parity oracle.
+- Dark/Light module frames carry identical text: for all 18 pairs (`Atlas/Dark/<route>` vs `Atlas/Light/<route>`) the sorted unique text set has the same count and the same djb2 hash (e.g. home 63/b81e63c4, execution 71/ee87c63b, connection 55/2ca2b5c7). One transcribed oracle therefore serves both themes.

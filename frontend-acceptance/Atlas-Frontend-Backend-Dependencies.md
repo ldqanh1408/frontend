@@ -1,4 +1,4 @@
-# Atlas — Backend Dependencies & Boundary (run 2 + run 3, 2026-10-05)
+# Atlas — Backend Dependencies & Boundary (run 2 + 3 + 4, 2026-10-05)
 
 Backend **không** được chứng nhận bởi run này. Các mục dưới đây được theo dõi riêng (v1 §13 / v2 §7) và **không** tính PASS/FAIL frontend. Chỉ field/transition bị ảnh hưởng được đánh dấu; không gán cả module `BLOCKED_BACKEND`.
 
@@ -33,5 +33,10 @@ Chứng minh **frontend** xử lý hợp đồng proposed đúng như semantics 
 | BE-07 | IdP / identity flows cho các màn NOT_IMPLEMENTED của run 1 (FND-012) — uỷ quyền IdP hay cần UI | 7 màn (danh sách trong run-1 Screen-Coverage, không có trong phiên) | SPEC_UNRESOLVED |
 | BE-08 | UAT 113 + 194 live, 28 BA/UX decisions, EX-LOCK-03, B03 provenance | Theo từng UAT | NOT_RUN (CSV không có trong phiên) |
 
+## 2b. Từ Figma (run 4)
+- Decision register (04 · E2E Model, 342:9): D01–D14, UXD-01–UXD-14, EX-LOCK-03, OBSERVER_READ_ONLY và "API TBD — Real service contracts: 49 authoring schemas AUTHORING_PROPOSAL; no deployed backend DTO approval" đều **Proposed not approved** ⇒ BE-01, BE-02 (FND-006), BE-07 vẫn SPEC_UNRESOLVED.
+- OBSERVER_READ_ONLY: Figma ghi xung đột giữa điều khiển "operator effect" trong frame Observer và ý định read-only — cần quyết định trước khi nghiệm thu #observer.
+- Journey Figma: 160/174 bước có ORACLE cần receipt của service thật (BLOCKED_BACKEND); phần frontend của các bước này chỉ được ghi là "form authoring liên quan có mặt và khớp Figma" (Journey-Results.csv).
+
 ## 3. Phân tách frontend/backend cho UAT
-`Atlas-Frontend-UAT-Classification.csv` chỉ có header: `Atlas-Original-UAT-113.csv` và `Atlas-UX-UAT-194.csv` không được cung cấp, nên không phân loại (không suy đoán từ tên file).
+`Atlas-Frontend-UAT-Classification.csv` chỉ có header: `Atlas-Original-UAT-113.csv` và `Atlas-UX-UAT-194.csv` không được cung cấp và Figma chỉ nhắc "113 original UAT remain NOT_RUN" mà không chứa dòng UAT, nên không phân loại (không suy đoán). Nghiệm thu mức journey dùng traceability Figma (FE06-UXJ-042).

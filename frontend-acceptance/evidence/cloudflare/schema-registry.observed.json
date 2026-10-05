@@ -1,0 +1,758 @@
+{
+ "source": "/assets/index-CNIcNnJO.js of deployment bd44cfc0 (bytes SHA-256 verified against release-manifest, CF-PRE-002)",
+ "method": "static read of deployed bundle; runtime presence verified by DEF-NAV/DEF-CREATE (R4-002)",
+ "count": 49,
+ "schemas": [
+  {
+   "id": "agent",
+   "module": "agents",
+   "title": "Agent definition",
+   "purpose": "Author a versioned agent; publishing, readiness and assignment remain distinct.",
+   "ux": [
+    "UX-AGENT-01",
+    "UX-AGENT-02",
+    "UX-AGENT-06",
+    "UX-AGENT-09"
+   ],
+   "views": [
+    "agent-compose",
+    "default-agent",
+    "meta-agent"
+   ]
+  },
+  {
+   "id": "model-resource",
+   "module": "resources",
+   "title": "Model resource",
+   "purpose": "Configure declared model capabilities; connection tests provide separate observations.",
+   "ux": [
+    "UX-AGENT-03",
+    "UX-LLM-01",
+    "UX-LLM-02"
+   ],
+   "views": [
+    "gateway",
+    "routing",
+    "hub"
+   ]
+  },
+  {
+   "id": "mcp-resource",
+   "module": "resources",
+   "title": "MCP server",
+   "purpose": "Separate registration, discovery, grants, health and invocation.",
+   "ux": [
+    "UX-AGENT-04",
+    "UX-AGENT-05"
+   ],
+   "views": [
+    "integrations",
+    "hub"
+   ]
+  },
+  {
+   "id": "tool-resource",
+   "module": "resources",
+   "title": "Tool contract",
+   "purpose": "Define input/output contracts and effects before granting invocation.",
+   "ux": [
+    "UX-AGENT-03",
+    "UX-AGENT-06"
+   ],
+   "views": [
+    "contracts",
+    "hub"
+   ]
+  },
+  {
+   "id": "sandbox-resource",
+   "module": "resources",
+   "title": "Sandbox template",
+   "purpose": "Describe gVisor limits; actual runtime availability and cleanup require service evidence.",
+   "ux": [
+    "UX-AGENT-03",
+    "UX-CFG-03",
+    "UX-EXEC-04"
+   ],
+   "views": [
+    "sandbox-templates",
+    "runtime-settings",
+    "sandboxes"
+   ]
+  },
+  {
+   "id": "skill-resource",
+   "module": "resources",
+   "title": "Agent skill",
+   "purpose": "Version executable instructions and compatible runtime requirements.",
+   "ux": [
+    "UX-AGENT-03",
+    "UX-AGENT-05"
+   ],
+   "views": [
+    "skills",
+    "registry-impact"
+   ]
+  },
+  {
+   "id": "rule-resource",
+   "module": "resources",
+   "title": "Agent rule",
+   "purpose": "Define enforced behavior and scope without silently changing active runs.",
+   "ux": [
+    "UX-AGENT-03",
+    "UX-AGENT-06",
+    "UX-CFG-02"
+   ],
+   "views": [
+    "rules",
+    "risk-policy",
+    "policy-impact"
+   ]
+  },
+  {
+   "id": "plugin-resource",
+   "module": "resources",
+   "title": "Agent plugin",
+   "purpose": "Pin plugin artifacts, permissions and runtime compatibility.",
+   "ux": [
+    "UX-AGENT-05",
+    "UX-AGENT-06"
+   ],
+   "views": [
+    "plugins"
+   ]
+  },
+  {
+   "id": "hook-resource",
+   "module": "resources",
+   "title": "Lifecycle hook",
+   "purpose": "Bound hook execution and declare failure handling.",
+   "ux": [
+    "UX-AGENT-05",
+    "UX-AGENT-06"
+   ],
+   "views": [
+    "hooks"
+   ]
+  },
+  {
+   "id": "sidecar-resource",
+   "module": "resources",
+   "title": "Runtime sidecar",
+   "purpose": "Configure versioned companion services with probes and bounded resources.",
+   "ux": [
+    "UX-AGENT-05",
+    "UX-CFG-03"
+   ],
+   "views": [
+    "sidecars"
+   ]
+  },
+  {
+   "id": "memory",
+   "module": "memory",
+   "title": "Memory record",
+   "purpose": "Author working, structural, episodic and semantic memory with provenance and retention.",
+   "ux": [
+    "UX-MEM-01",
+    "UX-MEM-02",
+    "UX-MEM-04",
+    "UX-MEM-05"
+   ],
+   "views": [
+    "memory",
+    "memory-layers",
+    "memory-lineage",
+    "memory-import",
+    "curation"
+   ]
+  },
+  {
+   "id": "memory-policy",
+   "module": "memory",
+   "title": "Memory retrieval policy",
+   "purpose": "Define review, promotion and bounded retrieval for a memory bank.",
+   "ux": [
+    "UX-MEM-02",
+    "UX-MEM-03",
+    "UX-MEM-04"
+   ],
+   "views": [
+    "memory-settings",
+    "memory-prep"
+   ]
+  },
+  {
+   "id": "context-package",
+   "module": "memory",
+   "title": "Context package request",
+   "purpose": "Select exact, bounded context; server retrieval and submission are separate.",
+   "ux": [
+    "UX-MEM-03",
+    "UX-CODE-08",
+    "UX-SPEC-12"
+   ],
+   "views": [
+    "ai-context",
+    "v6-state-context-review",
+    "v6-state-context-confirm"
+   ]
+  },
+  {
+   "id": "repository",
+   "module": "code",
+   "title": "Repository connection",
+   "purpose": "GitHub identity, permission intent, exact refs and sync policy.",
+   "ux": [
+    "UX-CODE-01",
+    "UX-CODE-05",
+    "UX-CODE-10",
+    "UX-TEN-02"
+   ],
+   "views": [
+    "code",
+    "integrations",
+    "repo-reconcile",
+    "projects"
+   ]
+  },
+  {
+   "id": "index-policy",
+   "module": "code",
+   "title": "Code index policy",
+   "purpose": "Declare AST and semantic adapters, quality bounds and source revision.",
+   "ux": [
+    "UX-CODE-04",
+    "UX-CODE-06",
+    "UX-CODE-07"
+   ],
+   "views": [
+    "scan",
+    "index",
+    "code-symbols",
+    "drift"
+   ]
+  },
+  {
+   "id": "source-query",
+   "module": "code",
+   "title": "Source query",
+   "purpose": "Use exact repository/ref and bounded file, symbol and relation queries.",
+   "ux": [
+    "UX-CODE-02",
+    "UX-CODE-03",
+    "UX-CODE-04",
+    "UX-CODE-07"
+   ],
+   "views": [
+    "search-code",
+    "evidence",
+    "code-symbols"
+   ]
+  },
+  {
+   "id": "document-metadata",
+   "module": "specifications",
+   "title": "Document properties",
+   "purpose": "Record requirements ownership, classification, review and exact relations.",
+   "ux": [
+    "UX-SPEC-01",
+    "UX-SPEC-09",
+    "UX-SPEC-10",
+    "UX-SPEC-13"
+   ],
+   "views": [
+    "specs",
+    "editor",
+    "v6-state-spec-acceptance"
+   ]
+  },
+  {
+   "id": "spec-submission",
+   "module": "specifications",
+   "title": "Specification submission request",
+   "purpose": "Submit an exact immutable set and handle supersession deliberately.",
+   "ux": [
+    "UX-SPEC-11",
+    "UX-SPEC-12"
+   ],
+   "views": [
+    "locked",
+    "input-lineage",
+    "generation-job",
+    "v6-state-multi-spec-plan"
+   ]
+  },
+  {
+   "id": "provider-credential",
+   "module": "gateway",
+   "title": "Provider credential request",
+   "purpose": "Describe vault ownership, rotation and permitted model access; no keys are stored in drafts.",
+   "ux": [
+    "UX-LLM-01",
+    "UX-LLM-04"
+   ],
+   "views": [
+    "gateway",
+    "secret-triage"
+   ]
+  },
+  {
+   "id": "routing-policy",
+   "module": "gateway",
+   "title": "Model routing policy",
+   "purpose": "Pin routing, fallback and circuit policy without treating a saved route as available.",
+   "ux": [
+    "UX-LLM-02",
+    "UX-LLM-04"
+   ],
+   "views": [
+    "routing"
+   ]
+  },
+  {
+   "id": "budget-policy",
+   "module": "gateway",
+   "title": "Budget and reservation policy",
+   "purpose": "Separate ceilings, reservations, measured usage and settlements.",
+   "ux": [
+    "UX-LLM-03",
+    "UX-SAAS-01",
+    "UX-SAAS-02"
+   ],
+   "views": [
+    "budgets",
+    "budget-ledger"
+   ]
+  },
+  {
+   "id": "workflow-policy",
+   "module": "workflow",
+   "title": "Workflow definition policy",
+   "purpose": "Version template ownership, explicit input/output bindings and admission policy.",
+   "ux": [
+    "UX-WF-01",
+    "UX-WF-03",
+    "UX-WF-05",
+    "UX-WF-06"
+   ],
+   "views": [
+    "workflow-templates",
+    "workflow-proposal",
+    "plans",
+    "plan-detail"
+   ]
+  },
+  {
+   "id": "task-policy",
+   "module": "workflow",
+   "title": "Task execution contract",
+   "purpose": "Bind exact dependencies, outputs, limits and checkpoint eligibility.",
+   "ux": [
+    "UX-WF-04",
+    "UX-WF-06",
+    "UX-EXEC-03"
+   ],
+   "views": [
+    "contracts",
+    "execution-dialog-checkpoint"
+   ]
+  },
+  {
+   "id": "run-admission",
+   "module": "execution",
+   "title": "Run admission request",
+   "purpose": "Pin approved input and policy identities; readiness, leases and reservations remain service gates.",
+   "ux": [
+    "UX-EXEC-01",
+    "UX-WF-05"
+   ],
+   "views": [
+    "admission",
+    "runs",
+    "execution-state-empty"
+   ]
+  },
+  {
+   "id": "checkpoint-decision",
+   "module": "execution",
+   "title": "Human checkpoint decision",
+   "purpose": "Review one task attempt and exact output revision before recording a decision.",
+   "ux": [
+    "UX-WF-06",
+    "UX-EXEC-02",
+    "UX-GOV-02"
+   ],
+   "views": [
+    "execution-dialog-checkpoint",
+    "execution-state-checkpoint"
+   ]
+  },
+  {
+   "id": "run-recovery",
+   "module": "execution",
+   "title": "Retry / resume request",
+   "purpose": "Recover using the original attempt, immutable snapshot and unresolved operation identity.",
+   "ux": [
+    "UX-EXEC-02",
+    "UX-EXEC-06",
+    "UX-EXEC-09"
+   ],
+   "views": [
+    "recovery",
+    "execution-dialog-retry",
+    "execution-dialog-resume",
+    "snapshot",
+    "incident-recovery"
+   ]
+  },
+  {
+   "id": "run-cancel",
+   "module": "execution",
+   "title": "Cancel and cleanup request",
+   "purpose": "Request cancellation with explicit cleanup scope; leases stay held until fencing and cleanup are verified.",
+   "ux": [
+    "UX-EXEC-05",
+    "UX-EXEC-08"
+   ],
+   "views": [
+    "execution-dialog-cancel",
+    "cleanup",
+    "state-cleanup-held"
+   ]
+  },
+  {
+   "id": "delivery-review",
+   "module": "governance",
+   "title": "Delivery review",
+   "purpose": "Review exact diff and independent risk/security/test evidence.",
+   "ux": [
+    "UX-GOV-01",
+    "UX-GOV-02",
+    "UX-GOV-06"
+   ],
+   "views": [
+    "gates",
+    "gate-detail",
+    "reviewer-eligibility",
+    "diff-review",
+    "security"
+   ]
+  },
+  {
+   "id": "pull-request",
+   "module": "governance",
+   "title": "Pull request and merge request",
+   "purpose": "Target the exact repository/head and reconcile conditional merge outcomes.",
+   "ux": [
+    "UX-GOV-03"
+   ],
+   "views": [
+    "pull-request",
+    "ci-failed",
+    "pr-conflict",
+    "pr-reconcile"
+   ]
+  },
+  {
+   "id": "acceptance-review",
+   "module": "governance",
+   "title": "Post-merge acceptance",
+   "purpose": "Record a case-specific independent oracle against the actual merged revision.",
+   "ux": [
+    "UX-GOV-04",
+    "UX-GOV-05"
+   ],
+   "views": [
+    "acceptance",
+    "post-merge",
+    "state-acceptance-failed"
+   ]
+  },
+  {
+   "id": "member-invitation",
+   "module": "identity",
+   "title": "Membership invitation",
+   "purpose": "Bind intended identity, scope, role and expiry; acceptance must verify the signed-in account.",
+   "ux": [
+    "UX-IAM-02",
+    "UX-IAM-04"
+   ],
+   "views": [
+    "invite",
+    "invitations",
+    "invite-identity",
+    "members"
+   ]
+  },
+  {
+   "id": "role-policy",
+   "module": "identity",
+   "title": "Role and grant policy",
+   "purpose": "Explain scoped grants and inheritance without letting a draft grant access.",
+   "ux": [
+    "UX-IAM-03",
+    "UX-TEN-03"
+   ],
+   "views": [
+    "roles",
+    "role-editor",
+    "access"
+   ]
+  },
+  {
+   "id": "offboarding",
+   "module": "identity",
+   "title": "Access revocation request",
+   "purpose": "Review memberships, active runs and ownership transfer before revocation.",
+   "ux": [
+    "UX-IAM-04",
+    "UX-TEN-04"
+   ],
+   "views": [
+    "offboarding",
+    "access-revoked"
+   ]
+  },
+  {
+   "id": "organization",
+   "module": "tenancy",
+   "title": "Organization",
+   "purpose": "Organization ownership, locale, regional and retention intent.",
+   "ux": [
+    "UX-TEN-01",
+    "UX-SAAS-03"
+   ],
+   "views": [
+    "organizations",
+    "onboarding"
+   ]
+  },
+  {
+   "id": "workspace",
+   "module": "tenancy",
+   "title": "Workspace",
+   "purpose": "Bind workspace ownership to its parent organization and inherited policy.",
+   "ux": [
+    "UX-TEN-01",
+    "UX-TEN-03"
+   ],
+   "views": [
+    "workspaces",
+    "workspace-settings",
+    "scope-workspaces"
+   ]
+  },
+  {
+   "id": "project",
+   "module": "tenancy",
+   "title": "Project onboarding",
+   "purpose": "Track repository, required specs and readiness dependencies separately.",
+   "ux": [
+    "UX-TEN-01",
+    "UX-TEN-02"
+   ],
+   "views": [
+    "projects",
+    "project-new",
+    "setup-readiness",
+    "setup-complete",
+    "greenfield"
+   ]
+  },
+  {
+   "id": "scope-lifecycle",
+   "module": "tenancy",
+   "title": "Archive / transfer / deletion request",
+   "purpose": "Review dependency holds, retention and the intended owner before a protected operation.",
+   "ux": [
+    "UX-TEN-04",
+    "UX-SAAS-03"
+   ],
+   "views": [
+    "state-project-archived",
+    "state-restore-reconcile"
+   ]
+  },
+  {
+   "id": "policy-override",
+   "module": "configuration",
+   "title": "Scoped configuration override",
+   "purpose": "Retain parent provenance and revision guards; deployments verify the effective result.",
+   "ux": [
+    "UX-CFG-01",
+    "UX-CFG-02"
+   ],
+   "views": [
+    "settings",
+    "risk-policy",
+    "policy-impact"
+   ]
+  },
+  {
+   "id": "runtime-policy",
+   "module": "configuration",
+   "title": "Runtime capability policy",
+   "purpose": "Declare supported environment, scheduler, sandbox and output limits.",
+   "ux": [
+    "UX-CFG-03",
+    "UX-EXEC-04"
+   ],
+   "views": [
+    "runtime-settings",
+    "sandbox-templates"
+   ]
+  },
+  {
+   "id": "comment-thread",
+   "module": "collaboration",
+   "title": "Anchored discussion",
+   "purpose": "Bind review comments to exact document revision and stable anchors.",
+   "ux": [
+    "UX-COLLAB-03",
+    "UX-SPEC-10",
+    "UX-GOV-06"
+   ],
+   "views": [
+    "notifications",
+    "diff-review"
+   ]
+  },
+  {
+   "id": "collaboration-cut",
+   "module": "collaboration",
+   "title": "Durable collaboration cut request",
+   "purpose": "Record expected room epoch, update closure and exact document set.",
+   "ux": [
+    "UX-COLLAB-01",
+    "UX-COLLAB-02"
+   ],
+   "views": [
+    "locked",
+    "conflicts",
+    "input-lineage"
+   ]
+  },
+  {
+   "id": "entitlement-request",
+   "module": "saas",
+   "title": "Subscription and seats request",
+   "purpose": "Describe requested seats and quotas; service billing observations remain authoritative.",
+   "ux": [
+    "UX-SAAS-01"
+   ],
+   "views": [
+    "budgets",
+    "members"
+   ]
+  },
+  {
+   "id": "billing-reconciliation",
+   "module": "saas",
+   "title": "Billing reconciliation request",
+   "purpose": "Reconcile the original reservation, usage or charge identity before another mutation.",
+   "ux": [
+    "UX-SAAS-02",
+    "UX-LLM-03"
+   ],
+   "views": [
+    "budget-ledger"
+   ]
+  },
+  {
+   "id": "data-lifecycle",
+   "module": "saas",
+   "title": "Data export / erasure request",
+   "purpose": "Scope tenant data and retention exceptions; fulfillment requires a protected job and verified result.",
+   "ux": [
+    "UX-SAAS-03",
+    "UX-GOV-05"
+   ],
+   "views": [
+    "audit",
+    "exports"
+   ]
+  },
+  {
+   "id": "device-binding",
+   "module": "desktop",
+   "title": "Desktop device binding",
+   "purpose": "Bind one device and local repository to authorized scope; capabilities must be advertised.",
+   "ux": [
+    "UX-DESK-01",
+    "UX-DESK-02",
+    "UX-DESK-03"
+   ],
+   "views": [
+    "integrations"
+   ]
+  },
+  {
+   "id": "desktop-update",
+   "module": "desktop",
+   "title": "Companion update request",
+   "purpose": "Check exact package digest and compatible platform before update or rollback.",
+   "ux": [
+    "UX-DESK-04"
+   ],
+   "views": [
+    "runtime-settings"
+   ]
+  },
+  {
+   "id": "telemetry-query",
+   "module": "observer",
+   "title": "Telemetry query",
+   "purpose": "Specify units, freshness, environment and bounded trace/log/metric/profile selection.",
+   "ux": [
+    "UX-OBS-01",
+    "UX-OBS-02",
+    "UX-OBS-03",
+    "UX-OBS-05"
+   ],
+   "views": [
+    "obs-overview",
+    "traces",
+    "trace-detail",
+    "metrics",
+    "profiler",
+    "telemetry",
+    "infra",
+    "saturation",
+    "data-quality"
+   ]
+  },
+  {
+   "id": "diagnostic-export",
+   "module": "observer",
+   "title": "Diagnostic export request",
+   "purpose": "Bound a public diagnostic projection and its expiry; protected downloads require server authorization.",
+   "ux": [
+    "UX-OBS-04"
+   ],
+   "views": [
+    "exports",
+    "export-job",
+    "diagnostic-handoff",
+    "profile-compatibility"
+   ]
+  },
+  {
+   "id": "incident-handoff",
+   "module": "connection",
+   "title": "Incident and operations handoff",
+   "purpose": "Preserve original identity, scope, symptoms and recovery ownership.",
+   "ux": [
+    "UX-EXEC-09",
+    "UX-OBS-04",
+    "UX-OBS-05"
+   ],
+   "views": [
+    "exceptions",
+    "incident-recovery",
+    "diagnostic-handoff"
+   ]
+  }
+ ]
+}

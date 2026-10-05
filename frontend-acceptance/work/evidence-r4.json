@@ -1,0 +1,90 @@
+[
+ [
+  "EV-FIG-701",
+  "evidence/runs/R4-001-figma/figma_parity/figma-parity.json",
+  "2026-10-05T09:28:04.790Z",
+  "FIGMA-PARITY-*",
+  "figma parity corpus + comparisons (run 37289868204)",
+  "1440x1000 dark+light"
+ ],
+ [
+  "EV-FIG-702",
+  "evidence/runs/R4-001-figma/figma_parity/results.json",
+  "2026-10-05T09:28:04.790Z",
+  "FIGMA-PARITY-*",
+  "figma parity cases + 70 screenshot paths",
+  "1440x1000"
+ ],
+ [
+  "EV-FIG-703",
+  "evidence/figma/current-ui-frames.json",
+  "2026-10-05T09:15:00Z",
+  "FIGMA-PARITY-*",
+  "figma-oracle: Current UI frames, nav, module expectations",
+  "n/a"
+ ],
+ [
+  "EV-FIG-704",
+  "harness/data/figma-oracle.json",
+  "2026-10-05T09:20:00Z",
+  "FIGMA-PARITY-*,DEF-*",
+  "figma-oracle: harness copy fixed before execution",
+  "n/a"
+ ],
+ [
+  "EV-FIG-705",
+  "evidence/figma/planned-inventory-210.json",
+  "2026-10-05T09:15:00Z",
+  "FE01-210-001",
+  "figma-oracle: Planned inventory 210 (342:5)",
+  "n/a"
+ ],
+ [
+  "EV-FIG-706",
+  "evidence/figma/definition-field-oracle-49.json",
+  "2026-10-05T09:15:00Z",
+  "DEF-*",
+  "figma-oracle: 49 unified-fields frames (852 fields)",
+  "n/a"
+ ],
+ [
+  "EV-FIG-707",
+  "evidence/cloudflare/schema-registry.observed.json",
+  "2026-10-05T09:45:00Z",
+  "FE01-210-001",
+  "deployed schema registry (bundle 589b789e\u2026, hash-verified)",
+  "n/a"
+ ],
+ [
+  "EV-FIG-708",
+  "evidence/figma/journey-trace-174.json",
+  "2026-10-05T09:50:00Z",
+  "FE06-UXJ-042",
+  "figma-oracle: traceability 42 journeys / 174 steps",
+  "n/a"
+ ],
+ [
+  "EV-DEF-701",
+  "evidence/runs/R4-002-def-fix/definitions/definitions.json",
+  "2026-10-05T09:35:23.098Z",
+  "DEF-*",
+  "definition contract observations (run 37290670654)",
+  "1440x1000"
+ ],
+ [
+  "EV-DEF-702",
+  "evidence/runs/R4-002-def-fix/definitions/results.json",
+  "2026-10-05T09:35:23.098Z",
+  "DEF-*",
+  "definition cases + 49 full-page screenshots",
+  "1440x1000"
+ ],
+ [
+  "EV-FIG-709",
+  "evidence/figma/start-here-metadata.md",
+  "2026-10-05T09:55:00Z",
+  "FIGMA-001",
+  "figma-oracle: page list + correction note",
+  "n/a"
+ ]
+]
