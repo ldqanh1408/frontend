@@ -1,0 +1,44 @@
+/* Design tokens — Figma 0md9BEFI1rU0aRAvf98TWO, 03 · Design system:
+   colors = "Atlas / v8 Color" (Dark/Light modes), geometry = "Atlas / Geometry" + "Atlas / v9 Geometry",
+   type = "Atlas/v9/*" text styles, elevation = "Atlas/Elevation/Overlay". */
+:root {
+  --space-2: 2px; --space-4: 4px; --space-6: 6px; --space-8: 8px; --space-12: 12px; --space-16: 16px; --space-20: 20px;
+  --space-24: 24px; --space-28: 28px; --space-32: 32px; --space-40: 40px; --space-48: 48px; --space-64: 64px;
+  --radius-control: 6px; --radius-panel: 8px; --radius-dialog: 12px; --radius-pill: 999px;
+  --control-compact: 32px; --control-standard: 36px; --control-touch: 44px;
+  --nav-width: 236px; --appbar-height: 56px; --statusbar-height: 34px; --content-max: 1680px;
+  --font-sans: 'Inter Variable', Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --text-title: 600 24px/32px var(--font-sans);
+  --text-heading: 600 16px/24px var(--font-sans);
+  --text-body: 400 14px/20px var(--font-sans);
+  --text-label: 500 14px/20px var(--font-sans);
+  --text-caption: 400 12px/18px var(--font-sans);
+  --text-document: 400 16px/26px var(--font-sans);
+  --text-code: 400 13px/21px var(--font-mono);
+  --shadow-overlay: 0 16px 48px rgb(0 0 0 / 32%);
+  --motion-fast: 120ms; --motion-base: 180ms;
+}
+
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: #0b0f14; --color-nav: #11171f; --color-panel: #11171f; --color-raised: #171f29; --color-overlay: #1f2935;
+  --color-border: #2a3644; --color-control-border: #64778c; --color-text: #e7edf5; --color-secondary: #a9b4c2;
+  --color-muted: #8794a5; --color-accent: #53d4c1; --color-accent-hover: #6ddccb; --color-accent-soft: #17322f;
+  --color-on-accent: #071b18; --color-focus: #88b8ff; --color-success: #73d99b; --color-info: #88b8ff; --color-info-soft: #182b44;
+  --color-warning: #f0c36d; --color-warning-soft: #342b1b; --color-danger: #f08b8b; --color-danger-soft: #362124; --color-purple: #d9a7ff;
+  --color-success-soft: #16301f;
+  --color-scrim: rgb(3 6 10 / 64%);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --color-bg: #f6f8fa; --color-nav: #ffffff; --color-panel: #ffffff; --color-raised: #edf2f6; --color-overlay: #ffffff;
+  --color-border: #d7dee7; --color-control-border: #778899; --color-text: #172332; --color-secondary: #43556a;
+  --color-muted: #586b81; --color-accent: #087766; --color-accent-hover: #076d5d; --color-accent-soft: #dcf3ed;
+  --color-on-accent: #ffffff; --color-focus: #2357b7; --color-success: #176f42; --color-info: #2357b7; --color-info-soft: #e8effb;
+  --color-warning: #875b0c; --color-warning-soft: #fff3d6; --color-danger: #b32f35; --color-danger-soft: #fcebec; --color-purple: #7642a3;
+  --color-success-soft: #e3f4ea;
+  --color-scrim: rgb(23 35 50 / 40%);
+}

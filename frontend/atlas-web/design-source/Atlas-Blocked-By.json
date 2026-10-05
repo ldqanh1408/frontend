@@ -1,0 +1,332 @@
+[
+  {
+    "id": "D01",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO + M4/M6",
+    "status": "Proposed",
+    "topic": "Tách execution khỏi delivery",
+    "proposal": "COMPLETED của task/run chỉ là đã có output; business delivery chỉ VERIFIED sau merge+verification. Thêm ChangeDelivery/ChangeSet logic để tổng hợp.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "D02",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO + M2",
+    "status": "Proposed",
+    "topic": "Human Freeze và intentional Submit",
+    "proposal": "Không auto-lock khi Git push không conflict. Freeze snapshot và Submit là hai quyết định riêng.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "D03",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO + IAM",
+    "status": "Proposed",
+    "topic": "Chính sách quyền có scope",
+    "proposal": "MVP additive grants; không có implicit deny/Viewer override. Org Admin không có SystemConfig.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "D04",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO + Security",
+    "status": "Proposed",
+    "topic": "Identity và quorum",
+    "proposal": "Distinct people, không phải số role; author set là hợp các tác giả SRS nêu. Slot reviewer có qualification rõ cho custom roles.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "D05",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO + M3/QA",
+    "status": "Proposed",
+    "topic": "Drift/greenfield/unknown",
+    "proposal": "Warning >0.3, block >0.7; greenfield review riêng; thiếu input không trả In-Sync. Drift không thay thế AC.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "D06",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO + M4",
+    "status": "Proposed",
+    "topic": "Workflow fallback",
+    "proposal": "Auto-synthesis là Proposed; Lead approve workflow rồi plan; thiếu prerequisites trả blocker có recovery.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "D07",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO + M6",
+    "status": "Proposed",
+    "topic": "Publication và merge",
+    "proposal": "Local scans/preflight → gate → PR → required external CI cho exact head → merge. Auto-merge mặc định chỉ Low; High/Medium explicit Lead merge khi đủ điều kiện.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "D08",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO + Security",
+    "status": "Proposed",
+    "topic": "Run snapshot và policy change",
+    "proposal": "Pin operational versions tại approval/attempt; emergency security revoke dừng hiệu lực ngay; policy chặt hơn áp lại pending gate, không viết lại lịch sử merged.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "D09",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO + M1/M4",
+    "status": "Proposed",
+    "topic": "Memory và dữ liệu có provenance",
+    "proposal": "Draft/deprecated không auto-retrieve; Verified sửa tạo revision; task note local không tự promote. Scope theo quyền nguồn.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "D10",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO + Ops",
+    "status": "Proposed",
+    "topic": "Durability và cleanup",
+    "proposal": "Artifact durable ACK trước cleanup; tách retention compute/worktree/log/artifact/working memory; recover từ durable checkpoint, RPO/RTO phải chốt.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "D11",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO + M1",
+    "status": "Proposed",
+    "topic": "Budget accounting",
+    "proposal": "Atomic reservation + actual settlement; scope cho Discovery/Meta/reflection; decimal amount và kỳ reset xác định. Budget allocation không đồng nghĩa nạp tiền provider.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "D12",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO + Security",
+    "status": "Proposed",
+    "topic": "Observer và thông tin agent",
+    "proposal": "Observer read plane riêng; activity dùng public summaries/tool evidence; export có redaction và authz lúc tải.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "D13",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO + Ops",
+    "status": "Proposed",
+    "topic": "Lifecycle ngoài happy path",
+    "proposal": "MVP archive/drain trước delete; close-unmerged/no-op/cancel/supersede có outcome rõ; manual external merge được reconcile, không giả đã ngăn chặn.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "D14",
+    "priority": "P0/P1 contract gate",
+    "category": "BA",
+    "owner": "PO",
+    "status": "Proposed",
+    "topic": "Phạm vi release sản phẩm",
+    "proposal": "SRS hiện khép tới code/spec verified trên repo. Deploy production, approval rollout và rollback ứng dụng không tự trở thành scope; bổ sung riêng nếu sản phẩm muốn điều phối deployment.",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-01",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "BA + specification/tenancy leads",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "Document catalog ownership",
+    "proposal": "Project-level catalog is canonical; shared workspace knowledge has explicit referenced ownership rather than duplicate editable truth",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-02",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "BA + IDE/specification lead",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "Document format, identity and anchors",
+    "proposal": "Stable doc/requirement IDs; explicit revision/branch; Markdown source + preview baseline; PDF/DOCX attachment/extraction declared separately; section anchors revision-scoped",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-03",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "BA + Security + IAM/tenancy",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "Folder ACL/inheritance and moves",
+    "proposal": "Keep existing project grants as baseline; any restricted folder policy explicitly signed; move/copy checks source/target and shows permission diff; counts/ancestors cannot leak",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-04",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "BA + specification/collaboration/orchestration",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "Multi-document freeze/submit semantics",
+    "proposal": "Staged per-doc durable cuts plus atomic finalized version-set manifest only after closure validation; no fictitious distributed atomic CRDT transaction; failed preparation has explicit resume/abort policy",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-05",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "BA + specification/sourcecontrol",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "Catalog move versus content/input invalidation",
+    "proposal": "Stable IDs preserve references; path-only catalog metadata does not rewrite old frozen manifest; actual source/content/policy changes follow defined fingerprint invalidation",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-06",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "BA + sourcecontrol/runtime leads",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "Code browsing/edit/execution boundary",
+    "proposal": "Default repo browse; explicit authorized worktree/edit/commit proposal; runtime/terminal provisioned separately; no implied compute from Github-like UI",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-07",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "BA + agentcatalog + Security QA",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "Agent publish/evaluation/runnable meanings",
+    "proposal": "Published means immutable approved definition under signed validation/eval policy; Runnable is dynamic current readiness. Required smoke checks before protected use; full benchmarking/marketplace later",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-08",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "BA + agentcatalog/orchestration/execution",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "Agent/resource version migration and revocation",
+    "proposal": "No silent latest upgrade of approved/running versions; migration is reviewed impact proposal; current safety/grant revoke enforced at effect with retained history",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-09",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "BA + execution/orchestration",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "Run/task/tool control scope",
+    "proposal": "Run Pause/Resume/Cancel always discoverable; task Inspect/Retry/checkpoint controls by capability. Fine-grained pause/stop only when actual owner safe-point contract exists",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-10",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "BA + codeintelligence/Desktop/Platform",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "Supported semantic/format/OS/runtime matrix",
+    "proposal": "Java/TypeScript semantic and declared Tauri/Java OS baseline; AST/candidate/semantic-ready and unsupported states explicit; runtime availability from receipts; no fake Firecracker ready",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-11",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "UX lead + BA + accessibility QA",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "Permission-visible actions and accessibility",
+    "proposal": "Visible contextual critical actions with readable blockers; authorized resource context only; no hover-only controls; 32/36px desktop controls with WCAG target policy, 44px touch; retain keyboard/pointer alternatives",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-12",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "BA + SaaS + Security + Platform",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "SaaS/retention/production scope",
+    "proposal": "MVP entitlement and Desktop baseline retained; public commercial billing provider/lifecycle requires ADR; data/secret/evidence retention holds and restore deletion journals signed",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-13",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "BA + UX + Platform QA",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "Large corpus UX benchmark and SLO",
+    "proposal": "Sign actual customer workload and original SRS/NFR precedence before testing; new proposed UI scale budgets do not override original latency/workload rules",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "UXD-14",
+    "priority": "P0/P1 contract gate",
+    "category": "UX",
+    "owner": "BA + Security + agentcatalog/execution",
+    "status": "PROPOSED_NOT_APPROVED",
+    "topic": "Agent activity/privacy and explanation contract",
+    "proposal": "Display approved safe input/output/tool receipts, rationale summaries, public validation/errors and lineage; raw sensitive model/internal traces are not user-visible unredacted activity",
+    "closure": "Owner signed refinement and approved version; UI fixture does not approve policy"
+  },
+  {
+    "id": "EX-LOCK-03",
+    "priority": "P0",
+    "category": "conflict",
+    "owner": "BA + orchestration/lock fencing leads",
+    "status": "OPEN",
+    "topic": "Lock/fencing authority",
+    "proposal": "Keep conservative guard and explicit reconcile",
+    "closure": "Signed policy plus actual concurrency/failure evidence"
+  },
+  {
+    "id": "API-TBD",
+    "priority": "P0",
+    "category": "contract",
+    "owner": "Backend/API + frontend leads",
+    "status": "OPEN",
+    "topic": "Authoritative DTOs and command/state responses",
+    "proposal": "49 authoring shapes remain proposals; unknown fields allowed in source schemas",
+    "closure": "Approved field/enum/error/cursor/event/guard contracts"
+  },
+  {
+    "id": "B03-PROVENANCE",
+    "priority": "P0",
+    "category": "contract",
+    "owner": "BA + code/spec/context leads",
+    "status": "OPEN",
+    "topic": "Source pins are incomplete as authoritative provenance DTO",
+    "proposal": "Generic id/kind/rev/hash cannot substitute repo/OID/blob/path/range/method/grant/model/policy",
+    "closure": "Exact immutable typed provenance envelope; permission revalidation and AST/index receipts"
+  },
+  {
+    "id": "RUNTIME-E2E",
+    "priority": "P0",
+    "category": "verification",
+    "owner": "QA + Platform + provider owners",
+    "status": "NOT_RUN",
+    "topic": "Actual services, browser/AT, 113 original and 194 proposed acceptance cases",
+    "proposal": "Design navigation is illustrative, not command or business success",
+    "closure": "Real receipts/bytes/actor/fencing/provider and independent outcome oracles"
+  },
+  {
+    "id": "VIS-V9-CARRIED",
+    "priority": "P1",
+    "category": "verification",
+    "owner": "Design + Figma tooling + Frontend/QA",
+    "status": "OPEN_CARRIED_FORWARD",
+    "topic": "12 original selected-card visual findings on protected Current frames",
+    "proposal": "New GraphNode scenes expose controls; original protected findings remain",
+    "closure": "Corrected native original exports + corresponding browser render; cannot silently close by replacement screenshots"
+  }
+]

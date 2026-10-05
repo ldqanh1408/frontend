@@ -1,0 +1,32 @@
+[
+  {
+    "id": "A01",
+    "proposal": "Six account-preference presentation fields and enums",
+    "boundary": "Explicit ASSUMPTION; not an approved preference DTO or persistence contract"
+  },
+  {
+    "id": "A02",
+    "proposal": "Normalized lifecycle state labels and source chain fragment diagrams",
+    "boundary": "No server enums, branch guards or transition authority inferred; source chain/protected transitions retained"
+  },
+  {
+    "id": "A03",
+    "proposal": "Generic proposed route patterns and entity state bindings",
+    "boundary": "Approved router/API/error/cursor/permission/event contracts still required"
+  },
+  {
+    "id": "A04",
+    "proposal": "Illustrative actor families and Admin/Lead/Reviewer/Curator/Viewer contexts",
+    "boundary": "Explicit fixture handoffs do not log in or grant permissions; role names alone never authorize"
+  },
+  {
+    "id": "A05",
+    "proposal": "Package/journey joins for 174 source steps",
+    "boundary": "PROPOSED joins preserve source oracle/GWT; not approved case-specific coverage or pass"
+  },
+  {
+    "id": "A06",
+    "proposal": "Telemetry event names and responsive/localization behavior",
+    "boundary": "Proposed UI contracts; actual event schemas, browser/AT/locale/zoom behavior NOT_RUN"
+  }
+]
