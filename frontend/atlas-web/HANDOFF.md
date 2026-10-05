@@ -10,7 +10,7 @@ Bạn tiếp quản frontend Atlas trong `frontend/atlas-web`, repo `ldqanh1408/
 
 **Thứ tự bắt buộc:**
 1. Hỏi người dùng các quyết định kiến trúc ở mục 10.1 (một lần, gom chung một câu hỏi).
-2. Làm xong phần UI/UX còn lại: mục 4, cộng thêm mục 10 (bám Tech stack ADR + SRS v1.1) và mục 11 (UI-11: màn hình thực thi multi-agent refactor từ Archive).
+2. Làm xong phần UI/UX còn lại: mục 4, cộng thêm mục 10 (bám Tech stack ADR + SRS v1.1) và mục 11 (UI-11: tái sử dụng các mẫu UI khả dụng cao trong Figma Archive, có refactor).
 3. Sau đó mới làm test và cổng chất lượng (mục 5).
 
 **Hai tài liệu chuẩn bổ sung** do người dùng cung cấp: "Atlas — Tech Stack & ADR" (2026-10-01) và "SRS v1.1". Khi Figma, ADR và SRS mâu thuẫn:
@@ -358,9 +358,66 @@ Mỗi thư viện mới phải:
 - Đổi org bằng switcher (FR-1.6).
 - Không hiển thị dữ liệu khi thiếu tenant context.
 
-## 11. UI-11: Màn hình thực thi multi-agent, refactor từ Figma Archive
+## 11. UI-11: Tái sử dụng mẫu UI từ Figma Archive (có refactor)
 
-**Mục tiêu.** Người dùng rất ưng tính khả dụng của màn hình "Agent execution" trong trang **90 · Archive** (`278:728`), nhưng nó cần refactor. Đây chỉ là một ví dụ: hãy rà các màn hình khác trong Archive theo cùng tiêu chí và đề xuất danh sách cho người dùng chọn.
+**Bối cảnh.** Người dùng đánh giá trang **90 · Archive** (`278:728`) có **nhiều** mẫu UI khả dụng cao hơn so với Current UI. Màn hình thực thi multi-agent (mục 11.4) chỉ là **một ví dụ**. Việc của UI-11 là rà toàn bộ Archive, chọn ra các mẫu đáng dùng, rồi refactor để chúng vào app hiện tại.
+
+### 11.1. Kho frame đã kiểm kê
+
+`design-source/archive-frames.json` liệt kê 873 frame cấp cao của Archive theo section, kèm id và tên:
+
+| Section | Id | Số frame |
+|---|---|---|
+| 04 · Previous workspace · Dark (v9) | `278:741` | 194 |
+| 06 · … Light (v9) | `278:749` | 194 |
+| 05 · Previous Observer · Dark (v9) | `278:745` | 16 |
+| 07 · … Light (v9) | `278:753` | 16 |
+| 02 · Earlier workspace designs (v2–v8) | `278:733` | 412 |
+| 03 · Earlier Observer designs (v7–v8) | `278:737` | 32 |
+| 01 · Prior foundations and components (v2–v8) | `278:729` | 8 |
+| 08 · Previous review index (v9) | `278:757` | 1 |
+
+- **Ưu tiên v9** (section 04/06/05/07). v2–v8 chỉ dùng khi v9 không có màn hình tương đương.
+- Tên frame có dạng `UI v9 / workspace / <key>`. Bản Light cùng `<key>` nằm trong section `278:749`.
+
+### 11.2. Nhóm ứng viên trong v9
+
+Ghép theo SRS và theo route hiện tại. Đây là điểm xuất phát; agent tự soát thêm.
+
+| Nhóm SRS | Frame v9 (`<key>`) | Đích trong app hiện tại |
+|---|---|---|
+| M1 Onboarding & tenancy | onboarding, setup-readiness, setup-complete, organizations, workspaces, workspace-settings, projects, project-new, scope-workspaces, greenfield | `/tenancy`, Overview, trang account |
+| M1 Thành viên & RBAC (FR-1.2, FR-1.6) | members, invitations, invite, invite-identity, roles, role-editor, access, access-revoked, offboarding, state-wrong-account, state-expired-invitation, state-access-changed | `/identity`, trang account (UI-4) |
+| M1 LLM Gateway & ngân sách 3 tầng (FR-1.3) | gateway, routing, budgets, budget-ledger, state-budget-blocked | `/gateway`, `/saas` |
+| M1 Agent Customization Hub (FR-1.4) | hub, skills, rules, plugins, hooks, sidecars, default-agent, sandbox-templates, runtime-settings, integrations | `/agents`, `/resources`, `/configuration` (draft workbench) |
+| M1 Memory Hub (FR-1.5, FR-4.5) | memory, memory-settings, memory-import, curation, memory-layers, memory-lineage, memory-prep, ai-context, state-memory-deprecated | `/memory` |
+| M2 Spec, merge, lock (FR-2.x) | editor, specs, locked, history, spec-diff, merge, conflicts, stale-merge, draft-recovery, state-merge-stale, state-offline-draft, ide-state-* | `/specifications` |
+| M3 Code intelligence (FR-3.x) | code, search-code, evidence, scan, drift, code-symbols, repo-reconcile, state-empty-repository, state-scanner-unavailable | `/code` |
+| M4 Workflow & plan-first (FR-4.1–4.3) | workflow, workflow-templates, workflow-proposal, wf-review, meta-agent, agent-compose, contracts, plans, plan-detail, generation-job, admission, input-lineage, state-generation-failed, state-input-superseded, v6-state-multi-spec-plan, v6-state-context-* | `/workflow` |
+| M4/M5 Thực thi & sandbox (FR-4.4, FR-5.x) | execution (mục 11.4), execution-*, runs, run-detail, terminal, activity-tree, artifacts, snapshot, sandboxes, locks, recovery, cleanup, artifact-handoff, state-checkpoint-required, state-snapshot-unavailable, state-cleanup-held, state-restore-reconcile | `/execution`, `/desktop` |
+| M6 Governance (FR-6.x) | gates, gate-detail, gate-medium, risk-policy, risk-review, diff-review, security, secret-triage, reviewer-eligibility, signature-history, pull-request, pr-reconcile, ci-failed, pr-conflict, post-merge, acceptance, audit, exceptions, policy-impact, state-secret-confirmed, state-reviewer-missing, state-old-head-ci, state-pr-unknown, state-partial-merge, state-acceptance-failed, state-verification-unknown | `/governance`, `/configuration` |
+| M7 Collaboration & notifications (FR-7.2–7.5) | notifications, activity-tree (Thought tree), design-journeys, business-states | `/collaboration`, top bar |
+| Observer console (FR-7.6, NFR-2.4) | obs-overview, obs-login, traces, trace-detail, metrics, profiler, telemetry, infra, saturation, obs-audit, exports, export-job, data-quality, profile-compatibility, diagnostic-handoff | `/observer/*` (hoặc SPA `telemetry-console` nếu D2 được duyệt) |
+
+### 11.3. Quy trình bắt buộc
+
+1. **Chụp và chấm điểm.** Với mỗi nhóm, chụp frame v9 Dark (`get_screenshot` base64) và màn hình app tương ứng. Chấm 0–2 theo 5 tiêu chí:
+   - khả dụng: thông tin then chốt nhìn thấy ngay, ít thao tác;
+   - bám SRS: đúng trạng thái, quyền, ngưỡng, luồng;
+   - mức hiện tại thiếu: app chưa có, hoặc có nhưng kém;
+   - chi phí refactor;
+   - rủi ro a11y hoặc hiệu năng.
+2. **Hỏi người dùng chọn.** Gửi bảng shortlist: tên, id frame, điểm, ảnh thu nhỏ Archive và app, đề xuất "dùng / dùng một phần / bỏ". Đánh dấu ví dụ màn hình thực thi là đã được chọn. Không tự triển khai cả loạt khi người dùng chưa duyệt.
+3. **Refactor từng mẫu đã chọn** theo các quy tắc chung (áp dụng cho mọi mẫu, không chỉ màn hình thực thi):
+   - Bỏ shell, nav, top bar cũ của v9; đặt vào shell Current UI. Dùng token và primitive hiện có, typography Current UI (control 12 px).
+   - Trong Archive có nhiều nút trông như đang bật (Retry, Approve, Inspect…) và dữ liệu mẫu (Acme, RUN-DEMO, $, SHA, tên người). Production phải khoá kèm lý do và hiển thị "Not observed". Dữ liệu mẫu chỉ có trong review build, gắn "Illustrative".
+   - Quyền, trạng thái, ngưỡng và luồng theo mục 10.2; lệnh đi qua `sendCommand` với tiến trình Requested → Received → Accepted → Effective / Unknown.
+   - Thư viện theo quyết định D1–D4 ở mục 10.1.
+   - Không làm mất màn hình hay nhãn đang đạt parity Current UI (451/457), trừ khi người dùng đồng ý thay. Nếu mẫu Archive thay một frame Current UI, cập nhật `e2e/figma-parity.spec.ts` có chủ đích và ghi lý do.
+   - Mỗi mẫu có List hoặc bảng tương đương cho bàn phím và trình đọc màn hình; responsive theo UI-7; axe 0 vi phạm.
+4. **Commit và bằng chứng.** Mỗi mẫu một commit nhỏ. Báo cáo kèm ảnh Archive / app before / app after (Dark/Light), phần giữ, phần đổi, lý do.
+
+### 11.4. Ví dụ đã được người dùng chọn: màn hình thực thi multi-agent
 
 **Frame nguồn (v9, mới nhất trong Archive)**
 - Dark `137:2483` ("UI v9 / workspace / execution"); Light `166:1253`.
@@ -409,6 +466,6 @@ Mỗi thư viện mới phải:
     - E2E: production không có chữ mẫu; nút khoá có lý do; List view thao tác đủ bằng bàn phím.
     - Review build hiển thị đủ 8 trạng thái run.
 
-**Bàn giao UI-11**
+**Bàn giao mẫu này**
 - Commit riêng, kèm ảnh Archive và ảnh app.
 - Báo cáo nêu rõ phần nào giữ nguyên, phần nào đổi, và vì sao.

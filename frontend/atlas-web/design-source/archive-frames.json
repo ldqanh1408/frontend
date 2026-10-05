@@ -1,0 +1,5246 @@
+{
+ "file_key": "0md9BEFI1rU0aRAvf98TWO",
+ "page": "278:728 · 90 · Archive",
+ "read_at": "2026-10-05",
+ "method": "Figma MCP get_metadata, top-level frames per section",
+ "frames": [
+  {
+   "section": "278:729",
+   "section_name": "01 · Prior foundations and components (v2–v8)",
+   "id": "7:4",
+   "name": "START HERE / Atlas UI v2"
+  },
+  {
+   "section": "278:729",
+   "section_name": "01 · Prior foundations and components (v2–v8)",
+   "id": "7:24",
+   "name": "Foundations / Color &amp; typography"
+  },
+  {
+   "section": "278:729",
+   "section_name": "01 · Prior foundations and components (v2–v8)",
+   "id": "24:2",
+   "name": "Atlas UI v7 / Components"
+  },
+  {
+   "section": "278:729",
+   "section_name": "01 · Prior foundations and components (v2–v8)",
+   "id": "69:26",
+   "name": "Atlas UI v8 / Design system"
+  },
+  {
+   "section": "278:729",
+   "section_name": "01 · Prior foundations and components (v2–v8)",
+   "id": "112:122",
+   "name": "Atlas UI v8 / Review &amp; delivery"
+  },
+  {
+   "section": "278:729",
+   "section_name": "01 · Prior foundations and components (v2–v8)",
+   "id": "112:256",
+   "name": "Atlas UI v8 / Light specimen / editor"
+  },
+  {
+   "section": "278:729",
+   "section_name": "01 · Prior foundations and components (v2–v8)",
+   "id": "112:617",
+   "name": "Atlas UI v8 / Light specimen / code"
+  },
+  {
+   "section": "278:729",
+   "section_name": "01 · Prior foundations and components (v2–v8)",
+   "id": "112:954",
+   "name": "Atlas UI v8 / Light specimen / execution"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:2",
+   "name": "ARCHIVE / 01 · Đăng nhập"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:68",
+   "name": "ARCHIVE / 02 · Tổ chức &amp; dự án"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:134",
+   "name": "ARCHIVE / 03 · Thiết lập dự án"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:200",
+   "name": "ARCHIVE / 04 · Thành viên &amp; RBAC"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:266",
+   "name": "ARCHIVE / 05 · LLM Gateway"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:332",
+   "name": "ARCHIVE / 06 · Agent Hub"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:398",
+   "name": "ARCHIVE / 07 · Memory Bank"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:464",
+   "name": "ARCHIVE / 08 · Workflow Builder"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:530",
+   "name": "ARCHIVE / 09 · Spec Library"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:596",
+   "name": "ARCHIVE / 10 · Collaborative Editor"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:662",
+   "name": "ARCHIVE / 11 · Visual 3-Way Merge"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:728",
+   "name": "ARCHIVE / 12 · Spec Lock &amp; Submit"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:794",
+   "name": "ARCHIVE / 13 · Code Intelligence"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:860",
+   "name": "ARCHIVE / 14 · Proposed Plan"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:926",
+   "name": "ARCHIVE / 15 · Agent Run"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:992",
+   "name": "ARCHIVE / 16 · Risk &amp; Approval"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:1058",
+   "name": "ARCHIVE / 17 · Audit &amp; Security"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:1124",
+   "name": "ARCHIVE / 18 · Pull Request &amp; Drift"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:1190",
+   "name": "ARCHIVE / 19 · Notifications"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:1256",
+   "name": "ARCHIVE / 20 · Organization settings"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:1322",
+   "name": "ARCHIVE / 21 · Observer Overview"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:1380",
+   "name": "ARCHIVE / 22 · Distributed Traces"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:1438",
+   "name": "ARCHIVE / 23 · Continuous Profiler"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "2:1496",
+   "name": "ARCHIVE / 24 · Agent Telemetry"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "26:23",
+   "name": "UI v7 / workspace / execution"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "29:155",
+   "name": "UI v7 / workspace / editor"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "29:386",
+   "name": "UI v7 / workspace / code"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "38:236",
+   "name": "UI v7 / workspace / login"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "38:265",
+   "name": "UI v7 / workspace / auth-help"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "38:309",
+   "name": "UI v7 / workspace / invite"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "38:341",
+   "name": "UI v7 / workspace / onboarding"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "38:403",
+   "name": "UI v7 / workspace / projects"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "38:492",
+   "name": "UI v7 / workspace / project-new"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "38:578",
+   "name": "UI v7 / workspace / setup-complete"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "38:690",
+   "name": "UI v7 / workspace / members"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "38:830",
+   "name": "UI v7 / workspace / invitations"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "38:909",
+   "name": "UI v7 / workspace / roles"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "38:1047",
+   "name": "UI v7 / workspace / role-editor"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:283",
+   "name": "UI v7 / workspace / access"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:387",
+   "name": "UI v7 / workspace / gateway"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:534",
+   "name": "UI v7 / workspace / routing"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:652",
+   "name": "UI v7 / workspace / budgets"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:806",
+   "name": "UI v7 / workspace / hub"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:923",
+   "name": "UI v7 / workspace / skills"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:1040",
+   "name": "UI v7 / workspace / rules"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:1157",
+   "name": "UI v7 / workspace / plugins"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:1274",
+   "name": "UI v7 / workspace / hooks"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:1391",
+   "name": "UI v7 / workspace / sidecars"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:1508",
+   "name": "UI v7 / workspace / memory"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:1668",
+   "name": "UI v7 / workspace / memory-settings"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:1740",
+   "name": "UI v7 / workspace / memory-import"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:1801",
+   "name": "UI v7 / workspace / curation"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:1888",
+   "name": "UI v7 / workspace / settings"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:1971",
+   "name": "UI v7 / workspace / runtime-settings"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:2246",
+   "name": "UI v7 / workspace / risk-policy"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:2339",
+   "name": "UI v7 / workspace / integrations"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:2465",
+   "name": "UI v7 / workspace / default-agent"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:2536",
+   "name": "UI v7 / workspace / sandbox-templates"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:2656",
+   "name": "UI v7 / workspace / overview"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:2850",
+   "name": "UI v7 / workspace / specs"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:2983",
+   "name": "UI v7 / workspace / locked"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "40:3214",
+   "name": "UI v7 / workspace / history"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:532",
+   "name": "UI v7 / workspace / spec-diff"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:736",
+   "name": "UI v7 / workspace / merge"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:824",
+   "name": "UI v7 / workspace / search-code"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:901",
+   "name": "UI v7 / workspace / evidence"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:1082",
+   "name": "UI v7 / workspace / scan"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:1222",
+   "name": "UI v7 / workspace / drift"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:1347",
+   "name": "UI v7 / workspace / memory-prep"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:1454",
+   "name": "UI v7 / workspace / plans"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:1548",
+   "name": "UI v7 / workspace / plan-detail"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:1662",
+   "name": "UI v7 / workspace / workflow"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:1766",
+   "name": "UI v7 / workspace / agent-compose"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:1839",
+   "name": "UI v7 / workspace / meta-agent"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:1895",
+   "name": "UI v7 / workspace / contracts"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:1956",
+   "name": "UI v7 / workspace / runs"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:2142",
+   "name": "UI v7 / workspace / run-detail"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:2222",
+   "name": "UI v7 / workspace / terminal"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:2316",
+   "name": "UI v7 / workspace / activity-tree"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:2402",
+   "name": "UI v7 / workspace / artifacts"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:2551",
+   "name": "UI v7 / workspace / snapshot"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:2670",
+   "name": "UI v7 / workspace / sandboxes"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:2786",
+   "name": "UI v7 / workspace / locks"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:2890",
+   "name": "UI v7 / workspace / gates"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:3005",
+   "name": "UI v7 / workspace / gate-detail"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:3147",
+   "name": "UI v7 / workspace / gate-medium"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:3289",
+   "name": "UI v7 / workspace / diff-review"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:3381",
+   "name": "UI v7 / workspace / security"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:3475",
+   "name": "UI v7 / workspace / pull-request"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:3605",
+   "name": "UI v7 / workspace / ci-failed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:3665",
+   "name": "UI v7 / workspace / pr-conflict"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:3719",
+   "name": "UI v7 / workspace / post-merge"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:3871",
+   "name": "UI v7 / workspace / audit"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:4008",
+   "name": "UI v7 / workspace / notifications"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:4113",
+   "name": "UI v7 / workspace / exceptions"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:4393",
+   "name": "UI v7 / workspace / components"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:4535",
+   "name": "UI v7 / workspace / index"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:4929",
+   "name": "UI v7 / workspace / setup-readiness"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:5041",
+   "name": "UI v7 / workspace / invite-identity"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:5111",
+   "name": "UI v7 / workspace / access-revoked"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:5194",
+   "name": "UI v7 / workspace / repo-reconcile"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:5303",
+   "name": "UI v7 / workspace / budget-ledger"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:5450",
+   "name": "UI v7 / workspace / registry-impact"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:5549",
+   "name": "UI v7 / workspace / memory-lineage"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:5639",
+   "name": "UI v7 / workspace / workflow-proposal"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:5760",
+   "name": "UI v7 / workspace / draft-recovery"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:5826",
+   "name": "UI v7 / workspace / stale-merge"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:5897",
+   "name": "UI v7 / workspace / input-lineage"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:6045",
+   "name": "UI v7 / workspace / greenfield"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:6121",
+   "name": "UI v7 / workspace / generation-job"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:6207",
+   "name": "UI v7 / workspace / admission"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:6326",
+   "name": "UI v7 / workspace / artifact-handoff"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:6475",
+   "name": "UI v7 / workspace / recovery"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:6594",
+   "name": "UI v7 / workspace / secret-triage"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:6693",
+   "name": "UI v7 / workspace / reviewer-eligibility"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:6794",
+   "name": "UI v7 / workspace / signature-history"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:6875",
+   "name": "UI v7 / workspace / pr-reconcile"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:6970",
+   "name": "UI v7 / workspace / acceptance"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:7084",
+   "name": "UI v7 / workspace / cleanup"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:7203",
+   "name": "UI v7 / workspace / offboarding"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:7312",
+   "name": "UI v7 / workspace / policy-impact"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:7426",
+   "name": "UI v7 / workspace / incident-recovery"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:7515",
+   "name": "UI v7 / workspace / business-states"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:7715",
+   "name": "UI v7 / workspace / design-journeys"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:8102",
+   "name": "UI v7 / workspace / code-symbols"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:8271",
+   "name": "UI v7 / workspace / ai-context"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:8323",
+   "name": "UI v7 / workspace / ide-states"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:8442",
+   "name": "UI v7 / workspace / organizations"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "41:8490",
+   "name": "UI v7 / workspace / workspaces"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:1244",
+   "name": "UI v7 / workspace / workspace-settings"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:1314",
+   "name": "UI v7 / workspace / workflow-templates"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:1389",
+   "name": "UI v7 / workspace / conflicts"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:1492",
+   "name": "UI v7 / workspace / memory-layers"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:1598",
+   "name": "UI v7 / workspace / risk-review"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:1695",
+   "name": "UI v7 / workspace / wf-review"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:1934",
+   "name": "UI v7 / workspace / ide-journeys"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:2044",
+   "name": "UI v7 / workspace / scope-workspaces"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:2119",
+   "name": "UI v7 / workspace / execution-states"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:2232",
+   "name": "UI v7 / workspace / state-wrong-account"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:2302",
+   "name": "UI v7 / workspace / state-expired-invitation"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:2372",
+   "name": "UI v7 / workspace / state-access-changed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:2455",
+   "name": "UI v7 / workspace / state-repo-disconnected"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:2564",
+   "name": "UI v7 / workspace / state-budget-blocked"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:2711",
+   "name": "UI v7 / workspace / state-resource-revoked"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:2810",
+   "name": "UI v7 / workspace / state-memory-deprecated"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:2900",
+   "name": "UI v7 / workspace / state-offline-draft"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:2966",
+   "name": "UI v7 / workspace / state-merge-stale"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:3037",
+   "name": "UI v7 / workspace / state-input-superseded"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:3185",
+   "name": "UI v7 / workspace / state-empty-repository"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:3261",
+   "name": "UI v7 / workspace / state-generation-failed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:3347",
+   "name": "UI v7 / workspace / state-checkpoint-required"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:3466",
+   "name": "UI v7 / workspace / state-artifact-not-durable"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:3615",
+   "name": "UI v7 / workspace / state-snapshot-unavailable"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:3734",
+   "name": "UI v7 / workspace / state-scanner-unavailable"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:3833",
+   "name": "UI v7 / workspace / state-secret-confirmed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:3932",
+   "name": "UI v7 / workspace / state-reviewer-missing"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:4033",
+   "name": "UI v7 / workspace / state-old-head-ci"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:4163",
+   "name": "UI v7 / workspace / state-pr-unknown"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:4258",
+   "name": "UI v7 / workspace / state-partial-merge"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:4410",
+   "name": "UI v7 / workspace / state-acceptance-failed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:4524",
+   "name": "UI v7 / workspace / state-verification-unknown"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:4676",
+   "name": "UI v7 / workspace / state-cleanup-held"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:4795",
+   "name": "UI v7 / workspace / state-project-archived"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:4904",
+   "name": "UI v7 / workspace / state-restore-reconcile"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:4993",
+   "name": "UI v7 / workspace / ide-state-source-loading"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:5214",
+   "name": "UI v7 / workspace / ide-state-source-failed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:5437",
+   "name": "UI v7 / workspace / ide-state-source-denied"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:5565",
+   "name": "UI v7 / workspace / ide-state-source-empty"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:5786",
+   "name": "UI v7 / workspace / ide-state-binary-file"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:5984",
+   "name": "UI v7 / workspace / ide-state-large-file"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:6182",
+   "name": "UI v7 / workspace / ide-state-stale-index"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:6446",
+   "name": "UI v7 / workspace / ide-state-partial-index"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:6710",
+   "name": "UI v7 / workspace / ide-state-offline-draft"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:6919",
+   "name": "UI v7 / workspace / ide-state-dirty-tab"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:7128",
+   "name": "UI v7 / workspace / ide-state-frozen-draft"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:7180",
+   "name": "UI v7 / workspace / ide-state-stale-context"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:7322",
+   "name": "UI v7 / workspace / v6-state-spec-acceptance"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:7534",
+   "name": "UI v7 / workspace / v6-state-code-linked-spec"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:7792",
+   "name": "UI v7 / workspace / v6-state-greenfield-context"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:7899",
+   "name": "UI v7 / workspace / v6-state-context-confirm"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:8031",
+   "name": "UI v7 / workspace / v6-state-multi-spec-plan"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:8136",
+   "name": "UI v7 / workspace / v6-state-context-review"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:8283",
+   "name": "UI v7 / workspace / v6-state-context-revoked"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:8390",
+   "name": "UI v7 / workspace / v6-state-scope-confirm"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "42:8594",
+   "name": "UI v7 / workspace / execution-state-empty"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "44:2023",
+   "name": "UI v7 / workspace / execution-state-parallel"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:2156",
+   "name": "UI v7 / workspace / execution-state-checkpoint"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:2412",
+   "name": "UI v7 / workspace / execution-state-failed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:2668",
+   "name": "UI v7 / workspace / execution-state-budget"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:2924",
+   "name": "UI v7 / workspace / execution-state-paused"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:3180",
+   "name": "UI v7 / workspace / execution-state-cleanup-error"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:3436",
+   "name": "UI v7 / workspace / execution-state-completed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:3692",
+   "name": "UI v7 / workspace / execution-detail-terminal"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:3949",
+   "name": "UI v7 / workspace / execution-detail-artifacts"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:4216",
+   "name": "UI v7 / workspace / execution-detail-memory"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:4492",
+   "name": "UI v7 / workspace / execution-command-requested"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:4754",
+   "name": "UI v7 / workspace / execution-command-accepted"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:5016",
+   "name": "UI v7 / workspace / execution-command-outcome-unknown"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:5280",
+   "name": "UI v7 / workspace / execution-dialog-checkpoint"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:5567",
+   "name": "UI v7 / workspace / execution-dialog-cancel"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:5855",
+   "name": "UI v7 / workspace / execution-dialog-resume"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:6140",
+   "name": "UI v7 / workspace / execution-dialog-retry"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:6425",
+   "name": "UI v7 / workspace / execution-agent-t-01"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:6684",
+   "name": "UI v7 / workspace / execution-agent-t-03"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:6943",
+   "name": "UI v7 / workspace / execution-agent-t-04"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:7202",
+   "name": "UI v7 / workspace / execution-agent-t-05"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:7461",
+   "name": "UI v7 / workspace / execution-agent-t-06"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:7720",
+   "name": "UI v7 / workspace / execution-agent-t-07"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:7979",
+   "name": "UI v7 / workspace / execution-inspector-context"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:8233",
+   "name": "UI v7 / workspace / execution-inspector-access"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:8485",
+   "name": "UI v7 / workspace / execution-dialog-snapshot"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:8752",
+   "name": "UI v7 / workspace / execution-dialog-lineage"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:9019",
+   "name": "UI v7 / workspace / execution-dialog-manifest"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "45:9286",
+   "name": "UI v7 / workspace / execution-permission-viewer"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "53:5894",
+   "name": "UI v7 / workspace / execution-command-approve-gate-requested"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "53:6157",
+   "name": "UI v7 / workspace / execution-command-cancel-requested"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "53:6420",
+   "name": "UI v7 / workspace / execution-command-resume-requested"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "53:6683",
+   "name": "UI v7 / workspace / execution-command-retry-requested"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "73:6510",
+   "name": "UI v8 / workspace / editor"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "73:6964",
+   "name": "UI v8 / workspace / code"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "73:7384",
+   "name": "UI v8 / workspace / execution"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "78:7112",
+   "name": "UI v8 / workspace / login"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "78:7154",
+   "name": "UI v8 / workspace / auth-help"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "78:7349",
+   "name": "UI v8 / workspace / invite"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "78:7387",
+   "name": "UI v8 / workspace / onboarding"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "78:7600",
+   "name": "UI v8 / workspace / projects"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "78:7870",
+   "name": "UI v8 / workspace / project-new"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "78:8107",
+   "name": "UI v8 / workspace / setup-complete"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "78:8387",
+   "name": "UI v8 / workspace / members"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "78:8707",
+   "name": "UI v8 / workspace / invitations"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "80:7775",
+   "name": "UI v8 / workspace / roles"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "80:8100",
+   "name": "UI v8 / workspace / role-editor"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "80:8368",
+   "name": "UI v8 / workspace / access"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "80:8620",
+   "name": "UI v8 / workspace / gateway"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "80:8939",
+   "name": "UI v8 / workspace / routing"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "80:9217",
+   "name": "UI v8 / workspace / budgets"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "80:9543",
+   "name": "UI v8 / workspace / hub"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "80:9841",
+   "name": "UI v8 / workspace / skills"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "80:10139",
+   "name": "UI v8 / workspace / rules"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "80:10437",
+   "name": "UI v8 / workspace / plugins"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "80:10735",
+   "name": "UI v8 / workspace / hooks"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "80:11033",
+   "name": "UI v8 / workspace / sidecars"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "87:9107",
+   "name": "UI v8 / workspace / memory"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "87:9451",
+   "name": "UI v8 / workspace / memory-settings"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "87:9710",
+   "name": "UI v8 / workspace / memory-import"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "87:9940",
+   "name": "UI v8 / workspace / curation"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "87:10201",
+   "name": "UI v8 / workspace / settings"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "87:10455",
+   "name": "UI v8 / workspace / runtime-settings"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "87:10959",
+   "name": "UI v8 / workspace / risk-policy"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "87:11245",
+   "name": "UI v8 / workspace / integrations"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "87:11549",
+   "name": "UI v8 / workspace / default-agent"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "87:11813",
+   "name": "UI v8 / workspace / sandbox-templates"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "89:11006",
+   "name": "UI v8 / workspace / overview"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "89:11389",
+   "name": "UI v8 / workspace / specs"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "89:11703",
+   "name": "UI v8 / workspace / locked"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "89:12170",
+   "name": "UI v8 / workspace / history"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "89:12416",
+   "name": "UI v8 / workspace / spec-diff"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "89:12883",
+   "name": "UI v8 / workspace / merge"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "89:13156",
+   "name": "UI v8 / workspace / search-code"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "89:13405",
+   "name": "UI v8 / workspace / evidence"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "89:13762",
+   "name": "UI v8 / workspace / scan"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "89:14065",
+   "name": "UI v8 / workspace / drift"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "89:14361",
+   "name": "UI v8 / workspace / memory-prep"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "89:14631",
+   "name": "UI v8 / workspace / plans"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "89:14885",
+   "name": "UI v8 / workspace / plan-detail"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:11702",
+   "name": "UI v8 / workspace / workflow"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:11987",
+   "name": "UI v8 / workspace / agent-compose"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:12262",
+   "name": "UI v8 / workspace / meta-agent"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:12481",
+   "name": "UI v8 / workspace / contracts"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:12714",
+   "name": "UI v8 / workspace / runs"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:13072",
+   "name": "UI v8 / workspace / run-detail"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:13320",
+   "name": "UI v8 / workspace / terminal"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:13583",
+   "name": "UI v8 / workspace / activity-tree"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:13835",
+   "name": "UI v8 / workspace / artifacts"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:14150",
+   "name": "UI v8 / workspace / snapshot"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:14437",
+   "name": "UI v8 / workspace / sandboxes"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:14716",
+   "name": "UI v8 / workspace / locks"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:14983",
+   "name": "UI v8 / workspace / gates"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:15261",
+   "name": "UI v8 / workspace / gate-detail"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:15578",
+   "name": "UI v8 / workspace / gate-medium"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:15895",
+   "name": "UI v8 / workspace / diff-review"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:16144",
+   "name": "UI v8 / workspace / security"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:16395",
+   "name": "UI v8 / workspace / pull-request"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:16697",
+   "name": "UI v8 / workspace / ci-failed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:16917",
+   "name": "UI v8 / workspace / pr-conflict"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:17131",
+   "name": "UI v8 / workspace / post-merge"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:17452",
+   "name": "UI v8 / workspace / audit"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "90:17740",
+   "name": "UI v8 / workspace / notifications"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:14019",
+   "name": "UI v8 / workspace / exceptions"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:14558",
+   "name": "UI v8 / workspace / components"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:14899",
+   "name": "UI v8 / workspace / index"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:15822",
+   "name": "UI v8 / workspace / setup-readiness"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:16100",
+   "name": "UI v8 / workspace / invite-identity"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:16327",
+   "name": "UI v8 / workspace / access-revoked"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:16567",
+   "name": "UI v8 / workspace / repo-reconcile"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:16839",
+   "name": "UI v8 / workspace / budget-ledger"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:17146",
+   "name": "UI v8 / workspace / registry-impact"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:17408",
+   "name": "UI v8 / workspace / memory-lineage"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:17661",
+   "name": "UI v8 / workspace / workflow-proposal"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:17942",
+   "name": "UI v8 / workspace / draft-recovery"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:18168",
+   "name": "UI v8 / workspace / stale-merge"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:18396",
+   "name": "UI v8 / workspace / input-lineage"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:18702",
+   "name": "UI v8 / workspace / greenfield"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:18932",
+   "name": "UI v8 / workspace / generation-job"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:19178",
+   "name": "UI v8 / workspace / admission"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:19463",
+   "name": "UI v8 / workspace / artifact-handoff"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:19778",
+   "name": "UI v8 / workspace / recovery"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:20063",
+   "name": "UI v8 / workspace / secret-triage"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:20325",
+   "name": "UI v8 / workspace / reviewer-eligibility"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:20586",
+   "name": "UI v8 / workspace / signature-history"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:20827",
+   "name": "UI v8 / workspace / pr-reconcile"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:21082",
+   "name": "UI v8 / workspace / acceptance"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:21356",
+   "name": "UI v8 / workspace / cleanup"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:21635",
+   "name": "UI v8 / workspace / offboarding"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:21915",
+   "name": "UI v8 / workspace / policy-impact"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:22189",
+   "name": "UI v8 / workspace / incident-recovery"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "91:22441",
+   "name": "UI v8 / workspace / business-states"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:17231",
+   "name": "UI v8 / workspace / design-journeys"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:18144",
+   "name": "UI v8 / workspace / code-symbols"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:18497",
+   "name": "UI v8 / workspace / ai-context"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:18689",
+   "name": "UI v8 / workspace / ide-states"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:18995",
+   "name": "UI v8 / workspace / organizations"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:19202",
+   "name": "UI v8 / workspace / workspaces"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:19481",
+   "name": "UI v8 / workspace / workspace-settings"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:19724",
+   "name": "UI v8 / workspace / workflow-templates"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:19959",
+   "name": "UI v8 / workspace / conflicts"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:20231",
+   "name": "UI v8 / workspace / memory-layers"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:20521",
+   "name": "UI v8 / workspace / risk-review"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:20784",
+   "name": "UI v8 / workspace / wf-review"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:21255",
+   "name": "UI v8 / workspace / ide-journeys"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:21531",
+   "name": "UI v8 / workspace / scope-workspaces"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:21763",
+   "name": "UI v8 / workspace / execution-states"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:21963",
+   "name": "UI v8 / workspace / state-wrong-account"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:22190",
+   "name": "UI v8 / workspace / state-expired-invitation"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:22417",
+   "name": "UI v8 / workspace / state-access-changed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:22657",
+   "name": "UI v8 / workspace / state-repo-disconnected"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:22929",
+   "name": "UI v8 / workspace / state-budget-blocked"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:23236",
+   "name": "UI v8 / workspace / state-resource-revoked"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:23498",
+   "name": "UI v8 / workspace / state-memory-deprecated"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:23751",
+   "name": "UI v8 / workspace / state-offline-draft"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:23977",
+   "name": "UI v8 / workspace / state-merge-stale"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:24205",
+   "name": "UI v8 / workspace / state-input-superseded"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:24511",
+   "name": "UI v8 / workspace / state-empty-repository"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:24741",
+   "name": "UI v8 / workspace / state-generation-failed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:24987",
+   "name": "UI v8 / workspace / state-checkpoint-required"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:25272",
+   "name": "UI v8 / workspace / state-artifact-not-durable"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:25587",
+   "name": "UI v8 / workspace / state-snapshot-unavailable"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:25872",
+   "name": "UI v8 / workspace / state-scanner-unavailable"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:26134",
+   "name": "UI v8 / workspace / state-secret-confirmed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "92:26396",
+   "name": "UI v8 / workspace / state-reviewer-missing"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:20727",
+   "name": "UI v8 / workspace / state-old-head-ci"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:21035",
+   "name": "UI v8 / workspace / state-pr-unknown"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:21292",
+   "name": "UI v8 / workspace / state-partial-merge"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:21613",
+   "name": "UI v8 / workspace / state-acceptance-failed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:21887",
+   "name": "UI v8 / workspace / state-verification-unknown"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:22208",
+   "name": "UI v8 / workspace / state-cleanup-held"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:22487",
+   "name": "UI v8 / workspace / state-project-archived"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:22767",
+   "name": "UI v8 / workspace / state-restore-reconcile"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:23019",
+   "name": "UI v8 / workspace / ide-state-source-loading"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:23476",
+   "name": "UI v8 / workspace / ide-state-source-failed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:23938",
+   "name": "UI v8 / workspace / ide-state-source-denied"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:24265",
+   "name": "UI v8 / workspace / ide-state-source-empty"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:24722",
+   "name": "UI v8 / workspace / ide-state-binary-file"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:25147",
+   "name": "UI v8 / workspace / ide-state-large-file"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:25572",
+   "name": "UI v8 / workspace / ide-state-stale-index"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "93:26069",
+   "name": "UI v8 / workspace / ide-state-partial-index"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:22695",
+   "name": "UI v8 / workspace / ide-state-offline-draft"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:23154",
+   "name": "UI v8 / workspace / ide-state-dirty-tab"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:23605",
+   "name": "UI v8 / workspace / ide-state-frozen-draft"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:23811",
+   "name": "UI v8 / workspace / ide-state-stale-context"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:24147",
+   "name": "UI v8 / workspace / v6-state-spec-acceptance"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:24598",
+   "name": "UI v8 / workspace / v6-state-code-linked-spec"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:25089",
+   "name": "UI v8 / workspace / v6-state-greenfield-context"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:25357",
+   "name": "UI v8 / workspace / v6-state-context-confirm"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:25659",
+   "name": "UI v8 / workspace / v6-state-multi-spec-plan"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:25919",
+   "name": "UI v8 / workspace / v6-state-context-review"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:26251",
+   "name": "UI v8 / workspace / v6-state-context-revoked"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:26525",
+   "name": "UI v8 / workspace / v6-state-scope-confirm"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:26987",
+   "name": "UI v8 / workspace / execution-state-empty"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:27294",
+   "name": "UI v8 / workspace / execution-state-parallel"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:27887",
+   "name": "UI v8 / workspace / execution-state-checkpoint"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:28454",
+   "name": "UI v8 / workspace / execution-state-failed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:29027",
+   "name": "UI v8 / workspace / execution-state-budget"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:29600",
+   "name": "UI v8 / workspace / execution-state-paused"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:30167",
+   "name": "UI v8 / workspace / execution-state-cleanup-error"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:30739",
+   "name": "UI v8 / workspace / execution-state-completed"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:31306",
+   "name": "UI v8 / workspace / execution-detail-terminal"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:31869",
+   "name": "UI v8 / workspace / execution-detail-artifacts"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:32510",
+   "name": "UI v8 / workspace / execution-detail-memory"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "94:33156",
+   "name": "UI v8 / workspace / execution-command-requested"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:27416",
+   "name": "UI v8 / workspace / execution-command-accepted"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:28024",
+   "name": "UI v8 / workspace / execution-command-outcome-unknown"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:28598",
+   "name": "UI v8 / workspace / execution-dialog-checkpoint"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:29218",
+   "name": "UI v8 / workspace / execution-dialog-cancel"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:29832",
+   "name": "UI v8 / workspace / execution-dialog-resume"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:30450",
+   "name": "UI v8 / workspace / execution-dialog-retry"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:31068",
+   "name": "UI v8 / workspace / execution-agent-t-01"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:31636",
+   "name": "UI v8 / workspace / execution-agent-t-03"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:32204",
+   "name": "UI v8 / workspace / execution-agent-t-04"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:32772",
+   "name": "UI v8 / workspace / execution-agent-t-05"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:33340",
+   "name": "UI v8 / workspace / execution-agent-t-06"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:33908",
+   "name": "UI v8 / workspace / execution-agent-t-07"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:34476",
+   "name": "UI v8 / workspace / execution-inspector-context"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:35018",
+   "name": "UI v8 / workspace / execution-inspector-access"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:35564",
+   "name": "UI v8 / workspace / execution-dialog-snapshot"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:36145",
+   "name": "UI v8 / workspace / execution-dialog-lineage"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:36726",
+   "name": "UI v8 / workspace / execution-dialog-manifest"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:37379",
+   "name": "UI v8 / workspace / execution-permission-viewer"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:37948",
+   "name": "UI v8 / workspace / execution-command-approve-gate-requested"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:38519",
+   "name": "UI v8 / workspace / execution-command-cancel-requested"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:39092",
+   "name": "UI v8 / workspace / execution-command-resume-requested"
+  },
+  {
+   "section": "278:733",
+   "section_name": "02 · Earlier workspace designs (v2–v8)",
+   "id": "95:39663",
+   "name": "UI v8 / workspace / execution-command-retry-requested"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:8737",
+   "name": "UI v7 / observer / obs-login"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:8760",
+   "name": "UI v7 / observer / obs-overview"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:8987",
+   "name": "UI v7 / observer / traces"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:9118",
+   "name": "UI v7 / observer / trace-detail"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:9263",
+   "name": "UI v7 / observer / metrics"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:9417",
+   "name": "UI v7 / observer / profiler"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:9579",
+   "name": "UI v7 / observer / telemetry"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:9760",
+   "name": "UI v7 / observer / infra"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:9904",
+   "name": "UI v7 / observer / saturation"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:10025",
+   "name": "UI v7 / observer / obs-audit"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:10126",
+   "name": "UI v7 / observer / exports"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:10201",
+   "name": "UI v7 / observer / index"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:10282",
+   "name": "UI v7 / observer / data-quality"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:10398",
+   "name": "UI v7 / observer / export-job"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:10476",
+   "name": "UI v7 / observer / profile-compatibility"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "42:10545",
+   "name": "UI v7 / observer / diagnostic-handoff"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:215",
+   "name": "UI v8 / observer / obs-login"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:253",
+   "name": "UI v8 / observer / obs-overview"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:599",
+   "name": "UI v8 / observer / traces"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:832",
+   "name": "UI v8 / observer / trace-detail"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:1094",
+   "name": "UI v8 / observer / metrics"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:1335",
+   "name": "UI v8 / observer / profiler"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:1662",
+   "name": "UI v8 / observer / telemetry"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:1930",
+   "name": "UI v8 / observer / infra"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:2170",
+   "name": "UI v8 / observer / saturation"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:2378",
+   "name": "UI v8 / observer / obs-audit"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:2566",
+   "name": "UI v8 / observer / exports"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:2731",
+   "name": "UI v8 / observer / index"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:2944",
+   "name": "UI v8 / observer / data-quality"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:3150",
+   "name": "UI v8 / observer / export-job"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:3326",
+   "name": "UI v8 / observer / profile-compatibility"
+  },
+  {
+   "section": "278:737",
+   "section_name": "03 · Earlier Observer designs (v7–v8)",
+   "id": "96:3485",
+   "name": "UI v8 / observer / diagnostic-handoff"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "137:887",
+   "name": "UI v9 / workspace / editor"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "137:1651",
+   "name": "UI v9 / workspace / code"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "137:2483",
+   "name": "UI v9 / workspace / execution"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "138:1361",
+   "name": "UI v9 / workspace / login"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "138:1530",
+   "name": "UI v9 / workspace / members"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "138:2023",
+   "name": "UI v9 / workspace / setup-readiness"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "139:1669",
+   "name": "UI v9 / workspace / settings"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "139:2110",
+   "name": "UI v9 / workspace / overview"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "139:2679",
+   "name": "UI v9 / workspace / workflow"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "140:2010",
+   "name": "UI v9 / workspace / gate-detail"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "140:2542",
+   "name": "UI v9 / workspace / components"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "140:3084",
+   "name": "UI v9 / workspace / v6-state-context-confirm"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "149:2328",
+   "name": "UI v9 / workspace / auth-help"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "149:2583",
+   "name": "UI v9 / workspace / invite"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "149:2718",
+   "name": "UI v9 / workspace / onboarding"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "149:3070",
+   "name": "UI v9 / workspace / projects"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "149:3479",
+   "name": "UI v9 / workspace / project-new"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "149:3863",
+   "name": "UI v9 / workspace / setup-complete"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "149:4298",
+   "name": "UI v9 / workspace / invitations"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "149:4696",
+   "name": "UI v9 / workspace / roles"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "149:5266",
+   "name": "UI v9 / workspace / role-editor"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:3169",
+   "name": "UI v9 / workspace / access"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:3577",
+   "name": "UI v9 / workspace / gateway"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:4065",
+   "name": "UI v9 / workspace / routing"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:4506",
+   "name": "UI v9 / workspace / budgets"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:5003",
+   "name": "UI v9 / workspace / hub"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:5480",
+   "name": "UI v9 / workspace / skills"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:5957",
+   "name": "UI v9 / workspace / rules"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:6434",
+   "name": "UI v9 / workspace / plugins"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:6911",
+   "name": "UI v9 / workspace / hooks"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:7388",
+   "name": "UI v9 / workspace / sidecars"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:7864",
+   "name": "UI v9 / workspace / memory"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:8381",
+   "name": "UI v9 / workspace / memory-settings"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:8809",
+   "name": "UI v9 / workspace / memory-import"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:9200",
+   "name": "UI v9 / workspace / curation"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:9683",
+   "name": "UI v9 / workspace / runtime-settings"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:10419",
+   "name": "UI v9 / workspace / risk-policy"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:10886",
+   "name": "UI v9 / workspace / integrations"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "150:11372",
+   "name": "UI v9 / workspace / default-agent"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:5122",
+   "name": "UI v9 / workspace / sandbox-templates"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:5571",
+   "name": "UI v9 / workspace / specs"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:6122",
+   "name": "UI v9 / workspace / locked"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:6814",
+   "name": "UI v9 / workspace / history"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:7281",
+   "name": "UI v9 / workspace / spec-diff"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:7984",
+   "name": "UI v9 / workspace / merge"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:8433",
+   "name": "UI v9 / workspace / search-code"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:8869",
+   "name": "UI v9 / workspace / evidence"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:9408",
+   "name": "UI v9 / workspace / scan"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:9873",
+   "name": "UI v9 / workspace / drift"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:10336",
+   "name": "UI v9 / workspace / memory-prep"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:10763",
+   "name": "UI v9 / workspace / plans"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:11177",
+   "name": "UI v9 / workspace / plan-detail"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:11652",
+   "name": "UI v9 / workspace / agent-compose"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "151:12102",
+   "name": "UI v9 / workspace / meta-agent"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:6807",
+   "name": "UI v9 / workspace / contracts"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:7219",
+   "name": "UI v9 / workspace / runs"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:7743",
+   "name": "UI v9 / workspace / run-detail"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:8151",
+   "name": "UI v9 / workspace / terminal"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:8570",
+   "name": "UI v9 / workspace / activity-tree"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:8985",
+   "name": "UI v9 / workspace / artifacts"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:9470",
+   "name": "UI v9 / workspace / snapshot"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:9920",
+   "name": "UI v9 / workspace / sandboxes"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:10351",
+   "name": "UI v9 / workspace / locks"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:10772",
+   "name": "UI v9 / workspace / gates"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:11221",
+   "name": "UI v9 / workspace / gate-medium"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:11703",
+   "name": "UI v9 / workspace / diff-review"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:12097",
+   "name": "UI v9 / workspace / security"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:12510",
+   "name": "UI v9 / workspace / pull-request"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:12971",
+   "name": "UI v9 / workspace / ci-failed"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:13336",
+   "name": "UI v9 / workspace / pr-conflict"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:13713",
+   "name": "UI v9 / workspace / post-merge"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "152:14190",
+   "name": "UI v9 / workspace / audit"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:8588",
+   "name": "UI v9 / workspace / notifications"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:9112",
+   "name": "UI v9 / workspace / exceptions"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:10136",
+   "name": "UI v9 / workspace / index"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:11452",
+   "name": "UI v9 / workspace / invite-identity"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:11827",
+   "name": "UI v9 / workspace / access-revoked"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:12222",
+   "name": "UI v9 / workspace / repo-reconcile"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:12652",
+   "name": "UI v9 / workspace / budget-ledger"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:13113",
+   "name": "UI v9 / workspace / registry-impact"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:13527",
+   "name": "UI v9 / workspace / memory-lineage"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:13933",
+   "name": "UI v9 / workspace / workflow-proposal"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:14365",
+   "name": "UI v9 / workspace / draft-recovery"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:14734",
+   "name": "UI v9 / workspace / stale-merge"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:15118",
+   "name": "UI v9 / workspace / input-lineage"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:15581",
+   "name": "UI v9 / workspace / greenfield"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "153:15958",
+   "name": "UI v9 / workspace / generation-job"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:10362",
+   "name": "UI v9 / workspace / admission"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:10830",
+   "name": "UI v9 / workspace / artifact-handoff"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:11315",
+   "name": "UI v9 / workspace / recovery"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:11768",
+   "name": "UI v9 / workspace / secret-triage"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:12190",
+   "name": "UI v9 / workspace / reviewer-eligibility"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:12607",
+   "name": "UI v9 / workspace / signature-history"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:12997",
+   "name": "UI v9 / workspace / pr-reconcile"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:13403",
+   "name": "UI v9 / workspace / acceptance"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:13832",
+   "name": "UI v9 / workspace / cleanup"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:14268",
+   "name": "UI v9 / workspace / offboarding"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:14702",
+   "name": "UI v9 / workspace / policy-impact"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:15123",
+   "name": "UI v9 / workspace / incident-recovery"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:15566",
+   "name": "UI v9 / workspace / business-states"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:16421",
+   "name": "UI v9 / workspace / design-journeys"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:17729",
+   "name": "UI v9 / workspace / code-symbols"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:18238",
+   "name": "UI v9 / workspace / ai-context"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:18588",
+   "name": "UI v9 / workspace / ide-states"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "154:19055",
+   "name": "UI v9 / workspace / organizations"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:12406",
+   "name": "UI v9 / workspace / workspaces"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:12862",
+   "name": "UI v9 / workspace / workspace-settings"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:13262",
+   "name": "UI v9 / workspace / workflow-templates"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:13653",
+   "name": "UI v9 / workspace / conflicts"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:14097",
+   "name": "UI v9 / workspace / memory-layers"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:14559",
+   "name": "UI v9 / workspace / risk-review"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:15025",
+   "name": "UI v9 / workspace / wf-review"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:15692",
+   "name": "UI v9 / workspace / ide-journeys"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:16115",
+   "name": "UI v9 / workspace / scope-workspaces"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:16483",
+   "name": "UI v9 / workspace / execution-states"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:16819",
+   "name": "UI v9 / workspace / state-wrong-account"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:17187",
+   "name": "UI v9 / workspace / state-expired-invitation"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:17558",
+   "name": "UI v9 / workspace / state-access-changed"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:17953",
+   "name": "UI v9 / workspace / state-repo-disconnected"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:18383",
+   "name": "UI v9 / workspace / state-budget-blocked"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:18844",
+   "name": "UI v9 / workspace / state-resource-revoked"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:19258",
+   "name": "UI v9 / workspace / state-memory-deprecated"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "155:19658",
+   "name": "UI v9 / workspace / state-offline-draft"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:14166",
+   "name": "UI v9 / workspace / state-merge-stale"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:14562",
+   "name": "UI v9 / workspace / state-input-superseded"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:15025",
+   "name": "UI v9 / workspace / state-empty-repository"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:15402",
+   "name": "UI v9 / workspace / state-generation-failed"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:15812",
+   "name": "UI v9 / workspace / state-checkpoint-required"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:16268",
+   "name": "UI v9 / workspace / state-artifact-not-durable"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:16753",
+   "name": "UI v9 / workspace / state-snapshot-unavailable"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:17202",
+   "name": "UI v9 / workspace / state-scanner-unavailable"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:17625",
+   "name": "UI v9 / workspace / state-secret-confirmed"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:18047",
+   "name": "UI v9 / workspace / state-reviewer-missing"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:18475",
+   "name": "UI v9 / workspace / state-old-head-ci"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:18940",
+   "name": "UI v9 / workspace / state-pr-unknown"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:19358",
+   "name": "UI v9 / workspace / state-partial-merge"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:19847",
+   "name": "UI v9 / workspace / state-acceptance-failed"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:20289",
+   "name": "UI v9 / workspace / state-verification-unknown"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:20777",
+   "name": "UI v9 / workspace / state-cleanup-held"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:21213",
+   "name": "UI v9 / workspace / state-project-archived"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:21649",
+   "name": "UI v9 / workspace / state-restore-reconcile"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:22106",
+   "name": "UI v9 / workspace / ide-state-source-loading"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:22828",
+   "name": "UI v9 / workspace / ide-state-source-failed"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "156:23530",
+   "name": "UI v9 / workspace / ide-state-source-denied"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:16455",
+   "name": "UI v9 / workspace / ide-state-source-empty"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:17181",
+   "name": "UI v9 / workspace / ide-state-binary-file"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:17857",
+   "name": "UI v9 / workspace / ide-state-large-file"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:18537",
+   "name": "UI v9 / workspace / ide-state-stale-index"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:19293",
+   "name": "UI v9 / workspace / ide-state-partial-index"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:20062",
+   "name": "UI v9 / workspace / ide-state-offline-draft"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:20807",
+   "name": "UI v9 / workspace / ide-state-dirty-tab"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:21467",
+   "name": "UI v9 / workspace / ide-state-frozen-draft"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:21845",
+   "name": "UI v9 / workspace / ide-state-stale-context"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:22426",
+   "name": "UI v9 / workspace / v6-state-spec-acceptance"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:23149",
+   "name": "UI v9 / workspace / v6-state-code-linked-spec"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:23851",
+   "name": "UI v9 / workspace / v6-state-greenfield-context"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:24281",
+   "name": "UI v9 / workspace / v6-state-multi-spec-plan"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:24719",
+   "name": "UI v9 / workspace / v6-state-context-review"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:25234",
+   "name": "UI v9 / workspace / v6-state-context-revoked"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:25737",
+   "name": "UI v9 / workspace / v6-state-scope-confirm"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:26466",
+   "name": "UI v9 / workspace / execution-state-empty"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "157:27164",
+   "name": "UI v9 / workspace / execution-state-parallel"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:19169",
+   "name": "UI v9 / workspace / execution-state-checkpoint"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:20314",
+   "name": "UI v9 / workspace / execution-state-failed"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:21422",
+   "name": "UI v9 / workspace / execution-state-budget"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:22530",
+   "name": "UI v9 / workspace / execution-state-paused"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:23623",
+   "name": "UI v9 / workspace / execution-state-cleanup-error"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:24740",
+   "name": "UI v9 / workspace / execution-state-completed"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:25831",
+   "name": "UI v9 / workspace / execution-detail-terminal"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:26914",
+   "name": "UI v9 / workspace / execution-detail-artifacts"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:28075",
+   "name": "UI v9 / workspace / execution-detail-memory"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:29243",
+   "name": "UI v9 / workspace / execution-command-requested"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:30342",
+   "name": "UI v9 / workspace / execution-command-accepted"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:31444",
+   "name": "UI v9 / workspace / execution-command-outcome-unknown"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:32555",
+   "name": "UI v9 / workspace / execution-dialog-checkpoint"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:33703",
+   "name": "UI v9 / workspace / execution-dialog-cancel"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:34847",
+   "name": "UI v9 / workspace / execution-dialog-resume"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:35989",
+   "name": "UI v9 / workspace / execution-dialog-retry"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:37127",
+   "name": "UI v9 / workspace / execution-agent-t-01"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "158:38403",
+   "name": "UI v9 / workspace / execution-agent-t-03"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:24321",
+   "name": "UI v9 / workspace / execution-agent-t-04"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:25665",
+   "name": "UI v9 / workspace / execution-agent-t-05"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:26941",
+   "name": "UI v9 / workspace / execution-agent-t-06"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:28217",
+   "name": "UI v9 / workspace / execution-agent-t-07"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:29489",
+   "name": "UI v9 / workspace / execution-inspector-context"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:30545",
+   "name": "UI v9 / workspace / execution-inspector-access"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:31611",
+   "name": "UI v9 / workspace / execution-dialog-snapshot"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:32718",
+   "name": "UI v9 / workspace / execution-dialog-lineage"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:33825",
+   "name": "UI v9 / workspace / execution-dialog-manifest"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:35002",
+   "name": "UI v9 / workspace / execution-permission-viewer"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:36104",
+   "name": "UI v9 / workspace / execution-command-approve-gate-requested"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:37201",
+   "name": "UI v9 / workspace / execution-command-cancel-requested"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:38300",
+   "name": "UI v9 / workspace / execution-command-resume-requested"
+  },
+  {
+   "section": "278:741",
+   "section_name": "04 · Previous workspace · Dark (v9)",
+   "id": "159:39409",
+   "name": "UI v9 / workspace / execution-command-retry-requested"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "141:803",
+   "name": "UI v9 / observer / obs-overview"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:40320",
+   "name": "UI v9 / observer / obs-login"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:40425",
+   "name": "UI v9 / observer / traces"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:40771",
+   "name": "UI v9 / observer / trace-detail"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:41132",
+   "name": "UI v9 / observer / metrics"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:41507",
+   "name": "UI v9 / observer / profiler"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:41966",
+   "name": "UI v9 / observer / telemetry"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:42324",
+   "name": "UI v9 / observer / infra"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:42654",
+   "name": "UI v9 / observer / saturation"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:42942",
+   "name": "UI v9 / observer / obs-audit"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:43213",
+   "name": "UI v9 / observer / exports"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:43491",
+   "name": "UI v9 / observer / index"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:43821",
+   "name": "UI v9 / observer / data-quality"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:44118",
+   "name": "UI v9 / observer / export-job"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:44379",
+   "name": "UI v9 / observer / profile-compatibility"
+  },
+  {
+   "section": "278:745",
+   "section_name": "05 · Previous Observer · Dark (v9)",
+   "id": "159:44621",
+   "name": "UI v9 / observer / diagnostic-handoff"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "165:730",
+   "name": "UI v9 Light / workspace / code"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:892",
+   "name": "UI v9 Light / workspace / editor"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:1253",
+   "name": "UI v9 Light / workspace / execution"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:1696",
+   "name": "UI v9 Light / workspace / login"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:1733",
+   "name": "UI v9 Light / workspace / members"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:1991",
+   "name": "UI v9 Light / workspace / setup-readiness"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:2216",
+   "name": "UI v9 Light / workspace / settings"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:2413",
+   "name": "UI v9 Light / workspace / overview"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:2690",
+   "name": "UI v9 Light / workspace / workflow"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:2915",
+   "name": "UI v9 Light / workspace / gate-detail"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:3173",
+   "name": "UI v9 Light / workspace / components"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:3451",
+   "name": "UI v9 Light / workspace / v6-state-context-confirm"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:3692",
+   "name": "UI v9 Light / workspace / auth-help"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:3843",
+   "name": "UI v9 Light / workspace / invite"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:3882",
+   "name": "UI v9 Light / workspace / onboarding"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:4051",
+   "name": "UI v9 Light / workspace / projects"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:4273",
+   "name": "UI v9 Light / workspace / project-new"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:4467",
+   "name": "UI v9 Light / workspace / setup-complete"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:4692",
+   "name": "UI v9 Light / workspace / invitations"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:4880",
+   "name": "UI v9 Light / workspace / roles"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "166:5136",
+   "name": "UI v9 Light / workspace / role-editor"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:3081",
+   "name": "UI v9 Light / workspace / access"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:3291",
+   "name": "UI v9 Light / workspace / gateway"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:3553",
+   "name": "UI v9 Light / workspace / routing"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:3788",
+   "name": "UI v9 Light / workspace / budgets"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:4058",
+   "name": "UI v9 Light / workspace / hub"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:4293",
+   "name": "UI v9 Light / workspace / skills"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:4528",
+   "name": "UI v9 Light / workspace / rules"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:4763",
+   "name": "UI v9 Light / workspace / plugins"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:4998",
+   "name": "UI v9 Light / workspace / hooks"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:5233",
+   "name": "UI v9 Light / workspace / sidecars"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:5468",
+   "name": "UI v9 Light / workspace / memory"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:5745",
+   "name": "UI v9 Light / workspace / memory-settings"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:5953",
+   "name": "UI v9 Light / workspace / memory-import"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:6132",
+   "name": "UI v9 Light / workspace / curation"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:6334",
+   "name": "UI v9 Light / workspace / runtime-settings"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:6743",
+   "name": "UI v9 Light / workspace / risk-policy"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:6974",
+   "name": "UI v9 Light / workspace / integrations"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:7218",
+   "name": "UI v9 Light / workspace / default-agent"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:7427",
+   "name": "UI v9 Light / workspace / sandbox-templates"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:7656",
+   "name": "UI v9 Light / workspace / specs"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "167:7908",
+   "name": "UI v9 Light / workspace / locked"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:5397",
+   "name": "UI v9 Light / workspace / history"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:5592",
+   "name": "UI v9 Light / workspace / spec-diff"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:5940",
+   "name": "UI v9 Light / workspace / merge"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:6150",
+   "name": "UI v9 Light / workspace / search-code"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:6342",
+   "name": "UI v9 Light / workspace / evidence"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:6630",
+   "name": "UI v9 Light / workspace / scan"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:6883",
+   "name": "UI v9 Light / workspace / drift"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:7122",
+   "name": "UI v9 Light / workspace / memory-prep"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:7340",
+   "name": "UI v9 Light / workspace / plans"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:7544",
+   "name": "UI v9 Light / workspace / plan-detail"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:7774",
+   "name": "UI v9 Light / workspace / agent-compose"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:8000",
+   "name": "UI v9 Light / workspace / meta-agent"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:8175",
+   "name": "UI v9 Light / workspace / contracts"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:8359",
+   "name": "UI v9 Light / workspace / runs"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:8658",
+   "name": "UI v9 Light / workspace / run-detail"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:8851",
+   "name": "UI v9 Light / workspace / terminal"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:9060",
+   "name": "UI v9 Light / workspace / activity-tree"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:9259",
+   "name": "UI v9 Light / workspace / artifacts"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:9520",
+   "name": "UI v9 Light / workspace / snapshot"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:9751",
+   "name": "UI v9 Light / workspace / sandboxes"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "168:9979",
+   "name": "UI v9 Light / workspace / locks"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:7607",
+   "name": "UI v9 Light / workspace / gates"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:7833",
+   "name": "UI v9 Light / workspace / gate-medium"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:8091",
+   "name": "UI v9 Light / workspace / diff-review"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:8292",
+   "name": "UI v9 Light / workspace / security"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:8496",
+   "name": "UI v9 Light / workspace / pull-request"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:8740",
+   "name": "UI v9 Light / workspace / ci-failed"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:8911",
+   "name": "UI v9 Light / workspace / pr-conflict"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:9076",
+   "name": "UI v9 Light / workspace / post-merge"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:9341",
+   "name": "UI v9 Light / workspace / audit"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:9585",
+   "name": "UI v9 Light / workspace / notifications"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:9802",
+   "name": "UI v9 Light / workspace / exceptions"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:10223",
+   "name": "UI v9 Light / workspace / index"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:10851",
+   "name": "UI v9 Light / workspace / invite-identity"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:11031",
+   "name": "UI v9 Light / workspace / access-revoked"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:11224",
+   "name": "UI v9 Light / workspace / repo-reconcile"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:11445",
+   "name": "UI v9 Light / workspace / budget-ledger"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:11703",
+   "name": "UI v9 Light / workspace / registry-impact"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:11914",
+   "name": "UI v9 Light / workspace / memory-lineage"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:12116",
+   "name": "UI v9 Light / workspace / workflow-proposal"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:12348",
+   "name": "UI v9 Light / workspace / draft-recovery"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "169:12525",
+   "name": "UI v9 Light / workspace / stale-merge"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:9966",
+   "name": "UI v9 Light / workspace / input-lineage"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:10217",
+   "name": "UI v9 Light / workspace / greenfield"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:10402",
+   "name": "UI v9 Light / workspace / generation-job"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:10598",
+   "name": "UI v9 Light / workspace / admission"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:10829",
+   "name": "UI v9 Light / workspace / artifact-handoff"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:11090",
+   "name": "UI v9 Light / workspace / recovery"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:11321",
+   "name": "UI v9 Light / workspace / secret-triage"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:11532",
+   "name": "UI v9 Light / workspace / reviewer-eligibility"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:11744",
+   "name": "UI v9 Light / workspace / signature-history"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:11936",
+   "name": "UI v9 Light / workspace / pr-reconcile"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:12142",
+   "name": "UI v9 Light / workspace / acceptance"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:12366",
+   "name": "UI v9 Light / workspace / cleanup"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:12596",
+   "name": "UI v9 Light / workspace / offboarding"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:12819",
+   "name": "UI v9 Light / workspace / policy-impact"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:13044",
+   "name": "UI v9 Light / workspace / incident-recovery"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:13245",
+   "name": "UI v9 Light / workspace / business-states"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:13578",
+   "name": "UI v9 Light / workspace / design-journeys"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:14196",
+   "name": "UI v9 Light / workspace / code-symbols"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:14483",
+   "name": "UI v9 Light / workspace / ai-context"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:14629",
+   "name": "UI v9 Light / workspace / ide-states"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "170:14867",
+   "name": "UI v9 Light / workspace / organizations"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:12304",
+   "name": "UI v9 Light / workspace / workspaces"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:12526",
+   "name": "UI v9 Light / workspace / workspace-settings"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:12709",
+   "name": "UI v9 Light / workspace / workflow-templates"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:12895",
+   "name": "UI v9 Light / workspace / conflicts"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:13113",
+   "name": "UI v9 Light / workspace / memory-layers"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:13337",
+   "name": "UI v9 Light / workspace / risk-review"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:13547",
+   "name": "UI v9 Light / workspace / wf-review"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:13920",
+   "name": "UI v9 Light / workspace / ide-journeys"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:14143",
+   "name": "UI v9 Light / workspace / scope-workspaces"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:14327",
+   "name": "UI v9 Light / workspace / execution-states"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:14483",
+   "name": "UI v9 Light / workspace / state-wrong-account"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:14663",
+   "name": "UI v9 Light / workspace / state-expired-invitation"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:14843",
+   "name": "UI v9 Light / workspace / state-access-changed"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:15036",
+   "name": "UI v9 Light / workspace / state-repo-disconnected"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:15257",
+   "name": "UI v9 Light / workspace / state-budget-blocked"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:15515",
+   "name": "UI v9 Light / workspace / state-resource-revoked"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:15726",
+   "name": "UI v9 Light / workspace / state-memory-deprecated"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:15928",
+   "name": "UI v9 Light / workspace / state-offline-draft"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:16105",
+   "name": "UI v9 Light / workspace / state-merge-stale"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:16286",
+   "name": "UI v9 Light / workspace / state-input-superseded"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "171:16537",
+   "name": "UI v9 Light / workspace / state-empty-repository"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:14362",
+   "name": "UI v9 Light / workspace / state-generation-failed"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:14558",
+   "name": "UI v9 Light / workspace / state-checkpoint-required"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:14789",
+   "name": "UI v9 Light / workspace / state-artifact-not-durable"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:15050",
+   "name": "UI v9 Light / workspace / state-snapshot-unavailable"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:15281",
+   "name": "UI v9 Light / workspace / state-scanner-unavailable"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:15492",
+   "name": "UI v9 Light / workspace / state-secret-confirmed"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:15703",
+   "name": "UI v9 Light / workspace / state-reviewer-missing"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:15915",
+   "name": "UI v9 Light / workspace / state-old-head-ci"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:16159",
+   "name": "UI v9 Light / workspace / state-pr-unknown"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:16365",
+   "name": "UI v9 Light / workspace / state-partial-merge"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:16630",
+   "name": "UI v9 Light / workspace / state-acceptance-failed"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:16854",
+   "name": "UI v9 Light / workspace / state-verification-unknown"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:17119",
+   "name": "UI v9 Light / workspace / state-cleanup-held"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:17349",
+   "name": "UI v9 Light / workspace / state-project-archived"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:17572",
+   "name": "UI v9 Light / workspace / state-restore-reconcile"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:17773",
+   "name": "UI v9 Light / workspace / ide-state-source-loading"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:18127",
+   "name": "UI v9 Light / workspace / ide-state-source-failed"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:18484",
+   "name": "UI v9 Light / workspace / ide-state-source-denied"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:18732",
+   "name": "UI v9 Light / workspace / ide-state-source-empty"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:19086",
+   "name": "UI v9 Light / workspace / ide-state-binary-file"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "172:19414",
+   "name": "UI v9 Light / workspace / ide-state-large-file"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:16743",
+   "name": "UI v9 Light / workspace / ide-state-stale-index"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:17139",
+   "name": "UI v9 Light / workspace / ide-state-partial-index"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:17535",
+   "name": "UI v9 Light / workspace / ide-state-offline-draft"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:17868",
+   "name": "UI v9 Light / workspace / ide-state-dirty-tab"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:18201",
+   "name": "UI v9 Light / workspace / ide-state-frozen-draft"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:18362",
+   "name": "UI v9 Light / workspace / ide-state-stale-context"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:18638",
+   "name": "UI v9 Light / workspace / v6-state-spec-acceptance"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:18975",
+   "name": "UI v9 Light / workspace / v6-state-code-linked-spec"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:19364",
+   "name": "UI v9 Light / workspace / v6-state-greenfield-context"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:19576",
+   "name": "UI v9 Light / workspace / v6-state-multi-spec-plan"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:19783",
+   "name": "UI v9 Light / workspace / v6-state-context-review"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:20058",
+   "name": "UI v9 Light / workspace / v6-state-context-revoked"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:20272",
+   "name": "UI v9 Light / workspace / v6-state-scope-confirm"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:20617",
+   "name": "UI v9 Light / workspace / execution-state-empty"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:20867",
+   "name": "UI v9 Light / workspace / execution-state-parallel"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:21326",
+   "name": "UI v9 Light / workspace / execution-state-checkpoint"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:21783",
+   "name": "UI v9 Light / workspace / execution-state-failed"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:22247",
+   "name": "UI v9 Light / workspace / execution-state-budget"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:22711",
+   "name": "UI v9 Light / workspace / execution-state-paused"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:23168",
+   "name": "UI v9 Light / workspace / execution-state-cleanup-error"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "173:23631",
+   "name": "UI v9 Light / workspace / execution-state-completed"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:20614",
+   "name": "UI v9 Light / workspace / execution-detail-terminal"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:21069",
+   "name": "UI v9 Light / workspace / execution-detail-artifacts"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:21600",
+   "name": "UI v9 Light / workspace / execution-detail-memory"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:22138",
+   "name": "UI v9 Light / workspace / execution-command-requested"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:22601",
+   "name": "UI v9 Light / workspace / execution-command-accepted"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:23065",
+   "name": "UI v9 Light / workspace / execution-command-outcome-unknown"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:23532",
+   "name": "UI v9 Light / workspace / execution-dialog-checkpoint"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:24032",
+   "name": "UI v9 Light / workspace / execution-dialog-cancel"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:24532",
+   "name": "UI v9 Light / workspace / execution-dialog-resume"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:25030",
+   "name": "UI v9 Light / workspace / execution-dialog-retry"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:25528",
+   "name": "UI v9 Light / workspace / execution-agent-t-01"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:25997",
+   "name": "UI v9 Light / workspace / execution-agent-t-03"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:26466",
+   "name": "UI v9 Light / workspace / execution-agent-t-04"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:26935",
+   "name": "UI v9 Light / workspace / execution-agent-t-05"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:27404",
+   "name": "UI v9 Light / workspace / execution-agent-t-06"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:27873",
+   "name": "UI v9 Light / workspace / execution-agent-t-07"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:28342",
+   "name": "UI v9 Light / workspace / execution-inspector-context"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:28778",
+   "name": "UI v9 Light / workspace / execution-inspector-access"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:29218",
+   "name": "UI v9 Light / workspace / execution-dialog-snapshot"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:29687",
+   "name": "UI v9 Light / workspace / execution-dialog-lineage"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "174:30156",
+   "name": "UI v9 Light / workspace / execution-dialog-manifest"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "175:26598",
+   "name": "UI v9 Light / workspace / execution-permission-viewer"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "175:27058",
+   "name": "UI v9 Light / workspace / execution-command-approve-gate-requested"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "175:27519",
+   "name": "UI v9 Light / workspace / execution-command-cancel-requested"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "175:27982",
+   "name": "UI v9 Light / workspace / execution-command-resume-requested"
+  },
+  {
+   "section": "278:749",
+   "section_name": "06 · Previous workspace · Light (v9)",
+   "id": "175:28443",
+   "name": "UI v9 Light / workspace / execution-command-retry-requested"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:28904",
+   "name": "UI v9 Light / observer / obs-overview"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:29200",
+   "name": "UI v9 Light / observer / obs-login"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:29230",
+   "name": "UI v9 Light / observer / traces"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:29427",
+   "name": "UI v9 Light / observer / trace-detail"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:29643",
+   "name": "UI v9 Light / observer / metrics"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:29860",
+   "name": "UI v9 Light / observer / profiler"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:30109",
+   "name": "UI v9 Light / observer / telemetry"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:30352",
+   "name": "UI v9 Light / observer / infra"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:30561",
+   "name": "UI v9 Light / observer / saturation"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:30744",
+   "name": "UI v9 Light / observer / obs-audit"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:30907",
+   "name": "UI v9 Light / observer / exports"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:31045",
+   "name": "UI v9 Light / observer / index"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:31205",
+   "name": "UI v9 Light / observer / data-quality"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:31384",
+   "name": "UI v9 Light / observer / export-job"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:31527",
+   "name": "UI v9 Light / observer / profile-compatibility"
+  },
+  {
+   "section": "278:753",
+   "section_name": "07 · Previous Observer · Light (v9)",
+   "id": "175:31659",
+   "name": "UI v9 Light / observer / diagnostic-handoff"
+  },
+  {
+   "section": "278:757",
+   "section_name": "08 · Previous review index (v9)",
+   "id": "177:729",
+   "name": "Atlas v9 / E2E design review"
+  }
+ ]
+}
