@@ -2,14 +2,17 @@
 // Generates deploy/staging-worker.js: a Worker that serves exactly the files of one committed release (release/<channel>
 // at an immutable commit), verifies each file's SHA-256 before serving or caching it, adds the security headers and serves
 // index.html for client routes. Usage: node tools/staging-worker.mjs <artifact-commit-sha> [channel]
+import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const [sha, channel = 'staging'] = process.argv.slice(2);
 if (!/^[0-9a-f]{40}$/.test(sha || '')) throw new Error('Pass the full 40-character commit SHA that contains the release.');
 const root = new URL('..', import.meta.url).pathname;
-const m = JSON.parse(readFileSync(join(root, 'release', channel, 'release-manifest.json'), 'utf8'));
+const manifestBytes = readFileSync(join(root, 'release', channel, 'release-manifest.json'));
+const m = JSON.parse(manifestBytes.toString('utf8'));
 const files = Object.fromEntries(Object.entries(m.files).map(([p, f]) => [p, f.sha256]));
+files['/release-manifest.json'] = createHash('sha256').update(manifestBytes).digest('hex');
 const origin = `https://raw.githubusercontent.com/ldqanh1408/hehe/${sha}/frontend/atlas-web/release/${channel}`;
 const headersFile = readFileSync(join(root, 'public', '_headers'), 'utf8');
 const security = Object.fromEntries(headersFile.split('\n/assets/*')[0].split('\n').filter((l) => /^\s+\S+:/.test(l)).map((l) => { const i = l.indexOf(':'); return [l.slice(0, i).trim(), l.slice(i + 1).trim()]; }));
