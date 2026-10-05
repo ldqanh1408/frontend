@@ -2,7 +2,7 @@
   "url": "https://atlas-web-staging.ekko-okke666.workers.dev",
   "worker": "atlas-web-staging",
   "release": "1b0288142653",
-  "sourceCommit": "1b028814265357b4d2a8e2ba2e1fdec6b6fd7e5f",
+  "sourceCommit": "1b02881426536659a1f43744b46999e05e828408",
   "artifactCommit": "a06bb2940a8c662688dc6380073eac2e37f8d653",
   "note": "Staging only. Production (sparkling-snow-090d) is unchanged until explicitly approved."
 }

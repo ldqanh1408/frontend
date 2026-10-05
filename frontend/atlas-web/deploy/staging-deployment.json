@@ -1,0 +1,12 @@
+{
+  "deployedAt": "2026-10-05T11:26:08Z",
+  "method": "Cloudflare plugin (mcp__cloudflare__execute): PUT /workers/scripts/atlas-web-staging (module upload), POST …/subdomain {enabled:true, previews_enabled:false}",
+  "worker": "atlas-web-staging",
+  "scriptEtag": "c69f0bbbb768d64d09705de421176ded1c90e6aacb7bdd2fbbcf5192250a4cc1",
+  "workerSourceSha256": "5a6e4eb920abd5da9177848ef5f6f2d0b5fb86ea30b6a0c50c86ff25da00ee20",
+  "compatibilityDate": "2026-10-04",
+  "bindings": [],
+  "url": "https://atlas-web-staging.ekko-okke666.workers.dev",
+  "release": "1b0288142653",
+  "productionUntouched": "sparkling-snow-090d"
+}
