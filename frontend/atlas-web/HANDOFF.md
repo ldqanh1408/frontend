@@ -9,8 +9,16 @@ Bạn tiếp quản frontend Atlas trong `frontend/atlas-web`, repo `ldqanh1408/
 **Mục tiêu:** đưa frontend lên mức production-grade, bám sát Figma.
 
 **Thứ tự bắt buộc:**
-1. Làm xong phần UI/UX còn lại (mục 4).
-2. Sau đó mới làm test và cổng chất lượng (mục 5).
+1. Hỏi người dùng các quyết định kiến trúc ở mục 10.1 (một lần, gom chung một câu hỏi).
+2. Làm xong phần UI/UX còn lại: mục 4, cộng thêm mục 10 (bám Tech stack ADR + SRS v1.1) và mục 11 (UI-11: màn hình thực thi multi-agent refactor từ Archive).
+3. Sau đó mới làm test và cổng chất lượng (mục 5).
+
+**Hai tài liệu chuẩn bổ sung** do người dùng cung cấp: "Atlas — Tech Stack & ADR" (2026-10-01) và "SRS v1.1". Khi Figma, ADR và SRS mâu thuẫn:
+- **SRS** quyết định nghiệp vụ: trạng thái, quyền, ngưỡng, luồng.
+- **ADR** quyết định công nghệ.
+- **Figma** quyết định hình thức.
+
+Mọi lệch còn lại phải ghi vào báo cáo.
 
 **Không deploy** lên staging hay production, và không gọi API ghi của Cloudflare.
 
@@ -276,3 +284,131 @@ await b.close();
 - Toàn bộ UI-1 đến UI-10 đã làm hoặc đã có quyết định của người dùng.
 - T-1 đến T-8 xanh trên CI.
 - Đã gửi báo cáo tiếng Việt cuối cùng: việc đã làm, số liệu, ảnh, giới hạn còn lại.
+
+## 10. Bám Tech stack ADR và SRS v1.1 (bổ sung bắt buộc cho giai đoạn 1)
+
+### 10.1. Quyết định kiến trúc cần hỏi người dùng trước khi làm
+
+Đây là những lệch đã kiểm chứng trong code. Đừng tự ý chuyển đổi; hỏi một lần bằng AskUserQuestion, kèm khuyến nghị.
+
+| # | ADR/SRS yêu cầu | Hiện trạng `atlas-web` | Khuyến nghị khi hỏi |
+|---|---|---|---|
+| D1 | ADR-011/012: **Monaco + Yjs + y-monaco** cho editor và cộng tác | CodeMirror 6 (`src/components/CodeEditor.tsx`); không có Yjs | Chuyển sang Monaco sau lớp `CodeEditor` (giữ API `value/onChange/resetKey/handleRef`), bọc lazy. Cần chỉnh CSP `worker-src 'self' blob:` (đã có) và `style-src` cho Monaco. Yjs chỉ gắn khi có service collab (`/ws/collab`); không có service thì không giả presence |
+| D2 | NFR-2.4 / FR-7.6 / ADR §36: **hai SPA tách biệt**, `workspace-web` (app.*) và `telemetry-console` (observer.*), không chung router, store, cookie hay storage | Các route `/observer/*` nằm chung bundle `atlas-web` | Tách thành entry Vite thứ hai (`telemetry-console`) trong cùng repo; `atlas-web` chỉ giữ link ra domain observer. Hoặc ghi rõ đây là lệch có chủ đích cho tới khi có domain |
+| D3 | ADR-011: **React Flow** (DAG), **xterm.js** (terminal), **TanStack Query**, **Zustand** | Graph workflow tự vẽ; không có terminal thật; store tự viết (`src/lib/store.ts`); `useAsync` tự viết | React Flow cho DAG/Execution graph (UI-11, Workflow), xterm.js cho terminal (lazy). TanStack Query và Zustand chỉ đưa vào khi có lớp API thật, nếu không thì giữ store hiện tại để khỏi tăng bundle |
+| D4 | ADR §35: lệnh qua REST, luồng sống qua WebSocket | `src/data/service.ts` có contract `atlas-ui/v1` (REST) | Thêm client WebSocket (presence, terminal, DAG progress, thought-tree) phía sau capability; không có WS thì hiển thị "Not observed", không mô phỏng |
+
+Mỗi thư viện mới phải:
+- tải lazy, nằm trong ngưỡng JS ban đầu của T-6;
+- qua CSP thật;
+- giữ axe ở 0 vi phạm.
+
+### 10.2. Kiểm tra UI theo SRS (làm cho mọi màn hình liên quan)
+
+**1. RBAC theo ma trận §3.2 và quyền nguyên tử §3.1**
+- Mỗi nút gắn đúng mã quyền (`spec:lock`, `spec:submit_to_ai`, `dag:plan_approve`, `dag:milestone_approve`, `agent:control`, `lock:force_release`, `gov:approve_medium`, `gov:approve_high`, `obs:*`…).
+- Lấy quyền qua `capability('<permission_code>')`, không bao giờ suy ra từ tên vai trò.
+- Lập bảng `src/data/permissions.ts`: nút → mã quyền → lý do khoá, kèm unit test.
+- System Observer là vai trò độc lập: mọi hành động nghiệp vụ trong workspace đều khoá, kèm lý do "Observer sessions are read-only".
+
+**2. Entitlement khác RBAC (ADR §28)**
+- Thiếu quyền: "Requires `<perm>`…".
+- Gói không có tính năng: "Not included in your organization's plan".
+- Vượt quota (ADR §29): "Limit reached: `<resource>`".
+- Ba loại lý do này phải có câu chữ và kiểu hiển thị khác nhau. Thêm vào `capability()` một trường `kind: 'permission' | 'entitlement' | 'quota' | 'session'`.
+
+**3. Enum trạng thái theo đúng các máy trạng thái ở SRS §7**
+
+| Đối tượng | Trạng thái |
+|---|---|
+| SpecDocument | Draft, In_Review, Conflicted, Merged, Locked, Submitted_To_AI, Implemented, Unlocked_Draft |
+| TaskDAG | Proposed, Plan_Approved, In_Progress, Completed, Paused, Failed, Rejected, Superseded |
+| SubTask | Pending, Ready, Waiting_Human_Checkpoint, Running, Completed, Failed_Paused, Blocked_Budget, Waiting_Lock, Revision_Required |
+| Lock | Unlocked, Locked, Released, Expired, Force_Released |
+| ApprovalGate | Initiated, Evaluated, Auto_Approved, Pending_Single_Sig, Pending_Multi_Sig, Approved, Rejected, Blocked_Missing_Role, Ready_For_PR |
+
+- Gom tất cả vào `src/data/states.ts`: nhãn hiển thị, tone màu (`toneFor`), icon, và câu "bước tiếp theo an toàn".
+- Badge, timeline và lifecycle chain dùng nguồn này; không tự đặt chữ.
+
+**4. Ngưỡng định lượng hiển thị đúng SRS**
+- Drift D: ≤ 0,3 In-Sync; 0,3–0,7 Warning; > 0,7 Drift-Blocked (chặn sinh DAG).
+- Risk: < 0,3 Low; 0,3–0,7 Medium (1 chữ ký); ≥ 0,7 hoặc Hard Veto: Multi-Sig (Tech Lead + Security Officer). Hiển thị 6 trục và lý do Veto.
+- Ngân sách 3 tầng: Key, Workspace/Project, SubTask. Cảnh báo ở 80%; `Blocked_Budget` ở 100%.
+- Lock: TTL, heartbeat, hàng đợi 60 s, hiển thị người giữ khoá.
+- Lời mời: TTL 72 h, Expired, vai trò mặc định Viewer.
+- Mọi ngưỡng là cấu hình động 4 tầng (SRS §12). UI ghi rõ giá trị lấy từ tầng nào (Project, Workspace, Org hay System); không hard-code trong câu chữ.
+
+**5. Luồng E2E trong SRS §10 phải đi được trên UI, không bước nào biến mất khi chưa có service**
+- Luồng chính: Lock → **Submit to AI** → Memory Preparation (xem/bổ sung TaskMemoryPackage) → Proposed DAG → Approve Plan → Human Gate → Risk/Gate → PR/CI → Post-merge Drift → Implemented.
+- Thêm Episodic draft → Promote.
+- Mỗi bước có vị trí trên UI, nút bị khoá kèm lý do, và trạng thái trống "Not observed".
+- Kiểm tra các màn hình: Specifications (Lock/Submit/Unlock), Memory, Workflow (Plan-First, `is_human_gate`), Execution, Governance (6 trục, Veto, Multi-Sig, cấm tự duyệt theo BR-GATE-02), Connection (receipts).
+
+**6. Ngoại lệ trong SRS §11 có trạng thái UI tương ứng**
+- Ví dụ: EX-SPEC-02 (FCFS reload), EX-AGENT-02 (Blocked_Budget), EX-AGENT-04 (Retry từ snapshot), EX-LOCK-02 (Force release), EX-GOV-01/06 (Blocked_Missing_Role), EX-GOV-04 (CI_Failed), EX-DRIFT-01.
+- Đối chiếu với 210 view và scene. Ghi vào báo cáo những ngoại lệ còn thiếu màn hình.
+
+**7. Hiệu năng cảm nhận theo NFR**
+- Presence và CRDT < 200 ms.
+- Terminal gom batch 50–100 ms, 10–20 FPS; xterm.js ghi theo lô, không re-render React mỗi dòng.
+- Thought-tree cập nhật ≤ 200 ms; dùng danh sách ảo hoá khi có nhiều node.
+
+**8. Đa tenant (ADR §2, §30)**
+- Thanh trên luôn hiển thị phạm vi Organization / Workspace / Project.
+- Đổi org bằng switcher (FR-1.6).
+- Không hiển thị dữ liệu khi thiếu tenant context.
+
+## 11. UI-11: Màn hình thực thi multi-agent, refactor từ Figma Archive
+
+**Mục tiêu.** Người dùng rất ưng tính khả dụng của màn hình "Agent execution" trong trang **90 · Archive** (`278:728`), nhưng nó cần refactor. Đây chỉ là một ví dụ: hãy rà các màn hình khác trong Archive theo cùng tiêu chí và đề xuất danh sách cho người dùng chọn.
+
+**Frame nguồn (v9, mới nhất trong Archive)**
+- Dark `137:2483` ("UI v9 / workspace / execution"); Light `166:1253`.
+- Trạng thái đi kèm (Dark), tất cả trong section `278:741`:
+  - `157:27164` parallel; `158:19169` checkpoint; `158:20314` failed; `158:21422` budget; `158:22530` paused; `158:23623` cleanup-error; `158:24740` completed; `157:26466` empty;
+  - chi tiết: `158:25831` terminal; `158:26914` artifacts; `158:28075` memory;
+  - lệnh: `158:29243` requested; `158:30342` accepted; `158:31444` outcome-unknown;
+  - dialog: `158:32555` checkpoint; `158:33703` cancel; `158:34847` resume; `158:35989` retry; `159:31611` snapshot; `159:32718` lineage; `159:33825` manifest;
+  - inspector: `159:29489` context; `159:30545` access; `159:35002` permission-viewer;
+  - node: `158:37127` agent T-01 … `159:28217` T-07;
+  - command requested: `159:36104` approve-gate; `159:37201` cancel; `159:38300` resume; `159:39409` retry.
+- Bản Light tương ứng nằm trong section `278:749` (ví dụ `173:20867` parallel, `174:20614` terminal).
+- Archive còn có: Agent Hub (`2:332`), Agent Run (`2:926`), Agent Telemetry (`2:1496`), runs (`152:7219`), run-detail (`152:7743`), terminal (`152:8151`), agent-compose (`151:11652`), meta-agent (`151:12102`), default-agent (`150:11372`).
+- `get_metadata` trên trang Archive trả về khoảng 14 MB. Lọc frame bằng Python như ở mục 4.
+
+**Phần đáng giữ** (bố cục khả dụng cao)
+- Header run: id, tiến độ "x/y completed", số agent đang chạy, chi phí trên ngân sách, badge trạng thái.
+- Dải lệnh: Review checkpoint, Pause, Resume, Retry failed, Cancel run (danger), Snapshot, Artifacts, Export.
+- **Execution graph** dạng thẻ node: mã task, loại (AGENT / LLM AGENT / HUMAN GATE / SANDBOX TEST / ARTIFACT), tên, vai trò agent, badge trạng thái, attempt và thời gian, các hành động Inspect / Logs / Retry / Review. Có cạnh phụ thuộc, công tắc Graph/List, zoom/fit.
+- **Inspector node được chọn**: tab Task / Context / Access; Attempt, Heartbeat, Worker, Tool, Output; File scope (khoá file); Inspect artifacts, Review lineage.
+- **Dải dưới**: tab Events / Terminal / Artifacts / Memory, có timestamp.
+
+**Phần phải refactor**
+1. **Shell**: bỏ sidebar và top bar cũ của v9; đặt nội dung vào shell Current UI hiện tại (route `/execution` và view `execution/*`). Dùng token và primitive hiện có (typography 12 px cho control, `--text-control`, Badge, Button, Tabs).
+2. **Không có dữ liệu giả trong production**: RUN-DEMO-284, $12.80/$50, java-worker-02, `src/auth/*.ts`, T-01…T-07 chỉ xuất hiện trong review build và gắn nhãn "Illustrative". Production hiển thị khung graph, inspector và tab với "Not observed", cùng nút "Connect service".
+3. **Gắn hành động theo quyền và trạng thái**:
+   - Pause, Resume, Retry, Cancel cần `agent:control`. Review checkpoint cần `dag:milestone_approve`. Force release cần `lock:force_release`.
+   - Mỗi nút bị khoá hiển thị lý do ngay bên cạnh (`reasonId` chung cho cả dải).
+   - Trên Archive, nút Retry và Inspect hiển thị như đang bật dù không có service. Đây là lỗi; phải sửa.
+   - Mọi lệnh đi qua `CommandDialog` / `sendCommand`: tiến trình Requested → Received → Accepted → Effective; mơ hồ thì Unknown, không bao giờ gửi lại tự động.
+4. **Trạng thái node theo SRS**: dùng enum SubTask ở mục 10.2.3. Ánh xạ: Human Gate là `Waiting_Human_Checkpoint`; "Blocked" của Archive tách thành `Pending` / `Blocked_Budget` / `Waiting_Lock`; hiển thị `Failed_Paused` kèm snapshot.
+5. **Loại node theo ADR-003**: AGENT, TOOL, MCP, SANDBOX, TEST, CONDITION, PARALLEL, HUMAN_GATE, GOVERNANCE_GATE, MEMORY_PREP. Mỗi loại có icon và nhãn chữ, không chỉ dựa vào màu.
+6. **Graph**:
+   - Dùng React Flow nếu D3 được duyệt; nếu chưa, dùng graph tự vẽ hiện có trong `WorkflowPage`.
+   - Bắt buộc có **List view** tương đương cho bàn phím và trình đọc màn hình, đặt là mặc định dưới 1024 px (UI-7).
+   - Thẻ node là phần tử bấm được với nhãn đầy đủ. Focus đi theo thứ tự topo.
+7. **Inspector**: thêm Budget 3 tầng của SubTask, Lock (file, holder, TTL, heartbeat), Memory slice (TaskMemoryPackage), Output contract, Snapshot gần nhất (BR-SAND-01). Tab Access hiển thị quyền thực tế của session, không suy ra từ vai trò.
+8. **Dải dưới**:
+   - Terminal dùng xterm.js nếu D3 được duyệt; nếu chưa, dùng khung mono chỉ đọc, gom batch theo NFR-1.2.
+   - Thêm tab **Thought tree** (FR-7.3): cây `ThoughtNode` cha-con. Chỉ hiển thị structured state (ADR-004), không hiển thị chain-of-thought thô.
+   - Events dùng thời gian tuyệt đối UTC, kèm thời gian tương đối.
+9. **Dialog**: checkpoint, cancel, resume, retry, snapshot, lineage, manifest theo các frame dialog ở trên. Cancel và các hành động huỷ hoại cần xác nhận và nêu rõ phạm vi (task, khoá, sandbox bị giải phóng theo BR-DAG-04).
+10. **Kiểm tra**:
+    - So ảnh Archive với app (Dark/Light, 1440 và 1024).
+    - axe 0 vi phạm.
+    - E2E: production không có chữ mẫu; nút khoá có lý do; List view thao tác đủ bằng bàn phím.
+    - Review build hiển thị đủ 8 trạng thái run.
+
+**Bàn giao UI-11**
+- Commit riêng, kèm ảnh Archive và ảnh app.
+- Báo cáo nêu rõ phần nào giữ nguyên, phần nào đổi, và vì sao.
