@@ -1,0 +1,54 @@
+{
+  "target": "https://atlas-web-staging.ekko-okke666.workers.dev",
+  "commit": "6d1c984e3dec7fecd3ed3bd206d94ffe8efd2b8b",
+  "stats": {
+    "startTime": "2026-10-05T11:50:12.376Z",
+    "duration": 446933.861,
+    "expected": 299,
+    "skipped": 0,
+    "unexpected": 8,
+    "flaky": 0
+  },
+  "failed": [
+    {
+      "title": "agents workbench follows the Figma frame: tabs, gated lifecycle, readiness and versions",
+      "file": "definitions.spec.ts",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('tab', { name: 'Instructions' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('tab', { name: 'Instructions' })\u001b[22m\n"
+    },
+    {
+      "title": "own saves never raise a conflict; a save from another tab does",
+      "file": "definitions.spec.ts",
+      "error": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+    },
+    {
+      "title": "figma parity agents",
+      "file": "figma-parity.spec.ts",
+      "error": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+    },
+    {
+      "title": "figma parity resources",
+      "file": "figma-parity.spec.ts",
+      "error": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+    },
+    {
+      "title": "figma parity memory",
+      "file": "figma-parity.spec.ts",
+      "error": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+    },
+    {
+      "title": "figma parity configuration",
+      "file": "figma-parity.spec.ts",
+      "error": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+    },
+    {
+      "title": "workflow: tasks, pinned agent, cycle detection, save",
+      "file": "ides.spec.ts",
+      "error": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+    },
+    {
+      "title": "perf /agents",
+      "file": "perf.spec.ts",
+      "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m0.1\u001b[39m\nReceived:   \u001b[31m0.116\u001b[39m"
+    }
+  ]
+}
