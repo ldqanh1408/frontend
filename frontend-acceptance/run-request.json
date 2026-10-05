@@ -1,15 +1,18 @@
 {
-  "request_id": "R3-003-kbd-perf",
-  "purpose": "Re-run of run #2 suites lost to a commit conflict: trusted keyboard (chromium/firefox/webkit), perf (cold/warm/mobile throttled, INP, heap), screenshots",
+  "request_id": "R3-004-kbd-fix",
+  "purpose": "Re-run trusted keyboard suite after harness fixes (end-of-sequence, reopen reload, tablist reload, drawer check) on 3 engines; INP with >=30 interactions; heap trend at 30/60/90 cycles",
   "suites": [
     "keyboard",
-    "perf",
-    "screenshots"
+    "perf"
   ],
   "keyboard_engines": [
     "chromium",
     "firefox",
     "webkit"
   ],
-  "perf_runs": 10
+  "perf_parts": [
+    "inp",
+    "heap"
+  ],
+  "heap_cycles": 90
 }

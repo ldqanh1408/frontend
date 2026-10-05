@@ -32,8 +32,10 @@ export default async function ({ runDir, req, target }) {
   const browser = await chromium.launch();
   const out = { budget: BUDGET, browserVersion: browser.version(), errors: [] };
 
+  const parts = req.perf_parts || ['load', 'inp', 'heap'];
   // PERF-007 desktop cold: fresh context per run
   const cold = [];
+  if (parts.includes('load')) {
   for (let i = 0; i < N; i++) {
     const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
     await ctx.addInitScript(OBSERVERS);
@@ -62,11 +64,12 @@ export default async function ({ runDir, req, target }) {
     await page.goto(`${target}/#home`, { waitUntil: 'load', timeout: 90000 }); await waitH1(page, EXP.home, 30000);
     mobile.push(await sample(page)); await ctx.close();
   }
-  out['PERF-007'] = { cold_desktop: { runs: cold, stats: summarize(cold) }, warm_desktop: { runs: warm, stats: summarize(warm) }, cold_mobile_throttled: { runs: mobile, stats: summarize(mobile) } };
-  for (const k of ['cold_desktop', 'warm_desktop', 'cold_mobile_throttled']) out['PERF-007'][k].budget = verdict(out['PERF-007'][k].stats);
+  }
+  if (parts.includes('load')) out['PERF-007'] = { cold_desktop: { runs: cold, stats: summarize(cold) }, warm_desktop: { runs: warm, stats: summarize(warm) }, cold_mobile_throttled: { runs: mobile, stats: summarize(mobile) } };
+  if (parts.includes('load')) for (const k of ['cold_desktop', 'warm_desktop', 'cold_mobile_throttled']) out['PERF-007'][k].budget = verdict(out['PERF-007'][k].stats);
 
   // PERF-INP-001: >=30 trusted interactions (pointer + keyboard), desktop and CPU 4x
-  for (const [label, cpu] of [['desktop', 1], ['cpu4x', 4]]) {
+  for (const [label, cpu] of parts.includes('inp') ? [['desktop', 1], ['cpu4x', 4]] : []) {
     const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
     await ctx.addInitScript(OBSERVERS);
     const page = await ctx.newPage(); errorHooks(page, out.errors);
@@ -78,7 +81,8 @@ export default async function ({ runDir, req, target }) {
     const tabs = page.locator('main [role=tab]');
     const nt = await tabs.count();
     for (let i = 0; i < nt; i++) { await tabs.nth(i).click(); count++; await page.waitForTimeout(150); log.push('tab:' + i); }
-    for (let i = 0; i < 4; i++) { await page.locator('header button[title="Switch display theme"]').first().click(); count++; await page.waitForTimeout(150); log.push('theme'); }
+    for (let i = 0; i < 6; i++) { await page.locator('header button[title="Switch display theme"]').first().click(); count++; await page.waitForTimeout(150); log.push('theme'); }
+    for (let i = 0; i < 3; i++) { await page.keyboard.press('Control+KeyK'); count++; await page.waitForTimeout(200); await page.keyboard.press('Escape'); count++; await page.waitForTimeout(150); log.push('search'); }
     const search = page.locator('main input[type=text]').first();
     if (await search.count()) { await search.click(); count++; for (const ch of 'atlas') { await page.keyboard.press(ch); count++; } await page.waitForTimeout(200); log.push('typing'); }
     await page.waitForTimeout(800);
@@ -92,8 +96,8 @@ export default async function ({ runDir, req, target }) {
     await ctx.close();
   }
 
-  // PERF-008: 30 route cycles, JS heap after forced GC, listeners and workers
-  { const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  // PERF-008: route cycles, JS heap after forced GC at checkpoints (trend separates warm-up from leak)
+  if (parts.includes('heap')) { const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
     const page = await ctx.newPage(); errorHooks(page, out.errors);
     const cdp = await ctx.newCDPSession(page);
     await cdp.send('Performance.enable');
@@ -102,16 +106,17 @@ export default async function ({ runDir, req, target }) {
     const cycle = async () => { for (const r of ['specifications', 'code', 'agents', 'connection', 'home']) { await page.evaluate(h => { location.hash = h; }, r); await waitH1(page, EXP[r]); } };
     await cycle(); await cycle();
     const h0 = await heap();
-    for (let i = 0; i < 30; i++) await cycle();
-    const h1 = await heap();
+    const checkpoints = [];
+    for (let i = 1; i <= (req.heap_cycles || 30); i++) { await cycle(); if (i % 30 === 0) checkpoints.push({ cycles: i, ...(await heap()) }); }
+    const h1 = checkpoints[0] || await heap();
     const growth = h0.heap ? Math.round(((h1.heap - h0.heap) / h0.heap) * 1000) / 10 : null;
     const workers = (await cdp.send('Target.getTargets')).targetInfos.filter(t => /worker/.test(t.type)).map(t => t.type + ':' + t.url.split('/').pop());
-    out['PERF-008'] = { before: h0, after: h1, heapGrowthPct: growth, workers, pass: growth !== null && growth <= BUDGET.HEAP_GROWTH_PCT && h1.listeners <= h0.listeners * 1.1, note: 'route switching via location.hash (navigation, not editor open/close); editor open/close cycle requires seeded documents' };
+    out['PERF-008'] = { before: h0, after: h1, checkpoints, heapGrowthPct: growth, workers, pass: growth !== null && growth <= BUDGET.HEAP_GROWTH_PCT && h1.listeners <= h0.listeners * 1.1, note: 'route switching via location.hash (navigation, not editor open/close); editor open/close cycle requires seeded documents' };
     await ctx.close(); }
 
   await browser.close();
   writeJSON(rec.evidenceFile('perf-results.json', { evidence_type: 'performance', input_mode: 'trusted-input (INP) / navigation' }), out);
   rec.save();
   const s = out['PERF-007'];
-  return { cold_lcp_p75: s.cold_desktop.stats.lcp.p75, warm_lcp_p75: s.warm_desktop.stats.lcp.p75, mobile_lcp_p75: s.cold_mobile_throttled.stats.lcp.p75, inp: out['PERF-INP-001-desktop'].inp, heapGrowth: out['PERF-008'].heapGrowthPct };
+  return { cold_lcp_p75: s?.cold_desktop.stats.lcp.p75, mobile_lcp_p75: s?.cold_mobile_throttled.stats.lcp.p75, inp: out['PERF-INP-001-desktop']?.inp, inpN: out['PERF-INP-001-desktop']?.interactions, heap: (out['PERF-008']?.checkpoints || []).map(c => c.heap) };
 }

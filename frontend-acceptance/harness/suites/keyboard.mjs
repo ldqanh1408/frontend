@@ -78,9 +78,11 @@ export default async function ({ runDir, req, target }) {
     try {
       const { ctx, page } = await freshPage(browser, D);
       const stops = [];
-      for (let i = 0; i < 45; i++) {
+      let endAt = null;
+      for (let i = 0; i < 60; i++) {
         await page.keyboard.press('Tab');
         const f = await fi(page);
+        if (f.body && i > 0) { endAt = i; break; }   // tab order left the document: end of sequence, not a hidden stop
         await page.evaluate(i => { const a = document.activeElement; if (a && a !== document.body) a.setAttribute('data-atlas-kbd', String(i)); }, i);
         stops.push(f);
       }
@@ -90,7 +92,7 @@ export default async function ({ runDir, req, target }) {
       const noIndicator = stops.map((s, i) => (!s.body && unfocused[String(i)] === s.style ? i : null)).filter(v => v !== null);
       const hidden = stops.map((s, i) => (s.body || !s.inViewport ? i : null)).filter(v => v !== null);
       const obscured = stops.map((s, i) => (!s.body && s.obscured ? i : null)).filter(v => v !== null);
-      push({ case_id: 'FE03-KBD-TABSEQ', expected: 'every Tab stop is a visible control inside the viewport, not obscured (2.4.11), with a visible focus indicator distinct from its unfocused style (2.4.7)', actual: { stops: stops.map(s => [s.tag, s.role, s.name, s.inViewport, s.obscured]), noIndicator, hidden, obscured }, result: !noIndicator.length && !hidden.length && !obscured.length ? 'PASS' : 'FAIL' });
+      push({ case_id: 'FE03-KBD-TABSEQ', expected: 'every Tab stop is a visible control inside the viewport, not obscured (2.4.11), with a visible focus indicator distinct from its unfocused style (2.4.7)', actual: { stops: stops.map(s => [s.tag, s.role, s.name, s.inViewport, s.obscured]), endOfSequenceAt: endAt, noIndicator, hidden, obscured }, result: !noIndicator.length && !hidden.length && !obscured.length ? 'PASS' : 'FAIL' });
       await ctx.close();
     } catch (e) { push({ case_id: 'FE03-KBD-TABSEQ', result: 'BLOCKED', reason: 'harness error: ' + String(e).slice(0, 200) }); }
 
@@ -120,7 +122,7 @@ export default async function ({ runDir, req, target }) {
       const after = await page.evaluate(() => location.hash);
       const navOk = /^#specifications/.test(after) || /^#code/.test(after);
       // reopen + Escape
-      await page.goto(`${target}/#home`, { waitUntil: 'networkidle' }); await waitH1(page, EXP.home);
+      await page.goto(`${target}/?kbd=reopen#home`, { waitUntil: 'networkidle' }); await waitH1(page, EXP.home);
       const t2 = await tabTo(page, /open workspace search/i, 30);
       await page.keyboard.press('Enter'); await page.waitForTimeout(400);
       const openedAgain = (await dialogState(page)).open.length > 0;
@@ -135,11 +137,13 @@ export default async function ({ runDir, req, target }) {
     // 4) Tabs (APG Tabs; FND-001 retest): arrow keys, Home/End, roving tabindex, tab↔tabpanel association
     try {
       const { ctx, page } = await freshPage(browser, D, 'specifications');
-      const lists = await page.evaluate(() => [...document.querySelectorAll('[role=tablist]')].map((l, i) => { l.setAttribute('data-atlas-tl', String(i)); return { i, label: l.getAttribute('aria-label'), tabs: [...l.querySelectorAll('[role=tab]')].map(t => ({ name: t.textContent.trim(), sel: t.getAttribute('aria-selected'), ti: t.getAttribute('tabindex'), controls: t.getAttribute('aria-controls'), id: t.id, panelOk: !!(t.getAttribute('aria-controls') && document.getElementById(t.getAttribute('aria-controls'))?.getAttribute('role') === 'tabpanel') })) }; }));
+      const lists = await page.evaluate(() => [...document.querySelectorAll('[role=tablist]')].map((l, i) => ({ i, label: l.getAttribute('aria-label'), tabs: [...l.querySelectorAll('[role=tab]')].map(t => ({ name: t.textContent.trim(), sel: t.getAttribute('aria-selected'), ti: t.getAttribute('tabindex'), controls: t.getAttribute('aria-controls'), id: t.id, panelOk: !!(t.getAttribute('aria-controls') && document.getElementById(t.getAttribute('aria-controls'))?.getAttribute('role') === 'tabpanel') })) })));
       const res = [];
       for (const l of lists) {
         const selIdx = Math.max(0, l.tabs.findIndex(t => t.sel === 'true'));
-        await page.locator(`[data-atlas-tl="${l.i}"] [role=tab]`).nth(selIdx).focus();
+        // automatic activation can change the view (and remove later tablists): reload before each tablist
+        await page.goto(`${target}/?kbdtabs=${l.i}#specifications`, { waitUntil: 'networkidle' }); await waitH1(page, EXP.specifications);
+        await page.getByRole('tablist').nth(l.i).getByRole('tab').nth(selIdx).focus({ timeout: 5000 });
         const f0 = await fi(page);
         await page.keyboard.press('ArrowRight'); await page.waitForTimeout(250);
         const f1 = await fi(page);
@@ -183,21 +187,24 @@ export default async function ({ runDir, req, target }) {
       } catch (e) { push({ case_id: cid, result: 'BLOCKED', reason: 'harness error: ' + String(e).slice(0, 200) }); }
     }
 
-    // 7) Mobile navigation drawer (375x812)
+    // 7) Mobile navigation drawer (375x812): Enter opens a modal drawer with nav links, focus moves in, Escape closes and returns focus
     try {
       const { ctx, page } = await freshPage(browser, { width: 375, height: 812, isMobile: true, hasTouch: true });
-      const t = await tabTo(page, /open workspace navigation|navigation/i, 15);
-      const exp0 = await page.evaluate(() => document.activeElement?.getAttribute('aria-expanded'));
-      const navBefore = await page.evaluate(() => { const n = document.querySelector('aside nav, nav[aria-label]'); if (!n) return null; const r = n.getBoundingClientRect(); return r.width > 0 && r.right > 0 && r.left < innerWidth && getComputedStyle(n).visibility !== 'hidden'; });
+      const t = await tabTo(page, /open workspace navigation|^navigation$/i, 15);
+      const toggle = page.locator('header button[title="Open workspace navigation"]');
+      const exp0 = await toggle.getAttribute('aria-expanded');
       await page.keyboard.press('Enter'); await page.waitForTimeout(500);
-      const exp1 = await page.evaluate(() => document.activeElement?.getAttribute('aria-expanded'));
-      const navVisible = await page.evaluate(() => { const n = document.querySelector('aside nav, nav[aria-label]'); if (!n) return null; const r = n.getBoundingClientRect(); return r.width > 0 && r.right > 0 && r.left < innerWidth; });
+      const exp1 = await toggle.getAttribute('aria-expanded');
+      const st = await dialogState(page);
+      const links = await page.evaluate(() => [...document.querySelectorAll('[aria-modal=true] a[href^="#"], [role=dialog] a[href^="#"]')].filter(a => { const r = a.getBoundingClientRect(); return r.width > 0 && r.height > 0; }).length);
       const fOpen = await fi(page);
       await page.keyboard.press('Escape'); await page.waitForTimeout(400);
+      const st2 = await dialogState(page);
+      const exp2 = await toggle.getAttribute('aria-expanded');
       const fBack = await fi(page);
-      const exp2 = await page.evaluate(() => [...document.querySelectorAll('header button')].find(b => /navigation/i.test(b.title || b.textContent))?.getAttribute('aria-expanded'));
-      push({ case_id: 'FE03-KBD-NAV-MOBILE', expected: '375px: navigation toggle reachable by Tab; Enter opens drawer (aria-expanded=true, nav visible); Escape closes (aria-expanded=false) and focus returns to the toggle', actual: { reached: t.found, presses: t.presses, exp0, exp1, navBefore, navVisible, focusOpen: fOpen.name, exp2, focusBack: fBack.name },
-        result: t.found && (exp1 === 'true' || (navBefore === false && navVisible)) && exp2 === 'false' && /navigation/i.test(fBack.name || '') ? 'PASS' : (t.found ? 'FAIL' : 'BLOCKED'), reason: t.found ? '' : 'toggle not reached' });
+      const ok = t.found && (exp1 === 'true' || st.open.some(x => /modal=true|role=dialog/.test(x))) && links >= 10 && fOpen.inDialog && !st2.open.length && exp2 !== 'true' && /navigation/i.test(fBack.name || '');
+      push({ case_id: 'FE03-KBD-NAV-MOBILE', expected: '375px: toggle reachable by Tab; Enter opens a modal drawer (aria-expanded=true or role=dialog aria-modal) with the nav links; focus moves inside; Escape closes it and returns focus to the toggle', actual: { reached: t.found, presses: t.presses, exp0, exp1, open: st.open, mainInert: st.mainInert, visibleLinks: links, focusOpen: [fOpen.name, fOpen.inDialog], afterEscape: st2.open, exp2, focusBack: fBack.name },
+        result: !t.found ? 'BLOCKED' : (ok ? 'PASS' : 'FAIL'), reason: t.found ? '' : 'toggle not reached' });
       await ctx.close();
     } catch (e) { push({ case_id: 'FE03-KBD-NAV-MOBILE', result: 'BLOCKED', reason: 'harness error: ' + String(e).slice(0, 200) }); }
 
