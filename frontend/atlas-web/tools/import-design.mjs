@@ -95,17 +95,24 @@ const inferKind = (s, m) => {
 };
 // Design copy names fixture records (r-901, T-02, commit SHAs). Production builds must not present those as real data, so each
 // scene also carries a neutral title/copy; the review build keeps the fixture text (labelled Illustrative).
-const SAMPLE = /\b(?:[A-Z]{1,2}-\d{2,}|[a-z]{1,4}-\d{1,4}(?:@\d+)?|(?=[0-9a-f]*\d)[0-9a-f]{7,40}|[A-Z][a-z]+@\d+|#\d{2,}|fence \d+|seq \d+[–-]\d+|v\d+\.\d+\.\d+)\b|in this fixture|Fixture:/;
+// Fixture tokens: record IDs, SHAs, exact revisions/counts/sizes, persona names and sample e-mail addresses.
+const PERSONAS = 'Alex|Morgan|Riley|Mira|Nora|Sam|Priya|Jordan';
+const SAMPLE = new RegExp(String.raw`\b(?:[A-Z]{1,2}-\d{2,}|[a-z]{1,4}-\d{1,4}(?:@\d+)?|(?=[0-9a-f]*\d)[0-9a-f]{7,40}|[A-Z][a-z]+@\d+|#\d{2,}|fence \d+|seq \d+[–-]\d+|v\d+\.\d+\.\d+` +
+  String.raw`|(?:rev|revision|draft|epoch|attempt|lease) \d+|r\d+|\d+(?:[.,]\d+)?\s?(?:ms|s|min|files?|tokens|KB|MB|GB|items|matches|results)|\d+\s*\/\s*\d+|[A-Z]=\d+(?:\.\d+)?` +
+  String.raw`|(?:fld|doc|col|ws|org|prj|env|ctx|att|op|wf|inv|sess|trace|span|snap|idx|pkg)-[a-z][a-z0-9-]*|[\w.+-]+@[\w-]+\.[a-z]{2,}|${PERSONAS})\b` +
+  String.raw`|\d+(?:\.\d+)?%|(?:→|->)\s*\d+|\$\d|in this fixture|Fixture:`);
 const SAMPLE_G = new RegExp(SAMPLE.source, 'g');
 const hasSample = (t) => SAMPLE.test(t || '');
-function neutralTitle(t, entity) {
+function neutralTitle(t, entity, bare = false) {
   if (!hasSample(t)) return t;
-  const out = t.replace(SAMPLE_G, '').replace(/\s*[·/]\s*(?=[·/]|$)/g, '').replace(/^\s*[·/]\s*/, '').replace(/\(\s*\)/g, '').replace(/\s{2,}/g, ' ').trim();
+  const out = t.replace(SAMPLE_G, '').replace(/\s*[·/]\s*(?=[·/]|$)/g, '').replace(/^\s*[·/]\s*/, '').replace(/\(\s*\)/g, '').replace(/\s{2,}/g, ' ').trim()
+    .replace(/\s+(?:on|for|at|from|to|of|in|with|by)$/i, '').trim();
   if (out.length < 3) return entity;
   const cap = out[0].toUpperCase() + out.slice(1);
-  return /\s/.test(cap) ? cap : `${neutralTitle(entity, '')} · ${cap}`.replace(/^ · /, '');
+  return bare || /\s/.test(cap) ? cap : `${neutralTitle(entity, '')} · ${cap}`.replace(/^ · /, '');
 }
-const neutralCopy = (c, state) => (hasSample(c) ? `${state}. Exact identifiers, revisions and outcomes appear only when an authorized service returns them.` : c);
+const neutralState = (st) => neutralTitle(st, 'Current state', true);
+const neutralCopy = (c, state) => (hasSample(c) ? `${neutralState(state)}. Exact identifiers, revisions and outcomes appear only when an authorized service returns them.` : c);
 const humanize = (k) => { const w = String(k).replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[-_]+/g, ' ').toLowerCase(); return w[0].toUpperCase() + w.slice(1); };
 const neutralLabel = (l) => (hasSample(l) ? (l.replace(/\bPR-\d+/g, 'PR').replace(SAMPLE_G, '').replace(/\s{2,}/g, ' ').trim() || 'Inspect') : l);
 const fieldLabel = (l) => (/^[a-z][A-Za-z0-9]*$/.test(l) ? humanize(l) : l);
@@ -128,20 +135,20 @@ const perJourney = {};
 for (const s of specs) {
   const m = model[s.key] && model[s.key].journey === s.design_journey ? model[s.key] : null;
   const scene = {
-    id: s.id, key: s.key, j: s.design_journey, title: s.title, entity: s.entity, state: s.state, actor: s.actor,
+    id: s.id, key: s.key, j: s.design_journey, title: s.title, entity: s.entity, state: s.state, prodState: neutralState(s.state), actor: s.actor,
     prodTitle: neutralTitle(s.title, s.entity), prodEntity: neutralTitle(s.entity, s.state), prodCopy: neutralCopy(s.copy || '', s.state),
     kind: inferKind(s, m), reviewOnly: !!s.review_only, planned: s.planned_views || [], schema: s.schema || m?.schema || null,
     copy: s.copy || '', fields: (s.fields || []).map(f => ({ label: fieldLabel(f.label || f.property || 'value'), hint: fieldHint(f.hint || (f.type ? `${f.type}${f.nullable ? ' · optional' : ''}` : '')), value: f.value ?? null })),
     actions: (s.actions || []).map(a => ({ label: a.label, prodLabel: neutralLabel(a.label), target: resolveTarget(s, a.target), style: a.style || 'Secondary' })),
     disabled: (s.disabled_actions || []).map(d => ({ label: d.label, prodLabel: neutralLabel(d.label), reason: d.reason, prodReason: neutralCopy(d.reason, 'Not available') })),
     receipt: s.receipt ? { stage: s.receipt[0], operation: s.receipt[1], note: s.receipt[2] } : null,
-    pins: s.source_pins || m?.pins || [], rows: (m?.rows || []).map(r => ({ label: r[0], detail: r[1], status: r[2], target: resolveTarget(s, r[3]), sample: hasSample(r[0]) || hasSample(r[1]) })),
+    pins: s.source_pins || m?.pins || [], rows: (m?.rows || []).map(r => ({ label: r[0], prodLabel: neutralLabel(r[0]), detail: r[1], status: r[2], target: resolveTarget(s, r[3]), sample: hasSample(r[0]) || hasSample(r[1]) })),
     lifecycle: s.lifecycle_refs || [], uat: s.uat || [], ux: s.ux_steps || [], packages: s.packages || [],
     lifecycleStates: m?.lifecycleStates || null, selectedTask: m?.selectedTask || null, patternKey: m?.patternKey || null,
     fieldError: m?.fieldError || null, blockedBy: s.blocked_by || [],
     figma: { dark: (s.node_ids || [])[0] || null, light: (s.node_ids || [])[1] || null },
   };
-  sceneIndex[s.id] = { key: s.key, j: s.design_journey, title: s.title, prodTitle: scene.prodTitle, state: s.state, kind: scene.kind, planned: scene.planned, reviewOnly: scene.reviewOnly };
+  sceneIndex[s.id] = { key: s.key, j: s.design_journey, title: s.title, prodTitle: scene.prodTitle, state: s.state, prodState: scene.prodState, kind: scene.kind, planned: scene.planned, reviewOnly: scene.reviewOnly };
   (perJourney[s.design_journey] = perJourney[s.design_journey] || []).push(scene);
 }
 const sceneSizes = {};

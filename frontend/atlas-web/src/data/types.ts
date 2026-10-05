@@ -19,16 +19,16 @@ export interface ViewEntry extends RouteEntry {
 
 export interface SceneAction { label: string; prodLabel: string; target: string | null; style: 'Primary' | 'Secondary' | 'Quiet' | 'Danger' | string }
 export interface Scene {
-  id: string; key: string; j: string; title: string; entity: string; state: string; actor: string; kind: string; reviewOnly: boolean;
+  id: string; key: string; j: string; title: string; entity: string; state: string; prodState: string; actor: string; kind: string; reviewOnly: boolean;
   /** Neutral wording without fixture identifiers, used outside the review build. */
   prodTitle: string; prodEntity: string; prodCopy: string;
   planned: string[]; schema: string | null; copy: string; fields: { label: string; hint: string; value: unknown }[];
   actions: SceneAction[]; disabled: { label: string; prodLabel: string; reason: string; prodReason: string }[]; receipt: { stage: string; operation: string; note: string } | null;
-  pins: string[]; rows: { label: string; detail: string; status: string; target: string | null; sample: boolean }[]; lifecycle: string[]; uat: string[];
+  pins: string[]; rows: { label: string; prodLabel: string; detail: string; status: string; target: string | null; sample: boolean }[]; lifecycle: string[]; uat: string[];
   ux: string[]; packages: string[]; lifecycleStates: unknown; selectedTask: unknown; patternKey: string | null; fieldError: unknown;
   blockedBy: string[]; figma: { dark: string | null; light: string | null };
 }
-export interface SceneIndexEntry { key: string; j: string; title: string; prodTitle: string; state: string; kind: string; planned: string[]; reviewOnly: boolean }
+export interface SceneIndexEntry { key: string; j: string; title: string; prodTitle: string; state: string; prodState: string; kind: string; planned: string[]; reviewOnly: boolean }
 
 export type FieldControl = 'text' | 'textarea' | 'list' | 'number' | 'pins' | 'json' | 'boolean' | 'select' | 'datetime';
 export interface FieldSpec {
