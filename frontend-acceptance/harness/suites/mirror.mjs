@@ -82,7 +82,12 @@ export default async function ({ runDir, target }) {
   for (const e of entries) {
     let p = e.path.replace(/^https?:\/\/[^/]+/, '');
     if (!p.startsWith('/')) p = '/' + p;
-    const r = await get(`${target}${encodeURI(p)}`);
+    let r = await get(`${target}${encodeURI(p)}`);
+    let redirect = null;
+    if (r.status >= 300 && r.status < 400 && r.headers.location) {   // html_handling auto-trailing-slash: /index.html -> /
+      redirect = { status: r.status, location: r.headers.location };
+      r = await get(new URL(r.headers.location, `${target}${p}`).href);
+    }
     const got = sha256(r.buf);
     const want = normHash(e.hash);
     const ext = (p.split('.').pop() || '').toLowerCase();
@@ -93,7 +98,7 @@ export default async function ({ runDir, target }) {
       ensureDir(path.dirname(dest));
       fs.writeFileSync(dest, r.buf);
     }
-    payload.push({ path: p, status: r.status, want, got, match: want === got, size_claim: e.size, bytes: r.buf.length, content_type: r.headers['content-type'] || null, mime_ok: mimeRe ? mimeRe.test(r.headers['content-type'] || '') : null, cache_control: r.headers['cache-control'] || null, etag: r.headers['etag'] || null });
+    payload.push({ path: p, redirect, status: r.status, want, got, match: want === got, size_claim: e.size, bytes: r.buf.length, content_type: r.headers['content-type'] || null, mime_ok: mimeRe ? mimeRe.test(r.headers['content-type'] || '') : null, cache_control: r.headers['cache-control'] || null, etag: r.headers['etag'] || null });
   }
   const mismatches = payload.filter(p => !p.match || p.status !== 200);
   writeJSON(rec.evidenceFile('payload-hashes.json', { evidence_type: 'hash-table', case_ids: ['CF-PRE-002'] }), { manifest_meta: manifest ? Object.fromEntries(Object.entries(manifest).filter(([k, v]) => typeof v !== 'object')) : null, entries: payload });

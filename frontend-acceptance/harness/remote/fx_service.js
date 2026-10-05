@@ -16,6 +16,7 @@
   const item = (m, i) => ({ id: `${m}-${i}`, name: `FX ${m} ${i}`, revision: 3, scope: S.scope, observedAt: new Date(now - 6e4).toISOString(), status: 'Active', etag: `"${m}-${i}-r3"`, fields: { owner: 'fx-user' },
     actions: [{ id: 'act-1', grant: `${m}.write`, label: `FX action ${m}`, href: `${B}/v1/${m}/${m}-${i}/act-1`, statusHref: `${B}/v1/ops/{operationId}`, effectHref: `${B}/v1/${m}/${m}-${i}/effect/{operationId}`, resourceId: `${m}-${i}`, expectedRevision: 3, inputs: [] }] });
   const json = (o, status = 200) => new Response(JSON.stringify(o), { status, headers: { 'content-type': 'application/json' } });
+  window.__FX = { S, out };
   const ofetch = window.fetch.bind(window);
   window.fetch = async (input, init = {}) => {
     const url = typeof input === 'string' ? input : input.url;

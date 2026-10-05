@@ -1,13 +1,11 @@
 {
-  "request_id": "R3-001-xengine",
-  "purpose": "Run 3 via GitHub Actions: release hash + encrypted mirror, discovery, injected scripts on chromium/firefox/webkit (deeplink, FE02 6 widths, axe dark/light, perf_cold, fx_service draft), trusted keyboard (APG), perf (cold/warm/mobile throttled, INP, heap), screenshots",
+  "request_id": "R3-002-fx-layout",
+  "purpose": "Run 3b: fixed deeplink script on 3 engines, runner hash check following redirects, FX-SERVICE trusted scenarios (12 modes + expiry + observer), layout hit-test (FND-018 root cause) on 3 engines, FE02 375/768 on firefox/webkit",
   "suites": [
     "mirror",
-    "discover",
     "injected",
-    "keyboard",
-    "perf",
-    "screenshots"
+    "fxservice",
+    "layout"
   ],
   "injected": [
     {
@@ -20,7 +18,8 @@
       "viewport": {
         "width": 1280,
         "height": 800
-      }
+      },
+      "timeout": 150000
     },
     {
       "script": "fe02",
@@ -28,25 +27,8 @@
         "detector"
       ],
       "engines": [
-        "chromium",
         "firefox",
         "webkit"
-      ],
-      "viewport": {
-        "width": 320,
-        "height": 800,
-        "isMobile": true,
-        "hasTouch": true,
-        "deviceScaleFactor": 2
-      }
-    },
-    {
-      "script": "fe02",
-      "pre": [
-        "detector"
-      ],
-      "engines": [
-        "chromium"
       ],
       "viewport": {
         "width": 375,
@@ -62,7 +44,8 @@
         "detector"
       ],
       "engines": [
-        "chromium"
+        "firefox",
+        "webkit"
       ],
       "viewport": {
         "width": 768,
@@ -77,102 +60,18 @@
         "detector"
       ],
       "engines": [
-        "chromium"
-      ],
-      "viewport": {
-        "width": 1280,
-        "height": 800
-      }
-    },
-    {
-      "script": "fe02",
-      "pre": [
-        "detector"
-      ],
-      "engines": [
-        "chromium"
-      ],
-      "viewport": {
-        "width": 1440,
-        "height": 900
-      }
-    },
-    {
-      "script": "fe02",
-      "pre": [
-        "detector"
-      ],
-      "engines": [
-        "chromium",
         "firefox",
         "webkit"
       ],
       "viewport": {
-        "width": 1920,
-        "height": 1080
+        "width": 1440,
+        "height": 900
       }
-    },
-    {
-      "script": "axe",
-      "engines": [
-        "chromium"
-      ],
-      "viewport": {
-        "width": 1440,
-        "height": 900
-      },
-      "globals": {
-        "__AXE_THEME": "dark"
-      },
-      "tag": "dark"
-    },
-    {
-      "script": "axe",
-      "engines": [
-        "chromium"
-      ],
-      "viewport": {
-        "width": 1440,
-        "height": 900
-      },
-      "globals": {
-        "__AXE_THEME": "light"
-      },
-      "tag": "light"
-    },
-    {
-      "script": "perf_cold",
-      "engines": [
-        "chromium"
-      ],
-      "viewport": {
-        "width": 1440,
-        "height": 900
-      },
-      "globals": {
-        "__WARM_N": 10
-      }
-    },
-    {
-      "script": "fx_service",
-      "engines": [
-        "chromium"
-      ],
-      "url": "/harness-blank",
-      "viewport": {
-        "width": 1440,
-        "height": 900
-      },
-      "globals": {
-        "__FX_MODE": "effective"
-      },
-      "timeout": 60000
     }
   ],
-  "keyboard_engines": [
+  "layout_engines": [
     "chromium",
     "firefox",
     "webkit"
-  ],
-  "perf_runs": 10
+  ]
 }
