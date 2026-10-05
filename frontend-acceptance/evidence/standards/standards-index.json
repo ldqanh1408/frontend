@@ -1,0 +1,191 @@
+[
+ {
+  "file": "evidence/standards/apg-combobox-pattern.html",
+  "url": "https://raw.githubusercontent.com/w3c/aria-practices/main/content/patterns/combobox/combobox-pattern.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "c8aaf0f98655af5598eff0c3592dc55a6dd1cff4e7eb3e19a2960fa72dacc178",
+  "bytes": 34543
+ },
+ {
+  "file": "evidence/standards/apg-dialog-modal-pattern.html",
+  "url": "https://raw.githubusercontent.com/w3c/aria-practices/main/content/patterns/dialog-modal/dialog-modal-pattern.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "14ce04000352a8d8ee6cf2ec4419e1cf28a8d6648736a1cf6653d38bc24099e3",
+  "bytes": 11000
+ },
+ {
+  "file": "evidence/standards/apg-tabs-pattern.html",
+  "url": "https://raw.githubusercontent.com/w3c/aria-practices/main/content/patterns/tabs/tabs-pattern.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "63b7ccff9b8b52c551d6ad769c97f3d05e6a6ee3b8f898a874a2f0a6270a7cf0",
+  "bytes": 9681
+ },
+ {
+  "file": "evidence/standards/apg-treeview-pattern.html",
+  "url": "https://raw.githubusercontent.com/w3c/aria-practices/main/content/patterns/treeview/treeview-pattern.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "999443e493406abbd270d3ea8f283d2a5e402de2a709f6c6d7056fa746edd343",
+  "bytes": 21288
+ },
+ {
+  "file": "evidence/standards/skill-README.md",
+  "url": "https://raw.githubusercontent.com/nextlevelbuilder/ui-ux-pro-max-skill/09170eec67eefd46a7ae85de61b40c194020f997/README.md",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "13957904b9999d6e367ecbb13d4df1aeb0a945d84f2da8c69c3b22e0750d2d7f",
+  "bytes": 37133
+ },
+ {
+  "file": "evidence/standards/understanding-contrast-minimum.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/understanding/20/contrast-minimum.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "746d73a6ae38bedeabd826f62f13178cda425dfd2830ff9c70f038ca6be0084b",
+  "bytes": 21196
+ },
+ {
+  "file": "evidence/standards/understanding-focus-not-obscured-minimum.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/understanding/22/focus-not-obscured-minimum.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "00b7174742926e1f11fdbc6f2297da5d621d56f2c17d72879c35df4bab4bab3d",
+  "bytes": 18971
+ },
+ {
+  "file": "evidence/standards/understanding-keyboard.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/understanding/20/keyboard.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "d83a0b99ed667fc0fb2b48e7fa283ceec0262f7ed00c633c17ce142b1751a023",
+  "bytes": 8248
+ },
+ {
+  "file": "evidence/standards/understanding-name-role-value.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/understanding/20/name-role-value.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "e98a553092251a42d66f9b47ccea0c279bb6faeb46d238eac30b08c9ebbf8a85",
+  "bytes": 4740
+ },
+ {
+  "file": "evidence/standards/understanding-non-text-contrast.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/understanding/21/non-text-contrast.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "e074ad25c57f562bc4043c57d69f76dd410fabb6cce76cfc89c91ef5b7d55d62",
+  "bytes": 53042
+ },
+ {
+  "file": "evidence/standards/understanding-reflow.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/understanding/21/reflow.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "3eed72ded3818af56777383952c7e57e3f1ef01ec32a1694b75e4ef61129cc74",
+  "bytes": 44454
+ },
+ {
+  "file": "evidence/standards/understanding-status-messages.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/understanding/21/status-messages.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "67d20387d0525e756ca07a50c89a907f493c1e5ae66edfc641fbb3333ff8a1a5",
+  "bytes": 14186
+ },
+ {
+  "file": "evidence/standards/understanding-target-size-minimum.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/understanding/22/target-size-minimum.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "a34b53d33866c4ab0b0e931948a107353c77473c2588b5aa692912d5708ce77a",
+  "bytes": 22988
+ },
+ {
+  "file": "evidence/standards/wcag-sc-contrast-minimum.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/guidelines/sc/20/contrast-minimum.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "f1d819b44cc5ba64e962ce64889de2ab214af6911b27a119f7d24c43197b2e64",
+  "bytes": 1071
+ },
+ {
+  "file": "evidence/standards/wcag-sc-focus-not-obscured-minimum.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/guidelines/sc/22/focus-not-obscured-minimum.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "aa21bdd5cd9e3d5fb4c7b15b7ecefc13b62997cda19ff19dd0f32a5e51a6e613",
+  "bytes": 840
+ },
+ {
+  "file": "evidence/standards/wcag-sc-keyboard.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/guidelines/sc/20/keyboard.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "8724a66650968536ac46ec2cb486c4cedeade25531d2840f75aedf6826e7aed1",
+  "bytes": 872
+ },
+ {
+  "file": "evidence/standards/wcag-sc-name-role-value.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/guidelines/sc/20/name-role-value.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "7e0721c3181f969ae09b2d03896b4288b632174a838786850a2be93f5f9614e3",
+  "bytes": 848
+ },
+ {
+  "file": "evidence/standards/wcag-sc-non-text-contrast.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/guidelines/sc/21/non-text-contrast.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "f2926663703c6a18795858c9c54cdab4914333bb474e965c51258e5bc38520f8",
+  "bytes": 872
+ },
+ {
+  "file": "evidence/standards/wcag-sc-page-titled.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/guidelines/sc/20/page-titled.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "c287ad87eb186a0cdc97734ee3cef644084ef9a46d7b29cb768bb78964cf5897",
+  "bytes": 202
+ },
+ {
+  "file": "evidence/standards/wcag-sc-reflow.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/guidelines/sc/21/reflow.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "8d42fb8675bbdeb81e500ee9b535c3e7649672c5b53d6888fcb3f224fa2f5740",
+  "bytes": 1273
+ },
+ {
+  "file": "evidence/standards/wcag-sc-status-messages.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/guidelines/sc/21/status-messages.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "a964166a21ce6c69e4e518518c9a9f37ebf192621a15ed05965a18e8fca8a2f4",
+  "bytes": 413
+ },
+ {
+  "file": "evidence/standards/wcag-sc-target-size-minimum.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/guidelines/sc/22/target-size-minimum.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "b5cd439141c3771e69cd20596f6fbda5fadfe28967f8783559066a435a62b123",
+  "bytes": 1737
+ },
+ {
+  "file": "evidence/standards/wcag-sc-text-spacing.html",
+  "url": "https://raw.githubusercontent.com/w3c/wcag/main/guidelines/sc/21/text-spacing.html",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "c877ce22e12d5f3b41d2aac4b907b254a5e06ab36eee97beb3cb813fb09993f5",
+  "bytes": 1394
+ },
+ {
+  "file": "evidence/standards/web-vitals-onCLS.ts",
+  "url": "https://raw.githubusercontent.com/GoogleChrome/web-vitals/main/src/onCLS.ts",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "16634bcd3f0c478917e56f8833c8cc8edccc98eca6fe9797bb9a8abeb8b939b5",
+  "bytes": 6111
+ },
+ {
+  "file": "evidence/standards/web-vitals-onFCP.ts",
+  "url": "https://raw.githubusercontent.com/GoogleChrome/web-vitals/main/src/onFCP.ts",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "c50e8ef01940dcceaf1eed1a1d8d8a71ff827b25eda6358ab1c7d4f0d0413cbc",
+  "bytes": 5649
+ },
+ {
+  "file": "evidence/standards/web-vitals-onINP.ts",
+  "url": "https://raw.githubusercontent.com/GoogleChrome/web-vitals/main/src/onINP.ts",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "01c6f52673a52ed5d567512d636811b1920b3286778988091136aef523f49dc8",
+  "bytes": 7668
+ },
+ {
+  "file": "evidence/standards/web-vitals-onLCP.ts",
+  "url": "https://raw.githubusercontent.com/GoogleChrome/web-vitals/main/src/onLCP.ts",
+  "read_at": "2026-10-05T07:30Z",
+  "sha256": "08a9e988872aba9caa7c87792bd0831cce2a24e402b75cdf9fb8e0c32a9a546f",
+  "bytes": 10078
+ }
+]

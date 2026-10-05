@@ -48,7 +48,7 @@ jobs:
         run: |
           git config user.name "atlas-acceptance-bot"
           git config user.email "atlas-acceptance-bot@users.noreply.github.com"
-          git add -A frontend-acceptance/runs frontend-acceptance/work/release-mirror || true
+          git add -A frontend-acceptance/evidence/runs frontend-acceptance/work/release-mirror || true
           if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
           REQ=$(node -e "console.log(require('./frontend-acceptance/run-request.json').request_id)")
           git commit -m "acceptance results ${REQ} (run ${GITHUB_RUN_ID})"

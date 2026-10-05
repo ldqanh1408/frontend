@@ -1,0 +1,19 @@
+{
+ "canonical_denominator": 210,
+ "canonical_rows_resolved": 0,
+ "implementation_status": {
+  "COMPLETE": 0,
+  "PARTIAL": 0,
+  "NOT_IMPLEMENTED": 0,
+  "UNVERIFIED": 210
+ },
+ "implementation_status_basis": "OBSERVED_THIS_RUN: no canonical view could be enumerated (inventory missing) ⇒ all 210 UNVERIFIED",
+ "inherited_run1": {
+  "COMPLETE": 0,
+  "PARTIAL": 74,
+  "NOT_IMPLEMENTED": 7,
+  "UNVERIFIED": 129,
+  "label": "INHERITED_EVIDENCE (v2 prompt §6.7), not re-verified"
+ },
+ "routes_observed": 18
+}

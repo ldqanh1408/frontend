@@ -1,0 +1,16 @@
+{
+  "captured_at": "2026-10-05T06:58Z",
+  "method": "Cloudflare plugin mcp__cloudflare__execute, GET only",
+  "account": {"count": 1, "id": "[REDACTED]", "type": "standard"},
+  "script": {"id": "sparkling-snow-090d", "created_on": "2026-10-04T14:53:52.007024Z", "modified_on": "2026-10-04T16:47:20.2745Z", "has_modules": false, "has_assets": true, "compatibility_date": "2026-10-04", "usage_model": "standard", "handlers": ["fetch"], "last_deployed_from": ""},
+  "deployments": [{"id": "bd44cfc0-1219-40d9-9c1a-b1b7fe84d085", "source": "dash", "strategy": "percentage", "author_email": "[REDACTED]", "annotations": {"workers/message": "Automatic deployment on upload.", "workers/triggered_by": "upload"}, "versions": [{"version_id": "a8b5bc3a-63c9-4996-84e5-e8bc117775d3", "percentage": 100}], "created_on": "2026-10-04T14:54:09.581123Z"}],
+  "versions": [{"id": "a8b5bc3a-63c9-4996-84e5-e8bc117775d3", "number": 1, "created_on": "2026-10-04T14:54:09.581123Z", "source": "dash", "has_preview": true}],
+  "version_runtime": {"assets": {"html_handling": "auto-trailing-slash", "not_found_handling": "none", "serve_directly": true, "raw_run_worker_first": false, "base_path": "/"}, "compatibility_date": "2026-10-04", "usage_model": "standard", "bindings": []},
+  "settings": {"compatibility_flags": [], "logpush": false, "tail_consumers": [], "observability": {"enabled": false, "logs": {"enabled": true, "persist": true, "invocation_logs": true, "head_sampling_rate": 1}, "traces": {"enabled": false}}, "bindings": []},
+  "workers_dev_subdomain": {"subdomain": "ekko-okke666", "script_enabled": true, "previews_enabled": false},
+  "custom_domains": [],
+  "pages_projects": [],
+  "zones": [],
+  "routes": "none (no zones in account => no zone routes)",
+  "comparison_with_run1": {"worker": "MATCH", "deployment_id": "MATCH", "version_id": "MATCH", "assets_only": "MATCH", "compat": "MATCH", "pages_domain_routes": "MATCH (none)", "note": "script modified_on (16:47:20Z) is later than the deployment (14:54:09Z) with no new version/deployment; consistent with a settings-only change (observability logs persisted). Not a release change."}
+}

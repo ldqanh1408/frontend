@@ -1,0 +1,655 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Atlas Frontend Acceptance</title><style>
+:root{--bg:#ffffff;--fg:#1d2433;--muted:#5b6475;--line:#d9dee7;--card:#f5f7fa;--fail:#b42318;--pass:#067647;--warn:#b54708;--accent:#2f5bd3}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141c;--fg:#e6e9ef;--muted:#9aa4b5;--line:#2a3342;--card:#161d28;--fail:#f97066;--pass:#47cd89;--warn:#fdb022;--accent:#84a9ff}}
+:root[data-theme="dark"]{--bg:#0f141c;--fg:#e6e9ef;--muted:#9aa4b5;--line:#2a3342;--card:#161d28;--fail:#f97066;--pass:#47cd89;--warn:#fdb022;--accent:#84a9ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:1180px;margin:0 auto;padding:24px 16px 64px}h1{font-size:1.6rem;line-height:1.25}h2{margin-top:2.2rem;border-bottom:1px solid var(--line);padding-bottom:.3rem}
+pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em}
+.table-wrap{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:8px}table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}th{background:var(--card);position:sticky;top:0}
+td strong{white-space:nowrap}.FAIL{color:var(--fail);font-weight:700}.PASS{color:var(--pass);font-weight:700}.INCOMPLETE,.BLOCKED{color:var(--warn);font-weight:700}
+a{color:var(--accent)}
+</style></head><body><main><h1>Atlas Frontend Production Acceptance — Báo cáo run 2 (2026-10-05)</h1>
+<pre><code class="language-text">FRONTEND ACCEPTANCE TARGET
+
+Provider: Cloudflare
+Primary URL: https://sparkling-snow-090d.ekko-okke666.workers.dev
+Worker deployment: bd44cfc0-1219-40d9-9c1a-b1b7fe84d085 (version a8b5bc3a-63c9-4996-84e5-e8bc117775d3)
+Pages deployment: none
+Source revision: UNVERIFIED
+Local build: UNVERIFIED
+Remote/local equivalence: UNVERIFIED
+
+VERDICT:
+NO_GO_FRONTEND
+</code></pre>
+<p>Phạm vi: 210 canonical view (denominator theo v2; <strong>0/210 liệt kê được</strong> vì thiếu inventory) · 18 module route quan sát được · Chromium (Cloudflare Browser Rendering) only · AUDIT_ONLY. Backend không được chứng nhận.</p>
+<p><strong>Tóm tắt.</strong> Deployment không đổi so với run 1 và 120/120 payload khớp manifest. Routing hash ổn định (deep link, refresh, Back/Forward, query, route lạ). Verdict là <strong>NO_GO_FRONTEND</strong> vì bốn gate có requirement bắt buộc FAIL: FE-02 và FE-03 (FND-018 target size ở light theme 320/375 px; FE-03 thêm FND-017 tiêu đề trang), FE-04 (FND-002 không CSP), FE-05 (FND-003 cache). FE-01 và FE-06 INCOMPLETE. Phần lớn case còn lại BLOCKED vì (1) gói bàn giao + CSV + source không có trong phiên, (2) quota Browser Rendering hết lúc 07:27Z, (3) không có trusted input/AT/engine khác.</p>
+<h2>1. Sáu gate</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Kết quả</th>
+<th>Coverage / bằng chứng</th>
+<th>Blocker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FE-01 Functional parity &amp; routing</td>
+<td><strong class="INCOMPLETE">INCOMPLETE</strong></td>
+<td>18/18 route: deep link, refresh, Back/Forward, query, route lạ PASS; 120/120 payload khớp manifest — case: 12 (PASS 8, FAIL 0, BLOCKED 3, NOT_RUN 0, N/A 1)</td>
+<td>210 view_id không liệt kê được (thiếu Screen-Inventory/Archive CSV, spec, source); FND-004/FND-012 chưa retest; Figma chưa so</td>
+</tr>
+<tr>
+<td>FE-02 Responsive</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td>180/216 tổ hợp route×viewport×theme đo được; 144 sạch — case: 11 (PASS 3, FAIL 3, BLOCKED 5, NOT_RUN 0, N/A 0)</td>
+<td>FAIL: light@320/375 target size (FND-018); 1920 + state/zoom/coarse/walkthrough BLOCKED (quota, không trusted input)</td>
+</tr>
+<tr>
+<td>FE-03 Accessibility</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td>Detector tự động: 0 lỗi contrast/tên/heading ở 180 tổ hợp — case: 9 (PASS 0, FAIL 2, BLOCKED 5, NOT_RUN 2, N/A 0)</td>
+<td>FAIL: FND-017 (2.4.2), FND-018 (2.5.8); axe, bàn phím, AT BLOCKED/NOT_RUN</td>
+</tr>
+<tr>
+<td>FE-04 Runtime / workers / storage</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td>0 lỗi runtime ở ≈200 lần render; 6 worker phục vụ MIME đúng — case: 8 (PASS 1, FAIL 1, BLOCKED 5, NOT_RUN 1, N/A 0)</td>
+<td>FAIL: không CSP/security headers (FND-002); worker lifecycle, IndexedDB, 2 tab, cross-engine BLOCKED/NOT_RUN</td>
+</tr>
+<tr>
+<td>FE-05 Performance</td>
+<td><strong class="FAIL">FAIL</strong></td>
+<td>Budget khoá trước (web-vitals); dữ kiện payload tĩnh — case: 7 (PASS 0, FAIL 1, BLOCKED 6, NOT_RUN 0, N/A 0)</td>
+<td>FAIL: asset băm max-age=0 (FND-003); không có số đo LCP/INP/CLS (quota, không CDP/trusted input)</td>
+</tr>
+<tr>
+<td>FE-06 Journeys &amp; fixtures / UAT</td>
+<td><strong class="INCOMPLETE">INCOMPLETE</strong></td>
+<td>Không có case chạy được — case: 6 (PASS 0, FAIL 0, BLOCKED 6, NOT_RUN 0, N/A 0)</td>
+<td>FX-SERVICE + 42 journey + UAT BLOCKED (quota; thiếu Journeys/UAT CSV; DTO chưa duyệt)</td>
+</tr>
+</tbody>
+</table></div>
+<h2>2. Implementation (210 canonical view)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Trạng thái</th>
+<th>Run 2 (OBSERVED)</th>
+<th>Run 1 (INHERITED, chưa xác minh lại)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COMPLETE</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>PARTIAL</td>
+<td>0</td>
+<td>74</td>
+</tr>
+<tr>
+<td>NOT_IMPLEMENTED</td>
+<td>0</td>
+<td>7</td>
+</tr>
+<tr>
+<td>UNVERIFIED</td>
+<td>210</td>
+<td>129</td>
+</tr>
+</tbody>
+</table></div>
+<p>Không có view_id nào được suy ra từ tiêu đề/route (invariant 20). <code>Atlas-Frontend-Screen-Coverage.csv</code> giữ đúng header với 0 hàng; <code>Atlas-Frontend-Route-Coverage.csv</code> (PROPOSED_EXTENSION) ghi 18 module route quan sát được.</p>
+<h2>3. Test denominator</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Total</th>
+<th>PASS</th>
+<th>FAIL</th>
+<th>NOT_RUN</th>
+<th>BLOCKED</th>
+<th>NOT_APPLICABLE</th>
+<th>Exclusions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>53</td>
+<td>12</td>
+<td>7</td>
+<td>3</td>
+<td>30</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<p>Không dùng % tổng hợp để bù gate. Case PASS dựa trên expected cố định trước khi chạy (oracle: h1 thu từ đường điều hướng độc lập, SHA-256 của manifest, văn bản WCAG SC).</p>
+<h2>4. Findings</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Sev</th>
+<th>Gate</th>
+<th>Tiêu đề</th>
+<th>Trạng thái</th>
+<th>Retest</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FND-001</td>
+<td>P2</td>
+<td>FE-03</td>
+<td>Tab/tabpanel semantics (summary from v2 prompt)</td>
+<td>OPEN (inherited, not retested)</td>
+<td>A11Y-AXE-001,FE03-KBD-001</td>
+</tr>
+<tr>
+<td>FND-002</td>
+<td>P2</td>
+<td>FE-04</td>
+<td>Không có CSP và các security header trên document/asset</td>
+<td>OPEN (reproduced in run 2)</td>
+<td>CF-PRE-005</td>
+</tr>
+<tr>
+<td>FND-003</td>
+<td>P2</td>
+<td>FE-05</td>
+<td>Asset có hash trong tên vẫn bị revalidate mỗi lần (max-age=0)</td>
+<td>OPEN (reproduced in run 2)</td>
+<td>CF-PRE-006</td>
+</tr>
+<tr>
+<td>FND-004</td>
+<td>P1</td>
+<td>FE-01</td>
+<td>3/49 definition types cannot be created: default name contains "/" rejected by name validator</td>
+<td>OPEN (inherited, not retested)</td>
+<td>DEF-RETEST-FND-004</td>
+</tr>
+<tr>
+<td>FND-005</td>
+<td>P2</td>
+<td>FE-06</td>
+<td>Stale success toast remains after 401 / session expiry disconnect</td>
+<td>OPEN (inherited, not retested)</td>
+<td>FX-SERVICE-FND-005</td>
+</tr>
+<tr>
+<td>FND-006</td>
+<td>P3</td>
+<td>see run 1</td>
+<td>P3 finding from run 1 (FND-006 relates to FX-EXEC-001/FX-CMD-004 4xx-definitive decision)</td>
+<td>OPEN (inherited, not retested)</td>
+<td>see run-1 retest_case_ids</td>
+</tr>
+<tr>
+<td>FND-007</td>
+<td>P3</td>
+<td>see run 1</td>
+<td>P3 finding from run 1</td>
+<td>OPEN (inherited, not retested)</td>
+<td>see run-1 retest_case_ids</td>
+</tr>
+<tr>
+<td>FND-008</td>
+<td>P3</td>
+<td>see run 1</td>
+<td>P3 finding from run 1</td>
+<td>OPEN (inherited, not retested)</td>
+<td>see run-1 retest_case_ids</td>
+</tr>
+<tr>
+<td>FND-009</td>
+<td>P3</td>
+<td>see run 1</td>
+<td>P3 finding from run 1</td>
+<td>OPEN (inherited, not retested)</td>
+<td>see run-1 retest_case_ids</td>
+</tr>
+<tr>
+<td>FND-010</td>
+<td>P3</td>
+<td>see run 1</td>
+<td>P3 finding from run 1</td>
+<td>OPEN (inherited, not retested)</td>
+<td>see run-1 retest_case_ids</td>
+</tr>
+<tr>
+<td>FND-011</td>
+<td>P2</td>
+<td>FE-03</td>
+<td>Scrollable table region not keyboard focusable</td>
+<td>OPEN (inherited, not retested)</td>
+<td>FE03-KBD-001</td>
+</tr>
+<tr>
+<td>FND-012</td>
+<td>P1</td>
+<td>FE-01</td>
+<td>7 canonical screens NOT_IMPLEMENTED; 129 views without any case</td>
+<td>OPEN (inherited, not retested)</td>
+<td>FE01-210-001</td>
+</tr>
+<tr>
+<td>FND-013</td>
+<td>P3</td>
+<td>see run 1</td>
+<td>P3 finding from run 1</td>
+<td>OPEN (inherited, not retested)</td>
+<td>see run-1 retest_case_ids</td>
+</tr>
+<tr>
+<td>FND-014</td>
+<td>P3</td>
+<td>see run 1</td>
+<td>P3 finding from run 1</td>
+<td>OPEN (inherited, not retested)</td>
+<td>see run-1 retest_case_ids</td>
+</tr>
+<tr>
+<td>FND-015</td>
+<td>P3</td>
+<td>see run 1</td>
+<td>P3 finding from run 1</td>
+<td>OPEN (inherited, not retested)</td>
+<td>see run-1 retest_case_ids</td>
+</tr>
+<tr>
+<td>FND-016</td>
+<td>P3</td>
+<td>see run 1</td>
+<td>P3 finding from run 1</td>
+<td>OPEN (inherited, not retested)</td>
+<td>see run-1 retest_case_ids</td>
+</tr>
+<tr>
+<td>FND-017</td>
+<td>P3</td>
+<td>FE-03</td>
+<td>document.title không đổi theo view ("Atlas · Workspace" cho cả 18 module)</td>
+<td>OPEN (new in run 2)</td>
+<td>FE01-TITLE-001</td>
+</tr>
+<tr>
+<td>FND-018</td>
+<td>P2</td>
+<td>FE-03</td>
+<td>Light theme, 320/375 px: link breadcrumb "Workspace" 64×18 nằm trong 12 px của nút "Navigation" (không đạt ngoại lệ spacing)</td>
+<td>OPEN (new in run 2; root cause pending FE02-TARGET-001)</td>
+<td>FE02-TARGET-001,FE02-AUTO-216-320,FE02-AUTO-216-375</td>
+</tr>
+<tr>
+<td>FND-019</td>
+<td>P3</td>
+<td>FE-03</td>
+<td>View "Workspace view not found" không có h1 trong main</td>
+<td>OPEN (new in run 2)</td>
+<td>FE01-ROUTE-003</td>
+</tr>
+<tr>
+<td>FND-020</td>
+<td>P3</td>
+<td>FE-01</td>
+<td>release-manifest.json khai báo "BUILT_NOT_DEPLOYED_NOT_PRODUCTION_CERTIFIED" và manifestSelfHash=null trong khi đang được phục vụ công khai</td>
+<td>OPEN (new in run 2)</td>
+<td>CF-PRE-002</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Top P0/P1</strong>: không có P0. P1 kế thừa (chưa retest được): FND-004 (3/49 definition type không tạo được — kỳ vọng 49/49; retest <code>DEF-RETEST-FND-004</code> cần Field-Dictionary + schema_oracle), FND-012 (7 màn NOT_IMPLEMENTED + 129 view chưa có case — kỳ vọng mỗi view có case; retest <code>FE01-210-001</code> cần inventory/spec/source). Không có P1 mới trong run 2.</p>
+<h2>5. Specifications / Code Intelligence / Agent Lifecycle</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Mảng</th>
+<th>Đã chứng minh (run 2)</th>
+<th>Thiếu / chưa kiểm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Specifications</td>
+<td>Route <code>#specifications</code> render (tree Library, tablist IDE/Definitions/Service records, Outline/Details/Properties/Acceptance), deep link/refresh, 0 lỗi runtime, responsive mặc định</td>
+<td>Import/persistence/race/2-tab (SPEC-*), Monaco gõ phím thật — BLOCKED</td>
+</tr>
+<tr>
+<td>Code intelligence</td>
+<td>Route <code>#code</code> render (Repository files tree, Symbols/Locations/Search/Diagnostics/Coverage tabs)</td>
+<td>Go to definition/F12 (CODE-008), 6 worker lifecycle (FE04-WORKER-001) — BLOCKED</td>
+</tr>
+<tr>
+<td>Agent lifecycle / service modules</td>
+<td>15 module dịch vụ render khung Definitions + Service records + action theo module; trạng thái "Service connection required" khi chưa kết nối</td>
+<td>FX-SERVICE stages/Unknown/reconcile/401 (FX-SERVICE-001, FND-005 retest) — BLOCKED; DTO chưa duyệt</td>
+</tr>
+</tbody>
+</table></div>
+<h2>6. Môi trường thực tế (run 2)</h2>
+<ul>
+<li><strong>Browser</strong>: Cloudflare Browser Rendering <code>/content</code> (headless Chromium, UA "Chrome/119", phiên bản thật không công bố, <code>visibilityState=visible</code>). Input: <code>synthetic-DOM</code> (location/history API, <code>.click()</code> cho nút theme).</li>
+<li><strong>Viewport</strong>: 320×800 (mobile, DPR 2), 375×812 (mobile, DPR 3), 768×1024 (touch, DPR 2), 1280×800, 1440×900 — emulation, không thiết bị thật. 1920×1080 BLOCKED.</li>
+<li><strong>AT</strong>: không có. <strong>Perf profile</strong>: không có (không CDP). <strong>Engines khác</strong>: không có.</li>
+<li><strong>Cloudflare</strong>: plugin GET cho metadata; Browser Rendering cho truy cập browser (không đổi cấu hình).</li>
+<li><strong>Kế thừa</strong>: mọi số liệu run 1 trong báo cáo được gắn nhãn INHERITED và không gộp với kết quả run 2.</li>
+</ul>
+<h2>7. Backend boundary</h2>
+<p>Xem <code>Atlas-Frontend-Backend-Dependencies.md</code>: DTO <code>atlas-ui/v1</code> vẫn "proposed" (UI tự ghi), 4xx-definitive (FND-006) SPEC_UNRESOLVED, permissions/receipt/provider/UAT live NOT_RUN. Không tính vào PASS/FAIL frontend.</p>
+<h2>8. Deliverables</h2>
+<ul>
+<li>Atlas-Frontend-Acceptance-Report.md / .html</li>
+<li>Atlas-Frontend-Acceptance-Manifest.json</li>
+<li>Atlas-Frontend-Screen-Coverage.csv (header, 0 hàng)</li>
+<li>Atlas-Frontend-Route-Coverage.csv</li>
+<li>Atlas-Frontend-Test-Results.csv</li>
+<li>Atlas-Frontend-Findings.csv</li>
+<li>Atlas-Frontend-Journey-Results.csv (header)</li>
+<li>Atlas-Frontend-UAT-Classification.csv (header)</li>
+<li>Atlas-Frontend-Accessibility.md</li>
+<li>Atlas-Frontend-Performance.json / .md</li>
+<li>Atlas-Frontend-Backend-Dependencies.md</li>
+<li>Atlas-Frontend-Remediation-Plan.md</li>
+<li>Atlas-Frontend-Cloudflare-Deployment.md</li>
+<li>evidence/ + evidence-index.json (mọi path đã assert tồn tại)</li>
+<li>work/ (tests.json, findings.json, tests.py, findings.py, coverage.py, build.py, record_r2.py)</li>
+<li>harness/ (script inject Browser Rendering + harness Playwright/GitHub Actions sẵn sàng chạy)</li>
+</ul>
+<h2>9. Exact remaining cases</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Gate</th>
+<th>Expected</th>
+<th>Evidence hiện có</th>
+<th>Blocker</th>
+<th>Cách nghiệm thu tiếp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A11Y-AXE-001</td>
+<td>FE-03</td>
+<td>0 violations (needs-review items triaged)</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>A11Y-AXE-002</td>
+<td>FE-03</td>
+<td>0 violations</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>CODE-008</td>
+<td>FE-04</td>
+<td>navigates to oracle locations</td>
+<td>—</td>
+<td>BLOCKED_NO_TRUSTED_INPUT</td>
+<td>Workflow Playwright (trusted CDP input) hoặc pane Browser hiển thị</td>
+</tr>
+<tr>
+<td>DEF-RETEST-FND-004</td>
+<td>FE-01</td>
+<td>all types create successfully</td>
+<td>—</td>
+<td>BLOCKED_INPUT_MISSING</td>
+<td>Cung cấp file đầu vào/gói run 1</td>
+</tr>
+<tr>
+<td>FE01-210-001</td>
+<td>FE-01</td>
+<td>210 rows with case evidence</td>
+<td>—</td>
+<td>BLOCKED_INPUT_MISSING</td>
+<td>Cung cấp file đầu vào/gói run 1</td>
+</tr>
+<tr>
+<td>FE01-ROUTE-004</td>
+<td>FE-03</td>
+<td>focus moves to main region or view heading (trusted keyboard confirmation required)</td>
+<td>EV-RT-502</td>
+<td>BLOCKED_NO_TRUSTED_INPUT</td>
+<td>Workflow Playwright (trusted CDP input) hoặc pane Browser hiển thị</td>
+</tr>
+<tr>
+<td>FE02-AUTO-216-1920</td>
+<td>FE-02</td>
+<td>as FE02-AUTO-216-*</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>FE02-COARSE-001</td>
+<td>FE-02</td>
+<td>no loss of essential actions</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>FE02-STATE-001</td>
+<td>FE-02</td>
+<td>no overflow/clipping</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>FE02-TARGET-001</td>
+<td>FE-03</td>
+<td>spacing ≥ 24 px circle rule in both themes</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>FE02-WALK-001</td>
+<td>FE-02</td>
+<td>visual parity with Figma frames</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>FE02-ZOOM-001</td>
+<td>FE-02</td>
+<td>no loss of content/function</td>
+<td>—</td>
+<td>BLOCKED_NO_TRUSTED_INPUT</td>
+<td>Workflow Playwright (trusted CDP input) hoặc pane Browser hiển thị</td>
+</tr>
+<tr>
+<td>FE03-AT-001</td>
+<td>FE-03</td>
+<td>Name/role/state/announcements correct</td>
+<td>—</td>
+<td>NOT_RUN_AT</td>
+<td>Kịch bản thủ công trong Accessibility.md §3</td>
+</tr>
+<tr>
+<td>FE03-KBD-001</td>
+<td>FE-03</td>
+<td>All operable by keyboard per APG</td>
+<td>—</td>
+<td>BLOCKED_NO_TRUSTED_INPUT</td>
+<td>Workflow Playwright (trusted CDP input) hoặc pane Browser hiển thị</td>
+</tr>
+<tr>
+<td>FE03-MOTION-001</td>
+<td>FE-03</td>
+<td>no loss of content/function</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>FE04-IDB-001</td>
+<td>FE-04</td>
+<td>graceful recovery, no data loss</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>FE04-TAB-001</td>
+<td>FE-04</td>
+<td>conflict surfaced, no silent overwrite</td>
+<td>—</td>
+<td>BLOCKED</td>
+<td>Workflow Playwright (2 context)</td>
+</tr>
+<tr>
+<td>FE04-WORKER-001</td>
+<td>FE-04</td>
+<td>workers start, respond, terminate; served as JS; allowed by CSP</td>
+<td>—</td>
+<td>BLOCKED_NO_TRUSTED_INPUT</td>
+<td>Workflow Playwright (trusted CDP input) hoặc pane Browser hiển thị</td>
+</tr>
+<tr>
+<td>FE04-XENGINE-001</td>
+<td>FE-04</td>
+<td>parity</td>
+<td>—</td>
+<td>NOT_RUN</td>
+<td>Workflow Playwright firefox/webkit</td>
+</tr>
+<tr>
+<td>FE06-UAT-307</td>
+<td>FE-06</td>
+<td>classified</td>
+<td>—</td>
+<td>BLOCKED_INPUT_MISSING</td>
+<td>Cung cấp file đầu vào/gói run 1</td>
+</tr>
+<tr>
+<td>FE06-UXJ-042</td>
+<td>FE-06</td>
+<td>all applicable steps PASS</td>
+<td>—</td>
+<td>BLOCKED_INPUT_MISSING</td>
+<td>Cung cấp file đầu vào/gói run 1</td>
+</tr>
+<tr>
+<td>FIGMA-001</td>
+<td>FE-01</td>
+<td>visual parity</td>
+<td>—</td>
+<td>BLOCKED_INPUT_MISSING</td>
+<td>Cung cấp file đầu vào/gói run 1</td>
+</tr>
+<tr>
+<td>FX-BRANCH-001</td>
+<td>FE-06</td>
+<td>per v2 §9 P-B FE-06</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>FX-EXEC-001</td>
+<td>FE-06</td>
+<td>per DTO</td>
+<td>—</td>
+<td>SPEC_UNRESOLVED</td>
+<td>Quyết định spec/DTO từ chủ sản phẩm</td>
+</tr>
+<tr>
+<td>FX-SERVICE-001</td>
+<td>FE-06</td>
+<td>per v2 §6.3 semantics</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>FX-SERVICE-FND-005</td>
+<td>FE-06</td>
+<td>stale success toast removed or superseded</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>PERF-006</td>
+<td>FE-05</td>
+<td>within locked budget</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>PERF-007</td>
+<td>FE-05</td>
+<td>p75 LCP ≤ 2500 ms, CLS ≤ 0.1, FCP ≤ 1800 ms (web-vitals thresholds)</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>PERF-008</td>
+<td>FE-05</td>
+<td>no growth beyond budget</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>PERF-009</td>
+<td>FE-05</td>
+<td>within budget</td>
+<td>—</td>
+<td>BLOCKED_NO_TRUSTED_INPUT</td>
+<td>Workflow Playwright (trusted CDP input) hoặc pane Browser hiển thị</td>
+</tr>
+<tr>
+<td>PERF-INP-001</td>
+<td>FE-05</td>
+<td>p75 INP ≤ 200 ms</td>
+<td>—</td>
+<td>BLOCKED_NO_TRUSTED_INPUT</td>
+<td>Workflow Playwright (trusted CDP input) hoặc pane Browser hiển thị</td>
+</tr>
+<tr>
+<td>PERF-WORKLOAD-001</td>
+<td>FE-05</td>
+<td>within budget + cleanup</td>
+<td>—</td>
+<td>BLOCKED_CLOUDFLARE_BROWSER_QUOTA</td>
+<td>Chạy lại script trong harness/remote sau 00:00 UTC, hoặc workflow GitHub Actions</td>
+</tr>
+<tr>
+<td>SPEC-RETEST-001</td>
+<td>FE-04</td>
+<td>oracle SHA-256 equal</td>
+<td>—</td>
+<td>BLOCKED_NO_TRUSTED_INPUT</td>
+<td>Workflow Playwright (trusted CDP input) hoặc pane Browser hiển thị</td>
+</tr>
+</tbody>
+</table></div>
+<h2>10. Giới hạn</h2>
+<ul>
+<li>Không có source ⇒ không có implementation_status COMPLETE nào; local/remote equivalence UNVERIFIED.</li>
+<li>Detector tự động chỉ phủ trạng thái mặc định (chưa kết nối) của 18 route; không suy ra cho 210 view.</li>
+<li>Theme chuyển bằng <code>.click()</code> tổng hợp: hợp lệ cho đo render, không phải bằng chứng bàn phím.</li>
+<li>FND-018 chỉ xuất hiện ở light theme; nguyên nhân chưa xác định (FE02-TARGET-001).</li>
+<li>Push lên GitHub bị từ chối (Claude GitHub App chưa cài) ⇒ commit chỉ nằm trong container; gói zip được gửi trực tiếp.</li>
+</ul>
+<p><em>Generated 2026-10-05T07:45Z từ work/tests.json + work/findings.json bằng work/build.py.</em></p></main></body></html>

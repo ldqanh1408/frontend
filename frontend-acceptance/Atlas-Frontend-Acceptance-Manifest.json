@@ -1,0 +1,266 @@
+{
+ "run_id": "R2-2026-10-05",
+ "prompt": "Atlas-Frontend-Acceptance-Master-Prompt-v2 (handover edition)",
+ "mode": "MODE_FRESH",
+ "mode_reason": "No handover package (Atlas-Frontend-Acceptance.zip) or ledger in this session ⇒ MODE_FRESH per v2 §0.2. Deployment identity re-verified identical to run 1 (MATCH), so run-1 evidence would be reusable if supplied; it was not. Run-1 facts quoted in the prompt are labelled INHERITED_EVIDENCE.",
+ "resumed_from": null,
+ "generated_at": "2026-10-05T07:45Z",
+ "audit_mode": "AUDIT_ONLY",
+ "target": {
+  "provider": "Cloudflare",
+  "primary_url": "https://sparkling-snow-090d.ekko-okke666.workers.dev",
+  "url_class": "PRIMARY_ACCEPTANCE_URL = WORKER_URL",
+  "worker": "sparkling-snow-090d",
+  "worker_deployment_id": "bd44cfc0-1219-40d9-9c1a-b1b7fe84d085",
+  "worker_version_id": "a8b5bc3a-63c9-4996-84e5-e8bc117775d3",
+  "pages_deployment": "none",
+  "custom_domains": [],
+  "routes": [],
+  "identity_vs_run1": "MATCH",
+  "account_id": "[REDACTED]"
+ },
+ "release": {
+  "manifest_format": "atlas-static-release/v1",
+  "createdAt": "2026-10-04T10:09:42.397Z",
+  "payloads": 120,
+  "remote_hash_matches": 120,
+  "manifest_bytes_sha256": "0bf5b0288ac6ca988130961b8da55d18637a07dbf9a3d09ca97d5e1e4c09edd3",
+  "manifest_status_field": "BUILT_NOT_DEPLOYED_NOT_PRODUCTION_CERTIFIED"
+ },
+ "source": {
+  "revision": null,
+  "reason": "source frontend/workspace-web not provided"
+ },
+ "local_build": null,
+ "local_remote_equivalence": "UNVERIFIED",
+ "inputs_present": [
+  "Atlas-Frontend-Acceptance-Master-Prompt-v2.md"
+ ],
+ "inputs_missing": [
+  "Atlas-Frontend-Acceptance.zip (run-1 handover: deliverables, evidence/, evidence-index.json, work/tests.json, findings.json, tests.py, findings.py, coverage.py, build.py, schema_oracle.json)",
+  "Atlas-Frontend-UI-Readiness.md",
+  "Atlas-Frontend-UI-Readiness.json",
+  "Atlas-Archive-Canonical-Frontend.csv",
+  "Atlas-Screen-Inventory.csv",
+  "Atlas-State-Matrix.csv",
+  "Atlas-Lifecycle-State-Table.csv",
+  "Atlas-RBAC-Matrix.csv",
+  "Atlas-Field-Dictionary.csv",
+  "schema sources",
+  "Atlas-Source-Journeys-42.csv",
+  "Atlas-Original-UAT-113.csv",
+  "Atlas-UX-UAT-194.csv",
+  "Atlas-UIUX-Hardening.md",
+  "Atlas-E2E-Delivery.md",
+  "build/test logs",
+  "source frontend/workspace-web (package.json, lockfile, router, adapters, components, tests, build/Wrangler config)",
+  "AGENTS.md",
+  "Figma file key / node IDs",
+  "v1 prompt (attachment.txt)"
+ ],
+ "scripts_note": "Run-1 scripts were not available, so tests.py / findings.py / coverage.py / build.py were rewritten for run 2 with the same names and §8.2 schemas.",
+ "id_policy": "Case IDs reuse run-1 names where the check is the same (CF-PRE-00x, FE02-AUTO-216, PERF-00x, FE03-KBD-001, A11Y-AXE-00x…). Findings continue at FND-017. Evidence IDs start at 501 per area to avoid collision with unknown run-1 maxima.",
+ "capability_matrix": [
+  {
+   "capability": "Cloudflare plugin read",
+   "status": "AVAILABLE",
+   "limitation": "GET only by policy",
+   "affected_cases": []
+  },
+  {
+   "capability": "Browser automation",
+   "status": "PARTIAL",
+   "limitation": "Cloudflare Browser Rendering REST /content + addScriptTag (headless Chromium, real version undisclosed, UA Chrome/119); one page per request; ≤60 s per call; Workers Free quota exhausted at 07:27Z (2001 Rate limit exceeded)",
+   "affected_cases": [
+    "FE02-AUTO-216-1920",
+    "A11Y-AXE-001",
+    "A11Y-AXE-002",
+    "FX-SERVICE-001",
+    "PERF-007",
+    "FE02-STATE-001",
+    "FE02-COARSE-001",
+    "FE02-TARGET-001"
+   ]
+  },
+  {
+   "capability": "Built-in Browser pane (mcp__remote-devices__Claude_Browser__*)",
+   "status": "UNAVAILABLE",
+   "limitation": "cloud session without linked device",
+   "affected_cases": [
+    "all trusted-input cases"
+   ]
+  },
+  {
+   "capability": "Sandbox → workers.dev",
+   "status": "UNAVAILABLE",
+   "limitation": "egress proxy CONNECT 403",
+   "affected_cases": []
+  },
+  {
+   "capability": "GitHub Actions Playwright harness",
+   "status": "BLOCKED",
+   "limitation": "git push / MCP write 403: Claude GitHub App not installed on ldqanh1408/hehe",
+   "affected_cases": [
+    "FE04-XENGINE-001",
+    "FE03-KBD-001",
+    "PERF-007",
+    "PERF-INP-001"
+   ]
+  },
+  {
+   "capability": "Trusted input",
+   "status": "UNAVAILABLE",
+   "limitation": "REST has no input API",
+   "affected_cases": [
+    "FE03-KBD-001",
+    "FE01-ROUTE-004",
+    "CODE-008",
+    "PERF-INP-001",
+    "PERF-009",
+    "FE02-ZOOM-001"
+   ]
+  },
+  {
+   "capability": "Screenshots",
+   "status": "NOT_CAPTURED",
+   "limitation": "endpoint exists but binary transfer via tool output is impractical and quota-limited",
+   "affected_cases": [
+    "FE02-WALK-001",
+    "FIGMA-001"
+   ]
+  },
+  {
+   "capability": "Network/console",
+   "status": "PARTIAL",
+   "limitation": "window error/unhandledrejection/console.error hooks + fetch response headers; no HAR",
+   "affected_cases": []
+  },
+  {
+   "capability": "Performance traces",
+   "status": "UNAVAILABLE",
+   "limitation": "no CDP (no throttling, no trace)",
+   "affected_cases": [
+    "PERF-007",
+    "PERF-008"
+   ]
+  },
+  {
+   "capability": "IndexedDB inspect",
+   "status": "PARTIAL",
+   "limitation": "indexedDB.databases() only (atlas-device-workspace-v10@2)",
+   "affected_cases": [
+    "FE04-IDB-001"
+   ]
+  },
+  {
+   "capability": "Quota/offline simulation",
+   "status": "UNAVAILABLE",
+   "limitation": "",
+   "affected_cases": [
+    "FE04-IDB-001",
+    "FX-BRANCH-001"
+   ]
+  },
+  {
+   "capability": "Cross-tab",
+   "status": "UNAVAILABLE",
+   "limitation": "single page per request",
+   "affected_cases": [
+    "FE04-TAB-001"
+   ]
+  },
+  {
+   "capability": "Engines",
+   "status": "Chromium only (Cloudflare-hosted)",
+   "limitation": "no Firefox/WebKit/Safari/Edge/branded Chrome",
+   "affected_cases": [
+    "FE04-XENGINE-001"
+   ]
+  },
+  {
+   "capability": "Screen readers (NVDA/VoiceOver/TalkBack/iOS)",
+   "status": "UNAVAILABLE",
+   "limitation": "",
+   "affected_cases": [
+    "FE03-AT-001"
+   ]
+  },
+  {
+   "capability": "Real devices",
+   "status": "UNAVAILABLE",
+   "limitation": "",
+   "affected_cases": [
+    "FE02-COARSE-001"
+   ]
+  },
+  {
+   "capability": "Emulation",
+   "status": "AVAILABLE",
+   "limitation": "viewport width/height/DPR/isMobile/hasTouch; no emulateMediaFeatures",
+   "affected_cases": [
+    "FE03-MOTION-001"
+   ]
+  },
+  {
+   "capability": "Local Chromium (sandbox Playwright 1.56.1)",
+   "status": "AVAILABLE (cannot reach target)",
+   "limitation": "used only to validate the detector on a synthetic probe page",
+   "affected_cases": []
+  },
+  {
+   "capability": "Figma MCP",
+   "status": "AVAILABLE but unused",
+   "limitation": "no file key / node IDs (inventory missing)",
+   "affected_cases": [
+    "FIGMA-001"
+   ]
+  },
+  {
+   "capability": "Standards fetch",
+   "status": "PARTIAL",
+   "limitation": "w3.org / web.dev blocked; official editor sources read from raw.githubusercontent.com",
+   "affected_cases": []
+  }
+ ],
+ "denominators": {
+  "canonical_views": {
+   "canonical_denominator": 210,
+   "canonical_rows_resolved": 0,
+   "implementation_status": {
+    "COMPLETE": 0,
+    "PARTIAL": 0,
+    "NOT_IMPLEMENTED": 0,
+    "UNVERIFIED": 210
+   },
+   "implementation_status_basis": "OBSERVED_THIS_RUN: no canonical view could be enumerated (inventory missing) ⇒ all 210 UNVERIFIED",
+   "inherited_run1": {
+    "COMPLETE": 0,
+    "PARTIAL": 74,
+    "NOT_IMPLEMENTED": 7,
+    "UNVERIFIED": 129,
+    "label": "INHERITED_EVIDENCE (v2 prompt §6.7), not re-verified"
+   },
+   "routes_observed": 18
+  },
+  "tests": {
+   "BLOCKED": 30,
+   "FAIL": 7,
+   "PASS": 12,
+   "NOT_APPLICABLE": 1,
+   "NOT_RUN": 3,
+   "total": 53
+  },
+  "exclusions": []
+ },
+ "gates": {
+  "FE-01": "INCOMPLETE",
+  "FE-02": "FAIL",
+  "FE-03": "FAIL",
+  "FE-04": "FAIL",
+  "FE-05": "FAIL",
+  "FE-06": "INCOMPLETE"
+ },
+ "verdict": "NO_GO_FRONTEND",
+ "synthetic_data": "No user browser profile was touched. Remote Browser Rendering sessions are ephemeral; the only state written there was the theme preference (IndexedDB pref) during FE02 batches. No production data written.",
+ "git": "Commits are local to the session container; push to origin was refused (403, GitHub App not installed)."
+}

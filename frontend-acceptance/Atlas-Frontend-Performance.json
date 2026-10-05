@@ -1,0 +1,157 @@
+{
+ "run": "R2 2026-10-05",
+ "deployment_id": "bd44cfc0-1219-40d9-9c1a-b1b7fe84d085",
+ "version_id": "a8b5bc3a-63c9-4996-84e5-e8bc117775d3",
+ "budgets_locked_before_measurement": {
+  "locked_at": "2026-10-05T07:30Z",
+  "source": "GoogleChrome/web-vitals@main src/on*.ts thresholds (evidence/standards)",
+  "LCP_p75_ms": 2500,
+  "FCP_p75_ms": 1800,
+  "CLS_p75": 0.1,
+  "INP_p75_ms": 200,
+  "note": "v1 \u00a711.5 product-specific budgets not provided in this session; web-vitals 'good' thresholds used as the locked default (ASSUMPTION)"
+ },
+ "profiles": {
+  "desktop": "1440x900 no throttling",
+  "mobile": "CPU 4x, 1.6 Mbps down / 0.75 Mbps up, 150 ms RTT"
+ },
+ "metrics": {
+  "PERF-007": {
+   "cold_desktop": {
+    "FCP": {
+     "value": null,
+     "status": "BLOCKED",
+     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    },
+    "LCP": {
+     "value": null,
+     "status": "BLOCKED",
+     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    },
+    "CLS": {
+     "value": null,
+     "status": "BLOCKED",
+     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    },
+    "samples": {
+     "value": null,
+     "status": "BLOCKED",
+     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    }
+   },
+   "warm_desktop": {
+    "FCP": {
+     "value": null,
+     "status": "BLOCKED",
+     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    },
+    "LCP": {
+     "value": null,
+     "status": "BLOCKED",
+     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    },
+    "CLS": {
+     "value": null,
+     "status": "BLOCKED",
+     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    },
+    "samples": {
+     "value": null,
+     "status": "BLOCKED",
+     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    }
+   },
+   "cold_mobile": {
+    "FCP": {
+     "value": null,
+     "status": "BLOCKED",
+     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target; Network/CPU throttling requires CDP, not exposed by Browser Rendering REST"
+    },
+    "LCP": {
+     "value": null,
+     "status": "BLOCKED",
+     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target; Network/CPU throttling requires CDP, not exposed by Browser Rendering REST"
+    },
+    "CLS": {
+     "value": null,
+     "status": "BLOCKED",
+     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target; Network/CPU throttling requires CDP, not exposed by Browser Rendering REST"
+    }
+   }
+  },
+  "PERF-INP-001": {
+   "INP_p75": {
+    "value": null,
+    "status": "BLOCKED",
+    "reason": "No trusted input; Event Timing (INP) ignores synthetic events"
+   },
+   "samples": {
+    "value": null,
+    "status": "BLOCKED",
+    "reason": "No trusted input; Event Timing (INP) ignores synthetic events"
+   }
+  },
+  "PERF-006": {
+   "import_cost_vs_library_size": {
+    "value": null,
+    "status": "BLOCKED",
+    "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+   }
+  },
+  "PERF-008": {
+   "open_close_30_cycles_heap_growth": {
+    "value": null,
+    "status": "BLOCKED",
+    "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target; No trusted input; Event Timing (INP) ignores synthetic events"
+   }
+  },
+  "PERF-009": {
+   "typing_scroll_1k_10k_100k": {
+    "value": null,
+    "status": "BLOCKED",
+    "reason": "No trusted input; Event Timing (INP) ignores synthetic events"
+   }
+  },
+  "PERF-WORKLOAD-001": {
+   "code_10000_files": {
+    "value": null,
+    "status": "BLOCKED",
+    "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+   },
+   "observation_10000_rows": {
+    "value": null,
+    "status": "BLOCKED",
+    "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+   },
+   "execution_100_tasks_10000_logs": {
+    "value": null,
+    "status": "BLOCKED",
+    "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+   },
+   "graph_1000_nodes": {
+    "value": null,
+    "status": "BLOCKED",
+    "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+   }
+  }
+ },
+ "observed_static_facts": {
+  "payload_total_bytes": 19291874,
+  "payload_count": 120,
+  "largest_payloads_bytes": {
+   "assets/ts.worker-D0RfN2Tp.js": 6928898,
+   "assets/semantic.worker-DG9vdlwl.js": 3462664,
+   "assets/editor.api-k8OQBwko.js": 2737019,
+   "assets/editor-engine-B8K6fGal.js": 1321587,
+   "assets/css.worker-gLj4_ykt.js": 1078488
+  },
+  "entry_bytes": {
+   "assets/index-CNIcNnJO.js": 335014,
+   "assets/ui-BHoQ7tHD.js": 24792,
+   "assets/index-CGLbd-qV.css": 32761
+  },
+  "cache_control_all_payloads": "public, max-age=0, must-revalidate (FND-003)",
+  "content_encoding": "zstd",
+  "note": "Static facts are not performance measurements and do not satisfy FE-05."
+ }
+}

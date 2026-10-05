@@ -5,7 +5,7 @@ import { ROOT, ensureDir, writeJSON, nowISO, TARGET } from './lib.mjs';
 
 const req = JSON.parse(fs.readFileSync(path.join(ROOT, 'run-request.json'), 'utf8'));
 const runId = process.env.GITHUB_RUN_ID || `local-${Date.now()}`;
-const runDir = ensureDir(path.join(ROOT, 'runs', `${req.request_id}`));
+const runDir = ensureDir(path.join(ROOT, 'evidence', 'runs', `${req.request_id}`));
 const summary = { request_id: req.request_id, github_run_id: runId, target: TARGET, started_at: nowISO(), suites: {} };
 let failed = false;
 for (const name of req.suites) {
