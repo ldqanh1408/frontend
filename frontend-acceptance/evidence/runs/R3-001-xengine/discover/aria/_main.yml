@@ -1,0 +1,65 @@
+- link "Skip to workspace":
+  - /url: "#main"
+- banner:
+  - text: A
+  - strong: Atlas
+  - text: Device workspace
+  - button "Open workspace search": Open or search Ctrl K
+  - text: Service disconnected
+  - button "Light mode"
+  - button "Display"
+  - button "Help"
+- complementary "Workspace navigation":
+  - strong: Your device drafts
+  - text: Service scope appears after connection
+  - navigation:
+    - heading "WORKSPACE" [level=2]
+    - link "Overview":
+      - /url: "#home"
+    - link "Specifications":
+      - /url: "#specifications"
+    - link "Code intelligence":
+      - /url: "#code"
+    - link "Agents":
+      - /url: "#agents"
+    - link "Resources":
+      - /url: "#resources"
+    - link "Memory":
+      - /url: "#memory"
+    - link "Workflow":
+      - /url: "#workflow"
+    - link "Execution":
+      - /url: "#execution"
+    - link "Delivery & acceptance":
+      - /url: "#governance"
+    - heading "OPERATIONS" [level=2]
+    - link "AI gateway":
+      - /url: "#gateway"
+    - link "Collaboration":
+      - /url: "#collaboration"
+    - link "Configuration":
+      - /url: "#configuration"
+    - link "Identity & access":
+      - /url: "#identity"
+    - link "Organization & projects":
+      - /url: "#tenancy"
+    - link "Usage & billing":
+      - /url: "#saas"
+    - link "Desktop companion":
+      - /url: "#desktop"
+    - link "Observer":
+      - /url: "#observer"
+    - link "Connection & operations":
+      - /url: "#connection"
+  - button "Browse definitions"
+  - link "Open design review":
+    - /url: https://www.figma.com/design/0md9BEFI1rU0aRAvf98TWO?node-id=501-117219
+  - text: Consolidated E2E design
+- main:
+  - navigation "Breadcrumb":
+    - link "Workspace":
+      - /url: "#home"
+    - text: Unknown view
+  - heading "Workspace view not found" [level=2]
+  - paragraph: This link does not identify a supported view. No fallback service resource was loaded.
+  - button "Return to overview"

@@ -1,0 +1,92 @@
+- link "Skip to workspace":
+  - /url: "#main"
+- banner:
+  - text: A
+  - strong: Atlas
+  - text: Device workspace
+  - button "Open workspace search": Open or search Ctrl K
+  - text: Service disconnected
+  - button "Light mode"
+  - button "Display"
+  - button "Help"
+- complementary "Workspace navigation":
+  - strong: Your device drafts
+  - text: Service scope appears after connection
+  - navigation:
+    - heading "WORKSPACE" [level=2]
+    - link "Overview":
+      - /url: "#home"
+    - link "Specifications":
+      - /url: "#specifications"
+    - link "Code intelligence":
+      - /url: "#code"
+    - link "Agents":
+      - /url: "#agents"
+    - link "Resources":
+      - /url: "#resources"
+    - link "Memory":
+      - /url: "#memory"
+    - link "Workflow":
+      - /url: "#workflow"
+    - link "Execution":
+      - /url: "#execution"
+    - link "Delivery & acceptance":
+      - /url: "#governance"
+    - heading "OPERATIONS" [level=2]
+    - link "AI gateway":
+      - /url: "#gateway"
+    - link "Collaboration":
+      - /url: "#collaboration"
+    - link "Configuration":
+      - /url: "#configuration"
+    - link "Identity & access":
+      - /url: "#identity"
+    - link "Organization & projects":
+      - /url: "#tenancy"
+    - link "Usage & billing":
+      - /url: "#saas"
+    - link "Desktop companion":
+      - /url: "#desktop"
+    - link "Observer":
+      - /url: "#observer"
+    - link "Connection & operations":
+      - /url: "#connection"
+  - button "Browse definitions"
+  - link "Open design review":
+    - /url: https://www.figma.com/design/0md9BEFI1rU0aRAvf98TWO?node-id=501-117219
+  - text: Consolidated E2E design
+- main:
+  - navigation "Breadcrumb":
+    - link "Workspace":
+      - /url: "#home"
+    - text: Code intelligence
+  - tablist "Code intelligence workspace":
+    - tab "IDE" [selected]
+    - tab "Definitions"
+    - tab "Service records"
+  - text: SOURCE WORKSPACE Local source snapshot
+  - heading "Code intelligence" [level=1]
+  - paragraph: Source, compiler symbols and citations with exact imported provenance.
+  - button "Import source folder"
+  - button "Connect repository service"
+  - text: Import your source to explore actual file content. No repository or indexing health is preseeded.
+  - complementary:
+    - heading "Repository files" [level=2]
+    - text: Imported snapshot
+    - combobox "Imported snapshot":
+      - option "Select snapshot" [selected]
+    - text: Find file path
+    - textbox "Find file path"
+    - tree "Imported source tree"
+    - paragraph: Read-only import. Source editing does not imply terminal or runtime permission.
+  - heading "Open a source file" [level=2]
+  - paragraph: Choose a file from the imported tree. Local AST and semantic analysis run only when requested.
+  - complementary:
+    - tablist "Code inspector":
+      - tab "Symbols" [selected]
+      - tab "Locations"
+      - tab "Search"
+      - tab "Diagnostics"
+      - tab "Coverage"
+    - heading "Compiler AST symbols" [level=2]
+    - paragraph: Refresh AST symbols for a JS/TS file. Syntax records do not prove semantic correctness.

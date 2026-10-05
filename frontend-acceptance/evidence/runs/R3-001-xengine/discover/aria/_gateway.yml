@@ -1,0 +1,115 @@
+- link "Skip to workspace":
+  - /url: "#main"
+- banner:
+  - text: A
+  - strong: Atlas
+  - text: Device workspace
+  - button "Open workspace search": Open or search Ctrl K
+  - text: Service disconnected
+  - button "Light mode"
+  - button "Display"
+  - button "Help"
+- complementary "Workspace navigation":
+  - strong: Your device drafts
+  - text: Service scope appears after connection
+  - navigation:
+    - heading "WORKSPACE" [level=2]
+    - link "Overview":
+      - /url: "#home"
+    - link "Specifications":
+      - /url: "#specifications"
+    - link "Code intelligence":
+      - /url: "#code"
+    - link "Agents":
+      - /url: "#agents"
+    - link "Resources":
+      - /url: "#resources"
+    - link "Memory":
+      - /url: "#memory"
+    - link "Workflow":
+      - /url: "#workflow"
+    - link "Execution":
+      - /url: "#execution"
+    - link "Delivery & acceptance":
+      - /url: "#governance"
+    - heading "OPERATIONS" [level=2]
+    - link "AI gateway":
+      - /url: "#gateway"
+    - link "Collaboration":
+      - /url: "#collaboration"
+    - link "Configuration":
+      - /url: "#configuration"
+    - link "Identity & access":
+      - /url: "#identity"
+    - link "Organization & projects":
+      - /url: "#tenancy"
+    - link "Usage & billing":
+      - /url: "#saas"
+    - link "Desktop companion":
+      - /url: "#desktop"
+    - link "Observer":
+      - /url: "#observer"
+    - link "Connection & operations":
+      - /url: "#connection"
+  - button "Browse definitions"
+  - link "Open design review":
+    - /url: https://www.figma.com/design/0md9BEFI1rU0aRAvf98TWO?node-id=501-117219
+  - text: Consolidated E2E design
+- main:
+  - navigation "Breadcrumb":
+    - link "Workspace":
+      - /url: "#home"
+    - text: AI gateway
+  - text: WORKSPACE / AI GATEWAY
+  - heading "AI gateway" [level=1]
+  - paragraph: Inspect routing, provider credentials, policy and service-attributed usage.
+  - tablist "Workspace authority":
+    - tab "Definitions" [selected]
+    - tab "Service records"
+  - strong: Unified definitions
+  - paragraph: Current and archived configuration journeys share one versioned authoring workspace. Service outcomes are inspected separately.
+  - text: 15 fields · v1
+  - button "New provider credential request"
+  - button "Import definition JSON"
+  - button "Build exact context package"
+  - button "Open service lifecycle"
+  - button "Export field schema"
+  - complementary:
+    - text: Definition type
+    - combobox "Definition type":
+      - option "Provider credential request" [selected]
+      - option "Model routing policy"
+      - option "Budget and reservation policy"
+    - text: Find definitions
+    - textbox "Find definitions"
+    - text: Definition collection
+    - combobox "Definition collection":
+      - option "Active" [selected]
+      - option "Archived"
+    - listbox "Provider credential request definitions"
+  - heading "Provider credential request" [level=2]
+  - paragraph: Describe vault ownership, rotation and permitted model access; no keys are stored in drafts.
+  - button "Create local definition"
+  - complementary:
+    - heading "Lifecycle and readiness" [level=2]
+    - paragraph: Draft → local checks → authorized service review → submitted command → acknowledgment → effect readback → reconciliation
+    - text: Complete validation not passed
+    - paragraph: Field checks do not verify credentials, grants, provider health, plugin compatibility, readiness or production effects.
+    - button "Authorize credential" [disabled]
+    - text: Requires an observed service capability, grant, exact revision and input contract.
+    - button "Verify provider access" [disabled]
+    - text: Requires an observed service capability, grant, exact revision and input contract.
+    - button "Revoke credential" [disabled]
+    - text: Requires an observed service capability, grant, exact revision and input contract.
+    - heading "Definition sections" [level=2]
+    - navigation "Definition sections":
+      - link "Ownership 5":
+        - /url: "#definition-group-0"
+      - link "Connection 3":
+        - /url: "#definition-group-1"
+      - link "Access 2":
+        - /url: "#definition-group-2"
+      - link "Lifecycle 4":
+        - /url: "#definition-group-3"
+      - link "Health 1":
+        - /url: "#definition-group-4"

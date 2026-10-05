@@ -1,0 +1,92 @@
+- link "Skip to workspace":
+  - /url: "#main"
+- banner:
+  - text: A
+  - strong: Atlas
+  - text: Device workspace
+  - button "Open workspace search": Open or search Ctrl K
+  - text: Service disconnected
+  - button "Light mode"
+  - button "Display"
+  - button "Help"
+- complementary "Workspace navigation":
+  - strong: Your device drafts
+  - text: Service scope appears after connection
+  - navigation:
+    - heading "WORKSPACE" [level=2]
+    - link "Overview":
+      - /url: "#home"
+    - link "Specifications":
+      - /url: "#specifications"
+    - link "Code intelligence":
+      - /url: "#code"
+    - link "Agents":
+      - /url: "#agents"
+    - link "Resources":
+      - /url: "#resources"
+    - link "Memory":
+      - /url: "#memory"
+    - link "Workflow":
+      - /url: "#workflow"
+    - link "Execution":
+      - /url: "#execution"
+    - link "Delivery & acceptance":
+      - /url: "#governance"
+    - heading "OPERATIONS" [level=2]
+    - link "AI gateway":
+      - /url: "#gateway"
+    - link "Collaboration":
+      - /url: "#collaboration"
+    - link "Configuration":
+      - /url: "#configuration"
+    - link "Identity & access":
+      - /url: "#identity"
+    - link "Organization & projects":
+      - /url: "#tenancy"
+    - link "Usage & billing":
+      - /url: "#saas"
+    - link "Desktop companion":
+      - /url: "#desktop"
+    - link "Observer":
+      - /url: "#observer"
+    - link "Connection & operations":
+      - /url: "#connection"
+  - button "Browse definitions"
+  - link "Open design review":
+    - /url: https://www.figma.com/design/0md9BEFI1rU0aRAvf98TWO?node-id=501-117219
+  - text: Consolidated E2E design
+- main:
+  - navigation "Breadcrumb":
+    - link "Workspace":
+      - /url: "#home"
+    - text: Connection & operations
+  - tablist "Connection & operations workspace":
+    - tab "Service connection" [selected]
+    - tab "Definitions"
+  - text: AUTHORITY & OBSERVABILITY
+  - heading "Connection & operations" [level=1]
+  - paragraph: Load session authority and reconcile exact command identities.
+  - button "Export device workspace"
+  - strong: Service adapter contract is proposed
+  - text: Connection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded.
+  - heading "Service connection" [level=2]
+  - text: Audience
+  - combobox "Audience":
+    - option "Workspace · authorized collaboration" [selected]
+    - option "Observer · distinct public projection"
+  - text: Atlas service endpoint
+  - textbox "Atlas service endpoint HTTPS endpoint, or HTTP on localhost. Browser cookies authenticate the service; credentials are not stored in this field."
+  - text: HTTPS endpoint, or HTTP on localhost. Browser cookies authenticate the service; credentials are not stored in this field.
+  - button "Connect & inspect authority"
+  - button "Disconnect UI" [disabled]
+  - text: No active session.
+  - button "Request & verify service logout" [disabled]
+  - text: Service logout capability not exposed.
+  - heading "Observed authority" [level=2]
+  - paragraph: No authenticated identity, role or authorization scope has been observed for this audience.
+  - paragraph: A workspace session does not grant Observer publication. A UI disconnect does not revoke an OAuth/service session.
+  - heading "Operation journal" [level=2]
+  - button "Refresh local journal"
+  - button "Export JSON"
+  - paragraph: Commands are journaled before POST. Raw inputs and secret values are omitted. Received/Accepted are acknowledgments; Effective needs matching readback. Reconcile Prepared/Sending after restart as well as Unknown.
+  - paragraph: No protected commands have been issued from this device.

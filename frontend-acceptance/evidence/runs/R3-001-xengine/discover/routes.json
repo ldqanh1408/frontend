@@ -1,0 +1,905 @@
+{
+  "routes": [
+    {
+      "href": "#main",
+      "hash": "#main",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H2:Workspace view not found"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Return to overview"
+      ],
+      "inputs": [],
+      "roles": [],
+      "textLen": 663
+    },
+    {
+      "href": "#home",
+      "hash": "#home",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Build with a clear trail.",
+        "H2:Your working journey",
+        "H2:Observed service connection",
+        "H2:Recent device changes"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Open document workspace",
+        "Browse definitions",
+        "Local documents0On this device · inspect saved revisions",
+        "Agent drafts0On this device · inspect saved revisions",
+        "Workflow drafts0On this device · inspect saved revisions",
+        "Memory drafts0On this device · inspect saved revisions",
+        "1SpecificationsOrganize documents, author requirements and r",
+        "2Code intelligenceRead imported source, explore symbols and ",
+        "3AgentsDefine agents, pin their dependencies and inspect rea",
+        "4WorkflowBuild a task graph with explicit dependencies, agen",
+        "5ExecutionInspect runs, task attempts, public events and pro",
+        "6Delivery & acceptanceReview artifacts, merge identity, mand",
+        "Connect & inspect authority"
+      ],
+      "inputs": [],
+      "roles": [],
+      "textLen": 2003
+    },
+    {
+      "href": "#specifications",
+      "hash": "#specifications",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Specifications",
+        "H2:Library",
+        "H2:Open a document",
+        "H2:Document outline"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "IDE",
+        "Definitions",
+        "Service records",
+        "New document",
+        "New folder",
+        "Import files",
+        "Import document folder",
+        "Create document",
+        "Outline",
+        "Details",
+        "Properties",
+        "Acceptance"
+      ],
+      "inputs": [
+        "INPUT:file:",
+        "INPUT:file:",
+        "INPUT:text:_r_k_",
+        "SELECT:select-one:_r_l_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "tree"
+      ],
+      "textLen": 1263
+    },
+    {
+      "href": "#code",
+      "hash": "#code",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Code intelligence",
+        "H2:Repository files",
+        "H2:Open a source file",
+        "H2:Compiler AST symbols"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "IDE",
+        "Definitions",
+        "Service records",
+        "Import source folder",
+        "Connect repository service",
+        "Symbols",
+        "Locations",
+        "Search",
+        "Diagnostics",
+        "Coverage"
+      ],
+      "inputs": [
+        "INPUT:file:",
+        "SELECT:select-one:_r_u_",
+        "INPUT:text:_r_v_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "tree"
+      ],
+      "textLen": 1263
+    },
+    {
+      "href": "#agents",
+      "hash": "#agents",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Agents",
+        "H2:Agent definition",
+        "H2:Lifecycle and readiness",
+        "H2:Definition sections"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Definitions",
+        "Service records",
+        "New agent definition",
+        "Import definition JSON",
+        "Build exact context package",
+        "Open service lifecycle",
+        "Export field schema",
+        "Create local definition",
+        "Evaluate agent",
+        "Publish revision",
+        "Assign agent"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_19_",
+        "INPUT:text:_r_1a_",
+        "SELECT:select-one:_r_1b_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1832
+    },
+    {
+      "href": "#resources",
+      "hash": "#resources",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Resources",
+        "H2:Model resource",
+        "H2:Lifecycle and readiness",
+        "H2:Definition sections"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Definitions",
+        "Service records",
+        "New model resource",
+        "Import definition JSON",
+        "Build exact context package",
+        "Open service lifecycle",
+        "Export field schema",
+        "Create local definition",
+        "Test provider",
+        "Publish resource",
+        "Retire revision"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_1o_",
+        "INPUT:text:_r_1p_",
+        "SELECT:select-one:_r_1q_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1938
+    },
+    {
+      "href": "#memory",
+      "hash": "#memory",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Memory",
+        "H2:Memory record",
+        "H2:Lifecycle and readiness",
+        "H2:Definition sections"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Definitions",
+        "Service records",
+        "New memory record",
+        "Import definition JSON",
+        "Build exact context package",
+        "Open service lifecycle",
+        "Export field schema",
+        "Create local definition",
+        "Ingest memory",
+        "Refresh layer",
+        "Inspect invalidation"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_27_",
+        "INPUT:text:_r_28_",
+        "SELECT:select-one:_r_29_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1895
+    },
+    {
+      "href": "#workflow",
+      "hash": "#workflow",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Workflow",
+        "H2:Workflow drafts",
+        "H2:Create a workflow",
+        "H2:Task contract"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Task graph",
+        "Definitions",
+        "Service records",
+        "New workflow draft",
+        "Activate plan",
+        "Start run"
+      ],
+      "inputs": [],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1205
+    },
+    {
+      "href": "#execution",
+      "hash": "#execution",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Execution",
+        "H2:Run admission request",
+        "H2:Lifecycle and readiness",
+        "H2:Definition sections"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Definitions",
+        "Service records",
+        "New run admission request",
+        "Import definition JSON",
+        "Build exact context package",
+        "Open service lifecycle",
+        "Export field schema",
+        "Create local definition",
+        "Inspect admission gates",
+        "Start admitted run",
+        "Reconcile admission"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_2s_",
+        "INPUT:text:_r_2t_",
+        "SELECT:select-one:_r_2u_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1955
+    },
+    {
+      "href": "#governance",
+      "hash": "#governance",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Delivery & acceptance",
+        "H2:Delivery review",
+        "H2:Lifecycle and readiness",
+        "H2:Definition sections"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Definitions",
+        "Service records",
+        "New delivery review",
+        "Import definition JSON",
+        "Build exact context package",
+        "Open service lifecycle",
+        "Export field schema",
+        "Create local definition",
+        "Inspect independent evidence",
+        "Record review decision",
+        "Reconcile review"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_3b_",
+        "INPUT:text:_r_3c_",
+        "SELECT:select-one:_r_3d_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1919
+    },
+    {
+      "href": "#gateway",
+      "hash": "#gateway",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:AI gateway",
+        "H2:Provider credential request",
+        "H2:Lifecycle and readiness",
+        "H2:Definition sections"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Definitions",
+        "Service records",
+        "New provider credential request",
+        "Import definition JSON",
+        "Build exact context package",
+        "Open service lifecycle",
+        "Export field schema",
+        "Create local definition",
+        "Authorize credential",
+        "Verify provider access",
+        "Revoke credential"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_3q_",
+        "INPUT:text:_r_3r_",
+        "SELECT:select-one:_r_3s_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1942
+    },
+    {
+      "href": "#collaboration",
+      "hash": "#collaboration",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Collaboration",
+        "H2:Anchored discussion",
+        "H2:Lifecycle and readiness",
+        "H2:Definition sections"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Definitions",
+        "Service records",
+        "New anchored discussion",
+        "Import definition JSON",
+        "Build exact context package",
+        "Open service lifecycle",
+        "Export field schema",
+        "Create local definition",
+        "Post scoped comment",
+        "Resolve thread",
+        "Inspect audit trail"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_49_",
+        "INPUT:text:_r_4a_",
+        "SELECT:select-one:_r_4b_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1862
+    },
+    {
+      "href": "#configuration",
+      "hash": "#configuration",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Configuration",
+        "H2:Scoped configuration override",
+        "H2:Lifecycle and readiness",
+        "H2:Definition sections"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Definitions",
+        "Service records",
+        "New scoped configuration override",
+        "Import definition JSON",
+        "Build exact context package",
+        "Open service lifecycle",
+        "Export field schema",
+        "Create local definition",
+        "Preview effective policy",
+        "Apply reviewed override",
+        "Rollback override"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_4o_",
+        "INPUT:text:_r_4p_",
+        "SELECT:select-one:_r_4q_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1961
+    },
+    {
+      "href": "#identity",
+      "hash": "#identity",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Identity & access",
+        "H2:Membership invitation",
+        "H2:Lifecycle and readiness",
+        "H2:Definition sections"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Definitions",
+        "Service records",
+        "New membership invitation",
+        "Import definition JSON",
+        "Build exact context package",
+        "Open service lifecycle",
+        "Export field schema",
+        "Create local definition",
+        "Check seat and role",
+        "Send invitation",
+        "Inspect delivery / expiry"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_57_",
+        "INPUT:text:_r_58_",
+        "SELECT:select-one:_r_59_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1942
+    },
+    {
+      "href": "#tenancy",
+      "hash": "#tenancy",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Organization & projects",
+        "H2:Organization",
+        "H2:Lifecycle and readiness",
+        "H2:Definition sections"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Definitions",
+        "Service records",
+        "New organization",
+        "Import definition JSON",
+        "Build exact context package",
+        "Open service lifecycle",
+        "Export field schema",
+        "Create local definition",
+        "Validate organization",
+        "Create organization",
+        "Inspect policy effect"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_5m_",
+        "INPUT:text:_r_5n_",
+        "SELECT:select-one:_r_5o_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1920
+    },
+    {
+      "href": "#saas",
+      "hash": "#saas",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Usage & billing",
+        "H2:Subscription and seats request",
+        "H2:Lifecycle and readiness",
+        "H2:Definition sections"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Definitions",
+        "Service records",
+        "New subscription and seats request",
+        "Import definition JSON",
+        "Build exact context package",
+        "Open service lifecycle",
+        "Export field schema",
+        "Create local definition",
+        "Preview entitlement",
+        "Request plan change",
+        "Inspect effective entitlement"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_65_",
+        "INPUT:text:_r_66_",
+        "SELECT:select-one:_r_67_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1979
+    },
+    {
+      "href": "#desktop",
+      "hash": "#desktop",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Desktop companion",
+        "H2:Desktop device binding",
+        "H2:Lifecycle and readiness",
+        "H2:Definition sections"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Definitions",
+        "Service records",
+        "New desktop device binding",
+        "Import definition JSON",
+        "Build exact context package",
+        "Open service lifecycle",
+        "Export field schema",
+        "Create local definition",
+        "Pair authorized device",
+        "Verify repository binding",
+        "Revoke device"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_6k_",
+        "INPUT:text:_r_6l_",
+        "SELECT:select-one:_r_6m_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1944
+    },
+    {
+      "href": "#observer",
+      "hash": "#observer",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Observer",
+        "H2:Telemetry query",
+        "H2:Lifecycle and readiness",
+        "H2:Definition sections"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Definitions",
+        "Service records",
+        "New telemetry query",
+        "Import definition JSON",
+        "Build exact context package",
+        "Open service lifecycle",
+        "Export field schema",
+        "Create local definition",
+        "Run authorized query",
+        "Inspect freshness",
+        "Load next result page"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_73_",
+        "INPUT:text:_r_74_",
+        "SELECT:select-one:_r_75_"
+      ],
+      "roles": [
+        "tablist",
+        "tab",
+        "listbox"
+      ],
+      "textLen": 1814
+    },
+    {
+      "href": "#connection",
+      "hash": "#connection",
+      "title": "Atlas · Workspace",
+      "h1": [
+        "H2:WORKSPACE",
+        "H2:OPERATIONS",
+        "H1:Connection & operations",
+        "H2:Service connection",
+        "H2:Observed authority",
+        "H2:Operation journal"
+      ],
+      "buttons": [
+        "Navigation",
+        "Open workspace search",
+        "Light mode",
+        "Display",
+        "Help",
+        "Browse definitions",
+        "Service connection",
+        "Definitions",
+        "Export device workspace",
+        "Connect & inspect authority",
+        "Disconnect UI",
+        "Request & verify service logout",
+        "Refresh local journal",
+        "Export JSON"
+      ],
+      "inputs": [
+        "SELECT:select-one:_r_7f_",
+        "INPUT:url:service-endpoint"
+      ],
+      "roles": [
+        "tablist",
+        "tab"
+      ],
+      "textLen": 1903
+    }
+  ],
+  "reloadChecks": [
+    {
+      "href": "#main",
+      "after": "#main",
+      "h1": null
+    },
+    {
+      "href": "#home",
+      "after": "#home",
+      "h1": "Build with a clear trail."
+    },
+    {
+      "href": "#specifications",
+      "after": "#specifications",
+      "h1": "Specifications"
+    },
+    {
+      "href": "#code",
+      "after": "#code",
+      "h1": "Code intelligence"
+    },
+    {
+      "href": "#agents",
+      "after": "#agents",
+      "h1": "Agents"
+    },
+    {
+      "href": "#resources",
+      "after": "#resources",
+      "h1": "Resources"
+    },
+    {
+      "href": "#memory",
+      "after": "#memory",
+      "h1": "Memory"
+    },
+    {
+      "href": "#workflow",
+      "after": "#workflow",
+      "h1": "Workflow"
+    },
+    {
+      "href": "#execution",
+      "after": "#execution",
+      "h1": "Execution"
+    },
+    {
+      "href": "#governance",
+      "after": "#governance",
+      "h1": "Delivery & acceptance"
+    },
+    {
+      "href": "#gateway",
+      "after": "#gateway",
+      "h1": "AI gateway"
+    },
+    {
+      "href": "#collaboration",
+      "after": "#collaboration",
+      "h1": "Collaboration"
+    },
+    {
+      "href": "#configuration",
+      "after": "#configuration",
+      "h1": "Configuration"
+    },
+    {
+      "href": "#identity",
+      "after": "#identity",
+      "h1": "Identity & access"
+    },
+    {
+      "href": "#tenancy",
+      "after": "#tenancy",
+      "h1": "Organization & projects"
+    },
+    {
+      "href": "#saas",
+      "after": "#saas",
+      "h1": "Usage & billing"
+    },
+    {
+      "href": "#desktop",
+      "after": "#desktop",
+      "h1": "Desktop companion"
+    },
+    {
+      "href": "#observer",
+      "after": "#observer",
+      "h1": "Observer"
+    },
+    {
+      "href": "#connection",
+      "after": "#connection",
+      "h1": "Connection & operations"
+    }
+  ],
+  "errors": [
+    {
+      "type": "requestfailed",
+      "msg": "https://sparkling-snow-090d.ekko-okke666.workers.dev/assets/Specifications-B5BZcMrs.js net::ERR_ABORTED",
+      "url": "https://sparkling-snow-090d.ekko-okke666.workers.dev/#specifications"
+    },
+    {
+      "type": "requestfailed",
+      "msg": "https://sparkling-snow-090d.ekko-okke666.workers.dev/assets/recovery-BOx9702k.js net::ERR_ABORTED",
+      "url": "https://sparkling-snow-090d.ekko-okke666.workers.dev/#agents"
+    },
+    {
+      "type": "requestfailed",
+      "msg": "https://sparkling-snow-090d.ekko-okke666.workers.dev/assets/ContextPackage-BFQITCXb.js net::ERR_ABORTED",
+      "url": "https://sparkling-snow-090d.ekko-okke666.workers.dev/#agents"
+    },
+    {
+      "type": "requestfailed",
+      "msg": "https://sparkling-snow-090d.ekko-okke666.workers.dev/assets/DefinitionForm-CUE9rAcV.js net::ERR_ABORTED",
+      "url": "https://sparkling-snow-090d.ekko-okke666.workers.dev/#agents"
+    },
+    {
+      "type": "requestfailed",
+      "msg": "https://sparkling-snow-090d.ekko-okke666.workers.dev/assets/Definitions-BiKmtg8L.js net::ERR_ABORTED",
+      "url": "https://sparkling-snow-090d.ekko-okke666.workers.dev/#agents"
+    }
+  ]
+}

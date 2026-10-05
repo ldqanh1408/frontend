@@ -1,0 +1,96 @@
+- link "Skip to workspace":
+  - /url: "#main"
+- banner:
+  - text: A
+  - strong: Atlas
+  - text: Device workspace
+  - button "Open workspace search": Open or search Ctrl K
+  - text: Service disconnected
+  - button "Light mode"
+  - button "Display"
+  - button "Help"
+- complementary "Workspace navigation":
+  - strong: Your device drafts
+  - text: Service scope appears after connection
+  - navigation:
+    - heading "WORKSPACE" [level=2]
+    - link "Overview":
+      - /url: "#home"
+    - link "Specifications":
+      - /url: "#specifications"
+    - link "Code intelligence":
+      - /url: "#code"
+    - link "Agents":
+      - /url: "#agents"
+    - link "Resources":
+      - /url: "#resources"
+    - link "Memory":
+      - /url: "#memory"
+    - link "Workflow":
+      - /url: "#workflow"
+    - link "Execution":
+      - /url: "#execution"
+    - link "Delivery & acceptance":
+      - /url: "#governance"
+    - heading "OPERATIONS" [level=2]
+    - link "AI gateway":
+      - /url: "#gateway"
+    - link "Collaboration":
+      - /url: "#collaboration"
+    - link "Configuration":
+      - /url: "#configuration"
+    - link "Identity & access":
+      - /url: "#identity"
+    - link "Organization & projects":
+      - /url: "#tenancy"
+    - link "Usage & billing":
+      - /url: "#saas"
+    - link "Desktop companion":
+      - /url: "#desktop"
+    - link "Observer":
+      - /url: "#observer"
+    - link "Connection & operations":
+      - /url: "#connection"
+  - button "Browse definitions"
+  - link "Open design review":
+    - /url: https://www.figma.com/design/0md9BEFI1rU0aRAvf98TWO?node-id=501-117219
+  - text: Consolidated E2E design
+- main:
+  - navigation "Breadcrumb":
+    - link "Workspace":
+      - /url: "#home"
+    - text: Specifications
+  - tablist "Specifications workspace":
+    - tab "IDE" [selected]
+    - tab "Definitions"
+    - tab "Service records"
+  - text: DOCUMENT WORKSPACE Device drafts
+  - heading "Specifications" [level=1]
+  - paragraph: Organize many documents and edit exact saved revisions.
+  - button "New document"
+  - button "New folder"
+  - button "Import files"
+  - button "Import document folder"
+  - text: Local revisions and recovery are stored on this device. Server review, freeze and AI submission require an authorized service contract.
+  - complementary:
+    - heading "Library" [level=2]
+    - text: 0 visible Search document names
+    - textbox "Search document names"
+    - text: Collection
+    - combobox "Collection":
+      - option "Active" [selected]
+      - option "Favorites"
+      - option "Archived"
+    - tree "Document library"
+    - paragraph: Folder hierarchy is separate from document outline. Search covers local names; full corpus search is not connected.
+  - heading "Open a document" [level=2]
+  - paragraph: Choose a document from the library or import your files.
+  - button "Create document"
+  - complementary:
+    - tablist "Document inspector":
+      - tab "Outline" [selected]
+      - tab "Details"
+      - tab "Properties"
+      - tab "Acceptance"
+    - heading "Document outline" [level=2]
+    - paragraph: Headings from the current Markdown source appear here.

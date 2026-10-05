@@ -1,0 +1,19 @@
+{
+  "job": {
+    "script": "deeplink",
+    "engines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    }
+  },
+  "engine": "firefox",
+  "browserVersion": "142.0.1",
+  "ms": 120933,
+  "error": "TimeoutError: page.waitForSelector: Timeout 120000ms exceeded.\nCall log:\n  - waiting for locator('#__atlas_done')\n",
+  "result": null
+}

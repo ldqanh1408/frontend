@@ -1,0 +1,120 @@
+- link "Skip to workspace":
+  - /url: "#main"
+- banner:
+  - text: A
+  - strong: Atlas
+  - text: Device workspace
+  - button "Open workspace search": Open or search Ctrl K
+  - text: Service disconnected
+  - button "Light mode"
+  - button "Display"
+  - button "Help"
+- complementary "Workspace navigation":
+  - strong: Your device drafts
+  - text: Service scope appears after connection
+  - navigation:
+    - heading "WORKSPACE" [level=2]
+    - link "Overview":
+      - /url: "#home"
+    - link "Specifications":
+      - /url: "#specifications"
+    - link "Code intelligence":
+      - /url: "#code"
+    - link "Agents":
+      - /url: "#agents"
+    - link "Resources":
+      - /url: "#resources"
+    - link "Memory":
+      - /url: "#memory"
+    - link "Workflow":
+      - /url: "#workflow"
+    - link "Execution":
+      - /url: "#execution"
+    - link "Delivery & acceptance":
+      - /url: "#governance"
+    - heading "OPERATIONS" [level=2]
+    - link "AI gateway":
+      - /url: "#gateway"
+    - link "Collaboration":
+      - /url: "#collaboration"
+    - link "Configuration":
+      - /url: "#configuration"
+    - link "Identity & access":
+      - /url: "#identity"
+    - link "Organization & projects":
+      - /url: "#tenancy"
+    - link "Usage & billing":
+      - /url: "#saas"
+    - link "Desktop companion":
+      - /url: "#desktop"
+    - link "Observer":
+      - /url: "#observer"
+    - link "Connection & operations":
+      - /url: "#connection"
+  - button "Browse definitions"
+  - link "Open design review":
+    - /url: https://www.figma.com/design/0md9BEFI1rU0aRAvf98TWO?node-id=501-117219
+  - text: Consolidated E2E design
+- main:
+  - navigation "Breadcrumb":
+    - link "Workspace":
+      - /url: "#home"
+    - text: Overview
+  - text: ATLAS · WORKSPACE
+  - heading "Build with a clear trail." [level=1]
+  - paragraph: Start with source and specifications. Keep decisions, revisions and observed outcomes connected.
+  - button "Open document workspace"
+  - button "Browse definitions"
+  - button "Local documents 0 On this device · inspect saved revisions":
+    - text: Local documents
+    - strong: "0"
+    - text: On this device · inspect saved revisions
+  - button "Agent drafts 0 On this device · inspect saved revisions":
+    - text: Agent drafts
+    - strong: "0"
+    - text: On this device · inspect saved revisions
+  - button "Workflow drafts 0 On this device · inspect saved revisions":
+    - text: Workflow drafts
+    - strong: "0"
+    - text: On this device · inspect saved revisions
+  - button "Memory drafts 0 On this device · inspect saved revisions":
+    - text: Memory drafts
+    - strong: "0"
+    - text: On this device · inspect saved revisions
+  - heading "Your working journey" [level=2]
+  - button "1 Specifications Organize documents, author requirements and retain every saved revision.":
+    - text: "1"
+    - strong: Specifications
+    - text: Organize documents, author requirements and retain every saved revision.
+  - button "2 Code intelligence Read imported source, explore symbols and cite exact file content.":
+    - text: "2"
+    - strong: Code intelligence
+    - text: Read imported source, explore symbols and cite exact file content.
+  - button "3 Agents Define agents, pin their dependencies and inspect readiness before admission.":
+    - text: "3"
+    - strong: Agents
+    - text: Define agents, pin their dependencies and inspect readiness before admission.
+  - button "4 Workflow Build a task graph with explicit dependencies, agent pins and checkpoints.":
+    - text: "4"
+    - strong: Workflow
+    - text: Build a task graph with explicit dependencies, agent pins and checkpoints.
+  - button "5 Execution Inspect runs, task attempts, public events and protected command receipts.":
+    - text: "5"
+    - strong: Execution
+    - text: Inspect runs, task attempts, public events and protected command receipts.
+  - button "6 Delivery & acceptance Review artifacts, merge identity, mandatory acceptance and cleanup evidence.":
+    - text: "6"
+    - strong: Delivery & acceptance
+    - text: Review artifacts, merge identity, mandatory acceptance and cleanup evidence.
+  - heading "Observed service connection" [level=2]
+  - term: Workspace audience
+  - definition: Not connected
+  - term: Observer audience
+  - definition: Not connected
+  - term: Provider health / run / CI
+  - definition: No observation is inferred from connection or local drafts
+  - button "Connect & inspect authority"
+  - heading "Recent device changes" [level=2]
+  - paragraph: Your own saved files and drafts will appear here.
+  - strong: Your drafts and service records have separate authority
+  - text: Local files and configuration drafts stay on this device. Connect an authorized service to inspect published revisions, readiness, execution and delivery evidence.

@@ -1,0 +1,146 @@
+{
+  "job": {
+    "script": "perf_cold",
+    "engines": [
+      "chromium"
+    ],
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "globals": {
+      "__WARM_N": 10
+    }
+  },
+  "engine": "chromium",
+  "browserVersion": "141.0.7390.37",
+  "ms": 21171,
+  "error": null,
+  "result": {
+    "cold": {
+      "fcp": 224,
+      "lcp": 224,
+      "cls": 0.0008,
+      "nav": {
+        "ttfb": 81,
+        "dcl": 175,
+        "load": 175,
+        "transfer": 629
+      },
+      "vis": "visible"
+    },
+    "warm": [
+      {
+        "fcp": 104,
+        "lcp": 104,
+        "cls": 0,
+        "nav": {
+          "ttfb": 29,
+          "dcl": 76,
+          "load": 76,
+          "transfer": 629
+        }
+      },
+      {
+        "fcp": 92,
+        "lcp": 92,
+        "cls": 0,
+        "nav": {
+          "ttfb": 28,
+          "dcl": 67,
+          "load": 68,
+          "transfer": 629
+        }
+      },
+      {
+        "fcp": 92,
+        "lcp": 92,
+        "cls": 0,
+        "nav": {
+          "ttfb": 28,
+          "dcl": 71,
+          "load": 71,
+          "transfer": 629
+        }
+      },
+      {
+        "fcp": 100,
+        "lcp": 100,
+        "cls": 0,
+        "nav": {
+          "ttfb": 29,
+          "dcl": 70,
+          "load": 71,
+          "transfer": 629
+        }
+      },
+      {
+        "fcp": 112,
+        "lcp": 112,
+        "cls": 0,
+        "nav": {
+          "ttfb": 28,
+          "dcl": 84,
+          "load": 84,
+          "transfer": 629
+        }
+      },
+      {
+        "fcp": 92,
+        "lcp": 92,
+        "cls": 0,
+        "nav": {
+          "ttfb": 31,
+          "dcl": 73,
+          "load": 73,
+          "transfer": 629
+        }
+      },
+      {
+        "fcp": 100,
+        "lcp": 100,
+        "cls": 0,
+        "nav": {
+          "ttfb": 28,
+          "dcl": 71,
+          "load": 72,
+          "transfer": 629
+        }
+      },
+      {
+        "fcp": 96,
+        "lcp": 96,
+        "cls": 0,
+        "nav": {
+          "ttfb": 27,
+          "dcl": 68,
+          "load": 68,
+          "transfer": 629
+        }
+      },
+      {
+        "fcp": 92,
+        "lcp": 92,
+        "cls": 0,
+        "nav": {
+          "ttfb": 29,
+          "dcl": 72,
+          "load": 72,
+          "transfer": 629
+        }
+      },
+      {
+        "fcp": 100,
+        "lcp": 100,
+        "cls": 0,
+        "nav": {
+          "ttfb": 29,
+          "dcl": 70,
+          "load": 70,
+          "transfer": 629
+        }
+      }
+    ],
+    "complete": 1
+  }
+}

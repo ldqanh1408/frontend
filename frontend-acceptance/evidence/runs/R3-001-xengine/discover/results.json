@@ -1,0 +1,270 @@
+{
+  "suite": "discover",
+  "cases": [],
+  "evidence": [
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/env.json",
+      "evidence_type": "environment",
+      "timestamp": "2026-10-05T07:55:03.527Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/root.png",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:03.528Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_main.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#main",
+      "timestamp": "2026-10-05T07:55:04.505Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_main.png",
+      "evidence_type": "screenshot",
+      "route": "#main",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:04.505Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_home.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#home",
+      "timestamp": "2026-10-05T07:55:05.448Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_home.png",
+      "evidence_type": "screenshot",
+      "route": "#home",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:05.448Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_specifications.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#specifications",
+      "timestamp": "2026-10-05T07:55:06.402Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_specifications.png",
+      "evidence_type": "screenshot",
+      "route": "#specifications",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:06.402Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_code.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#code",
+      "timestamp": "2026-10-05T07:55:07.347Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_code.png",
+      "evidence_type": "screenshot",
+      "route": "#code",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:07.347Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_agents.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#agents",
+      "timestamp": "2026-10-05T07:55:08.300Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_agents.png",
+      "evidence_type": "screenshot",
+      "route": "#agents",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:08.300Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_resources.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#resources",
+      "timestamp": "2026-10-05T07:55:09.253Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_resources.png",
+      "evidence_type": "screenshot",
+      "route": "#resources",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:09.253Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_memory.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#memory",
+      "timestamp": "2026-10-05T07:55:10.221Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_memory.png",
+      "evidence_type": "screenshot",
+      "route": "#memory",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:10.221Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_workflow.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#workflow",
+      "timestamp": "2026-10-05T07:55:11.185Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_workflow.png",
+      "evidence_type": "screenshot",
+      "route": "#workflow",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:11.185Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_execution.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#execution",
+      "timestamp": "2026-10-05T07:55:12.132Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_execution.png",
+      "evidence_type": "screenshot",
+      "route": "#execution",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:12.132Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_governance.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#governance",
+      "timestamp": "2026-10-05T07:55:13.086Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_governance.png",
+      "evidence_type": "screenshot",
+      "route": "#governance",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:13.086Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_gateway.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#gateway",
+      "timestamp": "2026-10-05T07:55:14.037Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_gateway.png",
+      "evidence_type": "screenshot",
+      "route": "#gateway",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:14.037Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_collaboration.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#collaboration",
+      "timestamp": "2026-10-05T07:55:15.004Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_collaboration.png",
+      "evidence_type": "screenshot",
+      "route": "#collaboration",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:15.004Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_configuration.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#configuration",
+      "timestamp": "2026-10-05T07:55:16.022Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_configuration.png",
+      "evidence_type": "screenshot",
+      "route": "#configuration",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:16.022Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_identity.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#identity",
+      "timestamp": "2026-10-05T07:55:16.985Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_identity.png",
+      "evidence_type": "screenshot",
+      "route": "#identity",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:16.985Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_tenancy.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#tenancy",
+      "timestamp": "2026-10-05T07:55:17.938Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_tenancy.png",
+      "evidence_type": "screenshot",
+      "route": "#tenancy",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:17.938Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_saas.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#saas",
+      "timestamp": "2026-10-05T07:55:18.901Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_saas.png",
+      "evidence_type": "screenshot",
+      "route": "#saas",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:18.901Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_desktop.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#desktop",
+      "timestamp": "2026-10-05T07:55:19.869Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_desktop.png",
+      "evidence_type": "screenshot",
+      "route": "#desktop",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:19.869Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_observer.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#observer",
+      "timestamp": "2026-10-05T07:55:20.836Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_observer.png",
+      "evidence_type": "screenshot",
+      "route": "#observer",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:20.836Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/aria/_connection.yml",
+      "evidence_type": "aria-snapshot",
+      "route": "#connection",
+      "timestamp": "2026-10-05T07:55:21.856Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/screens/_connection.png",
+      "evidence_type": "screenshot",
+      "route": "#connection",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T07:55:21.856Z"
+    },
+    {
+      "path": "evidence/runs/R3-001-xengine/discover/routes.json",
+      "evidence_type": "route-crawl",
+      "timestamp": "2026-10-05T07:55:43.431Z"
+    }
+  ],
+  "routeCount": 19
+}

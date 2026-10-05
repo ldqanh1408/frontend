@@ -1,0 +1,476 @@
+{
+  "job": {
+    "script": "fe02",
+    "pre": [
+      "detector"
+    ],
+    "engines": [
+      "chromium"
+    ],
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "isMobile": true,
+      "hasTouch": true,
+      "deviceScaleFactor": 3
+    }
+  },
+  "engine": "chromium",
+  "browserVersion": "141.0.7390.37",
+  "ms": 17169,
+  "error": null,
+  "result": {
+    "env": {
+      "w": 375,
+      "h": 812,
+      "vis": "visible",
+      "dpr": 3,
+      "coarse": true
+    },
+    "probe": {
+      "overflowX": true,
+      "offscreen": true,
+      "unnamed": true,
+      "small": true,
+      "skips": true,
+      "contrast": true,
+      "vw": 375,
+      "valid": true
+    },
+    "rows": {
+      "dark:home": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        55
+      ],
+      "dark:specifications": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        33
+      ],
+      "dark:code": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        30
+      ],
+      "dark:agents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        53
+      ],
+      "dark:resources": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "dark:memory": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        53
+      ],
+      "dark:workflow": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        24
+      ],
+      "dark:execution": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "dark:governance": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        47
+      ],
+      "dark:gateway": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        47
+      ],
+      "dark:collaboration": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        45
+      ],
+      "dark:configuration": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        53
+      ],
+      "dark:identity": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        47
+      ],
+      "dark:tenancy": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "dark:saas": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "dark:desktop": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        53
+      ],
+      "dark:observer": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "dark:connection": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        32
+      ],
+      "light:home": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        55
+      ],
+      "light:specifications": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        33
+      ],
+      "light:code": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        30
+      ],
+      "light:agents": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        53
+      ],
+      "light:resources": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "light:memory": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        53
+      ],
+      "light:workflow": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        24
+      ],
+      "light:execution": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "light:governance": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        47
+      ],
+      "light:gateway": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        47
+      ],
+      "light:collaboration": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        45
+      ],
+      "light:configuration": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        53
+      ],
+      "light:identity": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        47
+      ],
+      "light:tenancy": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "light:saas": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "light:desktop": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        53
+      ],
+      "light:observer": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "light:connection": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        32
+      ]
+    },
+    "samples": {
+      "offscreen": [],
+      "unnamed": [],
+      "small": [
+        "home:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\"",
+        "specifications:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\"",
+        "code:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\"",
+        "agents:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\"",
+        "resources:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\"",
+        "memory:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\"",
+        "workflow:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\"",
+        "execution:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\"",
+        "governance:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\"",
+        "gateway:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\"",
+        "collaboration:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\"",
+        "configuration:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\"",
+        "identity:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\"",
+        "tenancy:a\"Workspace\" 67x18 ~ button.button.secondary\"Navigation\""
+      ],
+      "skips": [],
+      "contrast": []
+    },
+    "errs": [],
+    "theme_dark": "dark",
+    "theme_light": "light",
+    "cols": [
+      "overflowX",
+      "offscreen",
+      "unnamed",
+      "small",
+      "h1",
+      "skips",
+      "contrast",
+      "contrastUnknown",
+      "textChecked"
+    ],
+    "complete": 1
+  }
+}
