@@ -1,0 +1,12 @@
+{
+  "suite": "layout",
+  "cases": [],
+  "evidence": [
+    {
+      "path": "evidence/runs/R3-002-fx-layout/layout/layout-results.json",
+      "evidence_type": "layout-hit-test",
+      "input_mode": "trusted-input",
+      "timestamp": "2026-10-05T08:29:07.309Z"
+    }
+  ]
+}

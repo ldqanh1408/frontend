@@ -1,0 +1,461 @@
+{
+  "job": {
+    "script": "fe02",
+    "pre": [
+      "detector"
+    ],
+    "engines": [
+      "firefox",
+      "webkit"
+    ],
+    "viewport": {
+      "width": 768,
+      "height": 1024,
+      "hasTouch": true,
+      "deviceScaleFactor": 2
+    }
+  },
+  "engine": "firefox",
+  "browserVersion": "142.0.1",
+  "ms": 17187,
+  "error": null,
+  "result": {
+    "env": {
+      "w": 768,
+      "h": 1024,
+      "vis": "visible",
+      "dpr": 2,
+      "coarse": true
+    },
+    "probe": {
+      "overflowX": true,
+      "offscreen": true,
+      "unnamed": true,
+      "small": true,
+      "skips": true,
+      "contrast": true,
+      "vw": 768,
+      "valid": true
+    },
+    "rows": {
+      "dark:home": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        57
+      ],
+      "dark:specifications": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        35
+      ],
+      "dark:code": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        32
+      ],
+      "dark:agents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        55
+      ],
+      "dark:resources": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        51
+      ],
+      "dark:memory": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        55
+      ],
+      "dark:workflow": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        26
+      ],
+      "dark:execution": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        51
+      ],
+      "dark:governance": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "dark:gateway": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "dark:collaboration": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        47
+      ],
+      "dark:configuration": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        55
+      ],
+      "dark:identity": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "dark:tenancy": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        51
+      ],
+      "dark:saas": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        51
+      ],
+      "dark:desktop": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        55
+      ],
+      "dark:observer": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        51
+      ],
+      "dark:connection": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        34
+      ],
+      "light:home": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        57
+      ],
+      "light:specifications": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        35
+      ],
+      "light:code": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        32
+      ],
+      "light:agents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        55
+      ],
+      "light:resources": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        51
+      ],
+      "light:memory": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        55
+      ],
+      "light:workflow": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        26
+      ],
+      "light:execution": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        51
+      ],
+      "light:governance": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "light:gateway": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "light:collaboration": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        47
+      ],
+      "light:configuration": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        55
+      ],
+      "light:identity": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        49
+      ],
+      "light:tenancy": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        51
+      ],
+      "light:saas": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        51
+      ],
+      "light:desktop": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        55
+      ],
+      "light:observer": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        51
+      ],
+      "light:connection": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        34
+      ]
+    },
+    "samples": {
+      "offscreen": [],
+      "unnamed": [],
+      "small": [],
+      "skips": [],
+      "contrast": []
+    },
+    "errs": [],
+    "theme_dark": "dark",
+    "theme_light": "light",
+    "cols": [
+      "overflowX",
+      "offscreen",
+      "unnamed",
+      "small",
+      "h1",
+      "skips",
+      "contrast",
+      "contrastUnknown",
+      "textChecked"
+    ],
+    "complete": 1
+  }
+}

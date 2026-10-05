@@ -1,0 +1,116 @@
+{
+  "suite": "injected",
+  "cases": [],
+  "evidence": [
+    {
+      "path": "evidence/runs/R3-002-fx-layout/injected/deeplink-chromium-1280x800.json",
+      "evidence_type": "injected-script-result",
+      "engine": "chromium",
+      "viewport": "1280x800",
+      "timestamp": "2026-10-05T08:24:20.508Z"
+    },
+    {
+      "path": "evidence/runs/R3-002-fx-layout/injected/deeplink-firefox-1280x800.json",
+      "evidence_type": "injected-script-result",
+      "engine": "firefox",
+      "viewport": "1280x800",
+      "timestamp": "2026-10-05T08:24:43.247Z"
+    },
+    {
+      "path": "evidence/runs/R3-002-fx-layout/injected/deeplink-webkit-1280x800.json",
+      "evidence_type": "injected-script-result",
+      "engine": "webkit",
+      "viewport": "1280x800",
+      "timestamp": "2026-10-05T08:24:57.292Z"
+    },
+    {
+      "path": "evidence/runs/R3-002-fx-layout/injected/fe02-firefox-375x812.json",
+      "evidence_type": "injected-script-result",
+      "engine": "firefox",
+      "viewport": "375x812",
+      "timestamp": "2026-10-05T08:25:15.484Z"
+    },
+    {
+      "path": "evidence/runs/R3-002-fx-layout/injected/fe02-webkit-375x812.json",
+      "evidence_type": "injected-script-result",
+      "engine": "webkit",
+      "viewport": "375x812",
+      "timestamp": "2026-10-05T08:25:33.242Z"
+    },
+    {
+      "path": "evidence/runs/R3-002-fx-layout/injected/fe02-firefox-768x1024.json",
+      "evidence_type": "injected-script-result",
+      "engine": "firefox",
+      "viewport": "768x1024",
+      "timestamp": "2026-10-05T08:25:51.277Z"
+    },
+    {
+      "path": "evidence/runs/R3-002-fx-layout/injected/fe02-webkit-768x1024.json",
+      "evidence_type": "injected-script-result",
+      "engine": "webkit",
+      "viewport": "768x1024",
+      "timestamp": "2026-10-05T08:26:09.053Z"
+    },
+    {
+      "path": "evidence/runs/R3-002-fx-layout/injected/fe02-firefox-1440x900.json",
+      "evidence_type": "injected-script-result",
+      "engine": "firefox",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T08:26:27.130Z"
+    },
+    {
+      "path": "evidence/runs/R3-002-fx-layout/injected/fe02-webkit-1440x900.json",
+      "evidence_type": "injected-script-result",
+      "engine": "webkit",
+      "viewport": "1440x900",
+      "timestamp": "2026-10-05T08:26:44.867Z"
+    }
+  ],
+  "summary": [
+    {
+      "name": "deeplink-chromium-1280x800",
+      "ok": true,
+      "ms": 11432
+    },
+    {
+      "name": "deeplink-firefox-1280x800",
+      "ok": true,
+      "ms": 21874
+    },
+    {
+      "name": "deeplink-webkit-1280x800",
+      "ok": true,
+      "ms": 10791
+    },
+    {
+      "name": "fe02-firefox-375x812",
+      "ok": true,
+      "ms": 17229
+    },
+    {
+      "name": "fe02-webkit-375x812",
+      "ok": true,
+      "ms": 17158
+    },
+    {
+      "name": "fe02-firefox-768x1024",
+      "ok": true,
+      "ms": 17188
+    },
+    {
+      "name": "fe02-webkit-768x1024",
+      "ok": true,
+      "ms": 17164
+    },
+    {
+      "name": "fe02-firefox-1440x900",
+      "ok": true,
+      "ms": 17247
+    },
+    {
+      "name": "fe02-webkit-1440x900",
+      "ok": true,
+      "ms": 17159
+    }
+  ]
+}

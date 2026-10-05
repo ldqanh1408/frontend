@@ -1,0 +1,13 @@
+{
+  "suite": "fxservice",
+  "cases": [],
+  "evidence": [
+    {
+      "path": "evidence/runs/R3-002-fx-layout/fxservice/fxservice-results.json",
+      "evidence_type": "fixture-scenarios",
+      "fixture": "FX-SERVICE/atlas-ui-v1-fixture-r3",
+      "input_mode": "trusted-input",
+      "timestamp": "2026-10-05T08:28:22.805Z"
+    }
+  ]
+}

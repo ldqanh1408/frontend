@@ -1,0 +1,606 @@
+{
+  "fixture_id": "FX-SERVICE/atlas-ui-v1-fixture-r3",
+  "browserVersion": "141.0.7390.37",
+  "scenarios": [
+    {
+      "mode": "effective",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "actionVisible": true,
+        "actionDisabled": false,
+        "confirmShown": true,
+        "posts": 1,
+        "postDetail": [
+          {
+            "idem": true,
+            "csrf": "[REDACTED]",
+            "ifMatch": "\"agents-1-r3\"",
+            "rev": 3,
+            "keys": [
+              "operationId",
+              "scope",
+              "resourceId",
+              "actionId",
+              "expectedRevision",
+              "fingerprint",
+              "input"
+            ]
+          }
+        ],
+        "dialogText": [],
+        "stagesOnPage": [
+          "Effective"
+        ],
+        "toasts": [
+          "Service receipt matches effect readback. Business acceptance remains a separate check.×",
+          "Authenticated service scopeorg:fx/ws:alpha · subject fx-user@fixture · expires 10/5/2026, 9:26:45 AM. Records are read within this authenticated scope. Refresh to inspect the current observation.",
+          "Published definition and runnable readiness are separate.",
+          "Definition, run attempt and delivery each have their own lifecycle.",
+          "Changed pins require an explicit new revision; no implicit upgrade."
+        ],
+        "journal": [
+          "FX action agents 7d719520-8ccc-497b-a119-06a6e93e91c9 10/5/2026, 8:26:46 AM org:fx/ws:alpha agents-1 3 Effective Last acknowledgment: None fx-evidence-7d7195 Service receipt matches effect readback. Business acceptance remains a separate check. Reconcile original ID"
+        ],
+        "refreshEnabled401": false,
+        "gets401": [
+          "/v1/agents",
+          "/v1/effects/agents-1",
+          "/v1/agents",
+          "/v1/memory"
+        ],
+        "after401": {
+          "connectedText": false,
+          "header": "A Atlas Device workspace Open or search Ctrl K Service disconnected Light mode Display Help",
+          "toasts": [
+            "Service receipt matches effect readback. Business acceptance remains a separate check.×",
+            "Service connection requiredNo service identity, health or workflow completion is inferred. Connect the Workspace audience to load authorized records."
+          ]
+        }
+      },
+      "errors": []
+    },
+    {
+      "mode": "received",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "actionVisible": true,
+        "actionDisabled": false,
+        "confirmShown": true,
+        "posts": 1,
+        "postDetail": [
+          {
+            "idem": true,
+            "csrf": "[REDACTED]",
+            "ifMatch": "\"agents-1-r3\"",
+            "rev": 3,
+            "keys": [
+              "operationId",
+              "scope",
+              "resourceId",
+              "actionId",
+              "expectedRevision",
+              "fingerprint",
+              "input"
+            ]
+          }
+        ],
+        "dialogText": [],
+        "stagesOnPage": [
+          "Received"
+        ],
+        "toasts": [
+          "Service acknowledged received. Effect has not been verified.×",
+          "Authenticated service scopeorg:fx/ws:alpha · subject fx-user@fixture · expires 10/5/2026, 9:26:51 AM. Records are read within this authenticated scope. Refresh to inspect the current observation.",
+          "Published definition and runnable readiness are separate.",
+          "Definition, run attempt and delivery each have their own lifecycle.",
+          "Changed pins require an explicit new revision; no implicit upgrade."
+        ],
+        "journal": [
+          "FX action agents 5dfa945e-fd10-4c88-b049-f758d47f6f62 10/5/2026, 8:26:52 AM org:fx/ws:alpha agents-1 3 Received Last acknowledgment: Received No effect readback Service acknowledged received. Effect has not been verified. Reconcile original ID"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "mode": "accepted",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "actionVisible": true,
+        "actionDisabled": false,
+        "confirmShown": true,
+        "posts": 1,
+        "postDetail": [
+          {
+            "idem": true,
+            "csrf": "[REDACTED]",
+            "ifMatch": "\"agents-1-r3\"",
+            "rev": 3,
+            "keys": [
+              "operationId",
+              "scope",
+              "resourceId",
+              "actionId",
+              "expectedRevision",
+              "fingerprint",
+              "input"
+            ]
+          }
+        ],
+        "dialogText": [],
+        "stagesOnPage": [
+          "Accepted"
+        ],
+        "toasts": [
+          "Service acknowledged accepted. Effect has not been verified.×",
+          "Authenticated service scopeorg:fx/ws:alpha · subject fx-user@fixture · expires 10/5/2026, 9:26:56 AM. Records are read within this authenticated scope. Refresh to inspect the current observation.",
+          "Published definition and runnable readiness are separate.",
+          "Definition, run attempt and delivery each have their own lifecycle.",
+          "Changed pins require an explicit new revision; no implicit upgrade."
+        ],
+        "journal": [
+          "FX action agents b0f7fb38-1024-48c3-920b-2fdd7225e031 10/5/2026, 8:26:57 AM org:fx/ws:alpha agents-1 3 Accepted Last acknowledgment: Accepted No effect readback Service acknowledged accepted. Effect has not been verified. Reconcile original ID"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "mode": "rejected",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "actionVisible": true,
+        "actionDisabled": false,
+        "confirmShown": true,
+        "posts": 1,
+        "postDetail": [
+          {
+            "idem": true,
+            "csrf": "[REDACTED]",
+            "ifMatch": "\"agents-1-r3\"",
+            "rev": 3,
+            "keys": [
+              "operationId",
+              "scope",
+              "resourceId",
+              "actionId",
+              "expectedRevision",
+              "fingerprint",
+              "input"
+            ]
+          }
+        ],
+        "dialogText": [],
+        "stagesOnPage": [
+          "Rejected"
+        ],
+        "toasts": [
+          "Service rejected the operation. No completion is asserted.×",
+          "Authenticated service scopeorg:fx/ws:alpha · subject fx-user@fixture · expires 10/5/2026, 9:27:01 AM. Records are read within this authenticated scope. Refresh to inspect the current observation.",
+          "Published definition and runnable readiness are separate.",
+          "Definition, run attempt and delivery each have their own lifecycle.",
+          "Changed pins require an explicit new revision; no implicit upgrade."
+        ],
+        "journal": [
+          "FX action agents 88be9e9d-1151-4e20-86eb-034f4b841f39 10/5/2026, 8:27:02 AM org:fx/ws:alpha agents-1 3 Rejected Last acknowledgment: None No effect readback Service rejected the operation. No completion is asserted. Reconcile original ID"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "mode": "http401",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "actionVisible": true,
+        "actionDisabled": false,
+        "confirmShown": true,
+        "posts": 1,
+        "postDetail": [
+          {
+            "idem": true,
+            "csrf": "[REDACTED]",
+            "ifMatch": "\"agents-1-r3\"",
+            "rev": 3,
+            "keys": [
+              "operationId",
+              "scope",
+              "resourceId",
+              "actionId",
+              "expectedRevision",
+              "fingerprint",
+              "input"
+            ]
+          }
+        ],
+        "dialogText": [],
+        "stagesOnPage": [],
+        "toasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service connection requiredNo service identity, health or workflow completion is inferred. Connect the Workspace audience to load authorized records."
+        ],
+        "journal": [
+          "FX action agents 4fba309b-103e-4aa1-a17f-f8ac97d9a014 10/5/2026, 8:27:07 AM org:fx/ws:alpha agents-1 3 Unknown Last acknowledgment: None No effect readback Delivery or effect is uncertain. Service session expired or revoked. Reconcile this operation; do not resend. Reconcile original ID Connect the "
+        ]
+      },
+      "errors": []
+    },
+    {
+      "mode": "http403",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "actionVisible": true,
+        "actionDisabled": false,
+        "confirmShown": true,
+        "posts": 1,
+        "postDetail": [
+          {
+            "idem": true,
+            "csrf": "[REDACTED]",
+            "ifMatch": "\"agents-1-r3\"",
+            "rev": 3,
+            "keys": [
+              "operationId",
+              "scope",
+              "resourceId",
+              "actionId",
+              "expectedRevision",
+              "fingerprint",
+              "input"
+            ]
+          }
+        ],
+        "dialogText": [],
+        "stagesOnPage": [
+          "Unknown"
+        ],
+        "toasts": [
+          "Delivery or effect is uncertain. Permission denied. Recheck the current scope and grant. Reconcile this operation; do not resend.×",
+          "Authenticated service scopeorg:fx/ws:alpha · subject fx-user@fixture · expires 10/5/2026, 9:27:10 AM. Records are read within this authenticated scope. Refresh to inspect the current observation.",
+          "Published definition and runnable readiness are separate.",
+          "Definition, run attempt and delivery each have their own lifecycle.",
+          "Changed pins require an explicit new revision; no implicit upgrade."
+        ],
+        "journal": [
+          "FX action agents b94852ad-ae54-4256-b5ef-4bde12f7cb70 10/5/2026, 8:27:11 AM org:fx/ws:alpha agents-1 3 Unknown Last acknowledgment: None No effect readback Delivery or effect is uncertain. Permission denied. Recheck the current scope and grant. Reconcile this operation; do not resend. Reconcile orig"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "mode": "http409",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "actionVisible": true,
+        "actionDisabled": false,
+        "confirmShown": true,
+        "posts": 1,
+        "postDetail": [
+          {
+            "idem": true,
+            "csrf": "[REDACTED]",
+            "ifMatch": "\"agents-1-r3\"",
+            "rev": 3,
+            "keys": [
+              "operationId",
+              "scope",
+              "resourceId",
+              "actionId",
+              "expectedRevision",
+              "fingerprint",
+              "input"
+            ]
+          }
+        ],
+        "dialogText": [],
+        "stagesOnPage": [
+          "Unknown"
+        ],
+        "toasts": [
+          "Delivery or effect is uncertain. The resource changed. Refresh its revision before retrying. Reconcile this operation; do not resend.×",
+          "Authenticated service scopeorg:fx/ws:alpha · subject fx-user@fixture · expires 10/5/2026, 9:27:15 AM. Records are read within this authenticated scope. Refresh to inspect the current observation.",
+          "Published definition and runnable readiness are separate.",
+          "Definition, run attempt and delivery each have their own lifecycle.",
+          "Changed pins require an explicit new revision; no implicit upgrade."
+        ],
+        "journal": [
+          "FX action agents 8b572e86-4987-434b-a2d7-ac81a573c26b 10/5/2026, 8:27:16 AM org:fx/ws:alpha agents-1 3 Unknown Last acknowledgment: None No effect readback Delivery or effect is uncertain. The resource changed. Refresh its revision before retrying. Reconcile this operation; do not resend. Reconcile "
+        ]
+      },
+      "errors": []
+    },
+    {
+      "mode": "http422",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "actionVisible": true,
+        "actionDisabled": false,
+        "confirmShown": true,
+        "posts": 1,
+        "postDetail": [
+          {
+            "idem": true,
+            "csrf": "[REDACTED]",
+            "ifMatch": "\"agents-1-r3\"",
+            "rev": 3,
+            "keys": [
+              "operationId",
+              "scope",
+              "resourceId",
+              "actionId",
+              "expectedRevision",
+              "fingerprint",
+              "input"
+            ]
+          }
+        ],
+        "dialogText": [],
+        "stagesOnPage": [
+          "Unknown"
+        ],
+        "toasts": [
+          "Delivery or effect is uncertain. The service rejected the input contract. Review the fields. Reconcile this operation; do not resend.×",
+          "Authenticated service scopeorg:fx/ws:alpha · subject fx-user@fixture · expires 10/5/2026, 9:27:20 AM. Records are read within this authenticated scope. Refresh to inspect the current observation.",
+          "Published definition and runnable readiness are separate.",
+          "Definition, run attempt and delivery each have their own lifecycle.",
+          "Changed pins require an explicit new revision; no implicit upgrade."
+        ],
+        "journal": [
+          "FX action agents 2b920bd9-4991-4720-829d-f48143164e1d 10/5/2026, 8:27:21 AM org:fx/ws:alpha agents-1 3 Unknown Last acknowledgment: None No effect readback Delivery or effect is uncertain. The service rejected the input contract. Review the fields. Reconcile this operation; do not resend. Reconcile "
+        ]
+      },
+      "errors": []
+    },
+    {
+      "mode": "http500",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "actionVisible": true,
+        "actionDisabled": false,
+        "confirmShown": true,
+        "posts": 1,
+        "postDetail": [
+          {
+            "idem": true,
+            "csrf": "[REDACTED]",
+            "ifMatch": "\"agents-1-r3\"",
+            "rev": 3,
+            "keys": [
+              "operationId",
+              "scope",
+              "resourceId",
+              "actionId",
+              "expectedRevision",
+              "fingerprint",
+              "input"
+            ]
+          }
+        ],
+        "dialogText": [],
+        "stagesOnPage": [
+          "Unknown"
+        ],
+        "toasts": [
+          "Delivery or effect is uncertain. Service returned HTTP 500 Reconcile this operation; do not resend.×",
+          "Authenticated service scopeorg:fx/ws:alpha · subject fx-user@fixture · expires 10/5/2026, 9:27:25 AM. Records are read within this authenticated scope. Refresh to inspect the current observation.",
+          "Published definition and runnable readiness are separate.",
+          "Definition, run attempt and delivery each have their own lifecycle.",
+          "Changed pins require an explicit new revision; no implicit upgrade."
+        ],
+        "journal": [
+          "FX action agents 8302e009-0553-49c1-af73-64a4efe3e896 10/5/2026, 8:27:26 AM org:fx/ws:alpha agents-1 3 Unknown Last acknowledgment: None No effect readback Delivery or effect is uncertain. Service returned HTTP 500 Reconcile this operation; do not resend. Reconcile original ID"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "mode": "netfailAfterSend",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "actionVisible": true,
+        "actionDisabled": false,
+        "confirmShown": true,
+        "posts": 1,
+        "postDetail": [
+          {
+            "idem": true,
+            "csrf": "[REDACTED]",
+            "ifMatch": "\"agents-1-r3\"",
+            "rev": 3,
+            "keys": [
+              "operationId",
+              "scope",
+              "resourceId",
+              "actionId",
+              "expectedRevision",
+              "fingerprint",
+              "input"
+            ]
+          }
+        ],
+        "dialogText": [],
+        "stagesOnPage": [
+          "Unknown"
+        ],
+        "toasts": [
+          "Delivery or effect is uncertain. Failed to fetch Reconcile this operation; do not resend.×",
+          "Authenticated service scopeorg:fx/ws:alpha · subject fx-user@fixture · expires 10/5/2026, 9:27:30 AM. Records are read within this authenticated scope. Refresh to inspect the current observation.",
+          "Published definition and runnable readiness are separate.",
+          "Definition, run attempt and delivery each have their own lifecycle.",
+          "Changed pins require an explicit new revision; no implicit upgrade."
+        ],
+        "journal": [
+          "FX action agents 428efae5-8f37-4a05-a6fe-63e44f4adc32 10/5/2026, 8:27:31 AM org:fx/ws:alpha agents-1 3 Unknown Last acknowledgment: None No effect readback Delivery or effect is uncertain. Failed to fetch Reconcile this operation; do not resend. Reconcile original ID"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "mode": "timeoutAfterSend",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "actionVisible": true,
+        "actionDisabled": false,
+        "confirmShown": true,
+        "posts": 1,
+        "postDetail": [
+          {
+            "idem": true,
+            "csrf": "[REDACTED]",
+            "ifMatch": "\"agents-1-r3\"",
+            "rev": 3,
+            "keys": [
+              "operationId",
+              "scope",
+              "resourceId",
+              "actionId",
+              "expectedRevision",
+              "fingerprint",
+              "input"
+            ]
+          }
+        ],
+        "dialogText": [],
+        "stagesOnPage": [
+          "Unknown"
+        ],
+        "toasts": [
+          "Delivery or effect is uncertain. network timeout Reconcile this operation; do not resend.×",
+          "Authenticated service scopeorg:fx/ws:alpha · subject fx-user@fixture · expires 10/5/2026, 9:27:34 AM. Records are read within this authenticated scope. Refresh to inspect the current observation.",
+          "Published definition and runnable readiness are separate.",
+          "Definition, run attempt and delivery each have their own lifecycle.",
+          "Changed pins require an explicit new revision; no implicit upgrade."
+        ],
+        "journal": [
+          "FX action agents b1bdcf02-a195-44b9-9d8c-62130753077e 10/5/2026, 8:27:56 AM org:fx/ws:alpha agents-1 3 Unknown Last acknowledgment: None No effect readback Delivery or effect is uncertain. network timeout Reconcile this operation; do not resend. Reconcile original ID"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "mode": "mismatch",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "actionVisible": true,
+        "actionDisabled": false,
+        "confirmShown": true,
+        "posts": 1,
+        "postDetail": [
+          {
+            "idem": true,
+            "csrf": "[REDACTED]",
+            "ifMatch": "\"agents-1-r3\"",
+            "rev": 3,
+            "keys": [
+              "operationId",
+              "scope",
+              "resourceId",
+              "actionId",
+              "expectedRevision",
+              "fingerprint",
+              "input"
+            ]
+          }
+        ],
+        "dialogText": [],
+        "stagesOnPage": [
+          "Unknown"
+        ],
+        "toasts": [
+          "Delivery or effect is uncertain. Receipt identity, fingerprint, scope or revision mismatch. Reconcile this operation; do not resend.×",
+          "Authenticated service scopeorg:fx/ws:alpha · subject fx-user@fixture · expires 10/5/2026, 9:28:01 AM. Records are read within this authenticated scope. Refresh to inspect the current observation.",
+          "Published definition and runnable readiness are separate.",
+          "Definition, run attempt and delivery each have their own lifecycle.",
+          "Changed pins require an explicit new revision; no implicit upgrade."
+        ],
+        "journal": [
+          "FX action agents f9c352b9-afd4-4262-bd88-e961a1081176 10/5/2026, 8:28:02 AM org:fx/ws:alpha agents-1 3 Unknown Last acknowledgment: None No effect readback Delivery or effect is uncertain. Receipt identity, fingerprint, scope or revision mismatch. Reconcile this operation; do not resend. Reconcile o"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "mode": "sessionExpiry",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "refreshEnabled": false,
+        "getsAfterExpiry": [
+          "/v1/capabilities",
+          "/v1/session"
+        ],
+        "afterExpiry": {
+          "connectedText": false,
+          "header": "A Atlas Device workspace Open or search Ctrl K Service disconnected Light mode Display Help",
+          "toasts": [
+            "Authenticated workspace session loaded. Individual provider health and business outcomes remain unverified.×",
+            "Service connection requiredNo service identity, health or workflow completion is inferred. Connect the Workspace audience to load authorized records."
+          ]
+        }
+      },
+      "errors": []
+    },
+    {
+      "mode": "observerAudience",
+      "steps": {
+        "connected": true,
+        "connectToasts": [
+          "Authenticated observer session loaded. Individual provider health and business outcomes remain unverified.×",
+          "Service adapter contract is proposedConnection uses an authenticated service session. This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
+        ],
+        "actionVisible": false,
+        "actionDisabled": null,
+        "mainText": "Authenticated observer session loaded. Individual provider health and business outcomes remain unverified. × Workspace / Agents WORKSPACE / AGENTS Agents Define agents, pin their dependencies and inspect readiness before admission. Definitions Service records Service connection required No service identity, health or workflow completion is inferred. Connect the Workspace audience to load authorized records. Load / refresh service records This service has not exposed Agents. Connection & operations Inspect lifecycle requirements Agents records Not loaded Search authorized records Applied on the"
+      },
+      "errors": []
+    }
+  ]
+}

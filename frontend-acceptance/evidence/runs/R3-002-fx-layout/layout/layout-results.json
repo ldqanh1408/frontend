@@ -1,0 +1,1295 @@
+{
+  "chromium": {
+    "browserVersion": "141.0.7390.37",
+    "paths": [
+      {
+        "vp": 375,
+        "path": "initial load #home",
+        "hash": "#home",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          146,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "BODY#"
+      },
+      {
+        "vp": 375,
+        "path": "drawer link → #memory",
+        "hash": "#memory",
+        "scrollY": 60,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          23,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": "svg.",
+        "h1": [
+          12,
+          86,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 375,
+        "path": "drawer link → #agents",
+        "hash": "#agents",
+        "scrollY": 60,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          23,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": "svg.",
+        "h1": [
+          12,
+          86,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 375,
+        "path": "drawer link → #connection",
+        "hash": "#connection",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          211,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 375,
+        "path": "header theme button, then route change → #specifications",
+        "hash": "#specifications",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          217,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 320,
+        "path": "initial load #home",
+        "hash": "#home",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          146,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "BODY#"
+      },
+      {
+        "vp": 320,
+        "path": "drawer link → #memory",
+        "hash": "#memory",
+        "scrollY": 60,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          23,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": "svg.",
+        "h1": [
+          12,
+          86,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 320,
+        "path": "drawer link → #agents",
+        "hash": "#agents",
+        "scrollY": 60,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          23,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": "svg.",
+        "h1": [
+          12,
+          86,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 320,
+        "path": "drawer link → #connection",
+        "hash": "#connection",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          211,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 320,
+        "path": "header theme button, then route change → #specifications",
+        "hash": "#specifications",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          217,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 1440,
+        "path": "initial load #home",
+        "hash": "#home",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          79,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          232,
+          142,
+          544,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "BODY#"
+      },
+      {
+        "vp": 1440,
+        "path": "sidebar link → #memory",
+        "hash": "#memory",
+        "scrollY": 24,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          55,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          232,
+          118,
+          447,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 1440,
+        "path": "sidebar link → #agents",
+        "hash": "#agents",
+        "scrollY": 52,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          27,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": "HEADER.appbar",
+        "h1": [
+          232,
+          90,
+          501,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 1440,
+        "path": "sidebar link → #connection",
+        "hash": "#connection",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          79,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          232,
+          201,
+          401,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 1440,
+        "path": "header theme button, then route change → #specifications",
+        "hash": "#specifications",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          79,
+          67,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          232,
+          207,
+          368,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      }
+    ],
+    "errors": [],
+    "covered": [
+      "375:drawer link → #memory: breadcrumb=svg. h1=null scrollY=60",
+      "375:drawer link → #agents: breadcrumb=svg. h1=null scrollY=60",
+      "320:drawer link → #memory: breadcrumb=svg. h1=null scrollY=60",
+      "320:drawer link → #agents: breadcrumb=svg. h1=null scrollY=60",
+      "1440:sidebar link → #agents: breadcrumb=HEADER.appbar h1=null scrollY=52"
+    ]
+  },
+  "firefox": {
+    "browserVersion": "142.0.1",
+    "paths": [
+      {
+        "vp": 375,
+        "path": "initial load #home",
+        "hash": "#home",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          146,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "BODY#"
+      },
+      {
+        "vp": 375,
+        "path": "drawer link → #memory",
+        "hash": "#memory",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          146,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 375,
+        "path": "drawer link → #agents",
+        "hash": "#agents",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          146,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 375,
+        "path": "drawer link → #connection",
+        "hash": "#connection",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          211,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 375,
+        "path": "header theme button, then route change → #specifications",
+        "hash": "#specifications",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          217,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 320,
+        "path": "initial load #home",
+        "hash": "#home",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          146,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "BODY#"
+      },
+      {
+        "vp": 320,
+        "path": "drawer link → #memory",
+        "hash": "#memory",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          146,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 320,
+        "path": "drawer link → #agents",
+        "hash": "#agents",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          146,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 320,
+        "path": "drawer link → #connection",
+        "hash": "#connection",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          211,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 320,
+        "path": "header theme button, then route change → #specifications",
+        "hash": "#specifications",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          217,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 1440,
+        "path": "initial load #home",
+        "hash": "#home",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          79,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          232,
+          142,
+          558,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "BODY#"
+      },
+      {
+        "vp": 1440,
+        "path": "sidebar link → #memory",
+        "hash": "#memory",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          79,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          232,
+          142,
+          432,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 1440,
+        "path": "sidebar link → #agents",
+        "hash": "#agents",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          79,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          232,
+          142,
+          485,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 1440,
+        "path": "sidebar link → #connection",
+        "hash": "#connection",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          79,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          232,
+          201,
+          391,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 1440,
+        "path": "header theme button, then route change → #specifications",
+        "hash": "#specifications",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          79,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          232,
+          207,
+          357,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      }
+    ],
+    "errors": [],
+    "covered": []
+  },
+  "webkit": {
+    "browserVersion": "26.0",
+    "paths": [
+      {
+        "vp": 375,
+        "path": "initial load #home",
+        "hash": "#home",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          146,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "BODY#"
+      },
+      {
+        "vp": 375,
+        "path": "drawer link → #memory",
+        "hash": "#memory",
+        "scrollY": 60,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          23,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": "svg.",
+        "h1": [
+          12,
+          86,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 375,
+        "path": "drawer link → #agents",
+        "hash": "#agents",
+        "scrollY": 60,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          23,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": "svg.",
+        "h1": [
+          12,
+          86,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 375,
+        "path": "drawer link → #connection",
+        "hash": "#connection",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          211,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 375,
+        "path": "header theme button, then route change → #specifications",
+        "hash": "#specifications",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          375,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          217,
+          351,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 320,
+        "path": "initial load #home",
+        "hash": "#home",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          146,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "BODY#"
+      },
+      {
+        "vp": 320,
+        "path": "drawer link → #memory",
+        "hash": "#memory",
+        "scrollY": 60,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          23,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": "svg.",
+        "h1": [
+          12,
+          86,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 320,
+        "path": "drawer link → #agents",
+        "hash": "#agents",
+        "scrollY": 60,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          23,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": "svg.",
+        "h1": [
+          12,
+          86,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 320,
+        "path": "drawer link → #connection",
+        "hash": "#connection",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          211,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 320,
+        "path": "header theme button, then route change → #specifications",
+        "hash": "#specifications",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          320,
+          60
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          12,
+          83,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          12,
+          217,
+          296,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 1440,
+        "path": "initial load #home",
+        "hash": "#home",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          79,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          232,
+          142,
+          558,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "BODY#"
+      },
+      {
+        "vp": 1440,
+        "path": "sidebar link → #memory",
+        "hash": "#memory",
+        "scrollY": 23,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          56,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          232,
+          119,
+          431,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 1440,
+        "path": "sidebar link → #agents",
+        "hash": "#agents",
+        "scrollY": 52,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          27,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": "HEADER.appbar",
+        "h1": [
+          232,
+          90,
+          485,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 1440,
+        "path": "sidebar link → #connection",
+        "hash": "#connection",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          79,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          232,
+          201,
+          391,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      },
+      {
+        "vp": 1440,
+        "path": "header theme button, then route change → #specifications",
+        "hash": "#specifications",
+        "scrollY": 0,
+        "header": [
+          0,
+          0,
+          1440,
+          52
+        ],
+        "headerPos": "fixed",
+        "breadcrumb": [
+          232,
+          79,
+          64,
+          18
+        ],
+        "breadcrumbCoveredBy": null,
+        "h1": [
+          232,
+          207,
+          357,
+          30
+        ],
+        "h1CoveredBy": null,
+        "active": "MAIN#main"
+      }
+    ],
+    "errors": [],
+    "covered": [
+      "375:drawer link → #memory: breadcrumb=svg. h1=null scrollY=60",
+      "375:drawer link → #agents: breadcrumb=svg. h1=null scrollY=60",
+      "320:drawer link → #memory: breadcrumb=svg. h1=null scrollY=60",
+      "320:drawer link → #agents: breadcrumb=svg. h1=null scrollY=60",
+      "1440:sidebar link → #agents: breadcrumb=HEADER.appbar h1=null scrollY=52"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "/assets/__atlas_probe_missing__.js": {
+    "status": 404,
+    "content_type": null,
+    "bytes": 0,
+    "looks_like_shell": false,
+    "location": null,
+    "cache_control": null
+  },
+  "/assets/__atlas_probe_missing__.css": {
+    "status": 404,
+    "content_type": null,
+    "bytes": 0,
+    "looks_like_shell": false,
+    "location": null,
+    "cache_control": null
+  },
+  "/__atlas_probe_missing__": {
+    "status": 404,
+    "content_type": null,
+    "bytes": 0,
+    "looks_like_shell": false,
+    "location": null,
+    "cache_control": null
+  },
+  "/home": {
+    "status": 404,
+    "content_type": null,
+    "bytes": 0,
+    "looks_like_shell": false,
+    "location": null,
+    "cache_control": null
+  },
+  "/connection": {
+    "status": 404,
+    "content_type": null,
+    "bytes": 0,
+    "looks_like_shell": false,
+    "location": null,
+    "cache_control": null
+  },
+  "/index.html": {
+    "status": 307,
+    "content_type": null,
+    "bytes": 0,
+    "looks_like_shell": false,
+    "location": "/",
+    "cache_control": null
+  },
+  "/assets/": {
+    "status": 404,
+    "content_type": null,
+    "bytes": 0,
+    "looks_like_shell": false,
+    "location": null,
+    "cache_control": null
+  }
+}

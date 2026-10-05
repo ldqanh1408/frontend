@@ -1,0 +1,266 @@
+{
+  "job": {
+    "script": "deeplink",
+    "engines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "timeout": 150000
+  },
+  "engine": "webkit",
+  "browserVersion": "26.0",
+  "ms": 10791,
+  "error": null,
+  "result": {
+    "direct": {
+      "home": [
+        1,
+        "Build with a clear trail.",
+        "#home"
+      ],
+      "specifications": [
+        1,
+        "Specifications",
+        "#specifications"
+      ],
+      "code": [
+        1,
+        "Code intelligence",
+        "#code"
+      ],
+      "agents": [
+        1,
+        "Agents",
+        "#agents"
+      ],
+      "resources": [
+        1,
+        "Resources",
+        "#resources"
+      ],
+      "memory": [
+        1,
+        "Memory",
+        "#memory"
+      ],
+      "workflow": [
+        1,
+        "Workflow",
+        "#workflow"
+      ],
+      "execution": [
+        1,
+        "Execution",
+        "#execution"
+      ],
+      "governance": [
+        1,
+        "Delivery & acceptance",
+        "#governance"
+      ],
+      "gateway": [
+        1,
+        "AI gateway",
+        "#gateway"
+      ],
+      "collaboration": [
+        1,
+        "Collaboration",
+        "#collaboration"
+      ],
+      "configuration": [
+        1,
+        "Configuration",
+        "#configuration"
+      ],
+      "identity": [
+        1,
+        "Identity & access",
+        "#identity"
+      ],
+      "tenancy": [
+        1,
+        "Organization & projects",
+        "#tenancy"
+      ],
+      "saas": [
+        1,
+        "Usage & billing",
+        "#saas"
+      ],
+      "desktop": [
+        1,
+        "Desktop companion",
+        "#desktop"
+      ],
+      "observer": [
+        1,
+        "Observer",
+        "#observer"
+      ],
+      "connection": [
+        1,
+        "Connection & operations",
+        "#connection"
+      ]
+    },
+    "reload": {
+      "home": [
+        1,
+        "Build with a clear trail.",
+        "#home"
+      ],
+      "specifications": [
+        1,
+        "Specifications",
+        "#specifications"
+      ],
+      "code": [
+        1,
+        "Code intelligence",
+        "#code"
+      ],
+      "agents": [
+        1,
+        "Agents",
+        "#agents"
+      ],
+      "resources": [
+        1,
+        "Resources",
+        "#resources"
+      ],
+      "memory": [
+        1,
+        "Memory",
+        "#memory"
+      ],
+      "workflow": [
+        1,
+        "Workflow",
+        "#workflow"
+      ],
+      "execution": [
+        1,
+        "Execution",
+        "#execution"
+      ],
+      "governance": [
+        1,
+        "Delivery & acceptance",
+        "#governance"
+      ],
+      "gateway": [
+        1,
+        "AI gateway",
+        "#gateway"
+      ],
+      "collaboration": [
+        1,
+        "Collaboration",
+        "#collaboration"
+      ],
+      "configuration": [
+        1,
+        "Configuration",
+        "#configuration"
+      ],
+      "identity": [
+        1,
+        "Identity & access",
+        "#identity"
+      ],
+      "tenancy": [
+        1,
+        "Organization & projects",
+        "#tenancy"
+      ],
+      "saas": [
+        1,
+        "Usage & billing",
+        "#saas"
+      ],
+      "desktop": [
+        1,
+        "Desktop companion",
+        "#desktop"
+      ],
+      "observer": [
+        1,
+        "Observer",
+        "#observer"
+      ],
+      "connection": [
+        1,
+        "Connection & operations",
+        "#connection"
+      ]
+    },
+    "t": [
+      254,
+      783,
+      1333,
+      1610,
+      1895,
+      2279,
+      2527,
+      2795,
+      3075,
+      3323,
+      3593,
+      3864,
+      4161,
+      4429,
+      4709,
+      4977,
+      5265,
+      5821
+    ],
+    "errs": [],
+    "history": [
+      [
+        "back1",
+        "#specifications",
+        "Specifications"
+      ],
+      [
+        "back2",
+        "#home",
+        "Build with a clear trail."
+      ],
+      [
+        "fwd1",
+        "#specifications",
+        "Specifications"
+      ]
+    ],
+    "history_pass": 1,
+    "query": {
+      "before": "Agents",
+      "after": "Agents",
+      "hash": "#agents?authority=definitions&atlasProbe=1",
+      "tabsBefore": [
+        "Definitions"
+      ],
+      "tabsAfter": [
+        "Definitions"
+      ],
+      "serviceTab": [
+        "Service records",
+        "Overview"
+      ]
+    },
+    "unknown": {
+      "hash": "#atlas-unknown-route",
+      "h1": null,
+      "text": "Workspace / Unknown view Workspace view not found This link does not identify a supported view. No fallback service resource was loaded. Return to overview",
+      "hasHomeLink": true
+    },
+    "complete": 1
+  }
+}

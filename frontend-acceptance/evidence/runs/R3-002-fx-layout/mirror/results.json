@@ -1,0 +1,113 @@
+{
+  "suite": "mirror",
+  "cases": [
+    {
+      "run_at": "2026-10-05T08:24:03.181Z",
+      "case_id": "CF-PRE-001",
+      "gate": "FE-01",
+      "requirement_ref": "v2 §6.1 root 200/MIME",
+      "expected": "GET / => 200, content-type text/html",
+      "actual": "status=200 content-type=text/html",
+      "result": "PASS",
+      "input_mode": "http"
+    },
+    {
+      "run_at": "2026-10-05T08:24:08.473Z",
+      "case_id": "CF-PRE-002",
+      "gate": "FE-01",
+      "requirement_ref": "v2 §4.1 step 2 / §6.1",
+      "expected": "every payload in /release-manifest.json is served with 200 and its independently recomputed SHA-256 equals the manifest value; count equals 120",
+      "actual": "manifest_parsed=true entries=120 mismatches=0",
+      "result": "PASS",
+      "input_mode": "http"
+    },
+    {
+      "run_at": "2026-10-05T08:24:08.473Z",
+      "case_id": "CF-PRE-003",
+      "gate": "FE-01",
+      "requirement_ref": "v2 §6.1 MIME theo đuôi",
+      "expected": "content-type matches file extension for every payload (js→javascript, css→text/css, json→application/json, svg→image/svg+xml, woff2→font/woff2, wasm→application/wasm …)",
+      "actual": "checked=120 bad=0 unknown_ext=0",
+      "result": "PASS",
+      "input_mode": "http"
+    },
+    {
+      "run_at": "2026-10-05T08:24:08.588Z",
+      "case_id": "CF-PRE-004",
+      "gate": "FE-01",
+      "requirement_ref": "v2 §6.1 asset không tồn tại",
+      "expected": "missing /assets/*.js and *.css => 404 and body is not the HTML app shell",
+      "actual": "{\"js\":{\"status\":404,\"content_type\":null,\"bytes\":0,\"looks_like_shell\":false,\"location\":null,\"cache_control\":null},\"css\":{\"status\":404,\"content_type\":null,\"bytes\":0,\"looks_like_shell\":false,\"location\":null,\"cache_control\":null}}",
+      "result": "PASS",
+      "input_mode": "http"
+    },
+    {
+      "run_at": "2026-10-05T08:24:08.588Z",
+      "case_id": "CF-PRE-005",
+      "gate": "FE-04",
+      "requirement_ref": "v2 §6.1 headers (CSP, nosniff, referrer, frame, permissions, HSTS, COOP)",
+      "expected": "document response carries CSP, X-Content-Type-Options: nosniff, Referrer-Policy, frame protection (XFO or CSP frame-ancestors), Permissions-Policy, HSTS, COOP",
+      "actual": "missing=[\"content-security-policy\",\"x-content-type-options\",\"referrer-policy\",\"x-frame-options\",\"permissions-policy\",\"strict-transport-security\",\"cross-origin-opener-policy\"] present={}",
+      "result": "FAIL",
+      "input_mode": "http"
+    },
+    {
+      "run_at": "2026-10-05T08:24:08.588Z",
+      "case_id": "CF-PRE-006",
+      "gate": "FE-05",
+      "requirement_ref": "v2 §6.1 cache-control",
+      "expected": "fingerprinted /assets/*-<hash>.* => Cache-Control max-age>=31536000 + immutable; index.html => revalidated (no-cache or max-age=0 with validator)",
+      "actual": "hashed=114 non_compliant=114 sample_cc=\"public, max-age=0, must-revalidate\" html_cc=\"public, max-age=0, must-revalidate\" html_etag=null",
+      "result": "FAIL",
+      "input_mode": "http"
+    },
+    {
+      "run_at": "2026-10-05T08:24:08.588Z",
+      "case_id": "CF-PRE-007",
+      "gate": "FE-01",
+      "requirement_ref": "v2 §6.1 deep link (path-style)",
+      "expected": "NOT_APPLICABLE if router is hash-based (path-style URLs are not part of the routing contract); recorded for evidence",
+      "actual": "{\"/home\":{\"status\":404,\"content_type\":null,\"bytes\":0,\"looks_like_shell\":false,\"location\":null,\"cache_control\":null},\"/connection\":{\"status\":404,\"content_type\":null,\"bytes\":0,\"looks_like_shell\":false,\"location\":null,\"cache_control\":null}}",
+      "result": "NOT_APPLICABLE",
+      "reason": "Router is hash-based (verified in browser suite discover: routes are #<module>); path-style 404 is outside the contract per v2 §4 table",
+      "input_mode": "http"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/runs/R3-002-fx-layout/mirror/payload-hashes.json",
+      "evidence_type": "hash-table",
+      "case_ids": [
+        "CF-PRE-002"
+      ],
+      "timestamp": "2026-10-05T08:24:08.473Z"
+    },
+    {
+      "path": "evidence/runs/R3-002-fx-layout/mirror/headers.json",
+      "evidence_type": "http-headers",
+      "case_ids": [
+        "CF-PRE-001",
+        "CF-PRE-003",
+        "CF-PRE-004",
+        "CF-PRE-005",
+        "CF-PRE-006"
+      ],
+      "timestamp": "2026-10-05T08:24:08.589Z"
+    },
+    {
+      "path": "evidence/runs/R3-002-fx-layout/mirror/probes.json",
+      "evidence_type": "http-probes",
+      "case_ids": [
+        "CF-PRE-004",
+        "CF-PRE-007"
+      ],
+      "timestamp": "2026-10-05T08:24:08.589Z"
+    }
+  ],
+  "asset_refs_in_index": [
+    "/assets/index-CNIcNnJO.js",
+    "/assets/ui-BHoQ7tHD.js",
+    "/assets/index-CGLbd-qV.css"
+  ],
+  "manifest_entry_count": 120
+}

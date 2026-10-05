@@ -1,0 +1,46 @@
+{
+  "request_id": "R3-002-fx-layout",
+  "github_run_id": "37282601201",
+  "target": "https://sparkling-snow-090d.ekko-okke666.workers.dev",
+  "started_at": "2026-10-05T08:24:03.047Z",
+  "suites": {
+    "mirror": {
+      "status": "completed",
+      "ms": 5542,
+      "payload": 120,
+      "mismatches": 0
+    },
+    "injected": {
+      "status": "completed",
+      "ms": 156321,
+      "jobs": 9,
+      "failed": 0
+    },
+    "fxservice": {
+      "status": "completed",
+      "ms": 97896,
+      "effective": "posts=1 stages=Effective ",
+      "received": "posts=1 stages=Received ",
+      "accepted": "posts=1 stages=Accepted ",
+      "rejected": "posts=1 stages=Rejected ",
+      "http401": "posts=1 stages= ",
+      "http403": "posts=1 stages=Unknown ",
+      "http409": "posts=1 stages=Unknown ",
+      "http422": "posts=1 stages=Unknown ",
+      "http500": "posts=1 stages=Unknown ",
+      "netfailAfterSend": "posts=1 stages=Unknown ",
+      "timeoutAfterSend": "posts=1 stages=Unknown ",
+      "mismatch": "posts=1 stages=Unknown ",
+      "sessionExpiry": "posts=- stages= ",
+      "observerAudience": "posts=- stages= "
+    },
+    "layout": {
+      "status": "completed",
+      "ms": 44503,
+      "chromium": "covered=5/15",
+      "firefox": "covered=0/15",
+      "webkit": "covered=5/15"
+    }
+  },
+  "finished_at": "2026-10-05T08:29:07.309Z"
+}
