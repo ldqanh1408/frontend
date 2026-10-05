@@ -1,0 +1,5 @@
+{
+  "request_id": "R2-001-bootstrap",
+  "purpose": "Phase 0b release verification (HTTP), byte mirror for local test development, discovery crawl",
+  "suites": ["mirror", "discover"]
+}

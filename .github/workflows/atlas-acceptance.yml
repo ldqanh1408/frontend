@@ -1,0 +1,59 @@
+name: atlas-frontend-acceptance
+
+# AUDIT_ONLY harness: runs read-only browser/HTTP checks against the public
+# Cloudflare deployment and commits the raw results back to this branch.
+# It never deploys, never calls the Cloudflare API and never writes to the target.
+on:
+  push:
+    branches: [claude/sharp-thompson-5tff91]
+    paths: ['frontend-acceptance/run-request.json']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atlas-frontend-acceptance
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      TARGET: https://sparkling-snow-090d.ekko-okke666.workers.dev
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install harness deps
+        working-directory: frontend-acceptance/harness
+        run: npm install --no-audit --no-fund
+      - name: Install browsers
+        working-directory: frontend-acceptance/harness
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Environment fingerprint
+        run: |
+          uname -a; nproc; free -m; node --version
+          cat /etc/os-release | head -3
+      - name: Run requested suites
+        id: run
+        continue-on-error: true
+        run: node frontend-acceptance/harness/run.mjs
+      - name: Commit results back to branch
+        if: always()
+        run: |
+          git config user.name "atlas-acceptance-bot"
+          git config user.email "atlas-acceptance-bot@users.noreply.github.com"
+          git add -A frontend-acceptance/runs frontend-acceptance/work/release-mirror || true
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          REQ=$(node -e "console.log(require('./frontend-acceptance/run-request.json').request_id)")
+          git commit -m "acceptance results ${REQ} (run ${GITHUB_RUN_ID})"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --no-edit origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((i*5))
+          done
+          exit 1

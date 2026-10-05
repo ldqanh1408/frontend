@@ -1,0 +1,10 @@
+{
+  "name": "atlas-frontend-acceptance-harness",
+  "private": true,
+  "type": "module",
+  "description": "AUDIT_ONLY test harness for the Atlas Cloudflare deployment. Not part of the product.",
+  "dependencies": {
+    "playwright": "1.56.1",
+    "axe-core": "4.10.2"
+  }
+}
