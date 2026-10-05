@@ -1,0 +1,24 @@
+{
+  "request_id": "R4-001-figma",
+  "github_run_id": "37289868204",
+  "target": "https://sparkling-snow-090d.ekko-okke666.workers.dev",
+  "started_at": "2026-10-05T09:25:44.533Z",
+  "suites": {
+    "figma_parity": {
+      "status": "completed",
+      "ms": 66582,
+      "routes": 36,
+      "pass": 1,
+      "fail": 37
+    },
+    "definitions": {
+      "status": "completed",
+      "ms": 73675,
+      "DEF-NAV": "40/49",
+      "DEF-CREATE": "46/49",
+      "DEF-COUNT": "0/49",
+      "DEF-FIELDS": "46/49"
+    }
+  },
+  "finished_at": "2026-10-05T09:28:04.790Z"
+}

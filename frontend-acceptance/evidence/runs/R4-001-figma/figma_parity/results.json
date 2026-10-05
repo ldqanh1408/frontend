@@ -1,0 +1,1351 @@
+{
+  "suite": "figma_parity",
+  "cases": [
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-NAV",
+      "gate": "FE-01",
+      "title": "Sidebar IA vs Figma Current UI navigation (01/02 · Current UI, every module frame)",
+      "steps": "Load #home 1440x1000; read aside nav headings and links; compare with Figma NAV groups, labels and order",
+      "expected": "3 groups BUILD / KNOWLEDGE & SERVICES / ADMINISTRATION and 18 link labels identical to Figma, same order",
+      "actual": "7/21 exact; order different; deployed groups: WORKSPACE / OPERATIONS; mismatches: BUILD→missing; Workflow & planning→Workflow; Runs & activity→Execution; Reviews & delivery→Delivery & acceptance; KNOWLEDGE & SERVICES→missing; Memory & context→Memory; AI access & budget→AI gateway; Configuration & policy→Configuration; ADMINISTRATION→missing; People & access→Identity & access; Usage, billing & data→Usage & billing; Desktop & runtime→Desktop companion; Operations observer→Observer; Connection & receipts→Connection & operations",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-HOME-DARK",
+      "gate": "FE-01",
+      "title": "#home vs Figma frame 236:729 (Atlas/Dark/home)",
+      "steps": "Load #home 1440x1000 theme=dark; capture default view + local draft editor when offered; compare title, purpose and 16 Figma controls",
+      "expected": "h1 \"Turn specifications into traceable work\"; purpose \"Author requirements, inspect source and prepare agent work with explicit checkpoints.\"; all 16 Figma controls visible",
+      "actual": "h1 \"Build with a clear trail.\" (MISSING); purpose MISSING: \"Start with source and specifications. Keep decisions, revisions and observed outcomes connected.\"; controls exact 2, equivalent 0, similar 0, missing 14: Connect workspace | Document drafts | Workspace session | Build your first complete journey | Define the outcome | Inspect the source | Constrain the agent | Plan and admit work | Workspace readiness | Service observation required | Repository | Provider & budget | Runtime capabilities | Local drafts are usable before connecting. Production execution is not verified.",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/home--default.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-HOME-LIGHT",
+      "gate": "FE-01",
+      "title": "#home vs Figma frame 254:729 (Atlas/Light/home)",
+      "steps": "Load #home 1440x1000 theme=light; capture default view + local draft editor when offered; compare title, purpose and 16 Figma controls",
+      "expected": "h1 \"Turn specifications into traceable work\"; purpose \"Author requirements, inspect source and prepare agent work with explicit checkpoints.\"; all 16 Figma controls visible",
+      "actual": "h1 \"Build with a clear trail.\" (MISSING); purpose MISSING: \"Start with source and specifications. Keep decisions, revisions and observed outcomes connected.\"; controls exact 2, equivalent 0, similar 0, missing 14: Connect workspace | Document drafts | Workspace session | Build your first complete journey | Define the outcome | Inspect the source | Constrain the agent | Plan and admit work | Workspace readiness | Service observation required | Repository | Provider & budget | Runtime capabilities | Local drafts are usable before connecting. Production execution is not verified.",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/home--default.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-SPECIFICATIONS-DARK",
+      "gate": "FE-01",
+      "title": "#specifications vs Figma frame 236:985 (Atlas/Dark/specifications)",
+      "steps": "Load #specifications 1440x1000 theme=dark; capture default view + local draft editor when offered; compare title, purpose and 25 Figma controls",
+      "expected": "h1 \"Specifications\"; purpose \"Review, freeze, submit and reconcile shared document revisions.\"; all 25 Figma controls visible",
+      "actual": "h1 \"Specifications\" (EXACT); purpose MISSING: \"Organize many documents and edit exact saved revisions.\"; controls exact 4, equivalent 4, similar 1, missing 16: Search catalog | Create revision cut | Folder catalog ≠ document outline | Preview | Request review | Submit to AI | Export source | Save draft | Requirements | Document lifecycle | In review | Merged | Locked / frozen manifest | Submitted to AI | Implemented after acceptance | Connect review and freeze services before submission. | Resolve connection",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/specifications--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/specifications--service-records.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-SPECIFICATIONS-LIGHT",
+      "gate": "FE-01",
+      "title": "#specifications vs Figma frame 254:833 (Atlas/Light/specifications)",
+      "steps": "Load #specifications 1440x1000 theme=light; capture default view + local draft editor when offered; compare title, purpose and 25 Figma controls",
+      "expected": "h1 \"Specifications\"; purpose \"Review, freeze, submit and reconcile shared document revisions.\"; all 25 Figma controls visible",
+      "actual": "h1 \"Specifications\" (EXACT); purpose MISSING: \"Organize many documents and edit exact saved revisions.\"; controls exact 4, equivalent 4, similar 1, missing 16: Search catalog | Create revision cut | Folder catalog ≠ document outline | Preview | Request review | Submit to AI | Export source | Save draft | Requirements | Document lifecycle | In review | Merged | Locked / frozen manifest | Submitted to AI | Implemented after acceptance | Connect review and freeze services before submission. | Resolve connection",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/specifications--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/specifications--service-records.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-CODE-DARK",
+      "gate": "FE-01",
+      "title": "#code vs Figma frame 236:1306 (Atlas/Dark/code)",
+      "steps": "Load #code 1440x1000 theme=dark; capture default view + local draft editor when offered; compare title, purpose and 15 Figma controls",
+      "expected": "h1 \"Code intelligence\"; purpose \"Inspect exact refs, full commit IDs, index quality and repository integration receipts.\"; all 15 Figma controls visible",
+      "actual": "h1 \"Code intelligence\" (EXACT); purpose MISSING: \"Source, compiler symbols and citations with exact imported provenance.\"; controls exact 1, equivalent 5, similar 1, missing 8: Import folder | Search source | Literal content search | Add to context | Read-only · local snapshot · not a Git commit | Symbols & quality | Coverage boundary | Analyze JS/TS | Export source manifest",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/code--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/code--service-records.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-CODE-LIGHT",
+      "gate": "FE-01",
+      "title": "#code vs Figma frame 254:935 (Atlas/Light/code)",
+      "steps": "Load #code 1440x1000 theme=light; capture default view + local draft editor when offered; compare title, purpose and 15 Figma controls",
+      "expected": "h1 \"Code intelligence\"; purpose \"Inspect exact refs, full commit IDs, index quality and repository integration receipts.\"; all 15 Figma controls visible",
+      "actual": "h1 \"Code intelligence\" (EXACT); purpose MISSING: \"Source, compiler symbols and citations with exact imported provenance.\"; controls exact 1, equivalent 5, similar 1, missing 8: Import folder | Search source | Literal content search | Add to context | Read-only · local snapshot · not a Git commit | Symbols & quality | Coverage boundary | Analyze JS/TS | Export source manifest",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/code--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/code--service-records.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-COLLABORATION-DARK",
+      "gate": "FE-01",
+      "title": "#collaboration vs Figma frame 236:3496 (Atlas/Dark/collaboration)",
+      "steps": "Load #collaboration 1440x1000 theme=dark; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 27 Figma controls",
+      "expected": "h1 \"Collaboration\"; purpose \"Track shared room epochs, durable acknowledgements, comments and unresolved edits.\"; all 27 Figma controls visible",
+      "actual": "h1 \"Collaboration\" (EXACT); purpose MISSING: \"Review anchored threads, presence provenance and durable document cuts.\"; controls exact 2, equivalent 7, similar 1, missing 17: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Disconnected / Joining / Syncing / Durable ACK / Offline / Epoch changed / Conflict | Document IDE | Review inbox | Join room | Reconnect | Resolve conflict | Request freeze barrier | Room | Acknowledgements",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/collaboration--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/collaboration--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/dark/collaboration--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-COLLABORATION-LIGHT",
+      "gate": "FE-01",
+      "title": "#collaboration vs Figma frame 254:1638 (Atlas/Light/collaboration)",
+      "steps": "Load #collaboration 1440x1000 theme=light; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 27 Figma controls",
+      "expected": "h1 \"Collaboration\"; purpose \"Track shared room epochs, durable acknowledgements, comments and unresolved edits.\"; all 27 Figma controls visible",
+      "actual": "h1 \"Collaboration\" (EXACT); purpose MISSING: \"Review anchored threads, presence provenance and durable document cuts.\"; controls exact 2, equivalent 7, similar 1, missing 17: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Disconnected / Joining / Syncing / Durable ACK / Offline / Epoch changed / Conflict | Document IDE | Review inbox | Join room | Reconnect | Resolve conflict | Request freeze barrier | Room | Acknowledgements",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/collaboration--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/collaboration--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/light/collaboration--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-AGENTS-DARK",
+      "gate": "FE-01",
+      "title": "#agents vs Figma frame 236:1608 (Atlas/Dark/agents)",
+      "steps": "Load #agents 1440x1000 theme=dark; capture default view + local draft editor when offered; compare title, purpose and 19 Figma controls",
+      "expected": "h1 \"Agents\"; purpose \"Evaluate definitions, pin resource versions and make explicit assignments.\"; all 19 Figma controls visible",
+      "actual": "h1 \"Agents\" (EXACT); purpose MISSING: \"Define agents, pin their dependencies and inspect readiness before admission.\"; controls exact 7, equivalent 7, similar 1, missing 4: Validate draft | Publishing and runnable readiness require service receipts. | Export draft | Provider / model | Runtime / budget",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/agents--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/agents--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/dark/agents--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-AGENTS-LIGHT",
+      "gate": "FE-01",
+      "title": "#agents vs Figma frame 254:1027 (Atlas/Light/agents)",
+      "steps": "Load #agents 1440x1000 theme=light; capture default view + local draft editor when offered; compare title, purpose and 19 Figma controls",
+      "expected": "h1 \"Agents\"; purpose \"Evaluate definitions, pin resource versions and make explicit assignments.\"; all 19 Figma controls visible",
+      "actual": "h1 \"Agents\" (EXACT); purpose MISSING: \"Define agents, pin their dependencies and inspect readiness before admission.\"; controls exact 7, equivalent 7, similar 1, missing 4: Validate draft | Publishing and runnable readiness require service receipts. | Export draft | Provider / model | Runtime / budget",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/agents--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/agents--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/light/agents--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-RESOURCES-DARK",
+      "gate": "FE-01",
+      "title": "#resources vs Figma frame 236:1866 (Atlas/Dark/resources)",
+      "steps": "Load #resources 1440x1000 theme=dark; capture default view + local draft editor when offered; compare title, purpose and 17 Figma controls",
+      "expected": "h1 \"Resource registry\"; purpose \"Manage MCP, skills, rules, plugins, hooks and sidecars with explicit version pins.\"; all 17 Figma controls visible",
+      "actual": "h1 \"Resources\" (MISSING); purpose MISSING: \"Model, MCP, tool and sandbox configuration with separate health evidence.\"; controls exact 1, equivalent 5, similar 4, missing 7: Validate draft | Evaluate | Assign | Save draft | Publishing and runnable readiness require service receipts. | Export draft | New resource | Versions | Consumers | Endpoint / artifact reference | Discovery does not allow execution. Compatibility and health must be observed.",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/resources--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/resources--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/dark/resources--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-RESOURCES-LIGHT",
+      "gate": "FE-01",
+      "title": "#resources vs Figma frame 254:1109 (Atlas/Light/resources)",
+      "steps": "Load #resources 1440x1000 theme=light; capture default view + local draft editor when offered; compare title, purpose and 17 Figma controls",
+      "expected": "h1 \"Resource registry\"; purpose \"Manage MCP, skills, rules, plugins, hooks and sidecars with explicit version pins.\"; all 17 Figma controls visible",
+      "actual": "h1 \"Resources\" (MISSING); purpose MISSING: \"Model, MCP, tool and sandbox configuration with separate health evidence.\"; controls exact 1, equivalent 5, similar 4, missing 7: Validate draft | Evaluate | Assign | Save draft | Publishing and runnable readiness require service receipts. | Export draft | New resource | Versions | Consumers | Endpoint / artifact reference | Discovery does not allow execution. Compatibility and health must be observed.",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/resources--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/resources--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/light/resources--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-WORKFLOW-DARK",
+      "gate": "FE-01",
+      "title": "#workflow vs Figma frame 236:2121 (Atlas/Dark/workflow)",
+      "steps": "Load #workflow 1440x1000 theme=dark; capture default view + local draft editor when offered; compare title, purpose and 15 Figma controls",
+      "expected": "h1 \"Workflow definitions & plans\"; purpose \"Validate versioned task graphs, review generated plans and resolve admission blockers.\"; all 15 Figma controls visible",
+      "actual": "h1 \"Workflow\" (MISSING); purpose MISSING: \"Build a task graph with explicit dependencies, agent pins and checkpoints.\"; controls exact 0, equivalent 3, similar 1, missing 11: Agent definitions | Add task | Validate draft | Generate with AI | Admit run | Save draft | Task list | Pins & inputs | Human checkpoint | Local graph validation ≠ admitted execution | Inspect service admission | Export workflow draft",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/workflow--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/workflow--service-records.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-WORKFLOW-LIGHT",
+      "gate": "FE-01",
+      "title": "#workflow vs Figma frame 254:1190 (Atlas/Light/workflow)",
+      "steps": "Load #workflow 1440x1000 theme=light; capture default view + local draft editor when offered; compare title, purpose and 15 Figma controls",
+      "expected": "h1 \"Workflow definitions & plans\"; purpose \"Validate versioned task graphs, review generated plans and resolve admission blockers.\"; all 15 Figma controls visible",
+      "actual": "h1 \"Workflow\" (MISSING); purpose MISSING: \"Build a task graph with explicit dependencies, agent pins and checkpoints.\"; controls exact 0, equivalent 3, similar 1, missing 11: Agent definitions | Add task | Validate draft | Generate with AI | Admit run | Save draft | Task list | Pins & inputs | Human checkpoint | Local graph validation ≠ admitted execution | Inspect service admission | Export workflow draft",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/workflow--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/workflow--service-records.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-MEMORY-DARK",
+      "gate": "FE-01",
+      "title": "#memory vs Figma frame 236:2967 (Atlas/Dark/memory)",
+      "steps": "Load #memory 1440x1000 theme=dark; capture default view + local draft editor when offered; compare title, purpose and 20 Figma controls",
+      "expected": "h1 \"Memory & context\"; purpose \"Curate typed knowledge, inspect lineage and assemble bounded, revision-aware context.\"; all 20 Figma controls visible",
+      "actual": "h1 \"Memory\" (MISSING); purpose MISSING: \"Version context sources and inspect exact content selected for a task.\"; controls exact 2, equivalent 7, similar 2, missing 9: Validate draft | Evaluate | Publish | Assign | Save draft | Publishing and runnable readiness require service receipts. | Export draft | Versions | Source revision / snapshot | Knowledge type | Source digest",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/memory--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/memory--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/dark/memory--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-MEMORY-LIGHT",
+      "gate": "FE-01",
+      "title": "#memory vs Figma frame 254:1463 (Atlas/Light/memory)",
+      "steps": "Load #memory 1440x1000 theme=light; capture default view + local draft editor when offered; compare title, purpose and 20 Figma controls",
+      "expected": "h1 \"Memory & context\"; purpose \"Curate typed knowledge, inspect lineage and assemble bounded, revision-aware context.\"; all 20 Figma controls visible",
+      "actual": "h1 \"Memory\" (MISSING); purpose MISSING: \"Version context sources and inspect exact content selected for a task.\"; controls exact 2, equivalent 7, similar 2, missing 9: Validate draft | Evaluate | Publish | Assign | Save draft | Publishing and runnable readiness require service receipts. | Export draft | Versions | Source revision / snapshot | Knowledge type | Source digest",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/memory--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/memory--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/light/memory--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-EXECUTION-DARK",
+      "gate": "FE-01",
+      "title": "#execution vs Figma frame 236:2375 (Atlas/Dark/execution)",
+      "steps": "Load #execution 1440x1000 theme=dark; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 33 Figma controls",
+      "expected": "h1 \"Runs & agent activity\"; purpose \"Observe runs, tasks, attempts and tools; reconcile controls and verify cleanup.\"; all 33 Figma controls visible",
+      "actual": "h1 \"Execution\" (MISSING); purpose MISSING: \"Inspect runs, task attempts, public events and protected command receipts.\"; controls exact 5, equivalent 7, similar 4, missing 17: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Agent definition | Delivery acceptance | Admit run | Approve | Reject | Retry task | Restore snapshot | Inspect cleanup | Tasks | Agent activity | Tools | Logs & PTY",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/execution--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/execution--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/dark/execution--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-EXECUTION-LIGHT",
+      "gate": "FE-01",
+      "title": "#execution vs Figma frame 254:1269 (Atlas/Light/execution)",
+      "steps": "Load #execution 1440x1000 theme=light; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 33 Figma controls",
+      "expected": "h1 \"Runs & agent activity\"; purpose \"Observe runs, tasks, attempts and tools; reconcile controls and verify cleanup.\"; all 33 Figma controls visible",
+      "actual": "h1 \"Execution\" (MISSING); purpose MISSING: \"Inspect runs, task attempts, public events and protected command receipts.\"; controls exact 5, equivalent 7, similar 4, missing 17: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Agent definition | Delivery acceptance | Admit run | Approve | Reject | Retry task | Restore snapshot | Inspect cleanup | Tasks | Agent activity | Tools | Logs & PTY",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/execution--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/execution--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/light/execution--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-GOVERNANCE-DARK",
+      "gate": "FE-01",
+      "title": "#governance vs Figma frame 236:2674 (Atlas/Dark/governance)",
+      "steps": "Load #governance 1440x1000 theme=dark; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 33 Figma controls",
+      "expected": "h1 \"Reviews & delivery\"; purpose \"Check independent approvals, actual PR and CI state, merge fences and acceptance evidence.\"; all 33 Figma controls visible",
+      "actual": "h1 \"Delivery & acceptance\" (MISSING); purpose MISSING: \"Review artifacts, merge identity, mandatory acceptance and cleanup evidence.\"; controls exact 5, equivalent 7, similar 2, missing 19: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Run evidence | Requirement source | Run preflight | Request review | Reconcile PR | Verify acceptance | Close delivery | Corrective action | Export evidence | Preflight | Reviewer eligibility | PR & CI",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/governance--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/governance--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/dark/governance--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-GOVERNANCE-LIGHT",
+      "gate": "FE-01",
+      "title": "#governance vs Figma frame 254:1366 (Atlas/Light/governance)",
+      "steps": "Load #governance 1440x1000 theme=light; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 33 Figma controls",
+      "expected": "h1 \"Reviews & delivery\"; purpose \"Check independent approvals, actual PR and CI state, merge fences and acceptance evidence.\"; all 33 Figma controls visible",
+      "actual": "h1 \"Delivery & acceptance\" (MISSING); purpose MISSING: \"Review artifacts, merge identity, mandatory acceptance and cleanup evidence.\"; controls exact 5, equivalent 7, similar 2, missing 19: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Run evidence | Requirement source | Run preflight | Request review | Reconcile PR | Verify acceptance | Close delivery | Corrective action | Export evidence | Preflight | Reviewer eligibility | PR & CI",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/governance--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/governance--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/light/governance--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-GATEWAY-DARK",
+      "gate": "FE-01",
+      "title": "#gateway vs Figma frame 236:3226 (Atlas/Dark/gateway)",
+      "steps": "Load #gateway 1440x1000 theme=dark; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 29 Figma controls",
+      "expected": "h1 \"AI access & budget\"; purpose \"Manage provider credentials, routing, capability checks and spend reservations.\"; all 29 Figma controls visible",
+      "actual": "h1 \"AI gateway\" (MISSING); purpose MISSING: \"Inspect routing, provider credentials, policy and service-attributed usage.\"; controls exact 5, equivalent 7, similar 0, missing 17: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Agent readiness | Run admission | Add credential | Test provider | Set routing | Reserve budget | Rotate credential | Credential references",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/gateway--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/gateway--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/dark/gateway--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-GATEWAY-LIGHT",
+      "gate": "FE-01",
+      "title": "#gateway vs Figma frame 254:1546 (Atlas/Light/gateway)",
+      "steps": "Load #gateway 1440x1000 theme=light; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 29 Figma controls",
+      "expected": "h1 \"AI access & budget\"; purpose \"Manage provider credentials, routing, capability checks and spend reservations.\"; all 29 Figma controls visible",
+      "actual": "h1 \"AI gateway\" (MISSING); purpose MISSING: \"Inspect routing, provider credentials, policy and service-attributed usage.\"; controls exact 5, equivalent 7, similar 0, missing 17: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Agent readiness | Run admission | Add credential | Test provider | Set routing | Reserve budget | Rotate credential | Credential references",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/gateway--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/gateway--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/light/gateway--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-CONFIGURATION-DARK",
+      "gate": "FE-01",
+      "title": "#configuration vs Figma frame 236:3752 (Atlas/Dark/configuration)",
+      "steps": "Load #configuration 1440x1000 theme=dark; capture default view + local draft editor when offered; compare title, purpose and 19 Figma controls",
+      "expected": "h1 \"Configuration & policy\"; purpose \"Inspect inheritance, effective overrides, revision conflicts and runtime capabilities.\"; all 19 Figma controls visible",
+      "actual": "h1 \"Configuration\" (MISSING); purpose MISSING: \"Version policy and configuration; distinguish saved, deployed and effective.\"; controls exact 1, equivalent 4, similar 3, missing 11: Validate draft | Evaluate | Publish | Assign | Save draft | Publishing and runnable readiness require service receipts. | Export draft | New policy draft | Versions | Consumers | Proposed scope | Policy JSON | Rollback proposal | A local draft does not change effective organization policy.",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/configuration--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/configuration--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/dark/configuration--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-CONFIGURATION-LIGHT",
+      "gate": "FE-01",
+      "title": "#configuration vs Figma frame 254:1726 (Atlas/Light/configuration)",
+      "steps": "Load #configuration 1440x1000 theme=light; capture default view + local draft editor when offered; compare title, purpose and 19 Figma controls",
+      "expected": "h1 \"Configuration & policy\"; purpose \"Inspect inheritance, effective overrides, revision conflicts and runtime capabilities.\"; all 19 Figma controls visible",
+      "actual": "h1 \"Configuration\" (MISSING); purpose MISSING: \"Version policy and configuration; distinguish saved, deployed and effective.\"; controls exact 1, equivalent 4, similar 3, missing 11: Validate draft | Evaluate | Publish | Assign | Save draft | Publishing and runnable readiness require service receipts. | Export draft | New policy draft | Versions | Consumers | Proposed scope | Policy JSON | Rollback proposal | A local draft does not change effective organization policy.",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/configuration--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/configuration--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/light/configuration--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-IDENTITY-DARK",
+      "gate": "FE-01",
+      "title": "#identity vs Figma frame 236:4007 (Atlas/Dark/identity)",
+      "steps": "Load #identity 1440x1000 theme=dark; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 26 Figma controls",
+      "expected": "h1 \"People & access\"; purpose \"Manage membership, invitations, effective permissions and session recovery.\"; all 26 Figma controls visible",
+      "actual": "h1 \"Identity & access\" (MISSING); purpose MISSING: \"Inspect authenticated identity, memberships, grants and revocation evidence.\"; controls exact 2, equivalent 6, similar 0, missing 18: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Invited / Active / Suspended / Revoked | Organization settings | Separate observer session | Invite member | Change role | Revoke sessions | Offboard | Effective permissions | Sessions",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/identity--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/identity--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/dark/identity--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-IDENTITY-LIGHT",
+      "gate": "FE-01",
+      "title": "#identity vs Figma frame 254:1807 (Atlas/Light/identity)",
+      "steps": "Load #identity 1440x1000 theme=light; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 26 Figma controls",
+      "expected": "h1 \"People & access\"; purpose \"Manage membership, invitations, effective permissions and session recovery.\"; all 26 Figma controls visible",
+      "actual": "h1 \"Identity & access\" (MISSING); purpose MISSING: \"Inspect authenticated identity, memberships, grants and revocation evidence.\"; controls exact 2, equivalent 6, similar 0, missing 18: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Invited / Active / Suspended / Revoked | Organization settings | Separate observer session | Invite member | Change role | Revoke sessions | Offboard | Effective permissions | Sessions",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/identity--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/identity--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/light/identity--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-TENANCY-DARK",
+      "gate": "FE-01",
+      "title": "#tenancy vs Figma frame 236:4258 (Atlas/Dark/tenancy)",
+      "steps": "Load #tenancy 1440x1000 theme=dark; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 25 Figma controls",
+      "expected": "h1 \"Organization & projects\"; purpose \"Select a scope, inspect onboarding blockers and manage project lifecycle.\"; all 25 Figma controls visible",
+      "actual": "h1 \"Organization & projects\" (EXACT); purpose MISSING: \"Navigate authorized organization, workspace and project lifecycle.\"; controls exact 3, equivalent 8, similar 0, missing 14: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Draft / Onboarding / Ready / Archived / Deletion pending | Provider access | Policies | Create project | Transfer ownership",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/tenancy--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/tenancy--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/dark/tenancy--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-TENANCY-LIGHT",
+      "gate": "FE-01",
+      "title": "#tenancy vs Figma frame 254:1894 (Atlas/Light/tenancy)",
+      "steps": "Load #tenancy 1440x1000 theme=light; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 25 Figma controls",
+      "expected": "h1 \"Organization & projects\"; purpose \"Select a scope, inspect onboarding blockers and manage project lifecycle.\"; all 25 Figma controls visible",
+      "actual": "h1 \"Organization & projects\" (EXACT); purpose MISSING: \"Navigate authorized organization, workspace and project lifecycle.\"; controls exact 3, equivalent 8, similar 0, missing 14: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Draft / Onboarding / Ready / Archived / Deletion pending | Provider access | Policies | Create project | Transfer ownership",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/tenancy--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/tenancy--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/light/tenancy--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-SAAS-DARK",
+      "gate": "FE-01",
+      "title": "#saas vs Figma frame 236:4512 (Atlas/Dark/saas)",
+      "steps": "Load #saas 1440x1000 theme=dark; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 28 Figma controls",
+      "expected": "h1 \"Usage, billing & data\"; purpose \"Inspect entitlements, seat quotas, invoice reconciliation and tenant data lifecycle.\"; all 28 Figma controls visible",
+      "actual": "h1 \"Usage & billing\" (MISSING); purpose MISSING: \"Inspect entitlements, reservations, settlement and cost reconciliation.\"; controls exact 2, equivalent 8, similar 2, missing 16: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Spend reservations | Membership | Audit evidence | Manage seats | Change entitlement | Reconcile invoice | Set retention | Request erasure | Seats & quotas",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/saas--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/saas--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/dark/saas--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-SAAS-LIGHT",
+      "gate": "FE-01",
+      "title": "#saas vs Figma frame 254:1982 (Atlas/Light/saas)",
+      "steps": "Load #saas 1440x1000 theme=light; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 28 Figma controls",
+      "expected": "h1 \"Usage, billing & data\"; purpose \"Inspect entitlements, seat quotas, invoice reconciliation and tenant data lifecycle.\"; all 28 Figma controls visible",
+      "actual": "h1 \"Usage & billing\" (MISSING); purpose MISSING: \"Inspect entitlements, reservations, settlement and cost reconciliation.\"; controls exact 2, equivalent 8, similar 2, missing 16: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Spend reservations | Membership | Audit evidence | Manage seats | Change entitlement | Reconcile invoice | Set retention | Request erasure | Seats & quotas",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/saas--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/saas--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/light/saas--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-DESKTOP-DARK",
+      "gate": "FE-01",
+      "title": "#desktop vs Figma frame 236:4776 (Atlas/Dark/desktop)",
+      "steps": "Load #desktop 1440x1000 theme=dark; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 29 Figma controls",
+      "expected": "h1 \"Desktop & local runtime\"; purpose \"Inspect device-bound sessions, local capabilities, runtime compatibility and update recove…\"; all 29 Figma controls visible",
+      "actual": "h1 \"Desktop companion\" (MISSING); purpose MISSING: \"Inspect pairing, capability matrix, synchronization and recovery.\"; controls exact 4, equivalent 4, similar 1, missing 20: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Local source import | Runtime policy | Runs | Pair device | Open terminal | Schedule run | Check updates | Apply update | Device session | Repositories | Runtime & PTY | Scheduling",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/desktop--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/desktop--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/dark/desktop--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-DESKTOP-LIGHT",
+      "gate": "FE-01",
+      "title": "#desktop vs Figma frame 254:2072 (Atlas/Light/desktop)",
+      "steps": "Load #desktop 1440x1000 theme=light; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 29 Figma controls",
+      "expected": "h1 \"Desktop & local runtime\"; purpose \"Inspect device-bound sessions, local capabilities, runtime compatibility and update recove…\"; all 29 Figma controls visible",
+      "actual": "h1 \"Desktop companion\" (MISSING); purpose MISSING: \"Inspect pairing, capability matrix, synchronization and recovery.\"; controls exact 4, equivalent 4, similar 1, missing 20: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Local source import | Runtime policy | Runs | Pair device | Open terminal | Schedule run | Check updates | Apply update | Device session | Repositories | Runtime & PTY | Scheduling",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/desktop--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/desktop--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/light/desktop--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-OBSERVER-DARK",
+      "gate": "FE-01",
+      "title": "#observer vs Figma frame 236:5048 (Atlas/Dark/observer)",
+      "steps": "Load #observer 1440x1000 theme=dark; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 28 Figma controls",
+      "expected": "h1 \"Operations observer\"; purpose \"Inspect timestamped telemetry, drill into traces and coordinate diagnostics with a separat…\"; all 28 Figma controls visible",
+      "actual": "h1 \"Observer\" (MISSING); purpose MISSING: \"A separate public audience with its own scope and provenance.\"; controls exact 1, equivalent 5, similar 1, missing 21: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Disconnected / Receiving / Partial / Stale / Incident / Recovery pending / Observed | Workspace runs | Policy capabilities | Refresh telemetry | Inspect trace | Export diagnostics | Check readiness | Request recovery | Acknowledge incident | Metrics | Traces | Logs | Profiles",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/observer--default.jpg;evidence/runs/R4-001-figma/figma_parity/dark/observer--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/dark/observer--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-OBSERVER-LIGHT",
+      "gate": "FE-01",
+      "title": "#observer vs Figma frame 254:2164 (Atlas/Light/observer)",
+      "steps": "Load #observer 1440x1000 theme=light; capture default view + Service records tab + local draft editor when offered; compare title, purpose and 28 Figma controls",
+      "expected": "h1 \"Operations observer\"; purpose \"Inspect timestamped telemetry, drill into traces and coordinate diagnostics with a separat…\"; all 28 Figma controls visible",
+      "actual": "h1 \"Observer\" (MISSING); purpose MISSING: \"A separate public audience with its own scope and provenance.\"; controls exact 1, equivalent 5, similar 1, missing 21: State | Connect this lifecycle | Continue the journey | Select a resource | Grants and a resource revision are required before acting. | Connect a service session to inspect action preconditions. | Inspect before acting | Operation receipts | No operations recorded for this session scope. | Disconnected / Receiving / Partial / Stale / Incident / Recovery pending / Observed | Workspace runs | Policy capabilities | Refresh telemetry | Inspect trace | Export diagnostics | Check readiness | Request recovery | Acknowledge incident | Metrics | Traces | Logs | Profiles",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/observer--default.jpg;evidence/runs/R4-001-figma/figma_parity/light/observer--service-records.jpg;evidence/runs/R4-001-figma/figma_parity/light/observer--local-draft-editor.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-CONNECTION-DARK",
+      "gate": "FE-01",
+      "title": "#connection vs Figma frame 236:5309 (Atlas/Dark/connection)",
+      "steps": "Load #connection 1440x1000 theme=dark; capture default view + local draft editor when offered; compare title, purpose and 17 Figma controls",
+      "expected": "h1 \"Connection & operation receipts\"; purpose \"Connect your service and reconcile uncertain effects.\"; all 17 Figma controls visible",
+      "actual": "h1 \"Connection & operations\" (MISSING); purpose MISSING: \"Load session authority and reconcile exact command identities.\"; controls exact 3, equivalent 4, similar 2, missing 8: Export device drafts | Observer uses a separate session. | Service URL | No credentials in the URL. | Session & operation receipts | No authenticated session | Received / Accepted | Acknowledgement only. The effect is not yet verified. | Requires a matched operation, scope, input fingerprint and effect readback. | Preserve the original operation ID and reconcile before retrying.",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/dark/connection--default.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-CONNECTION-LIGHT",
+      "gate": "FE-01",
+      "title": "#connection vs Figma frame 254:2253 (Atlas/Light/connection)",
+      "steps": "Load #connection 1440x1000 theme=light; capture default view + local draft editor when offered; compare title, purpose and 17 Figma controls",
+      "expected": "h1 \"Connection & operation receipts\"; purpose \"Connect your service and reconcile uncertain effects.\"; all 17 Figma controls visible",
+      "actual": "h1 \"Connection & operations\" (MISSING); purpose MISSING: \"Load session authority and reconcile exact command identities.\"; controls exact 3, equivalent 4, similar 2, missing 8: Export device drafts | Observer uses a separate session. | Service URL | No credentials in the URL. | Session & operation receipts | No authenticated session | Received / Accepted | Acknowledgement only. The effect is not yet verified. | Requires a matched operation, scope, input fingerprint and effect readback. | Preserve the original operation ID and reconcile before retrying.",
+      "result": "FAIL",
+      "input_mode": "trusted-input",
+      "browser": "chromium 141.0.7390.37",
+      "evidence": "evidence/runs/R4-001-figma/figma_parity/light/connection--default.jpg"
+    },
+    {
+      "run_at": "2026-10-05T09:26:51.111Z",
+      "case_id": "FIGMA-PARITY-NOWRITE",
+      "gate": "FE-04",
+      "title": "Parity run issued no non-GET request to the target origin",
+      "steps": "Count non-GET requests to target during the suite",
+      "expected": "0",
+      "actual": "0",
+      "result": "PASS",
+      "input_mode": "observation",
+      "browser": "chromium 141.0.7390.37"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/home--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "home",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:46.286Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/specifications--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "specifications",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:47.065Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/specifications--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "specifications",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:47.402Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/code--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "code",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:48.013Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/code--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "code",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:48.332Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/collaboration--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "collaboration",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:49.117Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/collaboration--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "collaboration",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:49.431Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/collaboration--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "collaboration",
+      "theme": "dark",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:50.767Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/agents--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "agents",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:51.234Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/agents--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "agents",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:51.548Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/agents--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "agents",
+      "theme": "dark",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:52.884Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/resources--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "resources",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:53.352Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/resources--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "resources",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:53.683Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/resources--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "resources",
+      "theme": "dark",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:55.018Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/workflow--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "workflow",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:55.482Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/workflow--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "workflow",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:56.098Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/memory--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "memory",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:56.578Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/memory--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "memory",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:56.897Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/memory--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "memory",
+      "theme": "dark",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:58.231Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/execution--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "execution",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:58.680Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/execution--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "execution",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:25:58.997Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/execution--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "execution",
+      "theme": "dark",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:00.332Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/governance--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "governance",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:00.782Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/governance--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "governance",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:01.097Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/governance--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "governance",
+      "theme": "dark",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:02.432Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/gateway--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "gateway",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:02.882Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/gateway--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "gateway",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:03.197Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/gateway--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "gateway",
+      "theme": "dark",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:04.533Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/configuration--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "configuration",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:04.982Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/configuration--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "configuration",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:05.297Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/configuration--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "configuration",
+      "theme": "dark",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:06.632Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/identity--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "identity",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:07.081Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/identity--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "identity",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:07.397Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/identity--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "identity",
+      "theme": "dark",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:08.731Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/tenancy--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "tenancy",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:09.182Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/tenancy--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "tenancy",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:09.498Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/tenancy--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "tenancy",
+      "theme": "dark",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:10.831Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/saas--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "saas",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:11.279Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/saas--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "saas",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:11.596Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/saas--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "saas",
+      "theme": "dark",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:12.933Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/desktop--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "desktop",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:13.398Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/desktop--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "desktop",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:13.713Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/desktop--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "desktop",
+      "theme": "dark",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:15.048Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/observer--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "observer",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:15.507Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/observer--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "observer",
+      "theme": "dark",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:15.830Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/observer--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "observer",
+      "theme": "dark",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:17.166Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/dark/connection--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "connection",
+      "theme": "dark",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:17.959Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/home--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "home",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:19.490Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/specifications--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "specifications",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:20.245Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/specifications--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "specifications",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:20.564Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/code--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "code",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:21.161Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/code--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "code",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:21.486Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/collaboration--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "collaboration",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:22.278Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/collaboration--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "collaboration",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:22.595Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/collaboration--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "collaboration",
+      "theme": "light",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:23.933Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/agents--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "agents",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:24.397Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/agents--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "agents",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:24.712Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/agents--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "agents",
+      "theme": "light",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:26.048Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/resources--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "resources",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:26.497Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/resources--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "resources",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:26.811Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/resources--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "resources",
+      "theme": "light",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:28.148Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/workflow--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "workflow",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:28.593Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/workflow--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "workflow",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:29.212Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/memory--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "memory",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:29.691Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/memory--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "memory",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:30.012Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/memory--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "memory",
+      "theme": "light",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:31.348Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/execution--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "execution",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:31.795Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/execution--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "execution",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:32.112Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/execution--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "execution",
+      "theme": "light",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:33.446Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/governance--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "governance",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:33.896Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/governance--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "governance",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:34.213Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/governance--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "governance",
+      "theme": "light",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:35.563Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/gateway--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "gateway",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:36.012Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/gateway--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "gateway",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:36.328Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/gateway--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "gateway",
+      "theme": "light",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:37.663Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/configuration--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "configuration",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:38.111Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/configuration--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "configuration",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:38.428Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/configuration--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "configuration",
+      "theme": "light",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:39.763Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/identity--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "identity",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:40.212Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/identity--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "identity",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:40.529Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/identity--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "identity",
+      "theme": "light",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:41.862Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/tenancy--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "tenancy",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:42.310Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/tenancy--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "tenancy",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:42.628Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/tenancy--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "tenancy",
+      "theme": "light",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:43.963Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/saas--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "saas",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:44.415Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/saas--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "saas",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:44.728Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/saas--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "saas",
+      "theme": "light",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:46.063Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/desktop--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "desktop",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:46.512Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/desktop--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "desktop",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:46.828Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/desktop--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "desktop",
+      "theme": "light",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:48.162Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/observer--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "observer",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:48.611Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/observer--service-records.jpg",
+      "evidence_type": "screenshot",
+      "route": "observer",
+      "theme": "light",
+      "view": "service-records",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:48.928Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/observer--local-draft-editor.jpg",
+      "evidence_type": "screenshot",
+      "route": "observer",
+      "theme": "light",
+      "view": "local-draft-editor",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:50.280Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/light/connection--default.jpg",
+      "evidence_type": "screenshot",
+      "route": "connection",
+      "theme": "light",
+      "view": "default",
+      "viewport": "1440x1000",
+      "timestamp": "2026-10-05T09:26:51.043Z"
+    },
+    {
+      "path": "evidence/runs/R4-001-figma/figma_parity/figma-parity.json",
+      "evidence_type": "figma-parity",
+      "oracle": "figma 01/02 Current UI",
+      "timestamp": "2026-10-05T09:26:51.111Z"
+    }
+  ]
+}
