@@ -1,0 +1,17 @@
+{
+  "request_id": "R4-002-def-fix",
+  "github_run_id": "37290670654",
+  "target": "https://sparkling-snow-090d.ekko-okke666.workers.dev",
+  "started_at": "2026-10-05T09:33:09.388Z",
+  "suites": {
+    "definitions": {
+      "status": "completed",
+      "ms": 133710,
+      "DEF-NAV": "49/49",
+      "DEF-CREATE": "48/57",
+      "DEF-COUNT": "49/49",
+      "DEF-FIELDS": "46/49"
+    }
+  },
+  "finished_at": "2026-10-05T09:35:23.098Z"
+}
