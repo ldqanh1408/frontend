@@ -1,0 +1,624 @@
+{
+  "budget": {
+    "LCP_p75": 2500,
+    "FCP_p75": 1800,
+    "CLS_p75": 0.1,
+    "INP": 200,
+    "HEAP_GROWTH_PCT": 10
+  },
+  "browserVersion": "141.0.7390.37",
+  "errors": [],
+  "PERF-007": {
+    "cold_desktop": {
+      "runs": [
+        {
+          "fcp": 244,
+          "lcp": 244,
+          "cls": 0.0008,
+          "ttfb": 67,
+          "dcl": 159,
+          "load": 159,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 164,
+          "lcp": 164,
+          "cls": 0.0008,
+          "ttfb": 35,
+          "dcl": 100,
+          "load": 100,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 164,
+          "lcp": 164,
+          "cls": 0.0008,
+          "ttfb": 34,
+          "dcl": 100,
+          "load": 100,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 164,
+          "lcp": 164,
+          "cls": 0.0008,
+          "ttfb": 36,
+          "dcl": 102,
+          "load": 102,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 164,
+          "lcp": 164,
+          "cls": 0.0008,
+          "ttfb": 37,
+          "dcl": 101,
+          "load": 101,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 168,
+          "lcp": 168,
+          "cls": 0.0008,
+          "ttfb": 42,
+          "dcl": 111,
+          "load": 111,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 164,
+          "lcp": 164,
+          "cls": 0.0008,
+          "ttfb": 38,
+          "dcl": 105,
+          "load": 105,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 188,
+          "lcp": 188,
+          "cls": 0.0008,
+          "ttfb": 45,
+          "dcl": 126,
+          "load": 126,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 160,
+          "lcp": 160,
+          "cls": 0.0008,
+          "ttfb": 38,
+          "dcl": 107,
+          "load": 107,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 160,
+          "lcp": 160,
+          "cls": 0.0008,
+          "ttfb": 36,
+          "dcl": 103,
+          "load": 103,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        }
+      ],
+      "stats": {
+        "fcp": {
+          "n": 10,
+          "p50": 164,
+          "p75": 168,
+          "p95": 244
+        },
+        "lcp": {
+          "n": 10,
+          "p50": 164,
+          "p75": 168,
+          "p95": 244
+        },
+        "cls": {
+          "n": 10,
+          "p50": 0.0008,
+          "p75": 0.0008,
+          "p95": 0.0008
+        },
+        "ttfb": {
+          "n": 10,
+          "p50": 37,
+          "p75": 42,
+          "p95": 67
+        },
+        "dcl": {
+          "n": 10,
+          "p50": 103,
+          "p75": 111,
+          "p95": 159
+        },
+        "load": {
+          "n": 10,
+          "p50": 103,
+          "p75": 111,
+          "p95": 159
+        },
+        "transfer": {
+          "n": 10,
+          "p50": 629,
+          "p75": 629,
+          "p95": 629
+        }
+      },
+      "budget": {
+        "LCP": true,
+        "FCP": true,
+        "CLS": true
+      }
+    },
+    "warm_desktop": {
+      "runs": [
+        {
+          "fcp": 80,
+          "lcp": 80,
+          "cls": 0,
+          "ttfb": 17,
+          "dcl": 46,
+          "load": 47,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 72,
+          "lcp": 72,
+          "cls": 0,
+          "ttfb": 18,
+          "dcl": 49,
+          "load": 50,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 80,
+          "lcp": 80,
+          "cls": 0,
+          "ttfb": 18,
+          "dcl": 47,
+          "load": 48,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 72,
+          "lcp": 72,
+          "cls": 0,
+          "ttfb": 18,
+          "dcl": 46,
+          "load": 47,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 80,
+          "lcp": 80,
+          "cls": 0,
+          "ttfb": 20,
+          "dcl": 54,
+          "load": 54,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 76,
+          "lcp": 76,
+          "cls": 0,
+          "ttfb": 17,
+          "dcl": 45,
+          "load": 46,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 80,
+          "lcp": 80,
+          "cls": 0,
+          "ttfb": 18,
+          "dcl": 52,
+          "load": 52,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 80,
+          "lcp": 80,
+          "cls": 0,
+          "ttfb": 18,
+          "dcl": 49,
+          "load": 50,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 76,
+          "lcp": 76,
+          "cls": 0,
+          "ttfb": 16,
+          "dcl": 49,
+          "load": 49,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        },
+        {
+          "fcp": 80,
+          "lcp": 80,
+          "cls": 0,
+          "ttfb": 19,
+          "dcl": 49,
+          "load": 49,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 1440
+        }
+      ],
+      "stats": {
+        "fcp": {
+          "n": 10,
+          "p50": 80,
+          "p75": 80,
+          "p95": 80
+        },
+        "lcp": {
+          "n": 10,
+          "p50": 80,
+          "p75": 80,
+          "p95": 80
+        },
+        "cls": {
+          "n": 10,
+          "p50": 0,
+          "p75": 0,
+          "p95": 0
+        },
+        "ttfb": {
+          "n": 10,
+          "p50": 18,
+          "p75": 18,
+          "p95": 20
+        },
+        "dcl": {
+          "n": 10,
+          "p50": 49,
+          "p75": 49,
+          "p95": 54
+        },
+        "load": {
+          "n": 10,
+          "p50": 49,
+          "p75": 50,
+          "p95": 54
+        },
+        "transfer": {
+          "n": 10,
+          "p50": 629,
+          "p75": 629,
+          "p95": 629
+        }
+      },
+      "budget": {
+        "LCP": true,
+        "FCP": true,
+        "CLS": true
+      }
+    },
+    "cold_mobile_throttled": {
+      "runs": [
+        {
+          "fcp": 1212,
+          "lcp": 1212,
+          "cls": 0,
+          "ttfb": 36,
+          "dcl": 1074,
+          "load": 1074,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 375
+        },
+        {
+          "fcp": 1244,
+          "lcp": 1244,
+          "cls": 0,
+          "ttfb": 46,
+          "dcl": 1103,
+          "load": 1103,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 375
+        },
+        {
+          "fcp": 1240,
+          "lcp": 1240,
+          "cls": 0,
+          "ttfb": 42,
+          "dcl": 1097,
+          "load": 1097,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 375
+        },
+        {
+          "fcp": 1236,
+          "lcp": 1236,
+          "cls": 0,
+          "ttfb": 39,
+          "dcl": 1106,
+          "load": 1106,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 375
+        },
+        {
+          "fcp": 1224,
+          "lcp": 1224,
+          "cls": 0,
+          "ttfb": 34,
+          "dcl": 1086,
+          "load": 1086,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 375
+        },
+        {
+          "fcp": 1228,
+          "lcp": 1228,
+          "cls": 0,
+          "ttfb": 37,
+          "dcl": 1096,
+          "load": 1096,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 375
+        },
+        {
+          "fcp": 1212,
+          "lcp": 1212,
+          "cls": 0,
+          "ttfb": 40,
+          "dcl": 1091,
+          "load": 1091,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 375
+        },
+        {
+          "fcp": 1228,
+          "lcp": 1228,
+          "cls": 0,
+          "ttfb": 40,
+          "dcl": 1093,
+          "load": 1093,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 375
+        },
+        {
+          "fcp": 1228,
+          "lcp": 1228,
+          "cls": 0,
+          "ttfb": 43,
+          "dcl": 1095,
+          "load": 1095,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 375
+        },
+        {
+          "fcp": 1228,
+          "lcp": 1228,
+          "cls": 0,
+          "ttfb": 41,
+          "dcl": 1095,
+          "load": 1095,
+          "transfer": 629,
+          "vis": "visible",
+          "w": 375
+        }
+      ],
+      "stats": {
+        "fcp": {
+          "n": 10,
+          "p50": 1228,
+          "p75": 1236,
+          "p95": 1244
+        },
+        "lcp": {
+          "n": 10,
+          "p50": 1228,
+          "p75": 1236,
+          "p95": 1244
+        },
+        "cls": {
+          "n": 10,
+          "p50": 0,
+          "p75": 0,
+          "p95": 0
+        },
+        "ttfb": {
+          "n": 10,
+          "p50": 40,
+          "p75": 42,
+          "p95": 46
+        },
+        "dcl": {
+          "n": 10,
+          "p50": 1095,
+          "p75": 1097,
+          "p95": 1106
+        },
+        "load": {
+          "n": 10,
+          "p50": 1095,
+          "p75": 1097,
+          "p95": 1106
+        },
+        "transfer": {
+          "n": 10,
+          "p50": 629,
+          "p75": 629,
+          "p95": 629
+        }
+      },
+      "budget": {
+        "LCP": true,
+        "FCP": true,
+        "CLS": true
+      }
+    }
+  },
+  "PERF-INP-001-desktop": {
+    "interactions": 29,
+    "reported": 30,
+    "p50": 16,
+    "p75": 16,
+    "p95": 24,
+    "inp": 32,
+    "pass": true,
+    "slowest": [
+      [
+        8768,
+        "pointerdown",
+        32
+      ],
+      [
+        8768,
+        "pointerup",
+        32
+      ],
+      [
+        8768,
+        "click",
+        32
+      ],
+      [
+        8775,
+        "pointerdown",
+        24
+      ],
+      [
+        8775,
+        "pointerup",
+        24
+      ],
+      [
+        8775,
+        "click",
+        24
+      ],
+      [
+        8782,
+        "pointerdown",
+        24
+      ],
+      [
+        8782,
+        "pointerup",
+        24
+      ]
+    ],
+    "log": 29
+  },
+  "PERF-INP-001-cpu4x": {
+    "interactions": 29,
+    "reported": 29,
+    "p50": 16,
+    "p75": 16,
+    "p95": 64,
+    "inp": 72,
+    "pass": true,
+    "slowest": [
+      [
+        5861,
+        "pointerdown",
+        72
+      ],
+      [
+        5861,
+        "pointerup",
+        72
+      ],
+      [
+        5861,
+        "click",
+        72
+      ],
+      [
+        5868,
+        "pointerdown",
+        64
+      ],
+      [
+        5868,
+        "pointerup",
+        64
+      ],
+      [
+        5868,
+        "click",
+        64
+      ],
+      [
+        5882,
+        "pointerdown",
+        64
+      ],
+      [
+        5882,
+        "pointerup",
+        64
+      ]
+    ],
+    "log": 29
+  },
+  "PERF-008": {
+    "before": {
+      "heap": 3341944,
+      "nodes": 475,
+      "listeners": 197,
+      "docs": 2
+    },
+    "after": {
+      "heap": 3963476,
+      "nodes": 552,
+      "listeners": 210,
+      "docs": 2
+    },
+    "heapGrowthPct": 18.6,
+    "workers": [],
+    "pass": false,
+    "note": "route switching via location.hash (navigation, not editor open/close); editor open/close cycle requires seeded documents"
+  }
+}

@@ -1,0 +1,1713 @@
+{
+  "chromium": {
+    "browserVersion": "141.0.7390.37",
+    "checks": [
+      {
+        "case_id": "FE03-KBD-SKIP",
+        "expected": "Tab#1 = \"Skip to workspace\"; Enter keeps view #home (h1 unchanged) and moves focus into main",
+        "actual": {
+          "first": {
+            "tag": "A",
+            "id": null,
+            "role": null,
+            "name": "Skip to workspace",
+            "rect": [
+              12,
+              8,
+              156,
+              41
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "solid|2px|rgb(136, 184, 255)|none|rgb(7, 27, 24)|rgb(83, 212, 193)|none",
+            "inDialog": false,
+            "inMain": false,
+            "hash": "#home"
+          },
+          "afterEnter": {
+            "tag": "MAIN",
+            "id": "main",
+            "role": null,
+            "name": "Workspace/OverviewATLAS · WORKSPACEBuild with a cl",
+            "rect": [
+              208,
+              12,
+              1232,
+              1008
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "none|0px|rgb(231, 237, 245)|none|rgb(231, 237, 245)|rgba(0, 0, 0, 0)|none",
+            "inDialog": false,
+            "inMain": true,
+            "hash": "#home"
+          },
+          "h1": "Build with a clear trail.",
+          "hash": "#home"
+        },
+        "result": "PASS"
+      },
+      {
+        "case_id": "FE03-KBD-TABSEQ",
+        "expected": "every Tab stop is a visible control inside the viewport, not obscured (2.4.11), with a visible focus indicator distinct from its unfocused style (2.4.7)",
+        "actual": {
+          "stops": [
+            [
+              "A",
+              null,
+              "Skip to workspace",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Open workspace search",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Switch display theme",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Display preferences",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Help & recovery",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Overview",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Specifications",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Code intelligence",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Agents",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Resources",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Memory",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Workflow",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Execution",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Delivery & acceptance",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "AI gateway",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Collaboration",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Configuration",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Identity & access",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Organization & projects",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Usage & billing",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Desktop companion",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Observer",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Connection & operations",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Browse definitions",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Open design review",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Workspace",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Open document workspace",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Browse definitions",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Local documents0On this device · inspect saved rev",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Agent drafts0On this device · inspect saved revisi",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Workflow drafts0On this device · inspect saved rev",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Memory drafts0On this device · inspect saved revis",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "1SpecificationsOrganize documents, author requirem",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "2Code intelligenceRead imported source, explore sy",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "3AgentsDefine agents, pin their dependencies and i",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "4WorkflowBuild a task graph with explicit dependen",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "5ExecutionInspect runs, task attempts, public even",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "6Delivery & acceptanceReview artifacts, merge iden",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Connect & inspect authority",
+              true,
+              false
+            ],
+            [
+              "BODY",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "A",
+              null,
+              "Skip to workspace",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Open workspace search",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Switch display theme",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Display preferences",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Help & recovery",
+              true,
+              false
+            ]
+          ],
+          "noIndicator": [],
+          "hidden": [
+            39
+          ],
+          "obscured": []
+        },
+        "result": "FAIL"
+      },
+      {
+        "case_id": "FE03-KBD-SEARCH",
+        "expected": "search opens from keyboard, focus in input; typing filters options; ArrowDown moves aria-activedescendant; Enter navigates to a matching view; Escape closes and returns focus to the invoking button",
+        "actual": {
+          "how": "Ctrl+K",
+          "opened": true,
+          "state": {
+            "open": [
+              "DIV[role=dialog][modal=true]\"\"",
+              "DIV[role=listbox][modal=null]\"Matching destinations\""
+            ],
+            "mainInert": true
+          },
+          "focus": {
+            "tag": "INPUT",
+            "id": "_r_b_",
+            "role": "combobox",
+            "name": "",
+            "rect": [
+              285,
+              241,
+              870,
+              37
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "solid|2px|rgb(136, 184, 255)|none|rgb(100, 119, 140)|rgb(17, 23, 31)|none",
+            "inDialog": true,
+            "inMain": false,
+            "hash": "#home"
+          },
+          "ad0": "_r_8_-option-0",
+          "ad1": "_r_8_-option-1",
+          "opts": [
+            "SpecificationsWorkspace view",
+            "Specification submission requestSpecific",
+            "Document propertiesSpecifications · 16 a"
+          ],
+          "after": "#specifications?authority=definitions&schema=spec-submission",
+          "reopen": {
+            "found": true,
+            "openedAgain": true,
+            "closed": true,
+            "focusBack": {
+              "tag": "BUTTON",
+              "id": null,
+              "role": null,
+              "name": "Open workspace search",
+              "rect": [
+                714,
+                8,
+                238,
+                36
+              ],
+              "inViewport": true,
+              "obscured": false,
+              "style": "solid|2px|rgb(136, 184, 255)|none|rgb(42, 54, 68)|rgb(17, 23, 31)|none",
+              "inDialog": false,
+              "inMain": false,
+              "hash": "#home"
+            }
+          }
+        },
+        "result": "PASS"
+      },
+      {
+        "case_id": "FE03-KBD-TABS",
+        "result": "BLOCKED",
+        "reason": "harness error: TimeoutError: locator.focus: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[data-atlas-tl=\"1\"] [role=tab]').first()\n"
+      },
+      {
+        "case_id": "FE03-KBD-TREE",
+        "expected": "arrow-key navigation per APG Tree View when the tree has items",
+        "actual": {
+          "treeitems": 0
+        },
+        "result": "NOT_APPLICABLE",
+        "reason": "Library tree is empty on a fresh profile (no documents); needs seeded documents via Import files"
+      },
+      {
+        "case_id": "FE03-KBD-DIALOG-HELP",
+        "expected": "Enter opens a modal dialog; focus moves inside; background inert or aria-modal; Tab stays inside; Escape closes; focus returns to the invoking button",
+        "actual": {
+          "reached": true,
+          "presses": 5,
+          "open": [
+            "DIV[role=dialog][modal=true]\"\""
+          ],
+          "mainInert": true,
+          "focusInside": {
+            "tag": "BUTTON",
+            "id": null,
+            "role": null,
+            "name": "Close",
+            "rect": [
+              1070,
+              196,
+              85,
+              34
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "solid|2px|rgb(136, 184, 255)|none|rgb(100, 119, 140)|rgb(23, 31, 41)|none",
+            "inDialog": true,
+            "inMain": false,
+            "hash": "#home"
+          },
+          "trapInside": "14/14",
+          "afterEscape": [],
+          "focusBack": "Help & recovery"
+        },
+        "result": "PASS",
+        "reason": ""
+      },
+      {
+        "case_id": "FE03-KBD-DIALOG-PREFS",
+        "expected": "Enter opens a modal dialog; focus moves inside; background inert or aria-modal; Tab stays inside; Escape closes; focus returns to the invoking button",
+        "actual": {
+          "reached": true,
+          "presses": 4,
+          "open": [
+            "DIV[role=dialog][modal=true]\"\""
+          ],
+          "mainInert": true,
+          "focusInside": {
+            "tag": "BUTTON",
+            "id": null,
+            "role": null,
+            "name": "Close",
+            "rect": [
+              1070,
+              268,
+              85,
+              34
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "solid|2px|rgb(136, 184, 255)|none|rgb(100, 119, 140)|rgb(23, 31, 41)|none",
+            "inDialog": true,
+            "inMain": false,
+            "hash": "#home"
+          },
+          "trapInside": "14/14",
+          "afterEscape": [],
+          "focusBack": "Display preferences"
+        },
+        "result": "PASS",
+        "reason": ""
+      },
+      {
+        "case_id": "FE03-KBD-NAV-MOBILE",
+        "expected": "375px: navigation toggle reachable by Tab; Enter opens drawer (aria-expanded=true, nav visible); Escape closes (aria-expanded=false) and focus returns to the toggle",
+        "actual": {
+          "reached": true,
+          "presses": 2,
+          "exp0": "false",
+          "exp1": null,
+          "navBefore": false,
+          "navVisible": false,
+          "focusOpen": "Close",
+          "exp2": "false",
+          "focusBack": "Open workspace navigation"
+        },
+        "result": "FAIL",
+        "reason": ""
+      },
+      {
+        "case_id": "FE01-ROUTE-004",
+        "expected": "activating a nav link with Enter shows the view and moves focus to main or its heading",
+        "actual": {
+          "reached": true,
+          "focus": {
+            "tag": "MAIN",
+            "id": "main",
+            "role": null,
+            "name": "Workspace/MemoryWORKSPACE / MEMORYMemoryVersion co",
+            "rect": [
+              208,
+              28,
+              1232,
+              1211
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "none|0px|rgb(231, 237, 245)|none|rgb(231, 237, 245)|rgba(0, 0, 0, 0)|none",
+            "inDialog": false,
+            "inMain": true,
+            "hash": "#memory"
+          }
+        },
+        "result": "PASS"
+      }
+    ]
+  },
+  "firefox": {
+    "browserVersion": "142.0.1",
+    "checks": [
+      {
+        "case_id": "FE03-KBD-SKIP",
+        "expected": "Tab#1 = \"Skip to workspace\"; Enter keeps view #home (h1 unchanged) and moves focus into main",
+        "actual": {
+          "first": {
+            "tag": "A",
+            "id": null,
+            "role": null,
+            "name": "Skip to workspace",
+            "rect": [
+              12,
+              8,
+              154,
+              41
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "solid|2px|rgb(136, 184, 255)|none|rgb(7, 27, 24)|rgb(83, 212, 193)|none",
+            "inDialog": false,
+            "inMain": false,
+            "hash": "#home"
+          },
+          "afterEnter": {
+            "tag": "MAIN",
+            "id": "main",
+            "role": null,
+            "name": "Workspace/OverviewATLAS · WORKSPACEBuild with a cl",
+            "rect": [
+              208,
+              52,
+              1232,
+              1008
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "none|0px|rgb(231, 237, 245)|none|rgb(231, 237, 245)|rgba(0, 0, 0, 0)|none",
+            "inDialog": false,
+            "inMain": true,
+            "hash": "#home"
+          },
+          "h1": "Build with a clear trail.",
+          "hash": "#home"
+        },
+        "result": "PASS"
+      },
+      {
+        "case_id": "FE03-KBD-TABSEQ",
+        "expected": "every Tab stop is a visible control inside the viewport, not obscured (2.4.11), with a visible focus indicator distinct from its unfocused style (2.4.7)",
+        "actual": {
+          "stops": [
+            [
+              "A",
+              null,
+              "Skip to workspace",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Open workspace search",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Switch display theme",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Display preferences",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Help & recovery",
+              true,
+              false
+            ],
+            [
+              "NAV",
+              null,
+              "WORKSPACEOverviewSpecificationsCode intelligenceAg",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Overview",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Specifications",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Code intelligence",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Agents",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Resources",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Memory",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Workflow",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Execution",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Delivery & acceptance",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "AI gateway",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Collaboration",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Configuration",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Identity & access",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Organization & projects",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Usage & billing",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Desktop companion",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Observer",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Connection & operations",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Browse definitions",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Open design review",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Workspace",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Open document workspace",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Browse definitions",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Local documents0On this device · inspect saved rev",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Agent drafts0On this device · inspect saved revisi",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Workflow drafts0On this device · inspect saved rev",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Memory drafts0On this device · inspect saved revis",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "1SpecificationsOrganize documents, author requirem",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "2Code intelligenceRead imported source, explore sy",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "3AgentsDefine agents, pin their dependencies and i",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "4WorkflowBuild a task graph with explicit dependen",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "5ExecutionInspect runs, task attempts, public even",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "6Delivery & acceptanceReview artifacts, merge iden",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Connect & inspect authority",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Connect & inspect authority",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Connect & inspect authority",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Connect & inspect authority",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Connect & inspect authority",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Connect & inspect authority",
+              true,
+              false
+            ]
+          ],
+          "noIndicator": [],
+          "hidden": [],
+          "obscured": []
+        },
+        "result": "PASS"
+      },
+      {
+        "case_id": "FE03-KBD-SEARCH",
+        "expected": "search opens from keyboard, focus in input; typing filters options; ArrowDown moves aria-activedescendant; Enter navigates to a matching view; Escape closes and returns focus to the invoking button",
+        "actual": {
+          "how": "Ctrl+K",
+          "opened": true,
+          "state": {
+            "open": [
+              "DIV[role=dialog][modal=true]\"\"",
+              "DIV[role=listbox][modal=null]\"Matching destinations\""
+            ],
+            "mainInert": true
+          },
+          "focus": {
+            "tag": "INPUT",
+            "id": "_r_b_",
+            "role": "combobox",
+            "name": "",
+            "rect": [
+              285,
+              241,
+              870,
+              37
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "solid|2px|rgb(136, 184, 255)|none|rgb(100, 119, 140)|rgb(17, 23, 31)|none",
+            "inDialog": true,
+            "inMain": false,
+            "hash": "#home"
+          },
+          "ad0": "_r_8_-option-0",
+          "ad1": "_r_8_-option-1",
+          "opts": [
+            "SpecificationsWorkspace view",
+            "Specification submission requestSpecific",
+            "Document propertiesSpecifications · 16 a"
+          ],
+          "after": "#specifications?authority=definitions&schema=spec-submission",
+          "reopen": {
+            "found": false,
+            "openedAgain": false,
+            "closed": true,
+            "focusBack": {
+              "tag": "MAIN",
+              "id": "main",
+              "role": null,
+              "name": "Workspace/Connection & operationsService connectio",
+              "rect": [
+                208,
+                52,
+                1232,
+                868
+              ],
+              "inViewport": true,
+              "obscured": false,
+              "style": "none|0px|rgb(231, 237, 245)|none|rgb(231, 237, 245)|rgba(0, 0, 0, 0)|none",
+              "inDialog": false,
+              "inMain": true,
+              "hash": "#connection"
+            }
+          }
+        },
+        "result": "FAIL"
+      },
+      {
+        "case_id": "FE03-KBD-TABS",
+        "result": "BLOCKED",
+        "reason": "harness error: TimeoutError: locator.focus: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[data-atlas-tl=\"1\"] [role=tab]').first()\n"
+      },
+      {
+        "case_id": "FE03-KBD-TREE",
+        "expected": "arrow-key navigation per APG Tree View when the tree has items",
+        "actual": {
+          "treeitems": 0
+        },
+        "result": "NOT_APPLICABLE",
+        "reason": "Library tree is empty on a fresh profile (no documents); needs seeded documents via Import files"
+      },
+      {
+        "case_id": "FE03-KBD-DIALOG-HELP",
+        "expected": "Enter opens a modal dialog; focus moves inside; background inert or aria-modal; Tab stays inside; Escape closes; focus returns to the invoking button",
+        "actual": {
+          "reached": true,
+          "presses": 5,
+          "open": [
+            "DIV[role=dialog][modal=true]\"\""
+          ],
+          "mainInert": true,
+          "focusInside": {
+            "tag": "BUTTON",
+            "id": null,
+            "role": null,
+            "name": "Close",
+            "rect": [
+              1070,
+              196,
+              85,
+              34
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "solid|2px|rgb(136, 184, 255)|none|rgb(100, 119, 140)|rgb(23, 31, 41)|none",
+            "inDialog": true,
+            "inMain": false,
+            "hash": "#home"
+          },
+          "trapInside": "14/14",
+          "afterEscape": [],
+          "focusBack": "Help & recovery"
+        },
+        "result": "PASS",
+        "reason": ""
+      },
+      {
+        "case_id": "FE03-KBD-DIALOG-PREFS",
+        "expected": "Enter opens a modal dialog; focus moves inside; background inert or aria-modal; Tab stays inside; Escape closes; focus returns to the invoking button",
+        "actual": {
+          "reached": true,
+          "presses": 4,
+          "open": [
+            "DIV[role=dialog][modal=true]\"\""
+          ],
+          "mainInert": true,
+          "focusInside": {
+            "tag": "BUTTON",
+            "id": null,
+            "role": null,
+            "name": "Close",
+            "rect": [
+              1070,
+              268,
+              85,
+              34
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "solid|2px|rgb(136, 184, 255)|none|rgb(100, 119, 140)|rgb(23, 31, 41)|none",
+            "inDialog": true,
+            "inMain": false,
+            "hash": "#home"
+          },
+          "trapInside": "14/14",
+          "afterEscape": [],
+          "focusBack": "Display preferences"
+        },
+        "result": "PASS",
+        "reason": ""
+      },
+      {
+        "case_id": "FE03-KBD-NAV-MOBILE",
+        "expected": "375px: navigation toggle reachable by Tab; Enter opens drawer (aria-expanded=true, nav visible); Escape closes (aria-expanded=false) and focus returns to the toggle",
+        "actual": {
+          "reached": true,
+          "presses": 2,
+          "exp0": "false",
+          "exp1": null,
+          "navBefore": false,
+          "navVisible": false,
+          "focusOpen": "Close",
+          "exp2": "false",
+          "focusBack": "Open workspace navigation"
+        },
+        "result": "FAIL",
+        "reason": ""
+      },
+      {
+        "case_id": "FE01-ROUTE-004",
+        "expected": "activating a nav link with Enter shows the view and moves focus to main or its heading",
+        "actual": {
+          "reached": true,
+          "focus": {
+            "tag": "MAIN",
+            "id": "main",
+            "role": null,
+            "name": "Workspace/MemoryWORKSPACE / MEMORYMemoryVersion co",
+            "rect": [
+              208,
+              52,
+              1232,
+              1211
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "none|0px|rgb(231, 237, 245)|none|rgb(231, 237, 245)|rgba(0, 0, 0, 0)|none",
+            "inDialog": false,
+            "inMain": true,
+            "hash": "#memory"
+          }
+        },
+        "result": "PASS"
+      }
+    ]
+  },
+  "webkit": {
+    "browserVersion": "26.0",
+    "checks": [
+      {
+        "case_id": "FE03-KBD-SKIP",
+        "expected": "Tab#1 = \"Skip to workspace\"; Enter keeps view #home (h1 unchanged) and moves focus into main",
+        "actual": {
+          "first": {
+            "tag": "A",
+            "id": null,
+            "role": null,
+            "name": "Skip to workspace",
+            "rect": [
+              12,
+              8,
+              154,
+              41
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "solid|2px|rgb(136, 184, 255)|none|rgb(7, 27, 24)|rgb(83, 212, 193)|none",
+            "inDialog": false,
+            "inMain": false,
+            "hash": "#home"
+          },
+          "afterEnter": {
+            "tag": "MAIN",
+            "id": "main",
+            "role": null,
+            "name": "Workspace/OverviewATLAS · WORKSPACEBuild with a cl",
+            "rect": [
+              208,
+              12,
+              1232,
+              1006
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "none|0px|rgb(231, 237, 245)|none|rgb(231, 237, 245)|rgba(0, 0, 0, 0)|none",
+            "inDialog": false,
+            "inMain": true,
+            "hash": "#home"
+          },
+          "h1": "Build with a clear trail.",
+          "hash": "#home"
+        },
+        "result": "PASS"
+      },
+      {
+        "case_id": "FE03-KBD-TABSEQ",
+        "expected": "every Tab stop is a visible control inside the viewport, not obscured (2.4.11), with a visible focus indicator distinct from its unfocused style (2.4.7)",
+        "actual": {
+          "stops": [
+            [
+              "A",
+              null,
+              "Skip to workspace",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Open workspace search",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Switch display theme",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Display preferences",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Help & recovery",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Overview",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Specifications",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Code intelligence",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Agents",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Resources",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Memory",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Workflow",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Execution",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Delivery & acceptance",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "AI gateway",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Collaboration",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Configuration",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Identity & access",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Organization & projects",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Usage & billing",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Desktop companion",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Observer",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Connection & operations",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Browse definitions",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Open design review",
+              true,
+              false
+            ],
+            [
+              "A",
+              null,
+              "Workspace",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Open document workspace",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Browse definitions",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Local documents0On this device · inspect saved rev",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Agent drafts0On this device · inspect saved revisi",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Workflow drafts0On this device · inspect saved rev",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Memory drafts0On this device · inspect saved revis",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "1SpecificationsOrganize documents, author requirem",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "2Code intelligenceRead imported source, explore sy",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "3AgentsDefine agents, pin their dependencies and i",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "4WorkflowBuild a task graph with explicit dependen",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "5ExecutionInspect runs, task attempts, public even",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "6Delivery & acceptanceReview artifacts, merge iden",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Connect & inspect authority",
+              true,
+              false
+            ],
+            [
+              "BODY",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "A",
+              null,
+              "Skip to workspace",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Open workspace search",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Switch display theme",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Display preferences",
+              true,
+              false
+            ],
+            [
+              "BUTTON",
+              null,
+              "Help & recovery",
+              true,
+              false
+            ]
+          ],
+          "noIndicator": [],
+          "hidden": [
+            39
+          ],
+          "obscured": []
+        },
+        "result": "FAIL"
+      },
+      {
+        "case_id": "FE03-KBD-SEARCH",
+        "expected": "search opens from keyboard, focus in input; typing filters options; ArrowDown moves aria-activedescendant; Enter navigates to a matching view; Escape closes and returns focus to the invoking button",
+        "actual": {
+          "how": "Ctrl+K",
+          "opened": true,
+          "state": {
+            "open": [
+              "DIV[role=dialog][modal=true]\"\"",
+              "DIV[role=listbox][modal=null]\"Matching destinations\""
+            ],
+            "mainInert": true
+          },
+          "focus": {
+            "tag": "INPUT",
+            "id": "_r_b_",
+            "role": "combobox",
+            "name": "",
+            "rect": [
+              285,
+              241,
+              870,
+              37
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "solid|2px|rgb(136, 184, 255)|none|rgb(100, 119, 140)|rgb(17, 23, 31)|none",
+            "inDialog": true,
+            "inMain": false,
+            "hash": "#home"
+          },
+          "ad0": "_r_8_-option-0",
+          "ad1": "_r_8_-option-1",
+          "opts": [
+            "SpecificationsWorkspace view",
+            "Specification submission requestSpecific",
+            "Document propertiesSpecifications · 16 a"
+          ],
+          "after": "#specifications?authority=definitions&schema=spec-submission",
+          "reopen": {
+            "found": true,
+            "openedAgain": true,
+            "closed": true,
+            "focusBack": {
+              "tag": "BUTTON",
+              "id": null,
+              "role": null,
+              "name": "Open workspace search",
+              "rect": [
+                720,
+                8,
+                237,
+                36
+              ],
+              "inViewport": true,
+              "obscured": false,
+              "style": "solid|2px|rgb(136, 184, 255)|none|rgb(42, 54, 68)|rgb(17, 23, 31)|none",
+              "inDialog": false,
+              "inMain": false,
+              "hash": "#home"
+            }
+          }
+        },
+        "result": "PASS"
+      },
+      {
+        "case_id": "FE03-KBD-TABS",
+        "result": "BLOCKED",
+        "reason": "harness error: TimeoutError: locator.focus: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[data-atlas-tl=\"1\"] [role=tab]').first()\n"
+      },
+      {
+        "case_id": "FE03-KBD-TREE",
+        "expected": "arrow-key navigation per APG Tree View when the tree has items",
+        "actual": {
+          "treeitems": 0
+        },
+        "result": "NOT_APPLICABLE",
+        "reason": "Library tree is empty on a fresh profile (no documents); needs seeded documents via Import files"
+      },
+      {
+        "case_id": "FE03-KBD-DIALOG-HELP",
+        "expected": "Enter opens a modal dialog; focus moves inside; background inert or aria-modal; Tab stays inside; Escape closes; focus returns to the invoking button",
+        "actual": {
+          "reached": true,
+          "presses": 5,
+          "open": [
+            "DIV[role=dialog][modal=true]\"\""
+          ],
+          "mainInert": true,
+          "focusInside": {
+            "tag": "BUTTON",
+            "id": null,
+            "role": null,
+            "name": "Close",
+            "rect": [
+              1070,
+              199,
+              85,
+              33
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "solid|2px|rgb(136, 184, 255)|none|rgb(100, 119, 140)|rgb(23, 31, 41)|none",
+            "inDialog": true,
+            "inMain": false,
+            "hash": "#home"
+          },
+          "trapInside": "14/14",
+          "afterEscape": [],
+          "focusBack": "Help & recovery"
+        },
+        "result": "PASS",
+        "reason": ""
+      },
+      {
+        "case_id": "FE03-KBD-DIALOG-PREFS",
+        "expected": "Enter opens a modal dialog; focus moves inside; background inert or aria-modal; Tab stays inside; Escape closes; focus returns to the invoking button",
+        "actual": {
+          "reached": true,
+          "presses": 4,
+          "open": [
+            "DIV[role=dialog][modal=true]\"\""
+          ],
+          "mainInert": true,
+          "focusInside": {
+            "tag": "BUTTON",
+            "id": null,
+            "role": null,
+            "name": "Close",
+            "rect": [
+              1070,
+              259,
+              85,
+              33
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "solid|2px|rgb(136, 184, 255)|none|rgb(100, 119, 140)|rgb(23, 31, 41)|none",
+            "inDialog": true,
+            "inMain": false,
+            "hash": "#home"
+          },
+          "trapInside": "14/14",
+          "afterEscape": [],
+          "focusBack": "Display preferences"
+        },
+        "result": "PASS",
+        "reason": ""
+      },
+      {
+        "case_id": "FE03-KBD-NAV-MOBILE",
+        "expected": "375px: navigation toggle reachable by Tab; Enter opens drawer (aria-expanded=true, nav visible); Escape closes (aria-expanded=false) and focus returns to the toggle",
+        "actual": {
+          "reached": true,
+          "presses": 2,
+          "exp0": "false",
+          "exp1": null,
+          "navBefore": false,
+          "navVisible": false,
+          "focusOpen": "Close",
+          "exp2": "false",
+          "focusBack": "Open workspace navigation"
+        },
+        "result": "FAIL",
+        "reason": ""
+      },
+      {
+        "case_id": "FE01-ROUTE-004",
+        "expected": "activating a nav link with Enter shows the view and moves focus to main or its heading",
+        "actual": {
+          "reached": true,
+          "focus": {
+            "tag": "MAIN",
+            "id": "main",
+            "role": null,
+            "name": "Workspace/MemoryWORKSPACE / MEMORYMemoryVersion co",
+            "rect": [
+              208,
+              29,
+              1232,
+              1209
+            ],
+            "inViewport": true,
+            "obscured": false,
+            "style": "none|0px|rgb(231, 237, 245)|none|rgb(231, 237, 245)|rgba(0, 0, 0, 0)|none",
+            "inDialog": false,
+            "inMain": true,
+            "hash": "#memory"
+          }
+        },
+        "result": "PASS"
+      }
+    ]
+  }
+}

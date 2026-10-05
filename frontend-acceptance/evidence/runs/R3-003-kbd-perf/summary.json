@@ -1,0 +1,32 @@
+{
+  "request_id": "R3-003-kbd-perf",
+  "github_run_id": "37284006443",
+  "target": "https://sparkling-snow-090d.ekko-okke666.workers.dev",
+  "started_at": "2026-10-05T08:30:51.772Z",
+  "suites": {
+    "keyboard": {
+      "status": "completed",
+      "ms": 147063,
+      "chromium": "FE03-KBD-SKIP:PASS FE03-KBD-TABSEQ:FAIL FE03-KBD-SEARCH:PASS FE03-KBD-TABS:BLOCKED FE03-KBD-TREE:NOT_APPLICABLE FE03-KBD-DIALOG-HELP:PASS FE03-KBD-DIALOG-PREFS:PASS FE03-KBD-NAV-MOBILE:FAIL FE01-ROUTE-004:PASS",
+      "firefox": "FE03-KBD-SKIP:PASS FE03-KBD-TABSEQ:PASS FE03-KBD-SEARCH:FAIL FE03-KBD-TABS:BLOCKED FE03-KBD-TREE:NOT_APPLICABLE FE03-KBD-DIALOG-HELP:PASS FE03-KBD-DIALOG-PREFS:PASS FE03-KBD-NAV-MOBILE:FAIL FE01-ROUTE-004:PASS",
+      "webkit": "FE03-KBD-SKIP:PASS FE03-KBD-TABSEQ:FAIL FE03-KBD-SEARCH:PASS FE03-KBD-TABS:BLOCKED FE03-KBD-TREE:NOT_APPLICABLE FE03-KBD-DIALOG-HELP:PASS FE03-KBD-DIALOG-PREFS:PASS FE03-KBD-NAV-MOBILE:FAIL FE01-ROUTE-004:PASS"
+    },
+    "perf": {
+      "status": "completed",
+      "ms": 112307,
+      "cold_lcp_p75": 168,
+      "warm_lcp_p75": 80,
+      "mobile_lcp_p75": 1236,
+      "inp": 32,
+      "heapGrowth": 18.6
+    },
+    "screenshots": {
+      "status": "completed",
+      "ms": 29140,
+      "shots": 72,
+      "h1fail": 0,
+      "errors": 0
+    }
+  },
+  "finished_at": "2026-10-05T08:35:40.283Z"
+}

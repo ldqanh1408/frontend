@@ -1,0 +1,437 @@
+{
+  "shots": [
+    {
+      "route": "home",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "specifications",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "code",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "agents",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "resources",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "memory",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "workflow",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "execution",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "governance",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "gateway",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "collaboration",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "configuration",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "identity",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "tenancy",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "saas",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "desktop",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "observer",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "connection",
+      "theme": "dark",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "home",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "specifications",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "code",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "agents",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "resources",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "memory",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "workflow",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "execution",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "governance",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "gateway",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "collaboration",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "configuration",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "identity",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "tenancy",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "saas",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "desktop",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "observer",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "connection",
+      "theme": "light",
+      "vp": "375x812",
+      "h1ok": true
+    },
+    {
+      "route": "home",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "specifications",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "code",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "agents",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "resources",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "memory",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "workflow",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "execution",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "governance",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "gateway",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "collaboration",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "configuration",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "identity",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "tenancy",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "saas",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "desktop",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "observer",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "connection",
+      "theme": "dark",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "home",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "specifications",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "code",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "agents",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "resources",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "memory",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "workflow",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "execution",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "governance",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "gateway",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "collaboration",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "configuration",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "identity",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "tenancy",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "saas",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "desktop",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "observer",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    },
+    {
+      "route": "connection",
+      "theme": "light",
+      "vp": "1440x900",
+      "h1ok": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,587 @@
+{
+  "suite": "screenshots",
+  "cases": [],
+  "evidence": [
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/home.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "home",
+      "timestamp": "2026-10-05T08:35:12.290Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/specifications.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "specifications",
+      "timestamp": "2026-10-05T08:35:12.955Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/code.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "code",
+      "timestamp": "2026-10-05T08:35:13.470Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/agents.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "agents",
+      "timestamp": "2026-10-05T08:35:13.831Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/resources.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "resources",
+      "timestamp": "2026-10-05T08:35:14.196Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/memory.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "memory",
+      "timestamp": "2026-10-05T08:35:14.564Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/workflow.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "workflow",
+      "timestamp": "2026-10-05T08:35:14.929Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/execution.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "execution",
+      "timestamp": "2026-10-05T08:35:15.280Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/governance.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "governance",
+      "timestamp": "2026-10-05T08:35:15.646Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/gateway.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "gateway",
+      "timestamp": "2026-10-05T08:35:16.014Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/collaboration.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "collaboration",
+      "timestamp": "2026-10-05T08:35:16.381Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/configuration.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "configuration",
+      "timestamp": "2026-10-05T08:35:16.746Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/identity.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "identity",
+      "timestamp": "2026-10-05T08:35:17.113Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/tenancy.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "tenancy",
+      "timestamp": "2026-10-05T08:35:17.479Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/saas.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "saas",
+      "timestamp": "2026-10-05T08:35:17.846Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/desktop.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "desktop",
+      "timestamp": "2026-10-05T08:35:18.213Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/observer.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "observer",
+      "timestamp": "2026-10-05T08:35:18.579Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/dark/connection.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "dark",
+      "route": "connection",
+      "timestamp": "2026-10-05T08:35:19.252Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/home.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "home",
+      "timestamp": "2026-10-05T08:35:19.969Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/specifications.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "specifications",
+      "timestamp": "2026-10-05T08:35:20.330Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/code.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "code",
+      "timestamp": "2026-10-05T08:35:20.545Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/agents.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "agents",
+      "timestamp": "2026-10-05T08:35:20.896Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/resources.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "resources",
+      "timestamp": "2026-10-05T08:35:21.263Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/memory.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "memory",
+      "timestamp": "2026-10-05T08:35:21.629Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/workflow.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "workflow",
+      "timestamp": "2026-10-05T08:35:21.978Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/execution.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "execution",
+      "timestamp": "2026-10-05T08:35:22.329Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/governance.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "governance",
+      "timestamp": "2026-10-05T08:35:22.696Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/gateway.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "gateway",
+      "timestamp": "2026-10-05T08:35:23.061Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/collaboration.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "collaboration",
+      "timestamp": "2026-10-05T08:35:23.412Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/configuration.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "configuration",
+      "timestamp": "2026-10-05T08:35:23.762Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/identity.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "identity",
+      "timestamp": "2026-10-05T08:35:24.129Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/tenancy.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "tenancy",
+      "timestamp": "2026-10-05T08:35:24.497Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/saas.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "saas",
+      "timestamp": "2026-10-05T08:35:24.863Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/desktop.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "desktop",
+      "timestamp": "2026-10-05T08:35:25.229Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/observer.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "observer",
+      "timestamp": "2026-10-05T08:35:25.597Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/375x812/light/connection.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "375x812",
+      "theme": "light",
+      "route": "connection",
+      "timestamp": "2026-10-05T08:35:25.960Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/home.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "home",
+      "timestamp": "2026-10-05T08:35:27.066Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/specifications.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "specifications",
+      "timestamp": "2026-10-05T08:35:27.720Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/code.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "code",
+      "timestamp": "2026-10-05T08:35:28.219Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/agents.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "agents",
+      "timestamp": "2026-10-05T08:35:28.563Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/resources.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "resources",
+      "timestamp": "2026-10-05T08:35:28.914Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/memory.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "memory",
+      "timestamp": "2026-10-05T08:35:29.264Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/workflow.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "workflow",
+      "timestamp": "2026-10-05T08:35:29.617Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/execution.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "execution",
+      "timestamp": "2026-10-05T08:35:29.953Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/governance.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "governance",
+      "timestamp": "2026-10-05T08:35:30.308Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/gateway.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "gateway",
+      "timestamp": "2026-10-05T08:35:30.647Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/collaboration.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "collaboration",
+      "timestamp": "2026-10-05T08:35:30.997Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/configuration.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "configuration",
+      "timestamp": "2026-10-05T08:35:31.346Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/identity.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "identity",
+      "timestamp": "2026-10-05T08:35:31.697Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/tenancy.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "tenancy",
+      "timestamp": "2026-10-05T08:35:32.047Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/saas.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "saas",
+      "timestamp": "2026-10-05T08:35:32.397Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/desktop.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "desktop",
+      "timestamp": "2026-10-05T08:35:32.748Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/observer.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "observer",
+      "timestamp": "2026-10-05T08:35:33.096Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/dark/connection.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "dark",
+      "route": "connection",
+      "timestamp": "2026-10-05T08:35:33.752Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/home.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "home",
+      "timestamp": "2026-10-05T08:35:34.453Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/specifications.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "specifications",
+      "timestamp": "2026-10-05T08:35:34.789Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/code.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "code",
+      "timestamp": "2026-10-05T08:35:34.980Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/agents.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "agents",
+      "timestamp": "2026-10-05T08:35:35.331Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/resources.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "resources",
+      "timestamp": "2026-10-05T08:35:35.680Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/memory.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "memory",
+      "timestamp": "2026-10-05T08:35:36.030Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/workflow.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "workflow",
+      "timestamp": "2026-10-05T08:35:36.378Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/execution.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "execution",
+      "timestamp": "2026-10-05T08:35:36.729Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/governance.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "governance",
+      "timestamp": "2026-10-05T08:35:37.078Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/gateway.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "gateway",
+      "timestamp": "2026-10-05T08:35:37.430Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/collaboration.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "collaboration",
+      "timestamp": "2026-10-05T08:35:37.780Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/configuration.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "configuration",
+      "timestamp": "2026-10-05T08:35:38.130Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/identity.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "identity",
+      "timestamp": "2026-10-05T08:35:38.479Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/tenancy.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "tenancy",
+      "timestamp": "2026-10-05T08:35:38.830Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/saas.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "saas",
+      "timestamp": "2026-10-05T08:35:39.180Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/desktop.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "desktop",
+      "timestamp": "2026-10-05T08:35:39.529Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/observer.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "observer",
+      "timestamp": "2026-10-05T08:35:39.879Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/1440x900/light/connection.jpg",
+      "evidence_type": "screenshot",
+      "viewport": "1440x900",
+      "theme": "light",
+      "route": "connection",
+      "timestamp": "2026-10-05T08:35:40.227Z"
+    },
+    {
+      "path": "evidence/runs/R3-003-kbd-perf/screenshots/screenshots-index.json",
+      "evidence_type": "screenshot-index",
+      "timestamp": "2026-10-05T08:35:40.282Z"
+    }
+  ]
+}
