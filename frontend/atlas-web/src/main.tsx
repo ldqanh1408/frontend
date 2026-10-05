@@ -15,6 +15,7 @@ import { Toaster } from './components/overlays';
 import { nav, routes } from './data/catalog';
 import { DRAFT_MODULES, SERVICE_MODULES } from './data/module-specs';
 import { initStorage } from './lib/storage';
+import { restoreSession } from './data/service';
 import type { ModuleRoute } from './data/types';
 
 const Overview = lazy(() => import('./views/Overview'));
@@ -25,6 +26,9 @@ const ServiceModulePage = lazy(() => import('./views/modules/ServiceModulePage')
 const DraftModulePage = lazy(() => import('./views/modules/DraftModulePage'));
 const ConnectionPage = lazy(() => import('./views/modules/ConnectionPage'));
 const ModuleLanding = lazy(() => import('./views/modules/ModuleLanding'));
+const SpecificationsPage = lazy(() => import('./views/specs/SpecificationsPage'));
+const CodePage = lazy(() => import('./views/code/CodePage'));
+const WorkflowPage = lazy(() => import('./views/workflow/WorkflowPage'));
 
 function Root() {
   return <PageMetaProvider><Outlet /></PageMetaProvider>;
@@ -44,6 +48,9 @@ function BareLayout() {
 function modulePage(r: ModuleRoute) {
   if (r === 'home') return null;
   if (r === 'connection') return <ConnectionPage />;
+  if (r === 'specifications') return <SpecificationsPage />;
+  if (r === 'code') return <CodePage />;
+  if (r === 'workflow') return <WorkflowPage />;
   if (SERVICE_MODULES[r]) return <ServiceModulePage key={r} module={r} />;
   if (DRAFT_MODULES[r]) return <DraftModulePage key={r} module={r} />;
   return <ModuleLanding key={r} module={r} />;
@@ -86,6 +93,7 @@ const router = createBrowserRouter([
 ]);
 
 initStorage();
+restoreSession();
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={router} />

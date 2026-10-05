@@ -36,12 +36,16 @@ export function Tabs({ tabs, value, onValueChange, defaultValue, label, activati
   tabs: { id: string; label: ReactNode; content: ReactNode; badge?: ReactNode }[]; value?: string; onValueChange?: (v: string) => void;
   defaultValue?: string; label: string; activation?: 'automatic' | 'manual';
 }) {
+  // Radix derives element ids from the value; keep values id-safe so aria-controls/aria-labelledby stay valid references.
+  const safe = (id: string) => id.replace(/[^A-Za-z0-9_-]+/g, '-');
+  const back = (v: string) => tabs.find((t) => safe(t.id) === v)?.id ?? v;
   return (
-    <RT.Root value={value} onValueChange={onValueChange} defaultValue={defaultValue ?? tabs[0]?.id} activationMode={activation}>
+    <RT.Root value={value === undefined ? undefined : safe(value)} onValueChange={onValueChange ? (v) => onValueChange(back(v)) : undefined}
+      defaultValue={safe(defaultValue ?? tabs[0]?.id ?? '')} activationMode={activation}>
       <RT.List className="tabs-list" aria-label={label}>
-        {tabs.map((t) => <RT.Trigger key={t.id} value={t.id} className="tabs-trigger">{t.label}{t.badge}</RT.Trigger>)}
+        {tabs.map((t) => <RT.Trigger key={t.id} value={safe(t.id)} className="tabs-trigger">{t.label}{t.badge}</RT.Trigger>)}
       </RT.List>
-      {tabs.map((t) => <RT.Content key={t.id} value={t.id} className="tabs-content">{t.content}</RT.Content>)}
+      {tabs.map((t) => <RT.Content key={t.id} value={safe(t.id)} className="tabs-content">{t.content}</RT.Content>)}
     </RT.Root>
   );
 }

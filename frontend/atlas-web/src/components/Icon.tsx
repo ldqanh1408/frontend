@@ -3,7 +3,7 @@ import {
   CircleHelp, CirclePlay, Clock, Code, Copy, Database, Download, Ellipsis, ExternalLink, Eye, File, FileText, Filter, Folder, FolderOpen,
   Gauge, GitCompare, GitMerge, GitPullRequest, History, House, Inbox, Info, KeyRound, Keyboard, Layers, Link, ListTree, Lock, LogIn, LogOut,
   Mail, Menu, Monitor, Moon, Network, Pause, Pin, Play, Plug, Plus, Receipt, RefreshCw, RotateCcw, Save, ScrollText, Search, Settings,
-  Shield, ShieldCheck, SlidersHorizontal, Square, Sun, Terminal, Trash2, TriangleAlert, Unplug, Upload, UserCog, Users, Workflow, X,
+  Shield, ShieldCheck, SlidersHorizontal, EyeOff, Pencil, FolderPlus, FilePlus, Sparkles, GitBranch, Hash, ListChecks, Send, Snowflake, Braces, CircleDot, Square, Sun, Terminal, Trash2, TriangleAlert, Unplug, Upload, UserCog, Users, Workflow, X,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -17,6 +17,8 @@ const MAP: Record<string, LucideIcon> = {
   sliders: SlidersHorizontal, keyboard: Keyboard, tree: ListTree, clock: Clock, back: ArrowLeft, filter: Filter, more: Ellipsis, activity: Activity,
   terminal: Terminal, pr: GitPullRequest, merge: GitMerge, database: Database, gauge: Gauge, layers: Layers, network: Network, play: Play,
   pause: Pause, stop: Square, retry: RotateCcw, ban: Ban, scroll: ScrollText, inbox: Inbox, bell: Bell, login: LogIn, logout: LogOut, mail: Mail, shield: Shield,
+  'eye-off': EyeOff, edit: Pencil, 'folder-plus': FolderPlus, 'file-plus': FilePlus, sparkles: Sparkles, branch: GitBranch, hash: Hash,
+  checklist: ListChecks, send: Send, freeze: Snowflake, braces: Braces, dot: CircleDot,
 };
 
 export function Icon({ name, label, size = 16, className }: { name: string; label?: string; size?: number; className?: string }) {

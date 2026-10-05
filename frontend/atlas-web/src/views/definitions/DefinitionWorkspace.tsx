@@ -271,15 +271,13 @@ function HistoryDialog({ open, onOpenChange, rec, schema, current }: { open: boo
     <Dialog open={open} onOpenChange={onOpenChange} wide title="Saved definition history" description="Every device revision is immutable and hashed. Compare a saved revision with the current form.">
       {revs.length === 0 ? <p>No saved revisions.</p> : (
         <div className="split">
-          <ul className="list" role="listbox" aria-label="Revisions">
+          <div className="stack" role="group" aria-label="Revisions">
             {revs.map((r) => (
-              <li key={r.id} role="option" aria-selected={r.rev === sel}>
-                <button className="list-item" aria-pressed={r.rev === sel} onClick={() => setSel(r.rev)}>
-                  <span className="grow">r{r.rev} · {r.name}</span><span className="caption" title={r.savedAt}>{relativeTime(r.savedAt)}</span>
-                </button>
-              </li>
+              <button key={r.id} className="list-item" aria-pressed={r.rev === sel} onClick={() => setSel(r.rev)}>
+                <span className="grow">r{r.rev} · {r.name}</span><span className="caption" title={r.savedAt}>{relativeTime(r.savedAt)}</span>
+              </button>
             ))}
-          </ul>
+          </div>
           <div className="stack">
             {chosen && <p className="caption mono break">sha256 {chosen.hash}</p>}
             {chosen && (diff.length === 0 ? <p>The current form matches r{chosen.rev}.</p> : (

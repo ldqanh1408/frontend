@@ -45,6 +45,7 @@ export default function ConnectionPage() {
       <PageHeader eyebrow={m.label} title={m.title} purpose={m.purpose} actions={<Button icon="download" onClick={exportDeviceDrafts}>Export device drafts</Button>} />
       <Banner tone="warning" title="Service adapter contract is proposed">This UI speaks the proposed atlas-ui/v1 capability, session, collection and command responses. Verify availability against your actual backend; no result is preseeded.</Banner>
       {connection === 'ended' && endReason && <Banner tone="warning" title="Service session ended" role="status">{endReason} Reconnect to load authorized records. Device drafts are unchanged.</Banner>}
+      {connection === 'disconnected' && endReason && <Banner tone="info" title="Not connected" role="status">{endReason}</Banner>}
       <div className="split">
         <Panel title="Service connection" actions={<Badge tone={connection === 'connected' ? 'success' : connection === 'ended' ? 'warning' : 'neutral'}>{status}</Badge>}>
           {connection === 'connected' && session ? (

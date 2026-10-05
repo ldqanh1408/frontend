@@ -19,7 +19,7 @@ export interface JournalEntry {
   /** Service-declared follow-up links (statusHref may contain {operationId}). */
   statusHref: string | null; effectHref: string | null; resourceName: string; expectedRevision: number | null;
 }
-type StoreName = 'definitions' | 'revisions' | 'documents' | 'docRevisions' | 'sources' | 'journal' | 'kv';
+type StoreName = 'definitions' | 'revisions' | 'documents' | 'docRevisions' | 'sources' | 'journal' | 'kv' | 'workflows';
 
 export class ConflictError extends Error {
   constructor(public current: { rev: number; updatedAt: string }) { super('This item changed in another tab or window.'); }
@@ -30,7 +30,7 @@ export const persistence = createStore<{ mode: 'indexeddb' | 'memory' | 'unknown
 const DB = 'atlas-device';
 let dbp: Promise<IDBPDatabase | null> | null = null;
 const memory: Record<StoreName, Map<string, unknown>> = {
-  definitions: new Map(), revisions: new Map(), documents: new Map(), docRevisions: new Map(), sources: new Map(), journal: new Map(), kv: new Map(),
+  definitions: new Map(), revisions: new Map(), documents: new Map(), docRevisions: new Map(), sources: new Map(), journal: new Map(), kv: new Map(), workflows: new Map(),
 };
 
 function db(): Promise<IDBPDatabase | null> {
@@ -38,8 +38,10 @@ function db(): Promise<IDBPDatabase | null> {
     dbp = (async () => {
       try {
         if (typeof indexedDB === 'undefined') throw new Error('IndexedDB is not available in this browser.');
-        const d = await openDB(DB, 1, {
-          upgrade(u) {
+        const d = await openDB(DB, 2, {
+          upgrade(u, oldVersion) {
+            if (oldVersion < 2 && !u.objectStoreNames.contains('workflows')) u.createObjectStore('workflows', { keyPath: 'id' });
+            if (oldVersion >= 1) return;
             const defs = u.createObjectStore('definitions', { keyPath: 'id' });
             defs.createIndex('schemaId', 'schemaId');
             const revs = u.createObjectStore('revisions', { keyPath: 'id' });
@@ -53,7 +55,8 @@ function db(): Promise<IDBPDatabase | null> {
             j.createIndex('module', 'module');
             u.createObjectStore('kv');
           },
-          blocked() { /* another tab holds an older version; it will reload */ },
+          blocked() { /* another tab holds an older version; it closes on versionchange */ },
+          blocking() { d?.close(); },
         });
         persistence.set({ mode: 'indexeddb', reason: '' });
         return d;
@@ -104,7 +107,7 @@ export async function del(store: StoreName, id: string): Promise<void> {
 }
 
 /** Compare-and-swap on `rev`: refuses to overwrite a newer revision written by another tab. */
-export async function putVersioned<T extends { id: string; rev: number; updatedAt: string }>(store: 'definitions' | 'documents', value: T, expectedRev: number): Promise<T> {
+export async function putVersioned<T extends { id: string; rev: number; updatedAt: string }>(store: 'definitions' | 'documents' | 'workflows', value: T, expectedRev: number): Promise<T> {
   const d = await db();
   if (!d) {
     const cur = memory[store].get(value.id) as T | undefined;

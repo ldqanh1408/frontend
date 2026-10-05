@@ -113,6 +113,7 @@ export async function connect(url: string, audience: Audience): Promise<void> {
     };
     app.set({ connection: 'connected', session });
     armExpiry(session.expiresAt);
+    safeLocal.set('atlas.serviceRestore', audience);
   } catch (e) {
     app.set({ connection: 'disconnected', session: null });
     csrf = null;
@@ -129,6 +130,7 @@ function armExpiry(expiresAt: string | null) {
 }
 
 export function disconnect() {
+  safeLocal.set('atlas.serviceRestore', '');
   if (expiryTimer) clearTimeout(expiryTimer);
   csrf = null;
   app.set((s) => ({ connection: 'disconnected', session: null, endReason: null, toasts: s.toasts.filter((t) => t.kind === 'local') }));
@@ -247,4 +249,19 @@ export async function reconcile(entry: JournalEntry): Promise<JournalEntry> {
 export async function listJournal(module?: string): Promise<JournalEntry[]> {
   const all = await getAll<JournalEntry>('journal', module ? 'module' : undefined, module);
   return all.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+
+/**
+ * After a reload, re-establish a previously connected session from the service's own cookie session (no token is stored
+ * in the browser). Failure leaves Atlas disconnected with the reason shown on the connection page.
+ */
+export async function restoreSession(): Promise<void> {
+  const audience = safeLocal.get('atlas.serviceRestore');
+  const url = app.get().serviceUrl;
+  if (!url || (audience !== 'workspace' && audience !== 'observer')) return;
+  try { await connect(url, audience); }
+  catch (e) {
+    safeLocal.set('atlas.serviceRestore', '');
+    app.set({ connection: 'disconnected', endReason: `The previous service session could not be restored: ${e instanceof Error ? e.message : String(e)}` });
+  }
 }

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { loadSchemas, nav, routes } from '../data/catalog';
 import { getAll, type DefinitionRecord, type DocumentRecord } from '../lib/storage';
+import type { WorkflowRecord } from '../lib/workflows';
 import { setTheme, app } from '../data/app-store';
 import { Icon } from '../components/Icon';
 import { modulePath } from './Sidebar';
@@ -15,6 +16,7 @@ export function CommandPalette({ open, onOpenChange, onOpenHelp, onOpenPrefs }: 
   const [schemas, setSchemas] = useState<SchemaSpec[]>([]);
   const [drafts, setDrafts] = useState<DefinitionRecord[]>([]);
   const [docs, setDocs] = useState<DocumentRecord[]>([]);
+  const [wfs, setWfs] = useState<WorkflowRecord[]>([]);
   const [q, setQ] = useState('');
   useEffect(() => {
     if (!open) return;
@@ -22,6 +24,7 @@ export function CommandPalette({ open, onOpenChange, onOpenHelp, onOpenPrefs }: 
     loadSchemas().then((s) => setSchemas(s.list)).catch(() => {});
     getAll<DefinitionRecord>('definitions').then((d) => setDrafts(d.filter((x) => !x.archived))).catch(() => {});
     getAll<DocumentRecord>('documents').then((d) => setDocs(d.filter((x) => x.kind === 'document' && !x.archived))).catch(() => {});
+    getAll<WorkflowRecord>('workflows').then((d) => setWfs(d.filter((x) => !x.archived))).catch(() => {});
   }, [open]);
   const go = (to: string) => { onOpenChange(false); navigate(to); };
   const run = (fn: () => void) => { onOpenChange(false); fn(); };
@@ -48,7 +51,7 @@ export function CommandPalette({ open, onOpenChange, onOpenHelp, onOpenPrefs }: 
                 <Command.Group heading="Views">
                   {views.map((r) => (
                     <Command.Item key={r.id} value={`view ${r.title} ${r.id}`} onSelect={() => go(r.route)}>
-                      <Icon name={nav.modules[r.module]?.icon ?? 'file'} />{r.title}<span className="palette-detail">{nav.modules[r.module]?.label} · {r.id}</span>
+                      <Icon name={nav.modules[r.module]?.icon ?? 'file'} />{r.title}<span className="palette-detail">{nav.modules[r.module]?.label}{r.kind === 'state' ? ' · state' : ''}</span>
                     </Command.Item>
                   ))}
                 </Command.Group>
@@ -76,6 +79,15 @@ export function CommandPalette({ open, onOpenChange, onOpenHelp, onOpenPrefs }: 
                   {docs.slice(0, 50).map((d) => (
                     <Command.Item key={d.id} value={`document ${d.name}`} onSelect={() => go(`/specifications?doc=${encodeURIComponent(d.id)}`)}>
                       <Icon name="file-text" />{d.name}<span className="palette-detail">device r{d.rev}</span>
+                    </Command.Item>
+                  ))}
+                </Command.Group>
+              )}
+              {wfs.length > 0 && (
+                <Command.Group heading="Workflow drafts">
+                  {wfs.slice(0, 50).map((w) => (
+                    <Command.Item key={w.id} value={`workflow ${w.name}`} onSelect={() => go(`/workflow?wf=${encodeURIComponent(w.id)}`)}>
+                      <Icon name="workflow" />{w.name}<span className="palette-detail">{w.tasks.length} tasks · device r{w.rev}</span>
                     </Command.Item>
                   ))}
                 </Command.Group>
