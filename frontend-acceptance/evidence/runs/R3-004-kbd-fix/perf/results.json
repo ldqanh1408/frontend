@@ -1,0 +1,12 @@
+{
+  "suite": "perf",
+  "cases": [],
+  "evidence": [
+    {
+      "path": "evidence/runs/R3-004-kbd-fix/perf/perf-results.json",
+      "evidence_type": "performance",
+      "input_mode": "trusted-input (INP) / navigation",
+      "timestamp": "2026-10-05T08:42:19.677Z"
+    }
+  ]
+}

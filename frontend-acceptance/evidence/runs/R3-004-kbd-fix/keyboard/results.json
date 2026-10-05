@@ -1,0 +1,12 @@
+{
+  "suite": "keyboard",
+  "cases": [],
+  "evidence": [
+    {
+      "path": "evidence/runs/R3-004-kbd-fix/keyboard/keyboard-results.json",
+      "evidence_type": "trusted-keyboard",
+      "input_mode": "trusted-input",
+      "timestamp": "2026-10-05T08:41:53.913Z"
+    }
+  ]
+}

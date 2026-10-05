@@ -1,0 +1,157 @@
+{
+  "budget": {
+    "LCP_p75": 2500,
+    "FCP_p75": 1800,
+    "CLS_p75": 0.1,
+    "INP": 200,
+    "HEAP_GROWTH_PCT": 10
+  },
+  "browserVersion": "141.0.7390.37",
+  "errors": [],
+  "PERF-INP-001-desktop": {
+    "interactions": 37,
+    "reported": 41,
+    "p50": 16,
+    "p75": 16,
+    "p95": 24,
+    "inp": 40,
+    "pass": true,
+    "slowest": [
+      [
+        10200,
+        "keydown",
+        40
+      ],
+      [
+        10207,
+        "keydown",
+        40
+      ],
+      [
+        10207,
+        "keyup",
+        32
+      ],
+      [
+        10200,
+        "keyup",
+        32
+      ],
+      [
+        10158,
+        "pointerdown",
+        24
+      ],
+      [
+        10158,
+        "pointerup",
+        24
+      ],
+      [
+        10158,
+        "click",
+        24
+      ],
+      [
+        10165,
+        "pointerdown",
+        24
+      ]
+    ],
+    "log": 34
+  },
+  "PERF-INP-001-cpu4x": {
+    "interactions": 37,
+    "reported": 39,
+    "p50": 16,
+    "p75": 40,
+    "p95": 64,
+    "inp": 72,
+    "pass": true,
+    "slowest": [
+      [
+        5835,
+        "keydown",
+        72
+      ],
+      [
+        5786,
+        "pointerdown",
+        64
+      ],
+      [
+        5786,
+        "pointerup",
+        64
+      ],
+      [
+        5786,
+        "click",
+        64
+      ],
+      [
+        5793,
+        "pointerdown",
+        64
+      ],
+      [
+        5793,
+        "pointerup",
+        64
+      ],
+      [
+        5793,
+        "click",
+        64
+      ],
+      [
+        5800,
+        "pointerdown",
+        56
+      ]
+    ],
+    "log": 34
+  },
+  "PERF-008": {
+    "before": {
+      "heap": 3341804,
+      "nodes": 475,
+      "listeners": 197,
+      "docs": 2
+    },
+    "after": {
+      "cycles": 30,
+      "heap": 3966080,
+      "nodes": 552,
+      "listeners": 210,
+      "docs": 2
+    },
+    "checkpoints": [
+      {
+        "cycles": 30,
+        "heap": 3966080,
+        "nodes": 552,
+        "listeners": 210,
+        "docs": 2
+      },
+      {
+        "cycles": 60,
+        "heap": 4085588,
+        "nodes": 370,
+        "listeners": 187,
+        "docs": 2
+      },
+      {
+        "cycles": 90,
+        "heap": 4154232,
+        "nodes": 462,
+        "listeners": 200,
+        "docs": 2
+      }
+    ],
+    "heapGrowthPct": 18.7,
+    "workers": [],
+    "pass": false,
+    "note": "route switching via location.hash (navigation, not editor open/close); editor open/close cycle requires seeded documents"
+  }
+}
