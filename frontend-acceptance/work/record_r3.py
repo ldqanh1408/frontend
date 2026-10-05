@@ -5,7 +5,7 @@ import glob, json, os
 import tests, findings
 
 ROOT = os.path.dirname(tests.HERE)
-RUNS = ['R3-001-xengine', 'R3-002-fx-layout', 'R3-003-kbd-perf']
+RUNS = ['R3-001-xengine', 'R3-002-fx-layout', 'R3-003-kbd-perf', 'R3-004-kbd-fix']
 RUN = None
 REL = lambda p: os.path.relpath(p, ROOT)
 EVID = []  # (evidence_id, path, timestamp, case_ids, type, viewport) appended for build.py
@@ -75,7 +75,7 @@ def ingest(run_name):
     if pf:
         e = ev(nid('PERF'), os.path.join(RUN, 'perf', 'perf-results.json'), 'PERF-007,PERF-INP-001,PERF-008', 'performance samples', '1440x900 / 375x812 throttled')
         b = pf['budget']
-        for k, label, vp in [('cold_desktop', 'PERF-007-COLD', '1440x900'), ('warm_desktop', 'PERF-007-WARM', '1440x900'), ('cold_mobile_throttled', 'PERF-007-MOBILE', '375x812 CPU4x 1.6/0.75Mbps 150ms')]:
+        for k, label, vp in ([('cold_desktop', 'PERF-007-COLD', '1440x900'), ('warm_desktop', 'PERF-007-WARM', '1440x900'), ('cold_mobile_throttled', 'PERF-007-MOBILE', '375x812 CPU4x 1.6/0.75Mbps 150ms')] if 'PERF-007' in pf else []):
             s = pf['PERF-007'][k]
             st = s['stats']; v = s['budget']
             add(case_id=label, gate='FE-05', requirement_ref='v2 §9 P-B PERF-007; web-vitals thresholds', input_mode='navigation', viewport=vp,
@@ -91,8 +91,8 @@ def ingest(run_name):
                     result='PASS' if r['pass'] and r['interactions'] >= 30 else 'FAIL', evidence_ids=e, bv=f"chromium {pf.get('browserVersion', '')}")
         r = pf.get('PERF-008')
         if r:
-            add(case_id='PERF-008', gate='FE-05', requirement_ref='30 open-close cycles; heap/listeners growth', input_mode='navigation', viewport='1440x900', steps='30 cycles of 5 routes; HeapProfiler.collectGarbage before/after',
-                expected=f"heap growth <= {b['HEAP_GROWTH_PCT']}% and listeners not growing >10%", actual=json.dumps({k: r[k] for k in ('before', 'after', 'heapGrowthPct', 'workers')})[:900],
+            add(case_id='PERF-008', gate='FE-05', requirement_ref='30 open-close cycles; heap/listeners growth (budget locked before measurement; 10% is an ASSUMPTION pending a product budget)', input_mode='navigation', viewport='1440x900', steps='2 warm-up cycles, then cycles of 5 routes; HeapProfiler.collectGarbage at start and every 30 cycles',
+                expected=f"heap growth start→30 cycles <= {b['HEAP_GROWTH_PCT']}% and listeners not growing >10%", actual=json.dumps({k: r.get(k) for k in ('before', 'after', 'heapGrowthPct', 'checkpoints', 'workers')})[:1100],
                 result='PASS' if r['pass'] else 'FAIL', evidence_ids=e, reason=r.get('note', ''), bv=f"chromium {pf.get('browserVersion', '')}")
 
     # ---------------- injected (cross-engine) ----------------
