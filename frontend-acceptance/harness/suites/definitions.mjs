@@ -23,7 +23,8 @@ const HEADER = () => {
   const main = document.querySelector('main');
   const h2s = [...main.querySelectorAll('h2')].map(h => h.textContent.trim());
   const badge = [...main.querySelectorAll('*')].map(e => e.childElementCount === 0 ? e.textContent.trim() : '').find(t => /^\d+ fields/.test(t)) || null;
-  const secNav = [...main.querySelectorAll('nav[aria-label="Definition sections"] a')].map(a => a.textContent.replace(/\s+/g, ' ').trim());
+  // innerText keeps the visual gap between group name and count (textContent gave "Ownership5" in R4-001 — harness defect).
+  const secNav = [...main.querySelectorAll('nav[aria-label="Definition sections"] a')].map(a => (a.innerText || a.textContent).replace(/\s+/g, ' ').trim().replace(/([^\s\d])(\d+)$/, '$1 $2'));
   const sel = main.querySelector('select[aria-label="Definition type"]') || [...main.querySelectorAll('select')].find(s => (s.labels && [...s.labels].some(l => /Definition type/.test(l.textContent))));
   return { h2s, badge, secNav, typeOptions: sel ? [...sel.options].map(o => o.textContent.trim()) : null, typeSelected: sel ? sel.options[sel.selectedIndex]?.textContent.trim() : null, hash: location.hash };
 };
@@ -90,14 +91,20 @@ export default async function ({ runDir, req, target }) {
       const r = { title: t.title, route, figma_frame: t.figma_dark, schema: t.schema_label, nav: null };
       try {
         await page.evaluate(h => { location.hash = h; }, route); await waitH1(page, EXP[route]); await settle(page);
-        const defTab = page.getByRole('tab', { name: 'Definitions' });
+        const defTab = page.getByRole('tab', { name: 'Definitions', exact: true });
         if (await defTab.count()) { await defTab.first().click(); await settle(page); }
         const sel = page.getByRole('combobox', { name: 'Definition type' });
+        // The Definitions view is a lazily loaded chunk: wait for its select instead of sampling immediately (R4-001 harness defect).
+        await sel.first().waitFor({ state: 'visible', timeout: 8000 }).catch(() => {});
         if (await sel.count()) {
           r.nav = 'module Definitions tab → Definition type select';
           const opts = await sel.first().locator('option').allTextContents();
           r.module_type_options = opts.map(s => s.trim());
-          if (r.module_type_options.includes(t.title)) { await sel.first().selectOption({ label: t.title }); await settle(page); }
+          if (r.module_type_options.includes(t.title)) {
+            await sel.first().selectOption({ label: t.title });
+            await page.waitForFunction(w => [...document.querySelectorAll('main h2')].some(h => h.textContent.trim() === w), t.title, { timeout: 6000 }).catch(() => {});
+            await settle(page);
+          }
           else r.nav_issue = 'type not offered in the module select';
         } else r.nav_issue = 'no Definition type select on module route';
         if (r.nav_issue) { // fall back to the deployed deep link used by the search palette
@@ -147,6 +154,30 @@ export default async function ({ runDir, req, target }) {
     await ctx.close();
   }
   await browser.close();
+  // FND-004 cross-engine: same trusted create on Firefox/WebKit for the types whose default name contains "/" plus one control.
+  for (const engine of req.def_xengine || []) {
+    const b = await pw[engine].launch();
+    for (const schema of ['run-recovery', 'scope-lifecycle', 'data-lifecycle', 'agent']) {
+      const t = OR.definitions.find(d => d.schema_label === schema);
+      const ctx = await b.newContext({ viewport: { width: 1440, height: 1000 } }); const page = await ctx.newPage();
+      page.on('request', r => { if (r.method() !== 'GET' && r.url().startsWith(target)) out.nonGet.push({ m: r.method(), u: r.url(), engine }); });
+      let res = {};
+      try {
+        await page.goto(`${target}/#${t.route}?authority=definitions&schema=${encodeURIComponent(schema)}`, { waitUntil: 'networkidle' });
+        await page.waitForFunction(w => [...document.querySelectorAll('main h2')].some(h => h.textContent.trim() === w), t.title, { timeout: 8000 }).catch(() => {});
+        await page.getByRole('button', { name: 'Create local definition' }).first().click();
+        await page.waitForFunction(() => document.querySelector('main [id^="definition-"]:is(input,select,textarea)') || document.querySelector('[role=alert],.notice.danger,.toast'), null, { timeout: 6000 }).catch(() => {});
+        await page.waitForTimeout(400);
+        res = await page.evaluate(EDITOR);
+      } catch (e) { res = { fields: [], notices: [String(e).slice(0, 300)] }; }
+      out.types.push({ title: t.title, route: t.route, schema, engine, browserVersion: b.version(), editor_fields: res.fields.length, notices: res.notices });
+      rec.add({ case_id: `DEF-CREATE-${schema}-${engine.toUpperCase()}`, gate: 'FE-04', title: `${t.title}: Create local definition on ${engine} (FND-004 cross-engine)`, steps: 'Deep link to the type; trusted click "Create local definition"',
+        expected: 'editor opens, no error notice', actual: `editor fields=${res.fields.length}; notices=${(res.notices || []).join(' / ')}`.slice(0, 800),
+        result: res.fields.length > 0 && !(res.notices || []).some(n => /invalid|error|failed|path separators/i.test(n)) ? 'PASS' : 'FAIL', input_mode: 'trusted-input', browser: `${engine} ${b.version()}` });
+      await ctx.close();
+    }
+    await b.close();
+  }
   rec.add({ case_id: 'DEF-NOWRITE', gate: 'FE-04', title: 'Definitions run issued no non-GET request to the target origin', steps: 'Count non-GET requests', expected: '0', actual: String(out.nonGet.length), result: out.nonGet.length ? 'FAIL' : 'PASS', input_mode: 'observation', browser: `chromium ${out.browserVersion}` });
   writeJSON(rec.evidenceFile('definitions.json', { evidence_type: 'definition-contract', oracle: 'figma unified fields frames (49)', synthetic_data: 'local drafts in ephemeral profile' }), out);
   rec.save();

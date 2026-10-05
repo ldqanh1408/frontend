@@ -1,12 +1,11 @@
 {
-  "request_id": "R4-001-figma",
-  "purpose": "Figma-oracle round: (1) parity of 18 deployed routes vs Figma 01/02 Current UI frames (title, purpose, nav IA, controls) in dark and light at 1440x1000; (2) 49 definition types vs Figma unified-fields frames: navigation, Create local definition (FND-004 retest), field count/sections, per-field contract",
+  "request_id": "R4-002-def-fix",
+  "purpose": "Re-run definitions suite after harness fixes (wait for lazily loaded Definitions view and h2 after type selection; section label/count spacing) + FND-004 cross-engine create on Firefox/WebKit",
   "suites": [
-    "figma_parity",
     "definitions"
   ],
-  "parity_themes": [
-    "dark",
-    "light"
+  "def_xengine": [
+    "firefox",
+    "webkit"
   ]
 }
