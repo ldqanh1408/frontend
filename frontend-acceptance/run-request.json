@@ -1,18 +1,12 @@
 {
-  "request_id": "R3-004-kbd-fix",
-  "purpose": "Re-run trusted keyboard suite after harness fixes (end-of-sequence, reopen reload, tablist reload, drawer check) on 3 engines; INP with >=30 interactions; heap trend at 30/60/90 cycles",
+  "request_id": "R4-001-figma",
+  "purpose": "Figma-oracle round: (1) parity of 18 deployed routes vs Figma 01/02 Current UI frames (title, purpose, nav IA, controls) in dark and light at 1440x1000; (2) 49 definition types vs Figma unified-fields frames: navigation, Create local definition (FND-004 retest), field count/sections, per-field contract",
   "suites": [
-    "keyboard",
-    "perf"
+    "figma_parity",
+    "definitions"
   ],
-  "keyboard_engines": [
-    "chromium",
-    "firefox",
-    "webkit"
-  ],
-  "perf_parts": [
-    "inp",
-    "heap"
-  ],
-  "heap_cycles": 90
+  "parity_themes": [
+    "dark",
+    "light"
+  ]
 }
