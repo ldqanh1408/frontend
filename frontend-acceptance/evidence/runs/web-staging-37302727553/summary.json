@@ -1,0 +1,13 @@
+{
+  "target": "https://atlas-web-staging.ekko-okke666.workers.dev",
+  "commit": "117402b677b69932f11e0148c31a244dcb55f198",
+  "stats": {
+    "startTime": "2026-10-05T11:30:17.460Z",
+    "duration": 219456.02000000002,
+    "expected": 279,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "failed": []
+}
