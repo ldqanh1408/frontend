@@ -216,8 +216,9 @@ function DocEditor({ rec, all }: { rec: DocumentRecord; all: DocumentRecord[] })
   const dirty = content !== base.content;
   const connection = useApp((s) => s.connection);
   useEffect(() => { getDraft(rec.id).then((d) => { if (d && d.content !== rec.content) setRecovered({ content: d.content, savedAt: d.savedAt, stale: d.baseRev !== rec.rev }); }); }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  const ownWrites = useRef(new Set<number>());
   useEffect(() => {
-    if (rec.rev > base.rev) { if (!dirty) { setBase(rec); loadContent(rec.content); } else setConflict(rec.rev); }
+    if (rec.rev > base.rev && !ownWrites.current.has(rec.rev)) { if (!dirty) { setBase(rec); loadContent(rec.content); } else setConflict(rec.rev); }
   }, [rec]); // eslint-disable-line react-hooks/exhaustive-deps
   const deferred = useDeferredValue(content);
   const goToLine = (line: number) => { onTab('source'); requestAnimationFrame(() => editorRef.current?.goToLine(line)); };
@@ -238,6 +239,7 @@ function DocEditor({ rec, all }: { rec: DocumentRecord; all: DocumentRecord[] })
     if (text === base.content || saving || conflict) return;
     setSaving(true);
     try {
+      ownWrites.current.add(base.rev + 1);
       const next = await updateItem(all, base, { content: text });
       setBase(next);
       await setDraft(rec.id, null);

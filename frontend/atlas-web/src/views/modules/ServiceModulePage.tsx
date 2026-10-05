@@ -43,9 +43,8 @@ export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
   return (
     <div className="page">
       <PageHeader eyebrow={m.label} title={m.title} purpose={m.purpose} actions={<>
-        {connection === 'connected'
-          ? <Button icon="refresh" onClick={refresh} disabled={loading}>{loading ? 'Refreshing…' : 'Refresh'}</Button>
-          : <ButtonLink to="/connection" variant="primary" icon="plug">Connect service</ButtonLink>}
+        <Button icon="refresh" onClick={refresh} disabled={loading} blocked={connection === 'connected' ? undefined : 'Connect a service to load records.'} reasonId={connection === 'connected' ? undefined : 'provenance-note'}>{loading ? 'Refreshing…' : 'Refresh'}</Button>
+        {connection !== 'connected' && <ButtonLink to="/connection" variant="primary" icon="plug">Connect service</ButtonLink>}
       </>} />
       <ProvenanceBanner />
       {audience === 'observer' && module !== 'observer' && <Banner tone="info" title="Observer session">This session can read telemetry only. Workspace actions are disabled.</Banner>}
@@ -72,7 +71,7 @@ export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
             <h2 id="iba-h" className="label">Inspect before acting</h2>
             {record ? (
               <KeyValue items={[['Resource', record.name], ['State', <Badge key="s">{record.status}</Badge>], ['Revision', `r${record.revision}`], ['Scope', record.scope], ['Observed', isoUtc(record.observedAt)]]} />
-            ) : <p className="caption">{connection === 'connected' ? 'Select a resource. Grants and a resource revision are required before acting.' : 'Connect a service session to inspect action preconditions.'}</p>}
+            ) : <><p className="label">Select a resource</p><p className="caption">Grants and a resource revision are required before acting.</p></>}
           </section>
           <section className="panel-section stack" aria-labelledby="act-h">
             <h2 id="act-h" className="label">Actions</h2>

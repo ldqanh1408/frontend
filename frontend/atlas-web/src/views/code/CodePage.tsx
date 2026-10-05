@@ -94,7 +94,7 @@ export default function CodePage() {
               )}
               <KeyValue items={[['Name', snap.name], ['Digest', <span key="d" className="mono" title={snap.digest}>{snap.digest.slice(0, 16)}…</span>], ['Imported', relativeTime(snap.importedAt)]]} />
               <div className="field">
-                <label className="field-label" htmlFor="file-filter">Filter files</label>
+                <label className="field-label" htmlFor="file-filter">Search source</label>
                 <input id="file-filter" className="input" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="File name" />
               </div>
             </div>

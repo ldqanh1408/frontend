@@ -18,7 +18,7 @@ export function ProvenanceBanner({ detail }: { detail?: string }) {
   return (
     <div className="provenance" role="note">
       <Badge tone={connection === 'connected' ? 'success' : 'neutral'}>{connection === 'connected' ? 'Authorized service' : 'Device drafts'}</Badge>
-      <p>
+      <p id="provenance-note">
         {connection === 'connected'
           ? `Records come from the connected service for ${scope ?? 'the current scope'}. Acknowledgements are not effects until read back.`
           : 'No service is connected. Local drafts stay on this device; no provider, run, PR, CI or cleanup result is inferred.'}

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useBlocker, useSearchParams } from 'react-router';
 import { nav } from '../../data/catalog';
 import { capability, toast, useApp } from '../../data/app-store';
@@ -101,11 +101,13 @@ function WorkflowEditor({ rec }: { rec: WorkflowRecord }) {
   const connection = useApp((s) => s.connection);
   const { data: agents } = useDeviceQuery(agentOptions, [], [] as AgentOption[]);
   const dirty = JSON.stringify(tasks) !== JSON.stringify(base.tasks) || JSON.stringify(inputs) !== JSON.stringify(base.inputs);
-  useEffect(() => { if (rec.rev > base.rev) { if (!dirty) { setBase(rec); setTasks(rec.tasks); setInputs(rec.inputs); } else setConflict(rec.rev); } }, [rec]); // eslint-disable-line react-hooks/exhaustive-deps
+  const ownWrites = useRef(new Set<number>());
+  useEffect(() => { if (rec.rev > base.rev && !ownWrites.current.has(rec.rev)) { if (!dirty) { setBase(rec); setTasks(rec.tasks); setInputs(rec.inputs); } else setConflict(rec.rev); } }, [rec]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { const h = (e: BeforeUnloadEvent) => { if (dirty) e.preventDefault(); }; window.addEventListener('beforeunload', h); return () => window.removeEventListener('beforeunload', h); }, [dirty]);
   const blocker = useBlocker(({ currentLocation, nextLocation }) => dirty && (currentLocation.pathname !== nextLocation.pathname || currentLocation.search !== nextLocation.search));
   const save = async () => {
     try {
+      ownWrites.current.add(base.rev + 1);
       const next = await saveWorkflow(base, { tasks, inputs });
       setBase(next);
       toast({ tone: 'success', title: `Device revision ${next.rev} saved`, body: 'Saved on this device. Activation and run admission require a service.' });

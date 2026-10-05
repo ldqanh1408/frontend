@@ -49,3 +49,39 @@ test('every definition type can be created with defaults (FND-004)', async ({ pa
     await expect(page.locator('#definition-name'), h).toBeVisible();
   }
 });
+
+test('agents workbench follows the Figma frame: tabs, gated lifecycle, readiness and versions', async ({ page }) => {
+  await page.goto('/agents');
+  await page.getByRole('button', { name: 'New agent' }).first().click();
+  for (const t of ['Instructions', 'Model', 'Tools', 'Resources', 'Memory', 'Guardrails', 'Readiness', 'Versions']) await expect(page.getByRole('tab', { name: t })).toBeVisible();
+  for (const a of ['Evaluate', 'Publish', 'Assign']) await expect(page.getByRole('button', { name: a, exact: true })).toHaveAttribute('aria-disabled', 'true');
+  await page.getByRole('button', { name: 'Validate draft' }).click();
+  await expect(page.locator('.error-summary')).toBeVisible();
+  await page.locator('.error-summary a', { hasText: 'Pinned model resource reference' }).click();
+  await expect(page.getByRole('tab', { name: /Model/ })).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator(':focus')).toHaveAttribute('id', 'definition-model');
+  await axe(page, 'agents workbench');
+  await page.getByRole('tab', { name: /Readiness/ }).click();
+  await expect(page.getByText('Local field checks')).toBeVisible();
+  await page.getByRole('tab', { name: /Versions/ }).click();
+  await expect(page.getByText('Device revisions (1)')).toBeVisible();
+  await axe(page, 'agents versions');
+});
+
+test('own saves never raise a conflict; a save from another tab does', async ({ page, context }) => {
+  await page.goto('/agents');
+  await page.getByRole('button', { name: 'New agent' }).first().click();
+  await page.fill('#definition-name', 'Shared agent');
+  await page.getByRole('button', { name: 'Save draft' }).click();
+  await expect(page.getByText('Device draft · r2')).toBeVisible();
+  await expect(page.getByText('Changed in another tab')).toHaveCount(0);
+  const url = page.url();
+  const other = await context.newPage();
+  await other.goto(url);
+  await other.fill('#definition-name', 'Edited in tab B');
+  await page.fill('#definition-name', 'Edited in tab A');
+  await other.getByRole('button', { name: 'Save draft' }).click();
+  await expect(other.getByText('Device draft · r3')).toBeVisible();
+  await expect(page.getByText('Changed in another tab')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Save draft' })).toBeDisabled();
+});

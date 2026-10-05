@@ -258,7 +258,7 @@ a.card:hover, button.card:hover { border-color: var(--color-control-border); }
 .receipt + .receipt { margin-top: var(--space-8); }
 .lifecycle-chain { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-6); }
 .lifecycle-chain li { display: inline-flex; align-items: center; gap: var(--space-6); }
-.lifecycle-chain li + li::before { content: '→'; color: var(--color-muted); font: var(--text-caption); }
+.lifecycle-chain li + li::before { content: '/'; color: var(--color-muted); font: var(--text-caption); }
 .lc-detail { border-top: 1px solid var(--color-border); padding-top: var(--space-8); }
 .lc-detail > summary { cursor: pointer; min-height: var(--control-compact); display: flex; align-items: center; gap: var(--space-8); }
 .lc-detail[open] > summary { margin-bottom: var(--space-8); }
@@ -360,3 +360,19 @@ a.card:hover, button.card:hover { border-color: var(--color-control-border); }
 [aria-current] .caption, [aria-selected='true'] .caption, [aria-pressed='true'] .caption, [data-current] .caption, [data-selected] .caption,
 .palette [cmdk-item][data-selected='true'] .palette-detail { color: var(--color-secondary); }
 .list-item[aria-pressed='true'] { background: var(--color-accent-soft); }
+
+/* ---------------------------------------------------------------- draft module workbench (Figma "Definition catalog" + "Definition workbench") */
+.workbench { display: grid; grid-template-columns: 232px minmax(0, 1fr); gap: var(--space-16); align-items: start; }
+.workbench-catalog { background: var(--color-nav); }
+.workbench-title { font: var(--text-heading); }
+.workbench-tab { padding-top: var(--space-16); }
+.workbench-editor .form-group.panel { background: transparent; border: 0; padding: 0; }
+.workbench-editor .form-group + .form-group { border-top: 1px solid var(--color-border); padding-top: var(--space-16); }
+.readiness-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: var(--space-12); }
+.readiness-item { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-16); background: var(--color-raised); border: 1px solid var(--color-border); border-radius: var(--radius-control); font: var(--text-caption); }
+#service-lifecycle { scroll-margin-top: var(--space-16); }
+@media (max-width: 1023px) { .workbench { grid-template-columns: minmax(0, 1fr); } }
+/* WCAG 2.5.8: stacked summary links keep a 24px target. */
+.error-summary li a, .warning-summary li .link-button { display: inline-block; min-height: 24px; padding: 3px 0; }
+.workbench, .workbench-placeholder { min-height: 440px; }
+.workbench-placeholder { display: grid; place-items: center; border: 1px solid var(--color-border); border-radius: var(--radius-panel); }

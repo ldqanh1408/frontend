@@ -89,15 +89,52 @@ export const SERVICE_MODULES: Partial<Record<ModuleRoute, ServiceModuleSpec>> = 
   },
 };
 
-/** Device-draft modules (Figma agents/resources/memory/configuration frames): editor tabs and the definition types they author. */
-export interface DraftModuleSpec { newLabel: string; tabs: string[]; schemas: string[]; note: string; lifecycleIds: string[] }
+/**
+ * Device-draft modules (Figma Atlas/<Theme>/agents|resources|memory|configuration): catalog of device drafts plus a definition
+ * workbench with Figma's tabs. Each tab lists the schema groups/fields it shows; fields not claimed by any tab go to the first.
+ */
+export interface DraftTab { label: string; kind?: 'fields' | 'readiness' | 'versions' | 'consumers'; groups?: string[]; fields?: string[] }
+export interface DraftModuleSpec {
+  newLabel: string; schemas: string[]; note: string; lifecycleIds: string[]; tabs: DraftTab[];
+  readiness: { label: string; status: string }[];
+}
 export const DRAFT_MODULES: Partial<Record<ModuleRoute, DraftModuleSpec>> = {
-  agents: { newLabel: 'New agent', tabs: ['Instructions', 'Model', 'Tools', 'Memory', 'Guardrails', 'Readiness', 'Versions'], schemas: ['agent'], note: 'Publishing and runnable readiness require service receipts.', lifecycleIds: ['LC-07', 'LC-10'] },
+  agents: {
+    newLabel: 'New agent', schemas: ['agent'], note: 'Publishing and runnable readiness require service receipts.', lifecycleIds: ['LC-07', 'LC-10'],
+    tabs: [
+      { label: 'Instructions', groups: ['Instructions', 'Ownership', 'Output'] },
+      { label: 'Model', groups: ['Model', 'Limits'] },
+      { label: 'Tools', fields: ['tools'] },
+      { label: 'Resources', fields: ['resourcePins', 'skillPins', 'rulePins', 'pluginPins', 'hookPins', 'sidecarPins'] },
+      { label: 'Memory', fields: ['memoryPins'] },
+      { label: 'Guardrails', groups: ['Safety'] },
+      { label: 'Readiness', kind: 'readiness' },
+      { label: 'Versions', kind: 'versions', groups: ['Release'] },
+    ],
+    readiness: [{ label: 'Provider / model', status: 'Not observed' }, { label: 'Runtime / budget', status: 'Capability report required' }],
+  },
   resources: {
-    newLabel: 'New resource', tabs: ['Definition', 'Readiness', 'Versions', 'Consumers'],
+    newLabel: 'New resource',
     schemas: ['model-resource', 'mcp-resource', 'tool-resource', 'sandbox-resource', 'skill-resource', 'rule-resource', 'plugin-resource', 'hook-resource', 'sidecar-resource'],
     note: 'Discovery does not allow execution. Compatibility and health must be observed.', lifecycleIds: ['LC-08', 'LC-09'],
+    tabs: [{ label: 'Definition' }, { label: 'Readiness', kind: 'readiness' }, { label: 'Versions', kind: 'versions' }, { label: 'Consumers', kind: 'consumers' }],
+    readiness: [{ label: 'Compatibility', status: 'Not observed' }, { label: 'Health', status: 'Not observed' }],
   },
-  memory: { newLabel: 'New memory', tabs: ['Definition', 'Content', 'Lineage', 'Context package', 'Readiness', 'Versions'], schemas: ['memory', 'memory-policy', 'context-package'], note: 'Publishing and runnable readiness require service receipts.', lifecycleIds: ['LC-11', 'LC-12'] },
-  configuration: { newLabel: 'New policy draft', tabs: ['Definition', 'Readiness', 'Versions', 'Consumers'], schemas: ['policy-override', 'runtime-policy'], note: 'A local draft does not change effective organization policy.', lifecycleIds: ['LC-29'] },
+  memory: {
+    newLabel: 'New memory', schemas: ['memory', 'memory-policy', 'context-package'], note: 'Publishing and runnable readiness require service receipts.', lifecycleIds: ['LC-11', 'LC-12'],
+    tabs: [
+      { label: 'Definition', groups: ['Ownership', 'Policy', 'Lifecycle', 'Advanced'] },
+      { label: 'Content', groups: ['Content', 'Context', 'Retrieval', 'Selection', 'Limits', 'Destination'] },
+      { label: 'Lineage', groups: ['Provenance', 'Lineage'] },
+      { label: 'Context package', kind: 'consumers' },
+      { label: 'Readiness', kind: 'readiness' },
+      { label: 'Versions', kind: 'versions' },
+    ],
+    readiness: [{ label: 'Index / retrieval', status: 'Not observed' }, { label: 'Curation review', status: 'Not observed' }],
+  },
+  configuration: {
+    newLabel: 'New policy draft', schemas: ['policy-override', 'runtime-policy'], note: 'A local draft does not change effective organization policy.', lifecycleIds: ['LC-29'],
+    tabs: [{ label: 'Definition' }, { label: 'Readiness', kind: 'readiness' }, { label: 'Versions', kind: 'versions' }, { label: 'Consumers', kind: 'consumers' }],
+    readiness: [{ label: 'Effective policy', status: 'Unchanged by local drafts' }, { label: 'Runtime capabilities', status: 'Not observed' }],
+  },
 };

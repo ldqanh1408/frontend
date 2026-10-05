@@ -68,10 +68,10 @@ test('code intelligence: import folder, search, outline symbols', async ({ page 
 
 test('workflow: tasks, pinned agent, cycle detection, save', async ({ page }) => {
   await page.goto('/agents');
-  await page.getByRole('button', { name: 'Create local definition' }).click();
+  await page.getByRole('button', { name: 'New agent' }).first().click();
   await page.fill('#definition-name', 'Implementer');
-  await page.getByRole('button', { name: 'Save local revision' }).click();
-  await expect(page.getByText('Device revision 2', { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Save draft' }).click();
+  await expect(page.getByText('Device draft · r2')).toBeVisible();
   await page.goto('/workflow');
   await page.getByRole('button', { name: 'New workflow' }).first().click();
   await page.getByLabel('Name').fill('Delivery');

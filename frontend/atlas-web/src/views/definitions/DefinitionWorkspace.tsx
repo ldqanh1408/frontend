@@ -13,7 +13,7 @@ import { Dialog } from '../../components/overlays';
 import { Icon } from '../../components/Icon';
 import { DefinitionForm, SectionNav } from './DefinitionForm';
 import { initialValues, isDirty, toData, validateAll, type Errors, type FormValue, type FormValues } from './validate';
-import { PinPicker } from './PinPicker';
+import { PinPicker, type Pin } from './PinPicker';
 
 /** Authoring workspace for one definition type. `basePath` is where list/editor URLs live (/definitions/:schema or a module tab). */
 export function DefinitionWorkspace({ schema, defId, basePath, headingLevel = 2, embedded = false }: { schema: SchemaSpec; defId?: string; basePath: string; headingLevel?: 1 | 2; embedded?: boolean }) {
@@ -139,7 +139,8 @@ function LifecyclePanel({ schema, rec }: { schema: SchemaSpec; rec?: DefinitionR
   );
 }
 
-function DefinitionEditor({ schema, rec, basePath }: { schema: SchemaSpec; rec: DefinitionRecord; basePath: string }) {
+/** Editing state and commands for one local definition (shared by the definitions page and the module workbenches). */
+export function useDefinitionDraft(schema: SchemaSpec, rec: DefinitionRecord, basePath: string) {
   const navigate = useNavigate();
   const [base, setBase] = useState<DefinitionRecord>(rec);
   const saved = useMemo(() => initialValues(schema, base.data), [schema, base]);
@@ -151,9 +152,11 @@ function DefinitionEditor({ schema, rec, basePath }: { schema: SchemaSpec; rec: 
   const [historyOpen, setHistoryOpen] = useState(false);
   const [pinKey, setPinKey] = useState<string | null>(null);
   const dirty = isDirty(values, saved) || name !== base.name;
+  // Revisions this editor is writing right now; their change notifications are our own, not another tab's.
+  const ownWrites = useRef(new Set<number>());
   // A newer revision written in another tab: adopt it when we have no unsaved edits, otherwise surface the conflict.
   useEffect(() => {
-    if (rec.rev > base.rev) {
+    if (rec.rev > base.rev && !ownWrites.current.has(rec.rev)) {
       if (!dirty) { setBase(rec); setValues(initialValues(schema, rec.data)); setName(rec.name); } else setConflict({ rev: rec.rev });
     }
   }, [rec]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -164,7 +167,7 @@ function DefinitionEditor({ schema, rec, basePath }: { schema: SchemaSpec; rec: 
     return () => window.removeEventListener('beforeunload', onBeforeUnload);
   }, [dirty]);
   const onChange = useCallback((key: string, v: FormValue) => {
-    setValues((s) => ({ ...s, [key]: v }));
+    setValues((st) => ({ ...st, [key]: v }));
     setErrors((e) => { if (!e[key]) return e; const n = { ...e }; delete n[key]; return n; });
   }, []);
   const save = async () => {
@@ -173,23 +176,30 @@ function DefinitionEditor({ schema, rec, basePath }: { schema: SchemaSpec; rec: 
     if (nameErr) shape['-name'] = nameErr;
     setErrors(shape);
     setSummary(true);
-    if (Object.keys(shape).length) return;
+    if (Object.keys(shape).length) return false;
     try {
+      ownWrites.current.add(base.rev + 1);
       const next = await saveDefinition(base, { name, data: toData(schema, values) });
       setBase(next); setValues(initialValues(schema, next.data)); setSummary(false);
       toast({ tone: 'success', title: `Device revision ${next.rev} saved`, body: 'Saved on this device only. Publication requires a service.' });
+      return true;
     } catch (e) {
       if (e instanceof ConflictError) setConflict({ rev: e.current.rev });
       else toast({ tone: 'danger', title: 'Save failed', body: e instanceof Error ? e.message : String(e) });
+      return false;
     }
   };
   const validateComplete = () => {
     const errs = validateAll(schema, values, true);
+    const nameErr = isValidName(name);
+    if (nameErr) errs['-name'] = nameErr;
     setErrors(errs); setSummary(true);
     if (!Object.keys(errs).length) toast({ tone: 'success', title: 'Local field checks passed', body: 'Shape and required fields are complete. Service validation is not run.' });
+    return errs;
   };
   const archiveToggle = async () => {
     try {
+      ownWrites.current.add(base.rev + 1);
       const next = await saveDefinition(base, { archived: !base.archived });
       setBase(next);
       toast({ tone: 'success', title: next.archived ? 'Definition archived' : 'Definition restored', body: `${next.name} · device revision ${next.rev}` });
@@ -200,67 +210,105 @@ function DefinitionEditor({ schema, rec, basePath }: { schema: SchemaSpec; rec: 
     toast({ tone: 'success', title: 'Definition duplicated', body: `${copy.name}. Approvals and service state are never copied.` });
     navigate(`${basePath}/${copy.id}`);
   };
+  const exportDraft = async () => downloadJson(`${base.name}.json`, { ...(await exportDefinition(base)), unsaved: dirty ? toData(schema, values) : undefined });
+  const exportEdits = () => downloadJson(`${base.name}-unsaved.json`, { format: 'atlas-recovery/v1', schemaId: schema.id, name, data: toData(schema, values) });
+  const discardAndLoad = () => { setBase(rec); setValues(initialValues(schema, rec.data)); setName(rec.name); setConflict(null); };
+  const applyPins = (key: string, pins: Pin[]) => {
+    const existing = (() => { try { const v = JSON.parse(String(values[key] || '[]')); return Array.isArray(v) ? v : []; } catch { return []; } })();
+    onChange(key, JSON.stringify([...existing.filter((p: { id: string }) => !pins.some((n) => n.id === p.id)), ...pins], null, 2));
+  };
+  return {
+    schema, rec, base, values, name, setName, errors, summary, conflict, dirty, historyOpen, setHistoryOpen, pinKey, setPinKey, blocker,
+    onChange, save, validateComplete, archiveToggle, duplicate, exportDraft, exportEdits, discardAndLoad, applyPins,
+  };
+}
+export type DefinitionDraft = ReturnType<typeof useDefinitionDraft>;
+
+/** Conflict banner, history, pin picker and the leave-with-unsaved-changes dialog for a draft. */
+export function DraftChrome({ d }: { d: DefinitionDraft }) {
   return (
-    <div className="stack-16" onKeyDown={(e) => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); save(); } }}>
-      <Panel title={base.archived ? 'Archived definition' : 'Edit definition'} actions={<Badge>{dirty ? 'Unsaved changes' : `Device revision ${base.rev}`}</Badge>}>
-        <div className="panel-pad stack-12">
-          {base.archived && <Banner tone="warning" title="Archived">Archived definitions are read-only. Restore to edit.</Banner>}
-          {conflict && (
-            <Banner tone="danger" title="Changed in another tab" role="alert">
-              Revision {conflict.rev} was saved elsewhere while you edited. Your edits are kept here; export them, or discard them to load the newer revision.
-              <div className="row" style={{ marginTop: 8 }}>
-                <Button compact onClick={() => downloadJson(`${base.name}-unsaved.json`, { format: 'atlas-recovery/v1', schemaId: schema.id, name, data: toData(schema, values) })}>Export my edits</Button>
-                <Button compact variant="danger" onClick={() => { setBase(rec); setValues(initialValues(schema, rec.data)); setName(rec.name); setConflict(null); }}>Discard and load r{conflict.rev}</Button>
-              </div>
-            </Banner>
-          )}
-          <div className="field">
-            <label className="field-label" htmlFor="definition-name">Name<span className="req" aria-hidden="true"> *</span></label>
-            <input id="definition-name" className="input" value={name} onChange={(e) => setName(e.target.value)} disabled={base.archived} aria-invalid={errors['-name'] ? true : undefined} aria-describedby="definition-name-hint" required />
-            <small id="definition-name-hint" className={errors['-name'] ? 'field-error' : 'field-hint'}>{errors['-name'] ?? '1–180 characters; no path separators or control characters.'}</small>
-          </div>
-          <div className="row">
-            <Button variant="primary" icon="save" onClick={save} disabled={base.archived || !!conflict}>Save local revision</Button>
-            <Button icon="success" onClick={validateComplete}>Validate complete definition</Button>
-            <Button icon="history" onClick={() => setHistoryOpen(true)}>History / compare</Button>
-          </div>
-        </div>
-      </Panel>
-      <DefinitionForm schema={schema} values={values} errors={errors} onChange={onChange} disabled={base.archived} showSummary={summary} onPickPins={setPinKey} />
-      {Object.keys(base.preserved).length > 0 && (
-        <Panel title="Preserved legacy fields">
-          <div className="panel-pad stack">
-            <p className="caption">These fields are retained when saving. They require explicit service contract mapping before publication.</p>
-            <details><summary>{Object.keys(base.preserved).length} retained fields</summary><pre className="code-block">{JSON.stringify(base.preserved, null, 2)}</pre></details>
-          </div>
-        </Panel>
-      )}
-      <Panel title="Saved definition actions">
-        <div className="panel-pad row">
-          <Button icon={base.archived ? 'restore' : 'archive'} onClick={archiveToggle} disabled={dirty}>{base.archived ? 'Restore' : 'Archive'}</Button>
-          <Button icon="copy" onClick={duplicate} disabled={dirty}>Duplicate definition</Button>
-          <Button icon="download" onClick={async () => downloadJson(`${base.name}.json`, { ...(await exportDefinition(base)), unsaved: dirty ? toData(schema, values) : undefined })}>Export definition & draft</Button>
-          {dirty && <span className="caption">Save or export changes before archiving or duplicating.</span>}
-        </div>
-      </Panel>
-      <HistoryDialog open={historyOpen} onOpenChange={setHistoryOpen} rec={base} schema={schema} current={toData(schema, values)} />
-      {pinKey && <PinPicker open onOpenChange={(o) => !o && setPinKey(null)} excludeId={base.id} onPick={(pins) => {
-        const existing = (() => { try { const v = JSON.parse(String(values[pinKey] || '[]')); return Array.isArray(v) ? v : []; } catch { return []; } })();
-        onChange(pinKey, JSON.stringify([...existing.filter((p: { id: string }) => !pins.some((n) => n.id === p.id)), ...pins], null, 2));
-        setPinKey(null);
-      }} />}
-      <Dialog open={blocker.state === 'blocked'} onOpenChange={(o) => { if (!o) blocker.reset?.(); }} title="Leave with unsaved changes?"
+    <>
+      <HistoryDialog open={d.historyOpen} onOpenChange={d.setHistoryOpen} rec={d.base} schema={d.schema} current={toData(d.schema, d.values)} />
+      {d.pinKey && <PinPicker open onOpenChange={(o) => !o && d.setPinKey(null)} excludeId={d.base.id} onPick={(pins) => { d.applyPins(d.pinKey!, pins); d.setPinKey(null); }} />}
+      <Dialog open={d.blocker.state === 'blocked'} onOpenChange={(o) => { if (!o) d.blocker.reset?.(); }} title="Leave with unsaved changes?"
         description="Your edits to this definition have not been saved as a device revision."
         footer={<>
-          <Button onClick={() => blocker.reset?.()}>Stay and edit</Button>
-          <Button onClick={() => { downloadJson(`${base.name}-unsaved.json`, { format: 'atlas-recovery/v1', schemaId: schema.id, name, data: toData(schema, values) }); }}>Export unsaved draft</Button>
-          <Button variant="danger" onClick={() => blocker.proceed?.()}>Discard and leave</Button>
+          <Button onClick={() => d.blocker.reset?.()}>Stay and edit</Button>
+          <Button onClick={d.exportEdits}>Export unsaved draft</Button>
+          <Button variant="danger" onClick={() => d.blocker.proceed?.()}>Discard and leave</Button>
         </>} />
+    </>
+  );
+}
+
+export function ConflictBanner({ d }: { d: DefinitionDraft }) {
+  if (!d.conflict) return null;
+  return (
+    <Banner tone="danger" title="Changed in another tab" role="alert">
+      Revision {d.conflict.rev} was saved elsewhere while you edited. Your edits are kept here; export them, or discard them to load the newer revision.
+      <div className="row" style={{ marginTop: 8 }}>
+        <Button compact onClick={d.exportEdits}>Export my edits</Button>
+        <Button compact variant="danger" onClick={d.discardAndLoad}>Discard and load r{d.conflict.rev}</Button>
+      </div>
+    </Banner>
+  );
+}
+
+export function NameField({ d, prefix = 'definition' }: { d: DefinitionDraft; prefix?: string }) {
+  return (
+    <div className="field">
+      <label className="field-label" htmlFor={`${prefix}-name`}>Name<span className="req" aria-hidden="true"> *</span></label>
+      <input id={`${prefix}-name`} className="input" value={d.name} onChange={(e) => d.setName(e.target.value)} disabled={d.base.archived} aria-invalid={d.errors['-name'] ? true : undefined} aria-describedby={`${prefix}-name-hint`} required />
+      <small id={`${prefix}-name-hint`} className={d.errors['-name'] ? 'field-error' : 'field-hint'}>{d.errors['-name'] ?? '1–180 characters; no path separators or control characters.'}</small>
     </div>
   );
 }
 
-function HistoryDialog({ open, onOpenChange, rec, schema, current }: { open: boolean; onOpenChange: (o: boolean) => void; rec: DefinitionRecord; schema: SchemaSpec; current: Record<string, unknown> }) {
+function DefinitionEditor({ schema, rec, basePath }: { schema: SchemaSpec; rec: DefinitionRecord; basePath: string }) {
+  const d = useDefinitionDraft(schema, rec, basePath);
+  const { base, dirty } = d;
+  return (
+    <div className="stack-16" onKeyDown={(e) => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); d.save(); } }}>
+      <Panel title={base.archived ? 'Archived definition' : 'Edit definition'} actions={<Badge>{dirty ? 'Unsaved changes' : `Device revision ${base.rev}`}</Badge>}>
+        <div className="panel-pad stack-12">
+          {base.archived && <Banner tone="warning" title="Archived">Archived definitions are read-only. Restore to edit.</Banner>}
+          <ConflictBanner d={d} />
+          <NameField d={d} />
+          <div className="row">
+            <Button variant="primary" icon="save" onClick={d.save} disabled={base.archived || !!d.conflict}>Save local revision</Button>
+            <Button icon="success" onClick={d.validateComplete}>Validate complete definition</Button>
+            <Button icon="history" onClick={() => d.setHistoryOpen(true)}>History / compare</Button>
+          </div>
+        </div>
+      </Panel>
+      <DefinitionForm schema={schema} values={d.values} errors={d.errors} onChange={d.onChange} disabled={base.archived} showSummary={d.summary} onPickPins={d.setPinKey} />
+      <PreservedFields rec={base} />
+      <Panel title="Saved definition actions">
+        <div className="panel-pad row">
+          <Button icon={base.archived ? 'restore' : 'archive'} onClick={d.archiveToggle} disabled={dirty}>{base.archived ? 'Restore' : 'Archive'}</Button>
+          <Button icon="copy" onClick={d.duplicate} disabled={dirty}>Duplicate definition</Button>
+          <Button icon="download" onClick={d.exportDraft}>Export definition & draft</Button>
+          {dirty && <span className="caption">Save or export changes before archiving or duplicating.</span>}
+        </div>
+      </Panel>
+      <DraftChrome d={d} />
+    </div>
+  );
+}
+
+export function PreservedFields({ rec }: { rec: DefinitionRecord }) {
+  if (!Object.keys(rec.preserved).length) return null;
+  return (
+    <Panel title="Preserved legacy fields">
+      <div className="panel-pad stack">
+        <p className="caption">These fields are retained when saving. They require explicit service contract mapping before publication.</p>
+        <details><summary>{Object.keys(rec.preserved).length} retained fields</summary><pre className="code-block">{JSON.stringify(rec.preserved, null, 2)}</pre></details>
+      </div>
+    </Panel>
+  );
+}
+
+export function HistoryDialog({ open, onOpenChange, rec, schema, current }: { open: boolean; onOpenChange: (o: boolean) => void; rec: DefinitionRecord; schema: SchemaSpec; current: Record<string, unknown> }) {
   const [revs, setRevs] = useState<RevisionRecord[]>([]);
   const [sel, setSel] = useState<number | null>(null);
   useEffect(() => { if (open) listRevisions(rec.id).then((r) => { setRevs(r); setSel(r[1]?.rev ?? r[0]?.rev ?? null); }); }, [open, rec.id, rec.rev]);

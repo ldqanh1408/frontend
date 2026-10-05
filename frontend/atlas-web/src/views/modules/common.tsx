@@ -65,7 +65,7 @@ export function LifecycleChain({ states, ids, label }: { states: string[] | null
   return (
     <Panel title="Lifecycle" actions={<Badge tone="warning">Proposed</Badge>}>
       <div className="panel-pad stack-12">
-        {states && <ol className="lifecycle-chain" aria-label={`${label} lifecycle`}>{states.map((s) => <li key={s}><span className="badge">{s}</span></li>)}</ol>}
+        {states && <ol className="lifecycle-chain" aria-label={`${label} lifecycle: ${states.join(' / ')}`}>{states.map((s) => <li key={s}><span className="badge">{s}</span></li>)}</ol>}
         {lcs.map((lc) => (
           <details key={lc!.id} className="lc-detail">
             <summary><span className="label">{lc!.entity}</span> <span className="caption">{lc!.id}</span></summary>
