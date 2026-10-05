@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Dialog } from '../../components/overlays';
-import { Badge, Button } from '../../components/ui';
+import { Badge, Button, Skeleton } from '../../components/ui';
 import { getAll, type DefinitionRecord, type RevisionRecord } from '../../lib/storage';
 import { loadSchemas } from '../../data/catalog';
 
@@ -57,7 +57,7 @@ export function PinPicker({ open, onOpenChange, onPick, excludeId }: { open: boo
             </select>
           </div>
         </div>
-        {options === null ? <p className="caption" role="status">Loading saved revisions…</p> : visible.length === 0 ? (
+        {options === null ? <Skeleton lines={2} label="Loading saved revisions" /> : visible.length === 0 ? (
           <p className="caption">{options.length === 0 ? 'No saved definitions on this device yet. Save a definition first, then pin its revision.' : 'No saved revision matches.'}</p>
         ) : (
           <fieldset className="stack" style={{ border: 0, padding: 0, margin: 0 }}>

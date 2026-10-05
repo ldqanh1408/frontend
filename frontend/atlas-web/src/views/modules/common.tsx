@@ -59,11 +59,11 @@ export function ModuleDefinitions({ module, title = 'Definitions' }: { module: M
   );
 }
 
-export function LifecycleChain({ states, ids, label }: { states: string[] | null; ids: string[]; label: string }) {
+export function LifecycleChain({ states, ids, label, title = 'Lifecycle' }: { states: string[] | null; ids: string[]; label: string; title?: string }) {
   const { data } = useAsync(loadLifecycles, []);
   const lcs = ids.map((id) => data?.[id]).filter(Boolean);
   return (
-    <Panel title="Lifecycle" actions={<Badge tone="warning">Proposed</Badge>}>
+    <Panel title={title} actions={<Badge tone="warning">Proposed</Badge>}>
       <div className="panel-pad stack-12">
         {states && <ol className="lifecycle-chain" aria-label={`${label} lifecycle: ${states.join(' / ')}`}>{states.map((s) => <li key={s}><span className="badge">{s}</span></li>)}</ol>}
         {lcs.map((lc) => (
@@ -80,19 +80,32 @@ export function LifecycleChain({ states, ids, label }: { states: string[] | null
   );
 }
 
-export function ContinueJourney({ links }: { links: { label: string; to: ModuleRoute }[] }) {
+/** Figma "Lifecycle" band inside the records panel: the state names as a plain chain (raised background). */
+export function LifecycleSection({ states, ids, label }: { states: string[] | null; ids: string[]; label: string }) {
+  const { data } = useAsync(loadLifecycles, []);
+  const names = states ?? (ids[0] && data?.[ids[0]] ? data[ids[0]]!.states.map((s) => s.name) : []);
   return (
-    <Panel title="Continue the journey">
-      <ul className="view-links" role="list">
-        {links.map((l) => (
-          <li key={l.label}><Link to={modulePath(l.to)} className="list-item"><Icon name={nav.modules[l.to].icon} /><span className="grow">{l.label}</span><span className="caption">{nav.modules[l.to].label}</span></Link></li>
-        ))}
-      </ul>
-    </Panel>
+    <section className="lifecycle-band stack" aria-labelledby={`${label}-lc-h`.replace(/\W+/g, '-')}>
+      <h2 id={`${label}-lc-h`.replace(/\W+/g, '-')} className="label">Lifecycle</h2>
+      {names.length > 0 && <p className="chain" aria-label={`${label} lifecycle: ${names.join(' / ')}`}>{[...new Set(names)].map((n) => <span key={n}>{n}</span>)}</p>}
+    </section>
   );
 }
 
-export function OperationReceipts({ module }: { module?: string }) {
+export function ContinueJourney({ links }: { links: { label: string; to: ModuleRoute }[] }) {
+  return (
+    <section className="panel-pad stack-12" aria-labelledby="journey-next-h">
+      <h2 id="journey-next-h" className="label">Continue the journey</h2>
+      <ul className="stack" role="list" style={{ margin: 0, padding: 0, alignItems: 'flex-start' }}>
+        {links.map((l) => (
+          <li key={l.label}><Link to={modulePath(l.to)} className="btn" aria-label={`${l.label} (${nav.modules[l.to].label})`}>{l.label}</Link></li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+export function OperationReceipts({ module, bare }: { module?: string; bare?: boolean }) {
   const connected = useApp((s) => s.connection === 'connected');
   const { data } = useDeviceQuery(() => listJournal(module), [module], [] as JournalEntry[]);
   const [busy, setBusy] = useState<string | null>(null);
@@ -103,9 +116,7 @@ export function OperationReceipts({ module }: { module?: string }) {
       toast({ tone: next.stage === 'Effective' ? 'success' : next.stage === 'Rejected' ? 'danger' : 'info', title: `${next.label}: ${next.stage}`, body: next.message, kind: 'operation' });
     } finally { setBusy(null); }
   };
-  return (
-    <Panel title="Operation receipts" actions={<span className="caption">{data.length} recorded</span>}>
-      {data.length === 0 ? (
+  const body = data.length === 0 ? (
         <div className="panel-pad"><p className="caption">No operations recorded for this session scope.</p></div>
       ) : (
         <ul className="list" role="list" style={{ padding: 'var(--space-8)' }}>
@@ -125,9 +136,16 @@ export function OperationReceipts({ module }: { module?: string }) {
             </li>
           ))}
         </ul>
-      )}
-    </Panel>
-  );
+      );
+  if (bare) {
+    return (
+      <section className="receipts-band" aria-labelledby="receipts-h">
+        <div className="panel-head"><h2 id="receipts-h">Operation receipts</h2><span className="caption">{data.length} recorded</span></div>
+        {body}
+      </section>
+    );
+  }
+  return <Panel title="Operation receipts" actions={<span className="caption">{data.length} recorded</span>}>{body}</Panel>;
 }
 
 export function NotObserved({ what, headingLevel = 3 }: { what: string; headingLevel?: 2 | 3 }) {

@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router';
 import { loadSceneIndex, loadScene, loadViews, nav, routeById } from '../data/catalog';
 import { useAsync } from '../lib/hooks';
 import { usePageMeta } from '../shell/page-meta';
-import { Spinner, Banner } from '../components/ui';
+import { PageSkeleton, Banner } from '../components/ui';
 import { SceneRenderer } from './scene/SceneRenderer';
 import { resolveAction } from './scene/model';
 import { modulePath } from '../shell/Sidebar';
@@ -29,7 +29,7 @@ export default function ViewPage({ viewId, bare = false }: { viewId: string; bar
     return data.scene.actions.map((a) => resolveAction(a, data.view, data.index, (id) => routeById.get(id)?.route, data.scene!.disabled));
   }, [data]);
   if (error) return <div className="page"><Banner tone="danger" title="This view could not be loaded" role="alert">{error}</Banner></div>;
-  if (!data?.scene) return <div className="page"><Spinner label="Loading view" /></div>;
+  if (!data?.scene) return <PageSkeleton />;
   const onAction = (to: string, kind: string) => {
     if (kind === 'scene') {
       const next = new URLSearchParams(params);

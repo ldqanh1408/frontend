@@ -11,7 +11,7 @@ export default function ModuleLanding({ module }: { module: ModuleRoute }) {
   usePageMeta(m.title, [{ label: m.label }]);
   return (
     <div className="page">
-      <PageHeader eyebrow={m.label} title={m.title} purpose={m.purpose} />
+      <PageHeader title={m.title} purpose={m.purpose} />
       <ProvenanceBanner />
       <div className="split">
         <ModuleViews module={module} />

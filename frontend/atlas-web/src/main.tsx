@@ -10,7 +10,7 @@ import './styles/components.css';
 import { AppShell } from './shell/AppShell';
 import { PageMetaProvider, usePageMetaValue } from './shell/page-meta';
 import { NotFound, RouteError } from './views/shared';
-import { Spinner } from './components/ui';
+import { PageSkeleton } from './components/ui';
 import { Toaster } from './components/overlays';
 import { nav, routes } from './data/catalog';
 import { DRAFT_MODULES, SERVICE_MODULES } from './data/module-specs';
@@ -39,7 +39,7 @@ function BareLayout() {
   usePageMetaValue();
   return (
     <>
-      <Suspense fallback={<div className="page"><Spinner label="Loading" /></div>}><Outlet /></Suspense>
+      <Suspense fallback={<PageSkeleton label="Loading" />}><Outlet /></Suspense>
       <Toaster />
     </>
   );

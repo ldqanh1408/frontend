@@ -4,8 +4,7 @@ import { useApp } from '../data/app-store';
 import { getAll, type DefinitionRecord, type DocumentRecord } from '../lib/storage';
 import { useDeviceQuery } from '../lib/hooks';
 import type { WorkflowRecord } from '../lib/workflows';
-import { Badge, ButtonLink, PageHeader, Panel } from '../components/ui';
-import { Icon } from '../components/Icon';
+import { ButtonLink, PageHeader } from '../components/ui';
 import { usePageMeta } from '../shell/page-meta';
 import { ProvenanceBanner } from './shared';
 
@@ -34,40 +33,43 @@ export default function Overview() {
     <div className="page">
       <PageHeader title={m.title} purpose={m.purpose} actions={<ButtonLink to="/connection" variant="primary" icon="plug">{connection === 'connected' ? 'Manage connection' : 'Connect workspace'}</ButtonLink>} />
       <ProvenanceBanner />
-      <div className="cards" role="list" aria-label="Workspace summary">
+      <div className="metrics" role="list" aria-label="Workspace summary">
         <SummaryCard label="Document drafts" value={data.documents} to="/specifications" note="Saved on this device" />
         <SummaryCard label="Agent drafts" value={data.agents} to="/agents" note="Saved on this device" />
         <SummaryCard label="Workflow drafts" value={data.workflows} to="/workflow" note="Saved on this device" />
-        <div className="card" role="listitem">
-          <span className="caption">Workspace session</span>
-          <span className="metric" style={{ fontSize: 20 }}>{connection === 'connected' ? 'Connected' : connection === 'ended' ? 'Ended' : 'Disconnected'}</span>
+        <div className="card metric-card" role="listitem">
+          <span className="caption secondary">Workspace session</span>
+          <span className="metric">{connection === 'connected' ? 'Connected' : connection === 'ended' ? 'Ended' : 'Disconnected'}</span>
           <span className="caption">{connection === 'connected' ? 'Authorized records available' : 'No service result inferred'}</span>
         </div>
       </div>
-      <div className="split">
-        <Panel title="Build your first complete journey">
-          <ol className="list" role="list" style={{ padding: 'var(--space-8)' }}>
+      <div className="dashboard">
+        <section className="panel dash-panel" aria-labelledby="journey-h">
+          <h2 id="journey-h">Build your first complete journey</h2>
+          <ol className="journey" role="list">
             {steps.map((s) => (
-              <li key={s.n}>
-                <Link className="list-item" to={s.to}>
-                  <span className="mono muted" aria-hidden="true">{s.n}</span>
-                  <span className="grow stack" style={{ gap: 2 }}><span className="label">{s.title}</span><span className="caption">{s.text}</span></span>
-                  <span className="caption">Open</span><Icon name="chevron-right" />
-                </Link>
+              <li key={s.n} className="journey-step">
+                <span className="journey-n" aria-hidden="true">{s.n}</span>
+                <span className="grow stack" style={{ gap: 'var(--space-4)' }}><span className="label">{s.title}</span><span className="caption">{s.text}</span></span>
+                <ButtonLink to={s.to} aria-label={`Open: ${s.title}`}>Open</ButtonLink>
               </li>
             ))}
           </ol>
-        </Panel>
-        <Panel title="Workspace readiness" actions={<Badge tone="warning">Service observation required</Badge>}>
-          <ul className="list" role="list" style={{ padding: 'var(--space-8)' }}>
-            {[['Repository', '/code', 'code'], ['Provider & budget', '/gateway', 'key-round'], ['Runtime capabilities', '/desktop', 'monitor']].map(([label, to, icon]) => (
+        </section>
+        <section className="panel dash-panel" aria-labelledby="readiness-h">
+          <h2 id="readiness-h">Workspace readiness</h2>
+          <ul className="stack-16" role="list" style={{ margin: 0, padding: 0 }}>
+            {[['Workspace session', '/connection'], ['Repository', '/code'], ['Provider & budget', '/gateway'], ['Runtime capabilities', '/desktop']].map(([label, to]) => (
               <li key={label}>
-                <Link className="list-item" to={to}><Icon name={icon} /><span className="grow">{label}</span><Badge tone={connection === 'connected' ? 'info' : 'warning'}>{connection === 'connected' ? 'Check service' : 'Not observed'}</Badge></Link>
+                <Link className="readiness-item readiness-link" to={to}>
+                  <span className="secondary">{label}</span>
+                  <span className="muted">{connection === 'connected' ? (label === 'Workspace session' ? 'Authorized session observed' : 'Check the service for the current observation') : 'Service observation required'}</span>
+                </Link>
               </li>
             ))}
           </ul>
-          <div className="panel-section caption">Local drafts are usable before connecting. Production execution is not verified.</div>
-        </Panel>
+          <p className="caption">Local drafts are usable before connecting. Production execution is not verified.</p>
+        </section>
       </div>
     </div>
   );
@@ -75,8 +77,8 @@ export default function Overview() {
 
 function SummaryCard({ label, value, to, note }: { label: string; value: number; to: string; note: string }) {
   return (
-    <Link className="card" to={to} role="listitem" aria-label={`${label}: ${value}`}>
-      <span className="caption">{label}</span>
+    <Link className="card metric-card" to={to} role="listitem" aria-label={`${label}: ${value}`}>
+      <span className="caption secondary">{label}</span>
       <span className="metric">{value}</span>
       <span className="caption">{note}</span>
     </Link>

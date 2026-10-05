@@ -57,11 +57,14 @@ test('code intelligence: import folder, search, outline symbols', async ({ page 
   await expect(page.getByRole('tree')).toBeVisible();
   await page.getByRole('treeitem', { name: /storage\.ts/ }).click();
   await expect(page.locator('.cm-content')).toBeVisible();
-  await page.getByLabel('Literal content search').fill('putVersioned');
+  await page.getByLabel('Search source').fill('putVersioned');
   await expect(page.getByRole('status').filter({ hasText: 'matches' })).toBeVisible();
-  await page.getByRole('tab', { name: 'Symbols & quality' }).click();
   await page.getByRole('button', { name: 'Analyze JS/TS' }).click();
   await expect(page.getByRole('status').filter({ hasText: 'symbols' })).toBeVisible();
+  // Definition / References act on the symbol picked in Symbols & quality.
+  await page.getByRole('list', { name: 'Symbols in this file' }).getByRole('button').first().click();
+  await page.getByRole('button', { name: 'References', exact: true }).click();
+  await expect(page.getByRole('heading', { name: /^References · / })).toBeVisible();
   await axe(page, 'code intelligence');
   expect(errors).toEqual([]);
 });

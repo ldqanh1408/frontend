@@ -8,7 +8,7 @@ import { ConflictError, type DefinitionRecord, type RevisionRecord } from '../..
 import { useDeviceQuery } from '../../lib/hooks';
 import { relativeTime } from '../../lib/format';
 import { isValidName } from '../../lib/ids';
-import { Badge, Banner, Button, EmptyState, Panel } from '../../components/ui';
+import { Badge, Banner, Button, EmptyState, Panel, Skeleton } from '../../components/ui';
 import { Dialog } from '../../components/overlays';
 import { Icon } from '../../components/Icon';
 import { DefinitionForm, SectionNav } from './DefinitionForm';
@@ -82,7 +82,7 @@ export function DefinitionWorkspace({ schema, defId, basePath, headingLevel = 2,
                 <option value="active">Active</option><option value="archived">Archived</option>
               </select>
             </div>
-            {loading ? <span className="caption">Loading…</span> : visible.length === 0 ? (
+            {loading ? <Skeleton lines={2} label="Loading device drafts" /> : visible.length === 0 ? (
               <p className="caption">{q ? 'No definition matches this name.' : collection === 'archived' ? 'No archived definitions.' : 'No local definitions of this type yet.'}</p>
             ) : (
               <ul className="list" role="list" aria-label={`${schema.title} definitions`}>

@@ -32,14 +32,14 @@ function mockService(page: Page, opts: { postStatus?: number; unauthorizedAfterC
 async function connect(page: Page) {
   await page.goto('/connection');
   await page.fill('#service-endpoint', B);
-  await page.getByRole('button', { name: 'Connect & inspect authority' }).click();
+  await page.getByRole('button', { name: 'Connect', exact: true }).click();
   await expect(page.getByText('dev@acme.test')).toBeVisible();
 }
 
 test('rejects credentials in the service URL', async ({ page }) => {
   await page.goto('/connection');
   await page.fill('#service-endpoint', 'https://user:pass@svc.atlas.test');
-  await page.getByRole('button', { name: 'Connect & inspect authority' }).click();
+  await page.getByRole('button', { name: 'Connect', exact: true }).click();
   await expect(page.locator('#service-endpoint-hint')).toContainText('Remove credentials');
   await expect(page.locator('#service-endpoint')).toBeFocused();
 });

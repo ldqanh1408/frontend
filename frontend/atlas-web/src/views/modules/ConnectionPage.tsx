@@ -5,7 +5,8 @@ import { toast, useApp } from '../../data/app-store';
 import { getAll, type DefinitionRecord, type DocumentRecord, type RevisionRecord } from '../../lib/storage';
 import { downloadJson } from '../../lib/definitions';
 import { isoUtc } from '../../lib/format';
-import { Badge, Banner, Button, KeyValue, PageHeader, Panel, Stages } from '../../components/ui';
+import { Badge, Banner, Button, EmptyState, KeyValue, PageHeader, Panel } from '../../components/ui';
+import { ProvenanceBanner } from '../shared';
 import { usePageMeta } from '../../shell/page-meta';
 import { ModuleViews, OperationReceipts } from './common';
 
@@ -42,12 +43,13 @@ export default function ConnectionPage() {
   const status = connection === 'connected' ? 'Connected' : connection === 'connecting' ? 'Connecting' : connection === 'ended' ? 'Session ended' : 'Disconnected';
   return (
     <div className="page">
-      <PageHeader eyebrow={m.label} title={m.title} purpose={m.purpose} actions={<Button icon="download" onClick={exportDeviceDrafts}>Export device drafts</Button>} />
-      <Banner tone="warning" title="Service adapter contract is proposed">This UI speaks the proposed atlas-ui/v1 capability, session, collection and command responses. Verify availability against your actual backend; no result is preseeded.</Banner>
+      <PageHeader title={m.title} purpose={m.purpose} actions={<Button icon="download" onClick={exportDeviceDrafts}>Export device drafts</Button>} />
+      <ProvenanceBanner detail="The service adapter contract (atlas-ui/v1) is proposed; verify availability against your actual backend." />
       {connection === 'ended' && endReason && <Banner tone="warning" title="Service session ended" role="status">{endReason} Reconnect to load authorized records. Device drafts are unchanged.</Banner>}
       {connection === 'disconnected' && endReason && <Banner tone="info" title="Not connected" role="status">{endReason}</Banner>}
       <div className="split">
-        <Panel title="Service connection" actions={<Badge tone={connection === 'connected' ? 'success' : connection === 'ended' ? 'warning' : 'neutral'}>{status}</Badge>}>
+        <Panel title="Service connection">
+          <div className="panel-pad" style={{ paddingBottom: 0 }}><Badge tone={connection === 'connected' ? 'success' : 'warning'}>{status}</Badge></div>
           {connection === 'connected' && session ? (
             <div className="panel-pad stack-12">
               <KeyValue items={[
@@ -72,26 +74,22 @@ export default function ConnectionPage() {
                   onChange={(e) => setUrl(e.target.value)} aria-invalid={err ? true : undefined} aria-describedby="service-endpoint-hint" placeholder="https://atlas.example.com" />
                 <small id="service-endpoint-hint" className={err ? 'field-error' : 'field-hint'} role={err ? 'alert' : undefined}>{err ?? 'No credentials in the URL.'}</small>
               </div>
-              <div className="row"><Button type="submit" variant="primary" icon="plug" disabled={busy}>{busy ? 'Connecting…' : 'Connect & inspect authority'}</Button></div>
+              <p className="secondary">The service must expose compatible capabilities and an audience-bound session. No admin role is created by this frontend.</p>
+              <div className="row"><Button type="submit" variant="primary" disabled={busy}>{busy ? 'Connecting…' : 'Connect'}</Button></div>
             </form>
           )}
         </Panel>
         <Panel title="Session & operation receipts">
-          <div className="panel-pad stack-16">
-            {connection !== 'connected' && <p className="label">No authenticated session</p>}
-            <div className="stack">
-              <Stages stage="Accepted" />
-              <p className="caption"><strong>Received / Accepted</strong> — Acknowledgement only. The effect is not yet verified.</p>
-            </div>
-            <div className="stack">
-              <Stages stage="Effective" />
-              <p className="caption"><strong>Effective</strong> — Requires a matched operation, scope, input fingerprint and effect readback.</p>
-            </div>
-            <div className="stack">
-              <Stages stage="Unknown" />
-              <p className="caption"><strong>Unknown</strong> — Preserve the original operation ID and reconcile before retrying.</p>
-            </div>
-          </div>
+          {connection !== 'connected' && (
+            <EmptyState icon="link" headingLevel={3} title="No authenticated session">
+              Device drafts have no tenant authority. Existing operations can be reconciled only in their original scope.
+            </EmptyState>
+          )}
+          <dl className="panel-pad outcome-defs">
+            <div><dt className="outcome-info">Received / Accepted</dt><dd className="caption">Acknowledgement only. The effect is not yet verified.</dd></div>
+            <div><dt className="outcome-accent">Effective</dt><dd className="caption">Requires a matched operation, scope, input fingerprint and effect readback.</dd></div>
+            <div><dt className="outcome-warning">Unknown</dt><dd className="caption">Preserve the original operation ID and reconcile before retrying.</dd></div>
+          </dl>
         </Panel>
       </div>
       <OperationReceipts />

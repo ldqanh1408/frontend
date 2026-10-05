@@ -8,11 +8,22 @@ import { toast, useApp } from '../../data/app-store';
 import { useAsync } from '../../lib/hooks';
 import { relativeTime, isoUtc } from '../../lib/format';
 import type { JournalEntry } from '../../lib/storage';
-import { Badge, Banner, Button, ButtonLink, EmptyState, KeyValue, PageHeader, Panel, Stages } from '../../components/ui';
+import { Badge, Banner, Button, ButtonLink, EmptyState, KeyValue, PageHeader, Stages } from '../../components/ui';
 import { Dialog, Tabs } from '../../components/overlays';
 import { usePageMeta } from '../../shell/page-meta';
 import { ProvenanceBanner } from '../shared';
-import { ContinueJourney, LifecycleChain, ModuleDefinitions, ModuleViews, NotObserved, OperationReceipts } from './common';
+import { ContinueJourney, LifecycleChain, LifecycleSection, ModuleDefinitions, ModuleViews, NotObserved, OperationReceipts } from './common';
+
+/** Destructive or irreversible controls use the Danger button style (Figma Current UI: Cancel, Reject…). */
+const DESTRUCTIVE = /^(cancel|reject|revoke|offboard|request deletion|request erasure)/i;
+
+function InspectFirst({ connected }: { connected: boolean }) {
+  return (
+    <EmptyState icon="eye" headingLevel={3} title="Inspect before acting">
+      {connected ? 'Select a resource to load its current detail from the service.' : 'Actions stay visible. No resource status, provider health or execution result has been inferred.'}
+    </EmptyState>
+  );
+}
 
 /** Service-backed module (Figma Current UI: records table, lifecycle, continue the journey, inspect-before-acting, receipts). */
 export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
@@ -42,64 +53,70 @@ export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
   const extra = record?.actions?.filter((a) => !spec.actions.some((s) => s.label.toLowerCase() === a.label.toLowerCase())) ?? [];
   return (
     <div className="page">
-      <PageHeader eyebrow={m.label} title={m.title} purpose={m.purpose} actions={<>
+      <PageHeader title={m.title} purpose={m.purpose} actions={<>
         <Button icon="refresh" onClick={refresh} disabled={loading} blocked={connection === 'connected' ? undefined : 'Connect a service to load records.'} reasonId={connection === 'connected' ? undefined : 'provenance-note'}>{loading ? 'Refreshing…' : 'Refresh'}</Button>
         {connection !== 'connected' && <ButtonLink to="/connection" variant="primary" icon="plug">Connect service</ButtonLink>}
       </>} />
       <ProvenanceBanner />
       {audience === 'observer' && module !== 'observer' && <Banner tone="info" title="Observer session">This session can read telemetry only. Workspace actions are disabled.</Banner>}
-      <div className="split-wide">
-        <div className="stack-16" style={{ minWidth: 0 }}>
-          <Panel title="Service records" actions={col ? <span className="caption">Observed {relativeTime(col.observedAt)}{col.complete ? '' : ' · partial'}</span> : undefined}>
-            {err && <div className="panel-pad"><Banner tone="danger" title="Records could not be loaded" role="alert">{err}</Banner></div>}
-            <RecordsTable col={col} loading={loading} selId={selId} onSelect={setSelId} label={m.title} />
-          </Panel>
-          <Panel title={record ? record.name : 'Selected resource'}>
-            <Tabs label={`${m.title} detail`} tabs={spec.tabs.map((t) => ({
-              id: t, label: t,
-              content: <div className="panel-pad">{record ? <RecordTab record={record} tab={t} /> : <NotObserved what={t} />}</div>,
-            }))} />
-          </Panel>
-          <LifecycleChain states={spec.lifecycle} ids={spec.lifecycleIds} label={m.title} />
+      <div className="service-grid">
+        <section className="panel service-records" aria-label={`${m.title} records`}>
+          {col && <p className="caption service-observed">Observed {relativeTime(col.observedAt)}{col.complete ? '' : ' · partial'}</p>}
+          {err && <div className="panel-pad"><Banner tone="danger" title="Records could not be loaded" role="alert">{err}</Banner></div>}
+          <RecordsTable col={col} loading={loading} selId={selId} onSelect={setSelId} label={m.title} />
+          <LifecycleSection states={spec.lifecycle} ids={spec.lifecycleIds} label={m.title} />
           <ContinueJourney links={spec.links} />
-          <ModuleViews module={module} />
-          <ModuleDefinitions module={module} title="Typed inputs & definitions" />
-          <OperationReceipts module={module} />
-        </div>
-        <aside className="panel inspector" aria-label="Inspect before acting">
-          <section className="panel-section stack" aria-labelledby="iba-h">
-            <h2 id="iba-h" className="label">Inspect before acting</h2>
-            {record ? (
-              <KeyValue items={[['Resource', record.name], ['State', <Badge key="s">{record.status}</Badge>], ['Revision', `r${record.revision}`], ['Scope', record.scope], ['Observed', isoUtc(record.observedAt)]]} />
-            ) : <><p className="label">Select a resource</p><p className="caption">Grants and a resource revision are required before acting.</p></>}
-          </section>
-          <section className="panel-section stack" aria-labelledby="act-h">
-            <h2 id="act-h" className="label">Actions</h2>
-            {sharedGate && <p id={`${module}-act-reason`} className="caption">{sharedGate}</p>}
-            {gates.map(({ a, svc, gate }) => (
-              <Button key={a.label} block blocked={gate ?? undefined} reasonId={sharedGate ? `${module}-act-reason` : undefined}
-                onClick={() => svc && setPending({ action: svc, label: a.label })}>{a.label}</Button>
-            ))}
-            {extra.map((a) => {
-              const gate = actionGate(record, a);
-              return <Button key={a.id} block blocked={gate ?? undefined} onClick={() => setPending({ action: a, label: a.label })}>{a.label}</Button>;
-            })}
-          </section>
-          <details className="panel-section">
-            <summary className="label" style={{ cursor: 'pointer' }}>Authorization requirements</summary>
-            <dl className="stack" style={{ marginTop: 8 }}>
-              {spec.actions.filter((a) => a.sourceAction && saById.get(a.sourceAction)).map((a) => {
-                const sa = saById.get(a.sourceAction!)!;
-                return <div key={a.label}><dt className="label">{a.label}</dt><dd className="caption">{sa.authorization}. {sa.preconditions}</dd></div>;
-              })}
-            </dl>
-          </details>
-          <section className="panel-section stack" aria-labelledby="rule-h">
-            <h2 id="rule-h" className="label">Outcome rule</h2>
-            <p className="caption">Received and Accepted are acknowledgements. Effective requires a matched operation, scope, input fingerprint and effect readback. Unknown keeps the original operation ID for reconciliation.</p>
-          </section>
+        </section>
+        <aside className="panel service-inspect" aria-labelledby="iba-h">
+          <div className="panel-pad stack-16">
+            <section className="stack" aria-labelledby="iba-h">
+              <h2 id="iba-h" className="sr-only">Inspect before acting</h2>
+              {record ? (
+                <>
+                  <p className="workbench-title break">{record.name}</p>
+                  <KeyValue items={[['State', <Badge key="s">{record.status}</Badge>], ['Revision', `r${record.revision}`], ['Scope', record.scope], ['Observed', isoUtc(record.observedAt)]]} />
+                </>
+              ) : <><p className="workbench-title">Select a resource</p><p className="caption">Grants and a resource revision are required before acting.</p></>}
+            </section>
+            <section className="stack-12" aria-label="Actions">
+              <div className="row" role="group" aria-label={`${m.title} actions`} aria-describedby={sharedGate ? `${module}-act-reason` : undefined}>
+                {gates.map(({ a, svc, gate }) => (
+                  <Button key={a.label} variant={DESTRUCTIVE.test(a.label) ? 'danger' : 'secondary'} blocked={gate ?? undefined} reasonId={sharedGate ? `${module}-act-reason` : undefined}
+                    onClick={() => svc && setPending({ action: svc, label: a.label })}>{a.label}</Button>
+                ))}
+                {extra.map((a) => {
+                  const gate = actionGate(record, a);
+                  return <Button key={a.id} variant={DESTRUCTIVE.test(a.label) ? 'danger' : 'secondary'} blocked={gate ?? undefined} onClick={() => setPending({ action: a, label: a.label })}>{a.label}</Button>;
+                })}
+              </div>
+              {sharedGate && <p id={`${module}-act-reason`} className="caption">{sharedGate}</p>}
+            </section>
+          </div>
+          <Tabs label={`${m.title} detail`} tabs={spec.tabs.map((t) => ({
+            id: t, label: t,
+            content: <div className="panel-pad">{record ? <RecordTab record={record} tab={t} /> : <InspectFirst connected={connection === 'connected'} />}</div>,
+          }))} />
+          <OperationReceipts module={module} bare />
         </aside>
       </div>
+      <div className="split">
+        <details className="panel panel-pad">
+          <summary className="label" style={{ cursor: 'pointer' }}>Authorization requirements</summary>
+          <dl className="stack" style={{ marginTop: 8 }}>
+            {spec.actions.filter((a) => a.sourceAction && saById.get(a.sourceAction)).map((a) => {
+              const sa = saById.get(a.sourceAction!)!;
+              return <div key={a.label}><dt className="label">{a.label}</dt><dd className="caption">{sa.authorization}. {sa.preconditions}</dd></div>;
+            })}
+          </dl>
+        </details>
+        <section className="panel panel-pad stack" aria-labelledby="rule-h">
+          <h2 id="rule-h" className="label">Outcome rule</h2>
+          <p className="caption">Received and Accepted are acknowledgements. Effective requires a matched operation, scope, input fingerprint and effect readback. Unknown keeps the original operation ID for reconciliation.</p>
+        </section>
+      </div>
+      <LifecycleChain states={spec.lifecycle} ids={spec.lifecycleIds} label={m.title} title="Lifecycle details" />
+      <ModuleViews module={module} />
+      <ModuleDefinitions module={module} title="Typed inputs & definitions" />
       {pending && record && <CommandDialog module={module} record={record} action={pending.action} onClose={() => setPending(null)} onDone={refresh} />}
       <p className="caption">Related: <Link to="/connection">Connection & operation receipts</Link></p>
     </div>
@@ -108,24 +125,20 @@ export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
 
 function RecordsTable({ col, loading, selId, onSelect, label }: { col: Collection | null; loading: boolean; selId: string | null; onSelect: (id: string) => void; label: string }) {
   const connection = useApp((s) => s.connection);
-  if (!col) {
-    return (
-      <div className="panel-pad">
-        <EmptyState icon="plug" headingLevel={3} title={loading ? 'Loading records…' : 'Connect this lifecycle'}
-          actions={connection !== 'connected' ? <ButtonLink to="/connection" icon="plug">Connect service</ButtonLink> : undefined}>
-          {connection === 'connected' ? 'Loading authorized records for this scope.' : 'Records, states and revisions come from an authorized service. Nothing is shown until the service returns it.'}
-        </EmptyState>
-      </div>
-    );
-  }
-  if (!col.items.length) return <div className="panel-pad"><EmptyState icon="inbox" headingLevel={3} title="No records in this scope">The connected service returned no {label.toLowerCase()} records for your current scope.</EmptyState></div>;
+  // Figma keeps the column structure visible even before the service returns records.
+  const head = <thead><tr><th scope="col">Name</th><th scope="col">State</th><th scope="col">Revision</th><th scope="col">Observed</th></tr></thead>;
+  const empty = !col ? (
+    <EmptyState icon="play" headingLevel={3} title={loading ? 'Loading records…' : 'Connect this lifecycle'}>
+      {connection === 'connected' ? 'Loading authorized records for this scope.' : 'Records, states and revisions come from an authorized service. Nothing is shown until the service returns it.'}
+    </EmptyState>
+  ) : !col.items.length ? <EmptyState icon="inbox" headingLevel={3} title="No records in this scope">The connected service returned no {label.toLowerCase()} records for your current scope.</EmptyState> : null;
   return (
     <div className="table-wrap">
       <table className="table">
         <caption className="sr-only">{label} records. Select one to inspect actions.</caption>
-        <thead><tr><th scope="col">Name</th><th scope="col">State</th><th scope="col">Revision</th><th scope="col">Observed</th></tr></thead>
+        {head}
         <tbody>
-          {col.items.map((r) => (
+          {empty ? <tr><td colSpan={4} className="table-empty">{empty}</td></tr> : col!.items.map((r) => (
             <tr key={r.id} aria-selected={r.id === selId} data-selected={r.id === selId || undefined}>
               <th scope="row"><button className="link-button" aria-pressed={r.id === selId} onClick={() => onSelect(r.id)}>{r.name}</button></th>
               <td><Badge>{r.status}</Badge></td>

@@ -7,7 +7,7 @@ import { CommandPalette } from './CommandPalette';
 import { HelpDialog, PreferencesDialog } from './dialogs';
 import { useRouteFocus } from './page-meta';
 import { Toaster } from '../components/overlays';
-import { Button, Spinner } from '../components/ui';
+import { Button, PageSkeleton } from '../components/ui';
 import { useStore } from '../lib/store';
 import { persistence } from '../lib/storage';
 import { Banner } from '../components/ui';
@@ -48,7 +48,7 @@ export function AppShell() {
             <Banner tone="warning" title="Local persistence unavailable">This browser blocks IndexedDB. Drafts you create are kept only until this tab closes; export them to keep a copy.</Banner>
           </div>
         )}
-        <Suspense fallback={<div className="page"><Spinner label="Loading view" /></div>}>
+        <Suspense fallback={<PageSkeleton />}>
           <Outlet />
         </Suspense>
       </main>

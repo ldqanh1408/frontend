@@ -36,8 +36,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   );
 });
 
-export function ButtonLink({ to, variant = 'secondary', compact, icon, children, className }: { to: string; variant?: Variant; compact?: boolean; icon?: string; children: ReactNode; className?: string }) {
-  return <Link to={to} className={cls(variant, compact, false, false, className)}>{icon && <Icon name={icon} />}{children}</Link>;
+export function ButtonLink({ to, variant = 'secondary', compact, icon, children, className, 'aria-label': ariaLabel }: { to: string; variant?: Variant; compact?: boolean; icon?: string; children: ReactNode; className?: string; 'aria-label'?: string }) {
+  return <Link to={to} aria-label={ariaLabel} className={cls(variant, compact, false, false, className)}>{icon && <Icon name={icon} />}{children}</Link>;
 }
 
 const TONES: Record<string, string> = {
@@ -126,6 +126,25 @@ export function Kbd({ children }: { children: ReactNode }) {
   return <kbd className="kbd">{children}</kbd>;
 }
 
-export function Spinner({ label = 'Loading' }: { label?: string }) {
-  return <span role="status" className="caption">{label}…</span>;
+/** Placeholder bars sized like the content they stand in for, so nothing shifts when it arrives (CLS ≈ 0). */
+export function Skeleton({ lines = 3, label = 'Loading', className }: { lines?: number; label?: string; className?: string }) {
+  return (
+    <div role="status" className={`skeleton ${className ?? ''}`}>
+      <span className="sr-only">{label}…</span>
+      {Array.from({ length: lines }, (_, i) => <span key={i} className="skeleton-bar" aria-hidden="true" style={{ width: `${[92, 76, 84, 60, 70][i % 5]}%` }} />)}
+    </div>
+  );
+}
+export const Spinner = Skeleton;
+
+/** Route-level fallback with the page's own geometry: heading, provenance boundary and the two-column workspace. */
+export function PageSkeleton({ label = 'Loading view' }: { label?: string }) {
+  return (
+    <div className="page" role="status" aria-busy="true">
+      <span className="sr-only">{label}…</span>
+      <div className="page-head" aria-hidden="true"><div className="page-head-text"><span className="skeleton-bar skeleton-title" /><span className="skeleton-bar" style={{ width: 420 }} /></div></div>
+      <div className="skeleton-block" style={{ height: 50 }} aria-hidden="true" />
+      <div className="split" aria-hidden="true"><div className="skeleton-block" style={{ height: 360 }} /><div className="skeleton-block" style={{ height: 360 }} /></div>
+    </div>
+  );
 }

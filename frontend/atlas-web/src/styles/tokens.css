@@ -14,6 +14,8 @@
   --text-body: 400 14px/20px var(--font-sans);
   --text-label: 500 14px/20px var(--font-sans);
   --text-caption: 400 12px/18px var(--font-sans);
+  /* Figma Current UI frames set buttons, tabs and chips in the caption style (12/18), not the 14px label. */
+  --text-control: 400 12px/18px var(--font-sans);
   --text-document: 400 16px/26px var(--font-sans);
   --text-code: 400 13px/21px var(--font-mono);
   --shadow-overlay: 0 16px 48px rgb(0 0 0 / 32%);

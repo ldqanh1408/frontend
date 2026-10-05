@@ -8,7 +8,7 @@ import { useDeviceQuery } from '../../lib/hooks';
 import { plural, relativeTime } from '../../lib/format';
 import { downloadJson } from '../../lib/definitions';
 import { isValidName } from '../../lib/ids';
-import { Badge, Banner, Button, ButtonLink, EmptyState, PageHeader, Panel } from '../../components/ui';
+import { Badge, Banner, Button, ButtonLink, EmptyState, PageHeader, Panel, Skeleton } from '../../components/ui';
 import { Dialog, Tabs } from '../../components/overlays';
 import { usePageMeta } from '../../shell/page-meta';
 import { ProvenanceBanner } from '../shared';
@@ -39,14 +39,14 @@ export default function WorkflowPage() {
   };
   return (
     <div className="page">
-      <PageHeader eyebrow={m.label} title={m.title} purpose={m.purpose} actions={<>
+      <PageHeader title={m.title} purpose={m.purpose} actions={<>
         <ButtonLink to="/agents" icon="bot">Agent definitions</ButtonLink>
         <Button variant="primary" icon="plus" onClick={() => setCreating(true)}>New workflow</Button>
       </>} />
       <ProvenanceBanner detail="Local graph validation ≠ admitted execution." />
       <div className="split-sidebar">
         <Panel title="Workflow drafts" actions={<span className="caption">{list.filter((w) => !w.archived).length}</span>}>
-          {loading ? <p className="caption panel-pad">Loading…</p> : list.length === 0 ? <p className="caption panel-pad">No workflow drafts yet.</p> : (
+          {loading ? <div className="panel-pad"><Skeleton lines={2} label="Loading workflow drafts" /></div> : list.length === 0 ? <p className="caption panel-pad">No workflow drafts yet.</p> : (
             <ul className="list" role="list" style={{ padding: 'var(--space-8)' }}>
               {list.filter((w) => !w.archived).map((w) => (
                 <li key={w.id}><Link className="list-item" to={`/workflow?wf=${w.id}`} aria-current={w.id === id ? 'true' : undefined}>

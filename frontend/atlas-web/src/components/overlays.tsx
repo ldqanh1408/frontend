@@ -3,7 +3,7 @@ import * as RT from '@radix-ui/react-tabs';
 import type { ReactNode } from 'react';
 import { Icon } from './Icon';
 import { Button } from './ui';
-import { app, dismissToast, useApp } from '../data/app-store';
+import { app, dismissToast, holdToast, releaseToast, useApp } from '../data/app-store';
 
 /** Modal dialog (APG Dialog Modal via Radix): focus trap, Escape, inert background, focus returns to the invoker. */
 export function Dialog({ open, onOpenChange, title, description, children, footer, wide, trigger }: {
@@ -56,7 +56,8 @@ export function Toaster() {
     <div className="toast-region" role="region" aria-label="Notifications">
       <div aria-live="polite" aria-atomic="false" className="stack">
         {toasts.map((t) => (
-          <div key={t.id} className="toast" data-tone={t.tone} role={t.tone === 'danger' ? 'alert' : 'status'}>
+          <div key={t.id} className="toast" data-tone={t.tone} role={t.tone === 'danger' ? 'alert' : 'status'}
+            onMouseEnter={() => holdToast(t.id)} onMouseLeave={() => releaseToast(t.id)} onFocus={() => holdToast(t.id)} onBlur={() => releaseToast(t.id)}>
             <Icon name={t.tone === 'success' ? 'success' : t.tone === 'danger' ? 'danger' : t.tone === 'warning' ? 'warning' : 'info'} />
             <div className="grow stack" style={{ gap: 2 }}>
               <strong className="label">{t.title}</strong>

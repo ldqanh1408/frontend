@@ -8,7 +8,7 @@ import { getAll, type DefinitionRecord, type RevisionRecord } from '../../lib/st
 import type { WorkflowRecord } from '../../lib/workflows';
 import { useDeviceQuery } from '../../lib/hooks';
 import { relativeTime } from '../../lib/format';
-import { Badge, Banner, Button, EmptyState } from '../../components/ui';
+import { Badge, Banner, Button, EmptyState, Skeleton } from '../../components/ui';
 import { Tabs } from '../../components/overlays';
 import { Icon } from '../../components/Icon';
 import { DefinitionForm } from '../definitions/DefinitionForm';
@@ -41,7 +41,7 @@ export function DraftWorkbench({ module, spec, schema, defId, basePath, onCreate
       <section className="panel workbench-catalog" aria-labelledby={`${module}-drafts-h`}>
         <div className="panel-pad stack-12">
           <h2 id={`${module}-drafts-h`} className="eyebrow">Device drafts</h2>
-          {loading ? <span className="caption">Loading…</span> : visible.length === 0 ? (
+          {loading ? <Skeleton lines={2} label="Loading device drafts" /> : visible.length === 0 ? (
             <p className="caption">{archived ? 'No archived drafts.' : `No device drafts yet. Use “${spec.newLabel}” to start one.`}</p>
           ) : (
             <ul className="list" role="list" aria-label={`${schema.title} drafts`}>

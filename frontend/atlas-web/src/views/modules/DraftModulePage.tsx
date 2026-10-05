@@ -37,7 +37,7 @@ export default function DraftModulePage({ module }: { module: ModuleRoute }) {
   };
   return (
     <div className="page">
-      <PageHeader eyebrow={m.label} title={m.title} purpose={m.purpose} actions={<>
+      <PageHeader title={m.title} purpose={m.purpose} actions={<>
         <a className="btn" href="#service-lifecycle">Service lifecycle</a>
         <Button variant="primary" icon="plus" onClick={onCreate} disabled={busy || !schema}>{spec.newLabel}</Button>
       </>} />

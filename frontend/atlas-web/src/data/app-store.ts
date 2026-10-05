@@ -45,12 +45,21 @@ export function setDensity(density: AppState['density']) {
 }
 
 const timers = new Map<string, ReturnType<typeof setTimeout>>();
+/** At most three notifications are visible; the oldest gives way. */
+export const MAX_TOASTS = 3;
+/** Reading time scales with severity; errors stay longer. Hover or focus pauses the timer (WCAG 2.2.1). */
+const toastMs = (t: Toast) => (t.tone === 'danger' ? 10000 : t.tone === 'warning' ? 8000 : 5000);
+function arm(t: Toast) { if (!t.sticky) timers.set(t.id, setTimeout(() => dismissToast(t.id), toastMs(t))); }
 export function toast(t: Omit<Toast, 'id' | 'kind'> & { kind?: Toast['kind'] }) {
   const item: Toast = { id: uuid(), kind: 'local', ...t };
-  app.set((s) => ({ toasts: [...s.toasts.slice(-3), item] }));
-  if (!item.sticky) timers.set(item.id, setTimeout(() => dismissToast(item.id), item.tone === 'danger' ? 10000 : 6000));
+  const dropped = app.get().toasts.slice(0, Math.max(0, app.get().toasts.length - (MAX_TOASTS - 1)));
+  for (const d of dropped) { clearTimeout(timers.get(d.id)); timers.delete(d.id); }
+  app.set((s) => ({ toasts: [...s.toasts.slice(-(MAX_TOASTS - 1)), item] }));
+  arm(item);
   return item.id;
 }
+export function holdToast(id: string) { clearTimeout(timers.get(id)); timers.delete(id); }
+export function releaseToast(id: string) { const t = app.get().toasts.find((x) => x.id === id); if (t && !timers.has(id)) arm(t); }
 export function dismissToast(id: string) {
   clearTimeout(timers.get(id));
   timers.delete(id);

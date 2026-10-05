@@ -8,7 +8,7 @@ import { useDeviceQuery } from '../../lib/hooks';
 import { relativeTime } from '../../lib/format';
 import { isValidName } from '../../lib/ids';
 import { diffLines, withContext } from '../../lib/diff';
-import { Badge, Banner, Button, EmptyState, PageHeader, Panel } from '../../components/ui';
+import { Badge, Banner, Button, EmptyState, PageHeader, Panel, Skeleton } from '../../components/ui';
 import { Dialog, Tabs } from '../../components/overlays';
 import { CodeEditor, type EditorHandle } from '../../components/CodeEditor';
 import { usePageMeta } from '../../shell/page-meta';
@@ -71,7 +71,7 @@ export default function SpecificationsPage() {
   const cut = capability('specifications:revision-cut', 'Create revision cut');
   return (
     <div className="page page-ide">
-      <PageHeader eyebrow={m.label} title={m.title} purpose={m.purpose} actions={<>
+      <PageHeader title={m.title} purpose={m.purpose} actions={<>
         <Button icon="upload" onClick={() => fileRef.current?.click()}>Import</Button>
         <input ref={fileRef} type="file" multiple accept=".md,.markdown,.mdx,.txt,.rst,.adoc,text/markdown,text/plain" hidden onChange={(e) => { if (e.target.files?.length) onImport(e.target.files); e.target.value = ''; }} />
         <Button icon="folder-plus" onClick={() => setNameDlg({ mode: 'folder' })}>New folder</Button>
@@ -92,7 +92,7 @@ export default function SpecificationsPage() {
             </div>
           </div>
           <div className="ide-tree">
-            {loading ? <p className="caption panel-pad">Loading…</p> : visible.length ? (
+            {loading ? <div className="panel-pad"><Skeleton label="Loading documents" /></div> : visible.length ? (
               <DocTree items={visible} selectedId={selected} onSelect={setSelected} onOpen={openDoc} onRename={(rec) => setNameDlg({ mode: 'rename', rec })} filter={q} label="Specification documents" />
             ) : (
               <div className="panel-pad"><p className="caption">{collection === 'archived' ? 'Nothing archived.' : 'No documents yet. Create a document or import Markdown files.'}</p></div>
