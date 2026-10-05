@@ -1,4 +1,4 @@
-# Atlas — Cloudflare Deployment (run 2, 2026-10-05)
+# Atlas — Cloudflare Deployment (run 2 + run 3, 2026-10-05)
 
 Mọi dữ liệu dưới đây là `OBSERVED_THIS_RUN` trừ khi ghi khác. Account ID và email đã được che (`[REDACTED]`).
 
@@ -26,6 +26,7 @@ Mọi dữ liệu dưới đây là `OBSERVED_THIS_RUN` trừ khi ghi khác. Acc
 |---|---|
 | `/release-manifest.json` | `atlas-static-release/v1`, createdAt `2026-10-04T10:09:42.397Z`, 120 payload, bytes SHA-256 `0bf5b0288ac6ca988130961b8da55d18637a07dbf9a3d09ca97d5e1e4c09edd3` (20,241 B) |
 | Băm lại trong browser | **120/120 khớp** SHA-256 + kích thước (19,291,874 B) — `CF-PRE-002` PASS, `EV-CF-501` |
+| Băm lại từ GitHub runner (Node fetch, 08:24Z) | **120/120 khớp** — `CF-PRE-002-GH` PASS (`/index.html` trả 307 → `/` do `html_handling=auto-trailing-slash`; harness đã theo redirect) |
 | Trường lạ trong manifest | `status: BUILT_NOT_DEPLOYED_NOT_PRODUCTION_CERTIFIED`, `manifestSelfHash: null`, `backendE2E: NOT_RUN`, `browserAT: NOT_RUN` ⇒ FND-020 (P3) |
 | Source revision | **UNVERIFIED** — không có source/commit trong phiên |
 | Local build | **UNVERIFIED** — không có build log/artefact local |
@@ -43,7 +44,8 @@ Mọi dữ liệu dưới đây là `OBSERVED_THIS_RUN` trừ khi ghi khác. Acc
 | Security headers | **Không có** CSP, X-Content-Type-Options, Referrer-Policy, X-Frame-Options/frame-ancestors, Permissions-Policy, HSTS, COOP | CF-PRE-005 FAIL (FND-002) |
 | Cache | **Mọi** payload (kể cả asset băm) `public, max-age=0, must-revalidate` + weak ETag (119/120) — đúng mặc định Workers static assets | CF-PRE-006 FAIL (FND-003) |
 | Path-style deep link | `/home`, `/connection` ⇒ 404 (not_found_handling=none) — ngoài hợp đồng router hash | CF-PRE-007 N/A |
-| Hash deep link + refresh | 18/18 route đúng h1 sau direct load và reload; Back/Forward; query giữ sau reload; route lạ có trạng thái "Workspace view not found" | CF-PRE-008, FE01-ROUTE-001…003 PASS |
+| Hash deep link + refresh | 18/18 route đúng h1 sau direct load và reload; Back/Forward; query giữ sau reload; route lạ có trạng thái "Workspace view not found" | CF-PRE-008, FE01-ROUTE-001…003 PASS; FE04-XENGINE-ROUTES-{CHROMIUM,FIREFOX,WEBKIT} PASS |
+| Header/cache từ GitHub runner | Giống hệt: không security header; 114 asset băm `max-age=0` | CF-PRE-005-GH, CF-PRE-006-GH FAIL |
 
 ## 4. Plugin / công cụ đã dùng
 
@@ -54,7 +56,7 @@ Mọi dữ liệu dưới đây là `OBSERVED_THIS_RUN` trừ khi ghi khác. Acc
 | `mcp__cloudflare__docs` | tài liệu headers/cache static assets, giới hạn Browser Run | OK |
 | Không dùng | token/API riêng, wrangler, bất kỳ PUT/PATCH/DELETE hoặc POST thay đổi cấu hình | — |
 
-Sandbox shell không truy cập được `workers.dev` (proxy CONNECT 403). Không có pane Browser trong phiên cloud này.
+Sandbox shell không truy cập được `workers.dev` (proxy CONNECT 403). Không có pane Browser trong phiên cloud này. Từ 07:53Z, truy cập browser chính chuyển sang GitHub Actions (Playwright, chỉ GET tới URL public, không dùng API Cloudflare).
 
 ## 5. Redaction
 

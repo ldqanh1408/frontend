@@ -1,0 +1,298 @@
+[
+ [
+  "EV-CF-601",
+  "evidence/runs/R3-001-xengine/mirror/results.json",
+  "",
+  "CF-PRE-001..007 (runner)",
+  "HTTP checks from GitHub runner",
+  "n/a"
+ ],
+ [
+  "EV-A11Y-601",
+  "evidence/runs/R3-001-xengine/injected/axe-chromium-1440x900-dark.json",
+  "",
+  "A11Y-AXE-001/002",
+  "axe chromium",
+  "1440x900"
+ ],
+ [
+  "EV-A11Y-602",
+  "evidence/runs/R3-001-xengine/injected/axe-chromium-1440x900-light.json",
+  "",
+  "A11Y-AXE-001/002",
+  "axe chromium",
+  "1440x900"
+ ],
+ [
+  "EV-XE-601",
+  "evidence/runs/R3-001-xengine/injected/deeplink-chromium-1280x800.json",
+  "",
+  "FE04-XENGINE-ROUTES-*",
+  "deeplink chromium",
+  "1280x800"
+ ],
+ [
+  "EV-XE-602",
+  "evidence/runs/R3-001-xengine/injected/deeplink-firefox-1280x800.json",
+  "",
+  "FE04-XENGINE-ROUTES-*",
+  "deeplink firefox",
+  "1280x800"
+ ],
+ [
+  "EV-XE-603",
+  "evidence/runs/R3-001-xengine/injected/deeplink-webkit-1280x800.json",
+  "",
+  "FE04-XENGINE-ROUTES-*",
+  "deeplink webkit",
+  "1280x800"
+ ],
+ [
+  "EV-XE-604",
+  "evidence/runs/R3-001-xengine/injected/fe02-chromium-1280x800.json",
+  "",
+  "FE02-AUTO-216-1280",
+  "fe02 chromium",
+  "1280x800"
+ ],
+ [
+  "EV-XE-605",
+  "evidence/runs/R3-001-xengine/injected/fe02-chromium-1440x900.json",
+  "",
+  "FE02-AUTO-216-1440",
+  "fe02 chromium",
+  "1440x900"
+ ],
+ [
+  "EV-XE-606",
+  "evidence/runs/R3-001-xengine/injected/fe02-chromium-1920x1080.json",
+  "",
+  "FE02-AUTO-216-1920",
+  "fe02 chromium",
+  "1920x1080"
+ ],
+ [
+  "EV-XE-607",
+  "evidence/runs/R3-001-xengine/injected/fe02-chromium-320x800.json",
+  "",
+  "FE02-AUTO-216-320",
+  "fe02 chromium",
+  "320x800"
+ ],
+ [
+  "EV-XE-608",
+  "evidence/runs/R3-001-xengine/injected/fe02-chromium-375x812.json",
+  "",
+  "FE02-AUTO-216-375",
+  "fe02 chromium",
+  "375x812"
+ ],
+ [
+  "EV-XE-609",
+  "evidence/runs/R3-001-xengine/injected/fe02-chromium-768x1024.json",
+  "",
+  "FE02-AUTO-216-768",
+  "fe02 chromium",
+  "768x1024"
+ ],
+ [
+  "EV-XE-610",
+  "evidence/runs/R3-001-xengine/injected/fe02-firefox-1920x1080.json",
+  "",
+  "FE02-AUTO-216-1920",
+  "fe02 firefox",
+  "1920x1080"
+ ],
+ [
+  "EV-XE-611",
+  "evidence/runs/R3-001-xengine/injected/fe02-firefox-320x800.json",
+  "",
+  "FE02-AUTO-216-320",
+  "fe02 firefox",
+  "320x800"
+ ],
+ [
+  "EV-XE-612",
+  "evidence/runs/R3-001-xengine/injected/fe02-webkit-1920x1080.json",
+  "",
+  "FE02-AUTO-216-1920",
+  "fe02 webkit",
+  "1920x1080"
+ ],
+ [
+  "EV-XE-613",
+  "evidence/runs/R3-001-xengine/injected/fe02-webkit-320x800.json",
+  "",
+  "FE02-AUTO-216-320",
+  "fe02 webkit",
+  "320x800"
+ ],
+ [
+  "EV-CF-602",
+  "evidence/runs/R3-002-fx-layout/mirror/results.json",
+  "2026-10-05T08:29:07.309Z",
+  "CF-PRE-001..007 (runner)",
+  "HTTP checks from GitHub runner",
+  "n/a"
+ ],
+ [
+  "EV-XE-614",
+  "evidence/runs/R3-002-fx-layout/injected/deeplink-chromium-1280x800.json",
+  "2026-10-05T08:29:07.309Z",
+  "FE04-XENGINE-ROUTES-*",
+  "deeplink chromium",
+  "1280x800"
+ ],
+ [
+  "EV-XE-615",
+  "evidence/runs/R3-002-fx-layout/injected/deeplink-firefox-1280x800.json",
+  "2026-10-05T08:29:07.309Z",
+  "FE04-XENGINE-ROUTES-*",
+  "deeplink firefox",
+  "1280x800"
+ ],
+ [
+  "EV-XE-616",
+  "evidence/runs/R3-002-fx-layout/injected/deeplink-webkit-1280x800.json",
+  "2026-10-05T08:29:07.309Z",
+  "FE04-XENGINE-ROUTES-*",
+  "deeplink webkit",
+  "1280x800"
+ ],
+ [
+  "EV-XE-617",
+  "evidence/runs/R3-002-fx-layout/injected/fe02-firefox-1440x900.json",
+  "2026-10-05T08:29:07.309Z",
+  "FE02-AUTO-216-1440",
+  "fe02 firefox",
+  "1440x900"
+ ],
+ [
+  "EV-XE-618",
+  "evidence/runs/R3-002-fx-layout/injected/fe02-firefox-375x812.json",
+  "2026-10-05T08:29:07.309Z",
+  "FE02-AUTO-216-375",
+  "fe02 firefox",
+  "375x812"
+ ],
+ [
+  "EV-XE-619",
+  "evidence/runs/R3-002-fx-layout/injected/fe02-firefox-768x1024.json",
+  "2026-10-05T08:29:07.309Z",
+  "FE02-AUTO-216-768",
+  "fe02 firefox",
+  "768x1024"
+ ],
+ [
+  "EV-XE-620",
+  "evidence/runs/R3-002-fx-layout/injected/fe02-webkit-1440x900.json",
+  "2026-10-05T08:29:07.309Z",
+  "FE02-AUTO-216-1440",
+  "fe02 webkit",
+  "1440x900"
+ ],
+ [
+  "EV-XE-621",
+  "evidence/runs/R3-002-fx-layout/injected/fe02-webkit-375x812.json",
+  "2026-10-05T08:29:07.309Z",
+  "FE02-AUTO-216-375",
+  "fe02 webkit",
+  "375x812"
+ ],
+ [
+  "EV-XE-622",
+  "evidence/runs/R3-002-fx-layout/injected/fe02-webkit-768x1024.json",
+  "2026-10-05T08:29:07.309Z",
+  "FE02-AUTO-216-768",
+  "fe02 webkit",
+  "768x1024"
+ ],
+ [
+  "EV-FX-601",
+  "evidence/runs/R3-002-fx-layout/fxservice/fxservice-results.json",
+  "2026-10-05T08:29:07.309Z",
+  "FX-SVC-*,FX-SERVICE-FND-005",
+  "fixture scenarios (trusted pointer)",
+  "1440x900"
+ ],
+ [
+  "EV-RT-601",
+  "evidence/runs/R3-002-fx-layout/layout/layout-results.json",
+  "2026-10-05T08:29:07.309Z",
+  "FE02-SCROLL-001-*",
+  "layout hit-test after navigation",
+  "320/375/1440"
+ ],
+ [
+  "EV-KBD-601",
+  "evidence/runs/R3-003-kbd-perf/keyboard/keyboard-results.json",
+  "2026-10-05T08:35:40.283Z",
+  "FE03-KBD-SKIP,FE03-KBD-TABSEQ,FE03-KBD-SEARCH,FE03-KBD-TABS,FE03-KBD-TREE,FE03-KBD-DIALOG-HELP,FE03-KBD-DIALOG-PREFS,FE03-KBD-NAV-MOBILE,FE01-ROUTE-004",
+  "trusted keyboard (chromium)",
+  "1440x900 / 375x812"
+ ],
+ [
+  "EV-KBD-602",
+  "evidence/runs/R3-003-kbd-perf/keyboard/keyboard-results.json",
+  "2026-10-05T08:35:40.283Z",
+  "FE03-KBD-SKIP,FE03-KBD-TABSEQ,FE03-KBD-SEARCH,FE03-KBD-TABS,FE03-KBD-TREE,FE03-KBD-DIALOG-HELP,FE03-KBD-DIALOG-PREFS,FE03-KBD-NAV-MOBILE,FE01-ROUTE-004",
+  "trusted keyboard (firefox)",
+  "1440x900 / 375x812"
+ ],
+ [
+  "EV-KBD-603",
+  "evidence/runs/R3-003-kbd-perf/keyboard/keyboard-results.json",
+  "2026-10-05T08:35:40.283Z",
+  "FE03-KBD-SKIP,FE03-KBD-TABSEQ,FE03-KBD-SEARCH,FE03-KBD-TABS,FE03-KBD-TREE,FE03-KBD-DIALOG-HELP,FE03-KBD-DIALOG-PREFS,FE03-KBD-NAV-MOBILE,FE01-ROUTE-004",
+  "trusted keyboard (webkit)",
+  "1440x900 / 375x812"
+ ],
+ [
+  "EV-PERF-601",
+  "evidence/runs/R3-003-kbd-perf/perf/perf-results.json",
+  "2026-10-05T08:35:40.283Z",
+  "PERF-007,PERF-INP-001,PERF-008",
+  "performance samples",
+  "1440x900 / 375x812 throttled"
+ ],
+ [
+  "EV-SHOT-601",
+  "evidence/runs/R3-003-kbd-perf/screenshots/screenshots-index.json",
+  "2026-10-05T08:35:40.283Z",
+  "FE02-WALK-001",
+  "screenshot index (72 JPEG)",
+  "375x812 / 1440x900"
+ ],
+ [
+  "EV-KBD-604",
+  "evidence/runs/R3-004-kbd-fix/keyboard/keyboard-results.json",
+  "2026-10-05T08:42:19.677Z",
+  "FE03-KBD-SKIP,FE03-KBD-TABSEQ,FE03-KBD-SEARCH,FE03-KBD-TABS,FE03-KBD-TREE,FE03-KBD-DIALOG-HELP,FE03-KBD-DIALOG-PREFS,FE03-KBD-NAV-MOBILE,FE01-ROUTE-004",
+  "trusted keyboard (chromium)",
+  "1440x900 / 375x812"
+ ],
+ [
+  "EV-KBD-605",
+  "evidence/runs/R3-004-kbd-fix/keyboard/keyboard-results.json",
+  "2026-10-05T08:42:19.677Z",
+  "FE03-KBD-SKIP,FE03-KBD-TABSEQ,FE03-KBD-SEARCH,FE03-KBD-TABS,FE03-KBD-TREE,FE03-KBD-DIALOG-HELP,FE03-KBD-DIALOG-PREFS,FE03-KBD-NAV-MOBILE,FE01-ROUTE-004",
+  "trusted keyboard (firefox)",
+  "1440x900 / 375x812"
+ ],
+ [
+  "EV-KBD-606",
+  "evidence/runs/R3-004-kbd-fix/keyboard/keyboard-results.json",
+  "2026-10-05T08:42:19.677Z",
+  "FE03-KBD-SKIP,FE03-KBD-TABSEQ,FE03-KBD-SEARCH,FE03-KBD-TABS,FE03-KBD-TREE,FE03-KBD-DIALOG-HELP,FE03-KBD-DIALOG-PREFS,FE03-KBD-NAV-MOBILE,FE01-ROUTE-004",
+  "trusted keyboard (webkit)",
+  "1440x900 / 375x812"
+ ],
+ [
+  "EV-PERF-602",
+  "evidence/runs/R3-004-kbd-fix/perf/perf-results.json",
+  "2026-10-05T08:42:19.677Z",
+  "PERF-007,PERF-INP-001,PERF-008",
+  "performance samples",
+  "1440x900 / 375x812 throttled"
+ ]
+]

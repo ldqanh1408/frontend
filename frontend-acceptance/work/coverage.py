@@ -58,8 +58,8 @@ def build():
             'journey_ids': '', 'finding_ids': 'FND-017,FND-018' + (',FND-002,FND-003' if rid == 'home' else ''),
             'evidence_ids': 'EV-RT-501,EV-RT-502,EV-RESP-501,EV-RESP-502,EV-RESP-503,EV-RESP-504,EV-RESP-505',
             'limitations': ('Route-level proxy only (PROPOSED_EXTENSION), not a canonical view. Routing: direct/refresh PASS (CF-PRE-008). '
-                            'Responsive FAIL = light@320/375 target-size flag (FND-018); 768/1280/1440 clean; 1920 BLOCKED. '
-                            'Accessibility FAIL = FND-017 (title) + FND-018; axe/keyboard/AT not run. Runtime = 0 errors in default state only. '
+                            'Responsive FAIL = FND-018 (breadcrumb under the fixed header after a view change, Chromium/WebKit); 768–1920 clean on all engines. '
+                            'Accessibility FAIL = FND-017 (title) + FND-018 (+ FND-001/FND-021 on #specifications); axe 0 violations (default state); AT not run. Runtime = 0 errors. '
                             'Specification/field/action parity not evaluated (inventory/spec/source missing).'),
         })
     with open(os.path.join(ROOT, 'Atlas-Frontend-Route-Coverage.csv'), 'w', newline='') as f:

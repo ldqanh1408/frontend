@@ -1,10 +1,10 @@
 {
- "run_id": "R2-2026-10-05",
+ "run_id": "R2+R3-2026-10-05",
  "prompt": "Atlas-Frontend-Acceptance-Master-Prompt-v2 (handover edition)",
  "mode": "MODE_FRESH",
- "mode_reason": "No handover package (Atlas-Frontend-Acceptance.zip) or ledger in this session ⇒ MODE_FRESH per v2 §0.2. Deployment identity re-verified identical to run 1 (MATCH), so run-1 evidence would be reusable if supplied; it was not. Run-1 facts quoted in the prompt are labelled INHERITED_EVIDENCE.",
+ "mode_reason": "No handover package (Atlas-Frontend-Acceptance.zip) or ledger in this session ⇒ MODE_FRESH per v2 §0.2. Deployment identity re-verified identical to run 1 (MATCH). Run-1 facts quoted in the prompt are labelled INHERITED_EVIDENCE.",
  "resumed_from": null,
- "generated_at": "2026-10-05T07:45Z",
+ "generated_at": "2026-10-05T08:55Z",
  "audit_mode": "AUDIT_ONLY",
  "target": {
   "provider": "Cloudflare",
@@ -23,7 +23,7 @@
   "manifest_format": "atlas-static-release/v1",
   "createdAt": "2026-10-04T10:09:42.397Z",
   "payloads": 120,
-  "remote_hash_matches": 120,
+  "remote_hash_matches": "120/120 (Cloudflare browser 07:04Z; GitHub runner 08:24Z)",
   "manifest_bytes_sha256": "0bf5b0288ac6ca988130961b8da55d18637a07dbf9a3d09ca97d5e1e4c09edd3",
   "manifest_status_field": "BUILT_NOT_DEPLOYED_NOT_PRODUCTION_CERTIFIED"
  },
@@ -34,12 +34,15 @@
  "local_build": null,
  "local_remote_equivalence": "UNVERIFIED",
  "inputs_present": [
-  "Atlas-Frontend-Acceptance-Master-Prompt-v2.md"
+  "Atlas-Frontend-Acceptance-Master-Prompt-v2.md",
+  "Figma file 0md9BEFI1rU0aRAvf98TWO (pages 00 · Start here, 03 · Design system only)"
+ ],
+ "inputs_unreadable": [
+  "https://chatgpt.com/share/6ac35844-… (chatgpt.com blocked by the egress proxy)"
  ],
  "inputs_missing": [
-  "Atlas-Frontend-Acceptance.zip (run-1 handover: deliverables, evidence/, evidence-index.json, work/tests.json, findings.json, tests.py, findings.py, coverage.py, build.py, schema_oracle.json)",
-  "Atlas-Frontend-UI-Readiness.md",
-  "Atlas-Frontend-UI-Readiness.json",
+  "Atlas-Frontend-Acceptance.zip (run-1 handover)",
+  "Atlas-Frontend-UI-Readiness.{md,json}",
   "Atlas-Archive-Canonical-Frontend.csv",
   "Atlas-Screen-Inventory.csv",
   "Atlas-State-Matrix.csv",
@@ -53,13 +56,57 @@
   "Atlas-UIUX-Hardening.md",
   "Atlas-E2E-Delivery.md",
   "build/test logs",
-  "source frontend/workspace-web (package.json, lockfile, router, adapters, components, tests, build/Wrangler config)",
+  "source frontend/workspace-web",
   "AGENTS.md",
-  "Figma file key / node IDs",
+  "Figma per-view pages (01/02 · Current UI)",
   "v1 prompt (attachment.txt)"
  ],
- "scripts_note": "Run-1 scripts were not available, so tests.py / findings.py / coverage.py / build.py were rewritten for run 2 with the same names and §8.2 schemas.",
- "id_policy": "Case IDs reuse run-1 names where the check is the same (CF-PRE-00x, FE02-AUTO-216, PERF-00x, FE03-KBD-001, A11Y-AXE-00x…). Findings continue at FND-017. Evidence IDs start at 501 per area to avoid collision with unknown run-1 maxima.",
+ "run_history": [
+  {
+   "run": "R2-001…004",
+   "time": "2026-10-05 06:58–07:27Z",
+   "environment": "Cloudflare Browser Rendering (headless Chromium, UA Chrome/119), synthetic-DOM",
+   "scope": "Phase 0b metadata, hash 120 payload, header/MIME/cache, discovery, deep link/reload/history, FE02 320–1440",
+   "note": "Hết quota Free 10 phút/ngày lúc 07:27Z"
+  },
+  {
+   "run": "R3-001 (run 37280321117)",
+   "time": "07:54–08:05Z",
+   "environment": "GitHub Actions, Playwright 1.56.1: Chromium 141 / Firefox 142 / WebKit 26",
+   "scope": "mirror, discovery, axe dark/light, FE02 1920 + Firefox/WebKit 320/1920",
+   "note": "Bị huỷ; bước commit vẫn chạy và đẩy bản mirror plaintext (đã gỡ khỏi cây ở 41948df). Deeplink script cũ treo (lỗi harness)"
+  },
+  {
+   "run": "run 37281392041",
+   "time": "08:05–08:23Z",
+   "environment": "như trên",
+   "scope": "keyboard/perf/screenshots",
+   "note": "Kết quả mất do xung đột commit (đã sửa workflow); chạy lại ở R3-003"
+  },
+  {
+   "run": "R3-002 (run 37282601201)",
+   "time": "08:24–08:29Z",
+   "environment": "như trên",
+   "scope": "mirror (redirect fixed), deeplink 3 engine, FE02 Firefox/WebKit 375/768/1440, FX-SERVICE 14 kịch bản, layout hit-test",
+   "note": "OK"
+  },
+  {
+   "run": "R3-003 (run 37284006443)",
+   "time": "08:30–08:35Z",
+   "environment": "như trên, trusted input + CDP",
+   "scope": "keyboard 3 engine, perf (cold/warm/mobile, INP, heap), 72 screenshots",
+   "note": "Keyboard: 4 lỗi harness (đã sửa, không tính FAIL)"
+  },
+  {
+   "run": "R3-004 (run 37285038578)",
+   "time": "08:40–08:42Z",
+   "environment": "như trên",
+   "scope": "keyboard 3 engine (harness đã sửa), INP ≥30 tương tác, heap 30/60/90 chu kỳ",
+   "note": "OK"
+  }
+ ],
+ "scripts_note": "Run-1 scripts were not available, so tests.py / findings.py / coverage.py / build.py were rewritten with the same names and §8.2 schemas; record_r2.py and record_r3.py rebuild the ledgers from evidence.",
+ "id_policy": "Case IDs reuse run-1 names where the check is the same; engine variants are suffixed -FIREFOX/-WEBKIT, runner-side HTTP variants -GH. Findings continue at FND-017. Evidence IDs: 501+ (Cloudflare run), 601+ (GitHub Actions runs).",
  "capability_matrix": [
   {
    "capability": "Cloudflare plugin read",
@@ -68,114 +115,50 @@
    "affected_cases": []
   },
   {
-   "capability": "Browser automation",
-   "status": "PARTIAL",
-   "limitation": "Cloudflare Browser Rendering REST /content + addScriptTag (headless Chromium, real version undisclosed, UA Chrome/119); one page per request; ≤60 s per call; Workers Free quota exhausted at 07:27Z (2001 Rate limit exceeded)",
-   "affected_cases": [
-    "FE02-AUTO-216-1920",
-    "A11Y-AXE-001",
-    "A11Y-AXE-002",
-    "FX-SERVICE-001",
-    "PERF-007",
-    "FE02-STATE-001",
-    "FE02-COARSE-001",
-    "FE02-TARGET-001"
-   ]
-  },
-  {
-   "capability": "Built-in Browser pane (mcp__remote-devices__Claude_Browser__*)",
-   "status": "UNAVAILABLE",
-   "limitation": "cloud session without linked device",
-   "affected_cases": [
-    "all trusted-input cases"
-   ]
-  },
-  {
-   "capability": "Sandbox → workers.dev",
-   "status": "UNAVAILABLE",
-   "limitation": "egress proxy CONNECT 403",
+   "capability": "Cloudflare Browser Rendering",
+   "status": "USED, then quota-exhausted",
+   "limitation": "headless Chromium, one page per request, ≤60 s, Workers Free 10 browser-min/day (exhausted 07:27Z)",
    "affected_cases": []
   },
   {
-   "capability": "GitHub Actions Playwright harness",
-   "status": "BLOCKED",
-   "limitation": "git push / MCP write 403: Claude GitHub App not installed on ldqanh1408/hehe",
-   "affected_cases": [
-    "FE04-XENGINE-001",
-    "FE03-KBD-001",
-    "PERF-007",
-    "PERF-INP-001"
-   ]
+   "capability": "GitHub Actions + Playwright 1.56.1",
+   "status": "AVAILABLE (from 07:53Z, after the Claude GitHub App became usable)",
+   "limitation": "public repo: results are public; mirror committed encrypted only",
+   "affected_cases": []
   },
   {
    "capability": "Trusted input",
-   "status": "UNAVAILABLE",
-   "limitation": "REST has no input API",
+   "status": "AVAILABLE (Playwright/CDP on GitHub Actions)",
+   "limitation": "headless; no OS-level input",
+   "affected_cases": []
+  },
+  {
+   "capability": "Engines",
+   "status": "Chromium 141.0.7390.37, Firefox 142.0.1, WebKit 26.0 (Playwright builds)",
+   "limitation": "not branded Chrome/Safari/Edge",
    "affected_cases": [
-    "FE03-KBD-001",
-    "FE01-ROUTE-004",
-    "CODE-008",
-    "PERF-INP-001",
-    "PERF-009",
-    "FE02-ZOOM-001"
+    "FE04-XENGINE-001"
+   ]
+  },
+  {
+   "capability": "Performance traces / throttling",
+   "status": "AVAILABLE (CDP: CPU 4×, 1.6/0.75 Mbps, 150 ms RTT; HeapProfiler)",
+   "limitation": "GitHub runner hardware, not a real phone",
+   "affected_cases": [
+    "PERF-007"
    ]
   },
   {
    "capability": "Screenshots",
-   "status": "NOT_CAPTURED",
-   "limitation": "endpoint exists but binary transfer via tool output is impractical and quota-limited",
-   "affected_cases": [
-    "FE02-WALK-001",
-    "FIGMA-001"
-   ]
-  },
-  {
-   "capability": "Network/console",
-   "status": "PARTIAL",
-   "limitation": "window error/unhandledrejection/console.error hooks + fetch response headers; no HAR",
+   "status": "AVAILABLE (72 JPEG committed)",
+   "limitation": "viewport only",
    "affected_cases": []
   },
   {
-   "capability": "Performance traces",
+   "capability": "Built-in Browser pane",
    "status": "UNAVAILABLE",
-   "limitation": "no CDP (no throttling, no trace)",
-   "affected_cases": [
-    "PERF-007",
-    "PERF-008"
-   ]
-  },
-  {
-   "capability": "IndexedDB inspect",
-   "status": "PARTIAL",
-   "limitation": "indexedDB.databases() only (atlas-device-workspace-v10@2)",
-   "affected_cases": [
-    "FE04-IDB-001"
-   ]
-  },
-  {
-   "capability": "Quota/offline simulation",
-   "status": "UNAVAILABLE",
-   "limitation": "",
-   "affected_cases": [
-    "FE04-IDB-001",
-    "FX-BRANCH-001"
-   ]
-  },
-  {
-   "capability": "Cross-tab",
-   "status": "UNAVAILABLE",
-   "limitation": "single page per request",
-   "affected_cases": [
-    "FE04-TAB-001"
-   ]
-  },
-  {
-   "capability": "Engines",
-   "status": "Chromium only (Cloudflare-hosted)",
-   "limitation": "no Firefox/WebKit/Safari/Edge/branded Chrome",
-   "affected_cases": [
-    "FE04-XENGINE-001"
-   ]
+   "limitation": "cloud session without linked device",
+   "affected_cases": []
   },
   {
    "capability": "Screen readers (NVDA/VoiceOver/TalkBack/iOS)",
@@ -188,29 +171,15 @@
   {
    "capability": "Real devices",
    "status": "UNAVAILABLE",
-   "limitation": "",
+   "limitation": "emulation only",
    "affected_cases": [
     "FE02-COARSE-001"
    ]
   },
   {
-   "capability": "Emulation",
-   "status": "AVAILABLE",
-   "limitation": "viewport width/height/DPR/isMobile/hasTouch; no emulateMediaFeatures",
-   "affected_cases": [
-    "FE03-MOTION-001"
-   ]
-  },
-  {
-   "capability": "Local Chromium (sandbox Playwright 1.56.1)",
-   "status": "AVAILABLE (cannot reach target)",
-   "limitation": "used only to validate the detector on a synthetic probe page",
-   "affected_cases": []
-  },
-  {
    "capability": "Figma MCP",
-   "status": "AVAILABLE but unused",
-   "limitation": "no file key / node IDs (inventory missing)",
+   "status": "AVAILABLE",
+   "limitation": "file lacks per-view pages",
    "affected_cases": [
     "FIGMA-001"
    ]
@@ -218,7 +187,7 @@
   {
    "capability": "Standards fetch",
    "status": "PARTIAL",
-   "limitation": "w3.org / web.dev blocked; official editor sources read from raw.githubusercontent.com",
+   "limitation": "w3.org / web.dev / chatgpt.com blocked; official editor sources read from raw.githubusercontent.com",
    "affected_cases": []
   }
  ],
@@ -243,12 +212,12 @@
    "routes_observed": 18
   },
   "tests": {
-   "BLOCKED": 30,
-   "FAIL": 7,
-   "PASS": 12,
-   "NOT_APPLICABLE": 1,
-   "NOT_RUN": 3,
-   "total": 53
+   "PASS": 79,
+   "NOT_RUN": 17,
+   "FAIL": 25,
+   "NOT_APPLICABLE": 5,
+   "BLOCKED": 6,
+   "total": 132
   },
   "exclusions": []
  },
@@ -258,9 +227,17 @@
   "FE-03": "FAIL",
   "FE-04": "FAIL",
   "FE-05": "FAIL",
-  "FE-06": "INCOMPLETE"
+  "FE-06": "FAIL"
  },
  "verdict": "NO_GO_FRONTEND",
- "synthetic_data": "No user browser profile was touched. Remote Browser Rendering sessions are ephemeral; the only state written there was the theme preference (IndexedDB pref) during FE02 batches. No production data written.",
- "git": "Commits are local to the session container; push to origin was refused (403, GitHub App not installed)."
+ "synthetic_data": "No user browser profile was touched. Cloudflare and GitHub Actions browsers are ephemeral; state written there: theme pref and the labelled fixture journal (IndexedDB) inside throw-away profiles. No production data written; no real service contacted (fixture origin https://fixture.atlas.test answered in-page).",
+ "incidents": [
+  "The cancelled CI run 37280321117 committed a plaintext byte mirror of the public release payload (work/release-mirror/) to the public branch; it was untracked in commit 41948df but remains in git history. Bytes are identical to what workers.dev serves publicly."
+ ],
+ "harness_defects_corrected": [
+  "deeplink.js iframe reuse (hash-only src change fires no load) — fixed",
+  "runner hash check did not follow /index.html 307 — fixed",
+  "keyboard: end-of-tab-sequence counted as hidden, reopen started inside main, tablist remount, drawer read from wrong element — fixed in R3-004; R3-003 keyboard FAILs superseded"
+ ],
+ "git": "All commits pushed to origin/claude/sharp-thompson-5tff91."
 }

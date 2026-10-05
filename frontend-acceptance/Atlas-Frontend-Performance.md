@@ -1,26 +1,38 @@
-# Atlas — Performance (run 2, 2026-10-05)
+# Atlas — Performance (run 3, GitHub Actions, 2026-10-05)
 
-**FE-05: FAIL** (CF-PRE-006 / FND-003 tái hiện) **và không có số đo hiệu năng nào trong run này** — mọi chỉ số là `null` với lý do trong `Atlas-Frontend-Performance.json`.
+**FE-05: FAIL** — tải trang và INP đạt budget, nhưng CF-PRE-006 (FND-003, cache) và PERF-008 (FND-022, heap so với budget giả định) FAIL; PERF-006/009/WORKLOAD chưa chạy.
 
-## Budget đã khoá trước khi đo
-Không có budget v1 §11.5 trong phiên ⇒ khoá mặc định theo ngưỡng "good" của `GoogleChrome/web-vitals` (đọc 2026-10-05, xem `evidence/standards/`): LCP p75 ≤ 2500 ms · FCP p75 ≤ 1800 ms · CLS p75 ≤ 0.1 · INP p75 ≤ 200 ms (`ASSUMPTION`, cần chủ sản phẩm xác nhận).
+Budget khoá **trước** khi đo (07:30Z), theo ngưỡng "good" của `GoogleChrome/web-vitals`: LCP p75 ≤ 2500 ms · FCP p75 ≤ 1800 ms · CLS p75 ≤ 0.1 · INP ≤ 200 ms; heap ≤ +10%/30 chu kỳ là `ASSUMPTION` (cần chủ sản phẩm xác nhận). Browser: Chromium 141.0.7390.37 (Playwright, GitHub Actions ubuntu-latest).
 
-## Trạng thái case
+## PERF-007 — tải trang #home (10 lượt mỗi profile)
 
-| Case | Yêu cầu | Trạng thái | Blocker |
+| Profile | FCP p50/p75/p95 (ms) | LCP p50/p75/p95 (ms) | CLS p75 | TTFB p75 | load p75 | Budget |
+|---|---|---|---|---|---|---|
+| cold_desktop | 164/168/244 | 164/168/244 | 0.0008 | 42 | 111 | PASS |
+| warm_desktop | 80/80/80 | 80/80/80 | 0 | 18 | 50 | PASS |
+| cold_mobile_throttled | 1228/1236/1244 | 1228/1236/1244 | 0 | 42 | 1097 | PASS |
+
+Profile mobile: 375×812 isMobile, CPU 4×, 1.6 Mbps xuống / 0.75 Mbps lên, RTT 150 ms (CDP). Phần cứng runner GitHub, không phải điện thoại thật.
+
+## PERF-INP-001 — 37 tương tác thật (nav ×18, tab ×7, theme ×6, Ctrl+K/Escape ×3, gõ phím)
+
+| Profile | Tương tác | p50 | p75 | p95 | INP | Budget |
+|---|---|---|---|---|---|---|
+| desktop | 37 | 16 | 16 | 24 | 40 ms | PASS |
+| cpu4x | 37 | 16 | 40 | 64 | 72 ms | PASS |
+
+(Tương tác < 16 ms không sinh entry Event Timing và được tính là 16 ms. R3-003 chỉ có 29 tương tác nên đã chạy lại.)
+
+## PERF-008 — 30/60/90 chu kỳ điều hướng (5 route/chu kỳ), heap sau GC
+
+| Mốc | JS heap | Nodes | Listeners |
 |---|---|---|---|
-| PERF-007 | ≥10 cold + ≥10 warm, desktop + mobile (CPU 4×, 1.6/0.75 Mbps, 150 ms) | BLOCKED | Hết quota Browser Rendering; throttling cần CDP |
-| PERF-INP-001 | ≥30 tương tác, p50/p75/p95 | BLOCKED | Không có trusted input (Event Timing bỏ qua event tổng hợp) |
-| PERF-006 | chi phí import theo kích thước thư viện | BLOCKED | quota |
-| PERF-008 | 30 chu kỳ mở–đóng editor/route | BLOCKED | quota + trusted input |
-| PERF-009 | gõ/cuộn file 1k/10k/100k dòng | BLOCKED | trusted input |
-| PERF-WORKLOAD-001 | Code 10k file, Observation 10k hàng, Execution 100 task + 10k log, Graph 1k node | BLOCKED | quota |
-| CF-PRE-006 | asset băm `immutable` | **FAIL** | FND-003 |
+| sau warm-up | 3,341,804 | 475 | 197 |
+| 30 chu kỳ | 3,966,080 | 552 | 210 |
+| 60 chu kỳ | 4,085,588 | 370 | 187 |
+| 90 chu kỳ | 4,154,232 | 462 | 200 |
 
-## Dữ kiện tĩnh (không phải số đo)
-- 120 payload, 19,291,874 B; lớn nhất: `ts.worker` 6.93 MB, `semantic.worker` 3.46 MB, `editor.api` 2.74 MB, `editor-engine` 1.32 MB, `css.worker` 1.08 MB.
-- Entry: `index-CNIcNnJO.js` 335 KB, `ui-BHoQ7tHD.js` 25 KB, `index-CGLbd-qV.css` 33 KB; nén zstd.
-- Mọi payload `max-age=0, must-revalidate` ⇒ mỗi lần tải lại phải revalidate (304) toàn bộ asset đã tải.
+Tăng 18.7% sau 30 chu kỳ (R3-003: 18.6%) ⇒ FAIL so với budget giả định 10% (FND-022, P3). Từ 30→60→90 chỉ +3,0% rồi +1,7%, nodes/listeners dao động ⇒ giống warm-up/cache hơn rò rỉ; cần budget chính thức và soak có mở/đóng editor.
 
-## Cách nghiệm thu tiếp
-Harness Playwright trong `harness/` + workflow `.github/workflows/atlas-acceptance.yml` (cần cài Claude GitHub App để push) cho phép CDP throttling, trusted input và ≥10 run; hoặc pane Browser hiển thị trong Claude desktop; hoặc chạy lại Browser Rendering sau khi quota reset (00:00 UTC) cho phần cold/warm không throttling.
+## Chưa chạy
+PERF-006 (chi phí import), PERF-009 (gõ/cuộn 1k/10k/100k dòng), PERF-WORKLOAD-001 (10k file, 10k hàng, 100 task + 10k log, 1k node): cần fixture dữ liệu; harness đã có hạ tầng CDP để chạy.

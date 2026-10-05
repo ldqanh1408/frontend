@@ -1,157 +1,337 @@
 {
- "run": "R2 2026-10-05",
+ "run": "R3 2026-10-05 (GitHub Actions, Playwright 1.56.1)",
  "deployment_id": "bd44cfc0-1219-40d9-9c1a-b1b7fe84d085",
  "version_id": "a8b5bc3a-63c9-4996-84e5-e8bc117775d3",
  "budgets_locked_before_measurement": {
-  "locked_at": "2026-10-05T07:30Z",
-  "source": "GoogleChrome/web-vitals@main src/on*.ts thresholds (evidence/standards)",
-  "LCP_p75_ms": 2500,
-  "FCP_p75_ms": 1800,
+  "locked_at": "2026-10-05T07:30Z (before any measurement)",
+  "source": "GoogleChrome/web-vitals@main thresholds (evidence/standards); heap 10% = ASSUMPTION",
+  "LCP_p75": 2500,
+  "FCP_p75": 1800,
   "CLS_p75": 0.1,
-  "INP_p75_ms": 200,
-  "note": "v1 \u00a711.5 product-specific budgets not provided in this session; web-vitals 'good' thresholds used as the locked default (ASSUMPTION)"
+  "INP": 200,
+  "HEAP_GROWTH_PCT": 10
  },
- "profiles": {
-  "desktop": "1440x900 no throttling",
-  "mobile": "CPU 4x, 1.6 Mbps down / 0.75 Mbps up, 150 ms RTT"
- },
- "metrics": {
-  "PERF-007": {
-   "cold_desktop": {
-    "FCP": {
-     "value": null,
-     "status": "BLOCKED",
-     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+ "browser": "Chromium 141.0.7390.37",
+ "PERF-007": {
+  "source": "evidence/runs/R3-003-kbd-perf/perf/perf-results.json",
+  "cold_desktop": {
+   "stats": {
+    "fcp": {
+     "n": 10,
+     "p50": 164,
+     "p75": 168,
+     "p95": 244
     },
-    "LCP": {
-     "value": null,
-     "status": "BLOCKED",
-     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    "lcp": {
+     "n": 10,
+     "p50": 164,
+     "p75": 168,
+     "p95": 244
     },
-    "CLS": {
-     "value": null,
-     "status": "BLOCKED",
-     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    "cls": {
+     "n": 10,
+     "p50": 0.0008,
+     "p75": 0.0008,
+     "p95": 0.0008
     },
-    "samples": {
-     "value": null,
-     "status": "BLOCKED",
-     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    "ttfb": {
+     "n": 10,
+     "p50": 37,
+     "p75": 42,
+     "p95": 67
+    },
+    "dcl": {
+     "n": 10,
+     "p50": 103,
+     "p75": 111,
+     "p95": 159
+    },
+    "load": {
+     "n": 10,
+     "p50": 103,
+     "p75": 111,
+     "p95": 159
+    },
+    "transfer": {
+     "n": 10,
+     "p50": 629,
+     "p75": 629,
+     "p95": 629
     }
    },
-   "warm_desktop": {
-    "FCP": {
-     "value": null,
-     "status": "BLOCKED",
-     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+   "budget": {
+    "LCP": true,
+    "FCP": true,
+    "CLS": true
+   },
+   "n": 10
+  },
+  "warm_desktop": {
+   "stats": {
+    "fcp": {
+     "n": 10,
+     "p50": 80,
+     "p75": 80,
+     "p95": 80
     },
-    "LCP": {
-     "value": null,
-     "status": "BLOCKED",
-     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    "lcp": {
+     "n": 10,
+     "p50": 80,
+     "p75": 80,
+     "p95": 80
     },
-    "CLS": {
-     "value": null,
-     "status": "BLOCKED",
-     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    "cls": {
+     "n": 10,
+     "p50": 0,
+     "p75": 0,
+     "p95": 0
     },
-    "samples": {
-     "value": null,
-     "status": "BLOCKED",
-     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+    "ttfb": {
+     "n": 10,
+     "p50": 18,
+     "p75": 18,
+     "p95": 20
+    },
+    "dcl": {
+     "n": 10,
+     "p50": 49,
+     "p75": 49,
+     "p95": 54
+    },
+    "load": {
+     "n": 10,
+     "p50": 49,
+     "p75": 50,
+     "p95": 54
+    },
+    "transfer": {
+     "n": 10,
+     "p50": 629,
+     "p75": 629,
+     "p95": 629
     }
    },
-   "cold_mobile": {
-    "FCP": {
-     "value": null,
-     "status": "BLOCKED",
-     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target; Network/CPU throttling requires CDP, not exposed by Browser Rendering REST"
+   "budget": {
+    "LCP": true,
+    "FCP": true,
+    "CLS": true
+   },
+   "n": 10
+  },
+  "cold_mobile_throttled": {
+   "stats": {
+    "fcp": {
+     "n": 10,
+     "p50": 1228,
+     "p75": 1236,
+     "p95": 1244
     },
-    "LCP": {
-     "value": null,
-     "status": "BLOCKED",
-     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target; Network/CPU throttling requires CDP, not exposed by Browser Rendering REST"
+    "lcp": {
+     "n": 10,
+     "p50": 1228,
+     "p75": 1236,
+     "p95": 1244
     },
-    "CLS": {
-     "value": null,
-     "status": "BLOCKED",
-     "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target; Network/CPU throttling requires CDP, not exposed by Browser Rendering REST"
+    "cls": {
+     "n": 10,
+     "p50": 0,
+     "p75": 0,
+     "p95": 0
+    },
+    "ttfb": {
+     "n": 10,
+     "p50": 40,
+     "p75": 42,
+     "p95": 46
+    },
+    "dcl": {
+     "n": 10,
+     "p50": 1095,
+     "p75": 1097,
+     "p95": 1106
+    },
+    "load": {
+     "n": 10,
+     "p50": 1095,
+     "p75": 1097,
+     "p95": 1106
+    },
+    "transfer": {
+     "n": 10,
+     "p50": 629,
+     "p75": 629,
+     "p95": 629
     }
-   }
-  },
-  "PERF-INP-001": {
-   "INP_p75": {
-    "value": null,
-    "status": "BLOCKED",
-    "reason": "No trusted input; Event Timing (INP) ignores synthetic events"
    },
-   "samples": {
-    "value": null,
-    "status": "BLOCKED",
-    "reason": "No trusted input; Event Timing (INP) ignores synthetic events"
-   }
-  },
-  "PERF-006": {
-   "import_cost_vs_library_size": {
-    "value": null,
-    "status": "BLOCKED",
-    "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
-   }
-  },
-  "PERF-008": {
-   "open_close_30_cycles_heap_growth": {
-    "value": null,
-    "status": "BLOCKED",
-    "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target; No trusted input; Event Timing (INP) ignores synthetic events"
-   }
-  },
-  "PERF-009": {
-   "typing_scroll_1k_10k_100k": {
-    "value": null,
-    "status": "BLOCKED",
-    "reason": "No trusted input; Event Timing (INP) ignores synthetic events"
-   }
-  },
-  "PERF-WORKLOAD-001": {
-   "code_10000_files": {
-    "value": null,
-    "status": "BLOCKED",
-    "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
+   "budget": {
+    "LCP": true,
+    "FCP": true,
+    "CLS": true
    },
-   "observation_10000_rows": {
-    "value": null,
-    "status": "BLOCKED",
-    "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
-   },
-   "execution_100_tasks_10000_logs": {
-    "value": null,
-    "status": "BLOCKED",
-    "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
-   },
-   "graph_1000_nodes": {
-    "value": null,
-    "status": "BLOCKED",
-    "reason": "Cloudflare Browser Rendering quota exhausted (2001 Rate limit exceeded from 2026-10-05T07:27Z); no other browser reaches the target"
-   }
-  }
+   "n": 10
+  },
+  "profiles": {
+   "cold_desktop": "1440x900, new context per run (empty cache)",
+   "warm_desktop": "1440x900, reload in same context",
+   "cold_mobile_throttled": "375x812 isMobile DPR3, CPU 4x, 1.6 Mbps down / 0.75 Mbps up, 150 ms RTT (CDP)"
+  },
+  "note": "Measured on #home; transfer = navigation document only (JS chunks not included in navigation transferSize)."
  },
- "observed_static_facts": {
+ "PERF-INP-001": {
+  "source": "evidence/runs/R3-004-kbd-fix/perf/perf-results.json",
+  "desktop": {
+   "interactions": 37,
+   "reported": 41,
+   "p50": 16,
+   "p75": 16,
+   "p95": 24,
+   "inp": 40,
+   "pass": true,
+   "slowest": [
+    [
+     10200,
+     "keydown",
+     40
+    ],
+    [
+     10207,
+     "keydown",
+     40
+    ],
+    [
+     10207,
+     "keyup",
+     32
+    ],
+    [
+     10200,
+     "keyup",
+     32
+    ],
+    [
+     10158,
+     "pointerdown",
+     24
+    ],
+    [
+     10158,
+     "pointerup",
+     24
+    ],
+    [
+     10158,
+     "click",
+     24
+    ],
+    [
+     10165,
+     "pointerdown",
+     24
+    ]
+   ]
+  },
+  "cpu4x": {
+   "interactions": 37,
+   "reported": 39,
+   "p50": 16,
+   "p75": 40,
+   "p95": 64,
+   "inp": 72,
+   "pass": true,
+   "slowest": [
+    [
+     5835,
+     "keydown",
+     72
+    ],
+    [
+     5786,
+     "pointerdown",
+     64
+    ],
+    [
+     5786,
+     "pointerup",
+     64
+    ],
+    [
+     5786,
+     "click",
+     64
+    ],
+    [
+     5793,
+     "pointerdown",
+     64
+    ],
+    [
+     5793,
+     "pointerup",
+     64
+    ],
+    [
+     5793,
+     "click",
+     64
+    ],
+    [
+     5800,
+     "pointerdown",
+     56
+    ]
+   ]
+  },
+  "superseded": "R3-003 had 29 interactions (<30 required) — re-run in R3-004 with 37"
+ },
+ "PERF-008": {
+  "source": "evidence/runs/R3-004-kbd-fix/perf/perf-results.json",
+  "before": {
+   "heap": 3341804,
+   "nodes": 475,
+   "listeners": 197,
+   "docs": 2
+  },
+  "checkpoints": [
+   {
+    "cycles": 30,
+    "heap": 3966080,
+    "nodes": 552,
+    "listeners": 210,
+    "docs": 2
+   },
+   {
+    "cycles": 60,
+    "heap": 4085588,
+    "nodes": 370,
+    "listeners": 187,
+    "docs": 2
+   },
+   {
+    "cycles": 90,
+    "heap": 4154232,
+    "nodes": 462,
+    "listeners": 200,
+    "docs": 2
+   }
+  ],
+  "heapGrowthPct": 18.7,
+  "pass": false,
+  "note": "route switching via location.hash (navigation, not editor open/close); editor open/close cycle requires seeded documents",
+  "r3_003_same_measure": 18.6
+ },
+ "not_run": {
+  "PERF-006": "import cost vs library size — not scripted",
+  "PERF-009": "typing/scroll 1k/10k/100k lines — not scripted",
+  "PERF-WORKLOAD-001": "10k files / 10k rows / 100 tasks + 10k logs / 1k nodes — not scripted"
+ },
+ "static_facts": {
   "payload_total_bytes": 19291874,
   "payload_count": 120,
-  "largest_payloads_bytes": {
+  "largest": {
    "assets/ts.worker-D0RfN2Tp.js": 6928898,
    "assets/semantic.worker-DG9vdlwl.js": 3462664,
-   "assets/editor.api-k8OQBwko.js": 2737019,
-   "assets/editor-engine-B8K6fGal.js": 1321587,
-   "assets/css.worker-gLj4_ykt.js": 1078488
+   "assets/editor.api-k8OQBwko.js": 2737019
   },
-  "entry_bytes": {
-   "assets/index-CNIcNnJO.js": 335014,
-   "assets/ui-BHoQ7tHD.js": 24792,
-   "assets/index-CGLbd-qV.css": 32761
-  },
-  "cache_control_all_payloads": "public, max-age=0, must-revalidate (FND-003)",
-  "content_encoding": "zstd",
-  "note": "Static facts are not performance measurements and do not satisfy FE-05."
+  "cache_control_all_payloads": "public, max-age=0, must-revalidate (FND-003)"
  }
 }

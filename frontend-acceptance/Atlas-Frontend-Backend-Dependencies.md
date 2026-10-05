@@ -1,4 +1,4 @@
-# Atlas — Backend Dependencies & Boundary (run 2, 2026-10-05)
+# Atlas — Backend Dependencies & Boundary (run 2 + run 3, 2026-10-05)
 
 Backend **không** được chứng nhận bởi run này. Các mục dưới đây được theo dõi riêng (v1 §13 / v2 §7) và **không** tính PASS/FAIL frontend. Chỉ field/transition bị ảnh hưởng được đánh dấu; không gán cả module `BLOCKED_BACKEND`.
 
@@ -8,6 +8,17 @@ Backend **không** được chứng nhận bởi run này. Các mục dưới đ
 - Worker không có binding (assets-only) ⇒ không có backend nào được phục vụ từ deployment này.
 - Trang `#connection` hiển thị: "Service adapter contract is proposed — This UI requires Atlas UI v1 capability/session/collection/command responses; availability must be verified against your actual backend. No production result is preseeded."
 - Ở trạng thái chưa kết nối, 15 module dịch vụ hiển thị phần "Definitions" cục bộ + "Service records"; các action dịch vụ (Evaluate agent, Publish revision, Authorize credential, Run authorized query, …) phụ thuộc phiên dịch vụ.
+
+## 1b. Hành vi frontend với fixture có nhãn (run 3, `FX-SERVICE/atlas-ui-v1-fixture-r3`, Chromium 141, click thật)
+
+Chứng minh **frontend** xử lý hợp đồng proposed đúng như semantics v2 §6.3; **không** chứng minh service thật:
+- Kết nối: `GET v1/capabilities` → `GET serviceSessionHref` → `GET collectionHref` (2 record/module).
+- Lệnh: hộp xác nhận "Send …"; double-click ⇒ **1 POST** với `Idempotency-Key`, `X-CSRF-Token` (đã che), `If-Match` (etag), body `{operationId, scope, resourceId, actionId, expectedRevision, fingerprint, input}`.
+- Stage: Received/Accepted/Rejected hiển thị đúng; Effective chỉ sau khi `effectHref` trả fingerprint khớp ("Service receipt matches effect readback").
+- Lỗi sau khi gửi (403/409/422/500, mất mạng, timeout 20 s, fingerprint mismatch) ⇒ Unknown + "Reconcile this operation; do not resend"; POST 401 ⇒ Unknown "session expired or revoked" + disconnect.
+- Đọc trả 401 hoặc `expiresAt` trôi qua ⇒ disconnect (nhưng toast thành công cũ còn — FND-005).
+- Audience observer: không tải record workspace, không có lệnh.
+- Ghi chú hợp đồng: client **không** thay `{operationId}` trong `effectHref` (fixture phải dùng href theo resource) — cần ghi vào DTO khi duyệt.
 
 ## 2. Phụ thuộc backend (theo dõi riêng)
 

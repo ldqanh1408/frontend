@@ -67,7 +67,7 @@ def ingest(run_name):
                 cid = c['case_id'] + ('' if engine == 'chromium' else '-' + engine.upper())
                 gate = 'FE-01' if c['case_id'].startswith('FE01') else 'FE-03'
                 add(case_id=cid, gate=gate, requirement_ref='WCAG 2.2 2.1.1/2.4.1/2.4.3/2.4.7/2.4.11; WAI-ARIA APG (Tabs, Dialog Modal, Combobox)', input_mode='trusted-input',
-                    viewport='1440x900' if 'MOBILE' not in c['case_id'] else '375x812', steps=f'Playwright {engine} keyboard (see suite keyboard.mjs)', expected=c.get('expected', ''),
+                    viewport='1440x900' if 'MOBILE' not in c['case_id'] else '375x812', steps=f'Playwright {engine} keyboard (see suite keyboard.mjs)', expected=c.get('expected') or 'per keyboard.mjs (harness error before evaluation)',
                     actual=json.dumps(c.get('actual'), ensure_ascii=False)[:1500], result=c['result'], evidence_ids=e, reason=c.get('reason', ''), bv=f'{engine} {data.get("browserVersion", "")}')
 
     # ---------------- perf ----------------
@@ -248,6 +248,52 @@ if xe:
               run_at=max(r['run_at'] for r in xe.values()))
 
 
+# ---------------- status refresh of run-2 backlog after run 3 (capabilities changed) ----------------
+T = {r['case_id']: r for r in tests.load()}
+GHNOTE = 'Trusted input, Firefox/WebKit and CDP are now available via GitHub Actions (run 3); '
+def refresh(cid, result, reason, **kw):
+    r = dict(T[cid]); r.update(result=result, reason=reason, **kw); r.pop('run_at', None)
+    tests.add(**{k: v for k, v in r.items() if k in tests.COLS}, run_at='2026-10-05T08:45:00Z')
+for cid, why in [('CODE-008', 'scenario not yet scripted: needs a seeded source snapshot (Import source folder) with an AST oracle'),
+                 ('SPEC-RETEST-001', 'scenario not yet scripted: needs seeded documents and the SHA-256/AST oracles of run 1'),
+                 ('FE04-WORKER-001', 'scenario not yet scripted: needs an opened document/source file to start the 6 Monaco workers'),
+                 ('FE04-IDB-001', 'scenario not yet scripted (isolated-profile quota/denied/malformed/migration cases)'),
+                 ('FE04-TAB-001', 'scenario not yet scripted (two contexts on one profile now possible in Playwright)'),
+                 ('FE02-ZOOM-001', 'not yet scripted (Playwright deviceScaleFactor/CSS zoom; real browser zoom still needs a desktop browser)'),
+                 ('FE02-STATE-001', 'not yet scripted (states via FX-SERVICE fixture + seeded data)'),
+                 ('FE02-COARSE-001', 'not yet scripted'), ('FE03-MOTION-001', 'not yet scripted (Playwright emulateMedia reducedMotion/forcedColors)'),
+                 ('PERF-006', 'not yet scripted (needs import fixtures of growing size)'), ('PERF-009', 'not yet scripted (needs 1k/10k/100k-line files opened in Monaco)'),
+                 ('PERF-WORKLOAD-001', 'not yet scripted (synthetic workloads)'), ('FX-BRANCH-001', 'partly covered by FX-SVC-EXPIRY/OBSERVER/HTTP409; remaining: revoked mid-flow, stale revision on GET, offline/reconnect, role projection, reverse-order, retry/resume/cancel race, Observer redaction')]:
+    if cid in T and T[cid]['result'] == 'BLOCKED':
+        refresh(cid, 'NOT_RUN', GHNOTE + why)
+if 'FIGMA-001' in T:
+    refresh('FIGMA-001', 'BLOCKED', 'BLOCKED_INPUT: Figma file 0md9BEFI1rU0aRAvf98TWO supplied, but only pages "00 · Start here" and "03 · Design system" exist; the per-view pages "01/02 · Current UI · Dark/Light" referenced by the file are absent, so view-level frame pairs cannot be compared', evidence_ids='EV-FIG-501')
+if 'FE02-SCROLL-001-CHROMIUM' in T and 'FE02-TARGET-001' in T:
+    refresh('FE02-TARGET-001', 'FAIL', 'Root cause found by FE02-SCROLL-001: the flag is not theme-related; after a view change initiated outside <main> the page scrolls 52–60 px and the breadcrumb sits under the fixed header (Chromium, WebKit)',
+            actual=T['FE02-SCROLL-001-CHROMIUM']['actual'][:600], evidence_ids=T['FE02-SCROLL-001-CHROMIUM']['evidence_ids'], input_mode='trusted-input', browser_version=T['FE02-SCROLL-001-CHROMIUM']['browser_version'])
+kb = [r for c, r in T.items() if c.startswith('FE03-KBD-') and c.count('-') <= 3 or (c.startswith('FE03-KBD-') and c.endswith(('-FIREFOX', '-WEBKIT')))]
+if kb:
+    bad = sorted(r['case_id'] for r in kb if r['result'] == 'FAIL')
+    tests.add(case_id='FE03-KBD-001', gate='FE-03', requirement_ref='WCAG 2.1.1/2.4.1/2.4.3/2.4.7/2.4.11; APG Tree, Dialog (Modal), Combobox, Tabs', input_mode='trusted-input', viewport='1440x900 / 375x812',
+              steps='Aggregate of FE03-KBD-* on Chromium 141, Firefox 142, WebKit 26 (GitHub Actions, Playwright trusted keyboard)', expected='all keyboard checks PASS on all engines',
+              actual=f'{len(kb)} engine-checks; FAIL: {", ".join(bad) or "none"}; tree N/A (empty library); nested dialogs not present in default state', result='FAIL' if bad else 'PASS',
+              evidence_ids=','.join(sorted({e for r in kb for e in r['evidence_ids'].split(',') if e})), run_at=max(r['run_at'] for r in kb))
+pp = {c: r for c, r in T.items() if c.startswith('PERF-007-')}
+if pp:
+    tests.add(case_id='PERF-007', gate='FE-05', requirement_ref='v2 §9 P-B PERF-007 (aggregate)', input_mode='navigation', viewport='1440x900 / 375x812 throttled', steps='Aggregate of PERF-007-COLD/WARM/MOBILE (10 runs each)',
+              expected='all three profiles meet the locked budget', actual='; '.join(f'{c}={r["result"]}: {r["actual"][:90]}' for c, r in sorted(pp.items())), result='PASS' if all(r['result'] == 'PASS' for r in pp.values()) else 'FAIL',
+              evidence_ids=list(pp.values())[0]['evidence_ids'], browser_version=list(pp.values())[0]['browser_version'], run_at=max(r['run_at'] for r in pp.values()))
+ii = {c: r for c, r in T.items() if c.startswith('PERF-INP-001-')}
+if ii:
+    tests.add(case_id='PERF-INP-001', gate='FE-05', requirement_ref='INP <= 200 ms, >= 30 interactions (aggregate)', input_mode='trusted-input', viewport='1440x900', steps='Aggregate of PERF-INP-001-DESKTOP/CPU4X',
+              expected='both profiles pass', actual='; '.join(f'{c}={r["result"]}: {r["actual"][:110]}' for c, r in sorted(ii.items())), result='PASS' if all(r['result'] == 'PASS' for r in ii.values()) else 'FAIL',
+              evidence_ids=list(ii.values())[0]['evidence_ids'], browser_version=list(ii.values())[0]['browser_version'], run_at=max(r['run_at'] for r in ii.values()))
+if 'A11Y-TARGET-001' in T and 'FE02-SCROLL-001-CHROMIUM' in T:
+    refresh('A11Y-TARGET-001', 'FAIL', 'Run-2 observation (light pass after the theme click) re-attributed in run 3: the overlap comes from the post-navigation scroll offset that puts the breadcrumb under the fixed header (FND-018), not from the theme')
+if 'FE02-WALK-001' in T:
+    refresh('FE02-WALK-001', 'NOT_RUN', 'Screenshots captured (72) and spot-checked by the auditor (375 light #agents shows the breadcrumb hidden under the header = FND-018; 1440 dark #specifications renders as expected); visual parity vs Figma not possible (per-view frames absent)')
+
+
 # ---------------- findings updated by run 3 ----------------
 F = {r['finding_id']: r for r in findings.load()}
 B = tests.DEFAULTS['build_id']; D = tests.DEFAULTS['deployment_id']
@@ -278,6 +324,27 @@ if 'FX-SVC-HTTP409' in T:
     f.update(gate='FE-06', title='Quyết định 4xx definitive hay Unknown (FX-EXEC-001 / FX-CMD-004) — kế thừa run 1',
              actual='Run 3 quan sát (fixture, Chromium 141): POST 403/409/422/500 ⇒ stage Unknown với thông điệp phân loại ("Permission denied", "The resource changed…", "rejected the input contract", "HTTP 500") và "Reconcile this operation; do not resend". Hành vi khớp semantics client của v2 §6.3; vẫn chờ quyết định spec.',
              evidence_ids=evs('FX-SVC-HTTP409', 'FX-SVC-HTTP422'), status='OPEN (SPEC_UNRESOLVED; behaviour observed in run 3)', retest_case_ids='FX-EXEC-001,FX-SVC-HTTP409,FX-SVC-HTTP422')
+
+if 'FE03-KBD-TABS' in T:
+    f = F['FND-001']
+    f.update(title='Tabs không liên kết tabpanel (thiếu aria-controls → role=tabpanel) — tái hiện trên 3 engine', requirement_ref='WCAG 4.1.2 / 1.3.1; WAI-ARIA APG Tabs', severity='P2', gate='FE-03',
+             impact='Trình đọc màn hình không xác định được panel thuộc tab nào; quan hệ tab–nội dung không được expose.', repro_steps='#specifications: kiểm tra 7 role=tab (2 tablist) — aria-controls và phần tử role=tabpanel',
+             expected='Mỗi tab có aria-controls trỏ tới role=tabpanel có aria-labelledby ngược lại', actual='0/7 tab có aria-controls; không có role=tabpanel. Arrow/Home/End và roving tabindex hoạt động ở tablist "Document inspector".',
+             build_id=B, deployment_id=D, profile='GitHub Actions Chromium 141 / Firefox 142 / WebKit 26, trusted keyboard', evidence_ids=evs('FE03-KBD-TABS'), owner_proposed='Frontend',
+             status='OPEN (retested run 3: reproduces)', fix_ref='Remediation-Plan R-10', retest_case_ids='FE03-KBD-TABS,FE03-KBD-TABS-FIREFOX,FE03-KBD-TABS-WEBKIT', closure_result='FAIL (retest 2026-10-05, run 37285038578)')
+    F['FND-021'] = dict(finding_id='FND-021', severity='P2', gate='FE-03', view_id='#specifications (và các module có tablist Definitions/Service records)', requirement_ref='WCAG 2.2 SC 2.4.3 Focus Order; 2.1.1 Keyboard; APG Tabs',
+        title='Nhấn mũi tên trên tablist "Specifications workspace" (IDE/Definitions/Service records) làm mất focus về <body>',
+        impact='Tab tự kích hoạt và đổi view; tablist được render lại nên focus rơi về đầu tài liệu — người dùng bàn phím phải Tab lại từ đầu; trình đọc màn hình mất ngữ cảnh.',
+        repro_steps='#specifications → Tab tới tab "IDE" (đang chọn) → ArrowRight', expected='Focus chuyển sang tab "Definitions" (hoặc giữ trên tab vừa chọn sau khi view đổi)', actual='document.activeElement = BODY sau ArrowRight trên Chromium 141, Firefox 142, WebKit 26; tablist "Document inspector" (không đổi view) hoạt động đúng',
+        build_id=B, deployment_id=D, profile='GitHub Actions, trusted keyboard', evidence_ids=evs('FE03-KBD-TABS'), owner_proposed='Frontend', status='OPEN (new in run 3)', fix_ref='Remediation-Plan R-10',
+        retest_case_ids='FE03-KBD-TABS,FE03-KBD-TABS-FIREFOX,FE03-KBD-TABS-WEBKIT', closure_result='')
+if 'PERF-008' in T and T['PERF-008']['result'] == 'FAIL':
+    F['FND-022'] = dict(finding_id='FND-022', severity='P3', gate='FE-05', view_id='shell navigation', requirement_ref='PERF-008 heap growth budget (10% — ASSUMPTION locked before measurement)',
+        title='JS heap tăng 18,7% sau 30 chu kỳ điều hướng (5 route/chu kỳ), sau đó chậm dần (+3,0% tới 60, +1,7% tới 90)',
+        impact='Vượt ngưỡng giả định 10%; xu hướng giảm dần gợi ý warm-up/cache hơn là rò rỉ, listeners/nodes dao động không tăng đều. Cần budget chính thức và soak dài hơn (editor open/close) để kết luận.',
+        repro_steps='Chromium (CDP): 2 chu kỳ warm-up → GC → 90 chu kỳ #specifications→#code→#agents→#connection→#home, GC mỗi 30 chu kỳ', expected='tăng ≤10% sau 30 chu kỳ (giả định)',
+        actual=T['PERF-008']['actual'][:500], build_id=B, deployment_id=D, profile='GitHub Actions Chromium 141', evidence_ids=T['PERF-008']['evidence_ids'], owner_proposed='Frontend performance',
+        status='OPEN (new in run 3; needs product budget)', fix_ref='Remediation-Plan R-11', retest_case_ids='PERF-008', closure_result='')
 findings.save(sorted(F.values(), key=lambda r: r['finding_id']))
 
 with open(os.path.join(tests.HERE, 'evidence-r3.json'), 'w') as f:
