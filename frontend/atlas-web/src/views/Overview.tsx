@@ -3,25 +3,25 @@ import { nav } from '../data/catalog';
 import { useApp } from '../data/app-store';
 import { getAll, type DefinitionRecord, type DocumentRecord } from '../lib/storage';
 import { useDeviceQuery } from '../lib/hooks';
+import type { WorkflowRecord } from '../lib/workflows';
 import { Badge, ButtonLink, PageHeader, Panel } from '../components/ui';
 import { Icon } from '../components/Icon';
 import { usePageMeta } from '../shell/page-meta';
 import { ProvenanceBanner } from './shared';
 
 const AGENT_SCHEMAS = new Set(['agent']);
-const WORKFLOW_SCHEMAS = new Set(['workflow-policy', 'task-policy']);
 
 export default function Overview() {
   const m = nav.modules.home;
   usePageMeta(m.title, [{ label: m.title }]);
   const connection = useApp((s) => s.connection);
   const { data } = useDeviceQuery(async () => {
-    const [defs, docs] = await Promise.all([getAll<DefinitionRecord>('definitions'), getAll<DocumentRecord>('documents')]);
+    const [defs, docs, wfs] = await Promise.all([getAll<DefinitionRecord>('definitions'), getAll<DocumentRecord>('documents'), getAll<WorkflowRecord>('workflows')]);
     const live = defs.filter((d) => !d.archived);
     return {
       documents: docs.filter((d) => d.kind === 'document' && !d.archived).length,
       agents: live.filter((d) => AGENT_SCHEMAS.has(d.schemaId)).length,
-      workflows: live.filter((d) => WORKFLOW_SCHEMAS.has(d.schemaId)).length,
+      workflows: wfs.filter((w) => !w.archived).length,
     };
   }, [], { documents: 0, agents: 0, workflows: 0 });
   const steps = [

@@ -5,12 +5,13 @@ import { axe } from './helpers';
 const B = 'https://svc.atlas.test';
 function mockService(page: Page, opts: { postStatus?: number; unauthorizedAfterConnect?: boolean } = {}) {
   const state = { posts: 0, connected: false, ops: new Map<string, { fp: string }>() };
+  const origin = (route: Route) => route.request().headers()['origin'] ?? '*';
   const json = (route: Route, body: unknown, status = 200) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body),
-    headers: { 'access-control-allow-origin': 'http://localhost:4173', 'access-control-allow-credentials': 'true' } });
+    headers: { 'access-control-allow-origin': origin(route), 'access-control-allow-credentials': 'true' } });
   page.route(`${B}/**`, async (route) => {
     const req = route.request();
     const u = new URL(req.url());
-    if (req.method() === 'OPTIONS') return route.fulfill({ status: 204, headers: { 'access-control-allow-origin': 'http://localhost:4173', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': '*', 'access-control-allow-methods': 'GET,POST' } });
+    if (req.method() === 'OPTIONS') return route.fulfill({ status: 204, headers: { 'access-control-allow-origin': origin(route), 'access-control-allow-credentials': 'true', 'access-control-allow-headers': '*', 'access-control-allow-methods': 'GET,POST' } });
     if (req.method() === 'POST') {
       state.posts++;
       const body = req.postDataJSON();

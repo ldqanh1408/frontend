@@ -32,7 +32,7 @@ export function HelpDialog({ open, onOpenChange }: { open: boolean; onOpenChange
       <section className="stack-12" aria-labelledby="bd-h">
         <h3 id="bd-h">This build</h3>
         <KeyValue items={[
-          ['Version', `atlas-web ${__ATLAS_BUILD__.slice(0, 10)}${__ATLAS_REVIEW__ ? ' · design review mode' : ''}`],
+          ['Version', `atlas-web ${__ATLAS_BUILD__}${__ATLAS_REVIEW__ ? ' · design review mode' : ''}`],
           ['Design source', `Figma ${manifest.figmaFile} · ${manifest.counts.views} views · ${manifest.counts.scenes} scenes · ${manifest.counts.schemas} definition types`],
           ['Local persistence', p.mode === 'indexeddb' ? 'IndexedDB available' : p.mode === 'memory' ? `Unavailable — drafts last only for this tab (${p.reason})` : 'Checking…'],
           ['Contract gates', 'API contracts, server enums, guards and role policies remain proposed (API TBD, D03, D04).'],
