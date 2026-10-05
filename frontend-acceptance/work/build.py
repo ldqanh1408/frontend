@@ -38,15 +38,27 @@ EVIDENCE = [
 ]
 
 
+def all_evidence():
+    extra = []
+    f = os.path.join(HERE, 'evidence-r3.json')
+    if os.path.exists(f):
+        extra = [tuple(x) for x in json.load(open(f))]
+    figma = P('evidence/figma/start-here-metadata.md')
+    if os.path.exists(figma):
+        extra.append(('EV-FIG-501', 'evidence/figma/start-here-metadata.md', '2026-10-05T08:00:00Z', 'FIGMA-001', 'Figma file metadata (MCP get_metadata)', 'n/a'))
+    return EVIDENCE + extra
+
+
 def build_evidence_index():
     idx = []
-    for eid, path, ts, cases, etype, vp in EVIDENCE:
+    for eid, path, ts, cases, etype, vp in all_evidence():
         full = P(path)
         assert os.path.exists(full), f'evidence path missing: {path}'
         idx.append({'evidence_id': eid, 'path': path, 'sha256': hashlib.sha256(open(full, 'rb').read()).hexdigest(), 'timestamp': ts,
                     'case_ids': cases, 'view_ids': 'route-level (18 module routes); canonical view_ids unavailable',
                     'build': 'atlas-static-release/v1@2026-10-04T10:09:42.397Z', 'deployment': f'{DEPLOY} / {VERSION}', 'fixture': 'none',
-                    'browser': 'Cloudflare Browser Rendering headless Chromium (UA Chrome/119)' if eid.startswith(('EV-CF-501', 'EV-RT', 'EV-RESP')) else 'n/a',
+                    'browser': ('Cloudflare Browser Rendering headless Chromium (UA Chrome/119)' if eid in ('EV-CF-501', 'EV-RT-501', 'EV-RT-502', 'EV-RESP-501', 'EV-RESP-502', 'EV-RESP-503', 'EV-RESP-504', 'EV-RESP-505')
+                                else ('GitHub Actions Playwright 1.56.1 (Chromium 141 / Firefox 142 / WebKit 26)' if int(eid.rsplit('-', 1)[1]) >= 600 else 'n/a')),
                     'viewport_profile': vp, 'evidence_type': etype, 'label': 'OBSERVED_THIS_RUN'})
     # every evidence id referenced by tests/findings must exist
     known = {e['evidence_id'] for e in idx}
