@@ -15,7 +15,8 @@ import { getAll, put, safeLocal, type JournalEntry } from '../lib/storage';
  */
 export type Audience = 'workspace' | 'observer';
 export type Stage = 'Requested' | 'Received' | 'Accepted' | 'Effective' | 'Rejected' | 'Unknown';
-export interface ServiceActionInput { key: string; label: string; type?: string; required?: boolean }
+
+export interface ServiceActionInput { key: string; label: string; type?: string; required?: boolean; secret?: boolean }
 export interface ServiceAction {
   id: string; grant: string; label: string; href: string; statusHref?: string; effectHref?: string; resourceId: string; expectedRevision: number;
   inputs?: ServiceActionInput[]; blockedReason?: string;
@@ -156,6 +157,15 @@ export function actionGate(record: ServiceRecord | null, action: ServiceAction |
   return null;
 }
 
+
+/**secret inputs are write-only**/
+export function fingerprintPayload<P extends { input: Record<string, unknown> }>(payload: P, action: ServiceAction): P {
+  const secret = new Set((action.inputs ?? []).filter((i) => i.secret).map((i) => i.key));
+  if (!secret.size) return payload;
+  return { ...payload, input: Object.fromEntries(Object.entries(payload.input).map(([k, v]) => [k, secret.has(k) ? '[secret]' : v])) };
+}
+
+
 const inflight = new Map<string, Promise<JournalEntry>>();
 
 /** Sends one command. A second activation while the first is in flight returns the same operation (exactly one POST). */
@@ -174,7 +184,7 @@ async function doSend(module: string, record: ServiceRecord, action: ServiceActi
   const session = app.get().session!;
   const operationId = uuid();
   const payload = { scope: session.scope.label, resourceId: action.resourceId, actionId: action.id, expectedRevision: action.expectedRevision, input };
-  const fingerprint = await sha256Hex(stableJson(payload));
+  const fingerprint = await sha256Hex(stableJson(fingerprintPayload(payload, action)));
   const now = new Date().toISOString();
   let entry: JournalEntry = {
     id: operationId, module, resourceId: action.resourceId, resourceName: record.name, actionId: action.id, label: action.label, stage: 'Requested',

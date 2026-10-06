@@ -15,7 +15,7 @@ export async function exportDeviceDrafts() {
   downloadJson(`atlas-device-drafts-${new Date().toISOString().slice(0, 10)}.json`, {
     format: 'atlas-device-export/v1', authority: 'DEVICE_ONLY', exportedAt: new Date().toISOString(), definitions, revisions, documents,
   });
-  toast({ tone: 'success', title: 'Device drafts exported', body: `${definitions.length} definitions · ${documents.length} documents. The file contains no credentials.` });
+  toast({ tone: 'success', title: 'Device drafts exported', body: `${definitions.length} definitions · ${documents.length} documents. Drafts keep vault references only and local checks catch common secret patterns, but this cannot prove the file is secret-free. Review before sharing.` });
 }
 
 /** Connection & operation receipts (Figma connection frame): connect a service session and reconcile uncertain effects. */

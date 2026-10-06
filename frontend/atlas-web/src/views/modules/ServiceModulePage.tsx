@@ -182,6 +182,7 @@ function CommandDialog({ module, record, action, onClose, onDone }: { module: st
     try {
       const e = await sendCommand(module, record, action, input);
       setResult(e);
+      setInput({});
       toast({ tone: e.stage === 'Effective' ? 'success' : e.stage === 'Rejected' ? 'danger' : e.stage === 'Unknown' ? 'warning' : 'info', title: `${action.label}: ${e.stage}`, body: e.message, kind: 'operation' });
       onDone();
     } catch (e) {
@@ -197,12 +198,19 @@ function CommandDialog({ module, record, action, onClose, onDone }: { module: st
       </>}>
       <div className="stack-12">
         <KeyValue items={[['Resource', record.name], ['Expected revision', `r${action.expectedRevision}`], ['Scope', session?.scope.label ?? '—'], ['Grant', action.grant]]} />
-        {!result && (action.inputs ?? []).map((i) => (
+          
+          {!result && (action.inputs ?? []).map((i) => (
           <div className="field" key={i.key}>
             <label className="field-label" htmlFor={`cmd-${i.key}`}>{i.label}{i.required && <span className="req" aria-hidden="true"> *</span>}</label>
-            <input id={`cmd-${i.key}`} className="input" required={i.required} value={input[i.key] ?? ''} onChange={(e) => setInput((s) => ({ ...s, [i.key]: e.target.value }))} />
+            <input id={`cmd-${i.key}`} className="input" required={i.required}
+              type={i.secret ? 'password' : 'text'} autoComplete={i.secret ? 'new-password' : undefined} spellCheck={i.secret ? false : undefined}
+              aria-describedby={i.secret ? `cmd-${i.key}-hint` : undefined}
+              value={input[i.key] ?? ''} onChange={(e) => setInput((s) => ({ ...s, [i.key]: e.target.value }))} />
+            {i.secret && <small id={`cmd-${i.key}-hint`} className="field-hint">Write-only. Not stored on this device; the service shows only a fingerprint.</small>}
           </div>
         ))}
+
+
         {err && <Banner tone="danger" title="Not sent" role="alert">{err}</Banner>}
         {result && (
           <div className="stack" role="status">
