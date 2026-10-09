@@ -4,6 +4,7 @@ import { connect, disconnect, validateServiceUrl, type Audience } from '../../da
 import { toast, useApp } from '../../data/app-store';
 import { getAll, type DefinitionRecord, type DocumentRecord, type RevisionRecord } from '../../lib/storage';
 import { downloadJson } from '../../lib/definitions';
+import { assertDraftSecretPolicy } from '../../lib/secret-policy';
 import { isoUtc } from '../../lib/format';
 import { Badge, Banner, Button, EmptyState, KeyValue, PageHeader, Panel } from '../../components/ui';
 import { ProvenanceBanner } from '../shared';
@@ -12,10 +13,11 @@ import { ModuleViews, OperationReceipts } from './common';
 
 export async function exportDeviceDrafts() {
   const [definitions, revisions, documents] = await Promise.all([getAll<DefinitionRecord>('definitions'), getAll<RevisionRecord>('revisions'), getAll<DocumentRecord>('documents')]);
+  assertDraftSecretPolicy({ definitions, revisions, documents });
   downloadJson(`atlas-device-drafts-${new Date().toISOString().slice(0, 10)}.json`, {
     format: 'atlas-device-export/v1', authority: 'DEVICE_ONLY', exportedAt: new Date().toISOString(), definitions, revisions, documents,
   });
-  toast({ tone: 'success', title: 'Device drafts exported', body: `${definitions.length} definitions · ${documents.length} documents. The file contains no credentials.` });
+  toast({ tone: 'success', title: 'Device drafts exported', body: `${definitions.length} definitions · ${documents.length} documents. Review all draft content before sharing.` });
 }
 
 /** Connection & operation receipts (Figma connection frame): connect a service session and reconcile uncertain effects. */
@@ -43,7 +45,7 @@ export default function ConnectionPage() {
   const status = connection === 'connected' ? 'Connected' : connection === 'connecting' ? 'Connecting' : connection === 'ended' ? 'Session ended' : 'Disconnected';
   return (
     <div className="page">
-      <PageHeader title={m.title} purpose={m.purpose} actions={<Button icon="download" onClick={exportDeviceDrafts}>Export device drafts</Button>} />
+      <PageHeader title={m.title} purpose={m.purpose} actions={<Button icon="download" onClick={() => void exportDeviceDrafts().catch(e => toast({ tone: 'danger', title: 'Export blocked', body: e instanceof Error ? e.message : 'Review draft content before exporting.' }))}>Export device drafts</Button>} />
       <ProvenanceBanner detail="The service adapter contract (atlas-ui/v1) is proposed; verify availability against your actual backend." />
       {connection === 'ended' && endReason && <Banner tone="warning" title="Service session ended" role="status">{endReason} Reconnect to load authorized records. Device drafts are unchanged.</Banner>}
       {connection === 'disconnected' && endReason && <Banner tone="info" title="Not connected" role="status">{endReason}</Banner>}
@@ -64,9 +66,9 @@ export default function ConnectionPage() {
               <div className="field">
                 <label className="field-label" htmlFor="service-audience">Audience</label>
                 <select id="service-audience" className="select" value={audience} onChange={(e) => setAudience(e.target.value as Audience)} aria-describedby="service-audience-hint">
-                  <option value="workspace">Workspace</option><option value="observer">Observer</option>
+                  <option value="workspace">Workspace</option>
                 </select>
-                <small id="service-audience-hint" className="field-hint">Observer uses a separate session.</small>
+                <small id="service-audience-hint" className="field-hint">Observer uses a separate session. <a href={import.meta.env.VITE_OBSERVER_URL || '/observer/sign-in'}>Open independent Observer</a></small>
               </div>
               <div className="field">
                 <label className="field-label" htmlFor="service-endpoint">Service URL<span className="req" aria-hidden="true"> *</span></label>

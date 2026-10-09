@@ -1,4 +1,5 @@
 import type { FieldSpec, SchemaSpec } from '../../data/types';
+import { secretFieldError } from '../../lib/secret-policy';
 
 /** Form values are kept as strings/booleans while editing and converted to typed JSON on save. */
 export type FormValue = string | boolean | null;
@@ -32,6 +33,10 @@ export function validateField(f: FieldSpec, raw: FormValue, complete: boolean): 
   const empty = raw === null || raw === '' || (typeof raw === 'string' && raw.trim() === '');
   if (empty) return complete && f.required ? `${f.label} is required for complete validation.` : null;
   const s = typeof raw === 'string' ? raw : String(raw);
+  let policyValue: unknown = raw;
+  if (f.control === 'json' || f.control === 'pins') { try { policyValue = JSON.parse(s); } catch { /* Shape validation below reports JSON errors. */ } }
+  const secretError = secretFieldError(f.key, policyValue);
+  if (secretError) return secretError;
   switch (f.control) {
     case 'number': {
       const n = Number(s);

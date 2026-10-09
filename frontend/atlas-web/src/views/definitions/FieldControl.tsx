@@ -8,8 +8,8 @@ export const fieldId = (key: string, prefix = 'definition') => `${prefix}-${key.
 
 export function hintFor(f: FieldSpec): string {
   const parts: string[] = [];
-  if (f.hint && !/^Required for complete validation$/.test(f.hint)) parts.push(f.hint);
-  else if (f.unit) parts.push(`Unit: ${f.unit}${f.minimum !== null || f.maximum !== null ? ` · Range: ${f.minimum ?? '−∞'}–${f.maximum ?? '∞'}` : ''}`);
+  if (f.unit) parts.push(`Unit: ${f.unit}${f.minimum !== null || f.maximum !== null ? ` · Range: ${f.minimum == null ? '−∞' : f.minimum.toLocaleString('en-US')}–${f.maximum == null ? '∞' : f.maximum.toLocaleString('en-US')}` : ''}`);
+  else if (f.hint && !/^Required for complete validation$/.test(f.hint)) parts.push(f.hint);
   if (f.control === 'list' && !parts.some((p) => p.includes('per line'))) parts.push('One value per line. Duplicate entries are rejected.');
   parts.push(f.required ? 'Required for complete validation' : 'Optional');
   return parts.join(' · ');

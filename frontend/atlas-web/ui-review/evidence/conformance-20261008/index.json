@@ -1,0 +1,81 @@
+{
+  "format": "atlas-evidence-index/v1",
+  "files": {
+    "README.md": {
+      "size": 1608,
+      "sha256": "800d0c99a3fc902af923dc210ee1f8a6f6f852249494beceefa28e1e5f2c5473"
+    },
+    "conformance-browser-final-results/.last-run.json": {
+      "size": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    "conformance-browser-final.json": {
+      "size": 66362,
+      "sha256": "9a4e2663c31a95d12497bf182d8674dee3b336e95543d5fd632812271284994a"
+    },
+    "conformance-browser-final.log": {
+      "size": 10501,
+      "sha256": "78837ca016dfe234356dcf9393948f76971786ea27333de80106e7548cb61955"
+    },
+    "conformance-browser-results/.last-run.json": {
+      "size": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    "conformance-browser.json": {
+      "size": 66332,
+      "sha256": "dc6f29a661f17ab34b0a66b7bc5e49cdfe1d03d61096b88f9590034d58f0eba1"
+    },
+    "conformance-browser.log": {
+      "size": 10503,
+      "sha256": "3a27141cc933b596be817b098c8a32f7a248d275b6236e3bbba86c6a92990700"
+    },
+    "conformance-check-final-2.log": {
+      "size": 13391,
+      "sha256": "77f8af6e797c3b811099171bf75aab2e27ea6173b8fb61a59725d2ae95f1395d"
+    },
+    "conformance-check-final.log": {
+      "size": 2305,
+      "sha256": "8de8d45eef338d4d60ca88e19ef0d333fa660806afa13692ca327b2a15087eea"
+    },
+    "conformance-check.log": {
+      "size": 13392,
+      "sha256": "4295e6d3d6f23dd1d4927616ae28fa1e5a26352b9e739a46cc1892ab51338428"
+    },
+    "conformance-release-final.log": {
+      "size": 12544,
+      "sha256": "7d212a6c9af45c50dee75abd8e1c0a6e1d4c2f2ab57a787f7d8fade913406107"
+    },
+    "conformance-release.log": {
+      "size": 12544,
+      "sha256": "00364d202466516e58e9b101e4351dccbf9d50da6f213245281acf5f45a1622c"
+    },
+    "conformance-repro.log": {
+      "size": 12075,
+      "sha256": "f7583ae0020182e32e3d5f96562fe0260012de115a9b2d00a32ef6d481125c34"
+    },
+    "conformance-tooling.log": {
+      "size": 891,
+      "sha256": "69c857315a8035837094226265c3d36e889dacbb32df30f5c29bcf9f3d618708"
+    },
+    "pr-review/baseline-check.log": {
+      "size": 9196,
+      "sha256": "6289405520630f40cbdfb7455f54fbe3709a97a1fe0e124a68d42c78d7ca4397"
+    },
+    "pr-review/four-failing-security-expectations.log": {
+      "size": 4856,
+      "sha256": "03d8eda9c9139686d29c72355eab1f4ff997c01be791926a2f1e4ccdb5889fc8"
+    },
+    "pr-review/metadata.json": {
+      "size": 419,
+      "sha256": "84d254a48c9e0ba48c2055b1b39c4850994f8073d35f56b69030306602e540fe"
+    },
+    "pr-review/review-secret-handling.test.ts": {
+      "size": 3043,
+      "sha256": "de0137ef841cf8f6d7b53db7464cce95d5799fd1481ca1f8ee3c35a8bdbe57f5"
+    }
+  },
+  "rawReportsPreserved": true,
+  "excluded": [
+    "Transient browser trace buffers; no finalized failure traces exist for these passing browser runs."
+  ]
+}

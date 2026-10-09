@@ -1,5 +1,7 @@
 # atlas-web
 
+Latest handoff: checkpoint16 in [HANDOFF.md](HANDOFF.md); current local results in [verification-complete-20261008.json](ui-review/verification-complete-20261008.json). Full frontend checks passed in one fresh pipeline; backend business E2E, current-source GitHub CI, deployment/staging and manual assistive technology remain pending.
+
 Atlas — AI engineering workspace frontend, rebuilt from the Figma E2E delivery (file `0md9BEFI1rU0aRAvf98TWO`) and the
 `Atlas-E2E-Delivery` package in `design-source/`.
 
@@ -12,7 +14,21 @@ npm run check          # typecheck + unit tests + production build
 npx playwright test    # e2e + axe (WCAG 2.2 AA) against `vite preview`, which serves the production headers
 ```
 
-Chromium for Playwright is expected at `PLAYWRIGHT_BROWSERS_PATH` (CI installs it with `npx playwright install chromium`).
+Playwright browsers are expected at `PLAYWRIGHT_BROWSERS_PATH`. CI installs Chromium, Firefox and WebKit with
+`npx playwright install --with-deps chromium firefox webkit`. Functional tests run in all three engines;
+visual/performance tests use one Linux Chromium project.
+
+## UI review before deployment
+
+```bash
+npm run build:review
+npm run preview:review     # http://127.0.0.1:4174, distinct dist-review directory
+npm run e2e:review         # review labels, 18 Current state screens and Execution state/keyboard checks
+```
+
+The review build has explicitly labelled illustrative data and does not authenticate, run agents or apply design-state
+actions. Production and review outputs remain separate. The offline screenshot gallery, Archive shortlist, test evidence,
+integration limits and assistive-technology checklist are described in `ui-review/Atlas-UI-Review.md`.
 
 ## How the app is put together
 
@@ -37,15 +53,51 @@ Rules the UI keeps everywhere:
 - Fixture wording from the design (sample ids, SHAs) appears only in the review build (`npm run build:review`), labelled
   "Illustrative". The production build contains no fixture data or synthetic success handlers.
 
+## Fresh local acceptance
+
+```bash
+npm run test:tooling   # release routing, entry isolation, integrity and cache contracts
+npm run verify         # check + tooling + functional (3 engines) + visual/perf + review (3 engines)
+```
+
+Each invocation writes its own `test-results/acceptance/<run>/summary.json`, raw reports and logs. Failed gates fail the
+command; results are never merged with successful reruns. Source digests detect edits during acceptance. To name a run,
+set `ATLAS_VERIFY_RUN`; an existing summary is never overwritten. Browser suites use two workers to keep simultaneous Monaco/graph loads within the container budget. Container Firefox may require
+`ATLAS_CONTAINER_BROWSER=1`; CI uses the normal browser sandbox.
+
 ## Release and staging
 
 ```bash
-npm run release                          # build with the source commit as build id, write release/staging + SHA-256 manifest
-git add release/staging && git commit    # the artifact commit
-npm run worker:staging -- <artifact-commit-sha>   # writes deploy/staging-worker.js pinned to that commit
+npm run release                          # creates local release/staging; no deployment
+npm run worker:staging -- <artifact-commit-sha>
 ```
 
-`deploy/staging-worker.js` serves only the files listed in the release manifest, fetched from the artifact commit and
-verified by SHA-256 before they are served or cached, with the security headers from `public/_headers`. CI
-(`.github/workflows/atlas-web.yml`) re-checks that the release rebuilds byte-for-byte from its source commit and runs the
-e2e suite plus HTTP checks (`RELEASE_CHECK=1`) against the URL in `deploy/staging-target.json`.
+Release metadata records both entry documents, exact file lengths/SHA-256 and a deterministic source digest. A ZIP
+without Git builds with `sourceKind: archive` and a digest-based build ID; it never claims an unobserved Git commit.
+Dirty checkouts fail unless explicitly building a local draft with `ATLAS_ALLOW_DIRTY_RELEASE=1`. Remotely pinned Workers
+require committed source. Worker generation writes separate `deploy/staging-workspace-worker.js` and
+`deploy/staging-observer-worker.js`; each serves its own fallback entry, never the other application's entry.
+
+After the UI gate and an explicitly authorized deployment, configure distinct `workspaceUrl` and `observerUrl` in
+`deploy/staging-target.json`, and use the exact newly generated build ID:
+
+```bash
+WORKSPACE_URL=https://workspace.example OBSERVER_URL=https://observer.example EXPECTED_BUILD_ID=<build-id> npm run verify:staging
+```
+
+Staging acceptance checks bytes, expected release identity, audience, headers, cache, 404/HEAD contracts, routes and axe
+on both independent origins in three engines. It sends GET/HEAD only, never service commands. Missing targets, stale
+build IDs and failed tests fail the gate. CI uploads evidence as artifacts and does not commit or deploy from this job.
+Legacy `url/release` metadata is historical; it cannot certify the current source.
+
+The Cloudflare plugin helps inspect Workers, deployment versions and account configuration. GitHub helps inspect/publish
+source and CI. Playwright already supplies functional, visual and axe automation; it needs no browser plugin. Backend
+persistence, freeze/lock/AI/PR/CI/Implemented effects and manual NVDA/VoiceOver remain independently required.
+
+## ADR implementation and integrations
+
+The editor is lazy Monaco with optional scoped Yjs/y-monaco binding. DAGs use lazy React Flow with a keyboard List view; terminal output uses lazy xterm with bounded batching. Workspace state uses Zustand and authenticated collection queries use TanStack Query. Commands stay on REST; advertised live channels use scoped WebSocket frames.
+
+Observer is an independent second entry, router, store and session client. `telemetry-console.html` is served locally for `/observer/*`; production needs its own origin and authentication cookie boundary. See [integration contract and acceptance limits](docs/INTEGRATION.md) for proposed capabilities, configuration resolution, scope switch receipts and server obligations.
+
+The review gallery contains actual app screenshots of all 18 Current states in both themes, plus the 7 definition states and the selected Archive patterns. Its screenshots are illustrative design evidence; backend business effects still require live service receipts. No deployment is authorized before the UI review gate is satisfied.

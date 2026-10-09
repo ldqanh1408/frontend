@@ -1,0 +1,301 @@
+[
+  {
+    "id": "workspace/incident-recovery",
+    "route": "/observer/incident-recovery",
+    "title": "Operational recovery handoff",
+    "module": "observer",
+    "surface": "workspace",
+    "bare": false,
+    "kind": "form",
+    "presence": "Partial",
+    "purpose": "Carry actual environment/run/operation/provider correlation, current timeline, scope-safe evidence and named runbook owner. UI cannot invent successful restore.",
+    "review": "Carry actual environment/run/operation/provider correlation, current timeline, scope-safe evidence and named runbook owner. UI cannot invent successful restore.",
+    "fields": [
+      {
+        "label": "Intended organization / workspace / project scope",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Owner identity reference",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Description",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Labels",
+        "hint": "List",
+        "value": []
+      },
+      {
+        "label": "Change reason",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Severity",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Observed symptom",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Observation time",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Environment identity",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Run identity",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Task identity",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Original operation identity",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Trace identity",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Evidence identities",
+        "hint": "List",
+        "value": []
+      },
+      {
+        "label": "Observed impact",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Recovery already attempted",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Operator identity",
+        "hint": "Text",
+        "value": null
+      },
+      {
+        "label": "Runbook revision",
+        "hint": "Text",
+        "value": null
+      }
+    ]
+  },
+  {
+    "id": "observer/obs-login",
+    "route": "/observer/sign-in",
+    "title": "Observer sign in",
+    "module": "observer",
+    "surface": "observer",
+    "bare": true,
+    "kind": "review",
+    "presence": "Missing",
+    "purpose": "Workspace access does not imply Observer access. Validate the independent identity, environment/data scope and allowed diagnostic purposes.",
+    "review": "Workspace access does not imply Observer access. Validate the independent identity, environment/data scope and allowed diagnostic purposes.",
+    "fields": []
+  },
+  {
+    "id": "observer/obs-overview",
+    "route": "/observer/obs-overview",
+    "title": "System overview",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "observer",
+    "presence": "Partial",
+    "purpose": "Health follows actual timestamped measurements and quality. Missing or stale data is Unknown, not a green service.",
+    "review": "Health follows actual timestamped measurements and quality. Missing or stale data is Unknown, not a green service.",
+    "fields": []
+  },
+  {
+    "id": "observer/traces",
+    "route": "/observer/traces",
+    "title": "Distributed traces",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "table",
+    "presence": "Missing",
+    "purpose": "Filters retain environment, UTC range, trace/run/attempt/provider scope and declared missing-span quality.",
+    "review": "Filters retain environment, UTC range, trace/run/attempt/provider scope and declared missing-span quality.",
+    "fields": []
+  },
+  {
+    "id": "observer/trace-detail",
+    "route": "/observer/trace-detail",
+    "title": "Trace waterfall",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "trace",
+    "presence": "Missing",
+    "purpose": "Correlate actual scoped spans with the correct run, attempt, provider and runtime. Show absent spans, clock skew, redaction and sampling.",
+    "review": "Correlate actual scoped spans with the correct run, attempt, provider and runtime. Show absent spans, clock skew, redaction and sampling.",
+    "fields": []
+  },
+  {
+    "id": "observer/metrics",
+    "route": "/observer/metrics",
+    "title": "Metrics & logs",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "observer",
+    "presence": "Missing",
+    "purpose": "Every metric shows unit, interval, aggregation, sample completeness and timestamp. Redacted logs are read-only and cursor-based.",
+    "review": "Every metric shows unit, interval, aggregation, sample completeness and timestamp. Redacted logs are read-only and cursor-based.",
+    "fields": []
+  },
+  {
+    "id": "observer/profiler",
+    "route": "/observer/profiler",
+    "title": "Continuous profiler",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "observer",
+    "presence": "Missing",
+    "purpose": "Compare only compatible binary/runtime/build/sample type and equivalent workload/time windows. Unsupported comparison remains blocked.",
+    "review": "Compare only compatible binary/runtime/build/sample type and equivalent workload/time windows. Unsupported comparison remains blocked.",
+    "fields": []
+  },
+  {
+    "id": "observer/telemetry",
+    "route": "/observer/telemetry",
+    "title": "Agent telemetry",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "observer",
+    "presence": "Partial",
+    "purpose": "Retain actual scope, units, timestamps, quality and current authorization. Observer never controls Workspace execution or approvals.",
+    "review": "Retain actual scope, units, timestamps, quality and current authorization. Observer never controls Workspace execution or approvals.",
+    "fields": []
+  },
+  {
+    "id": "observer/infra",
+    "route": "/observer/infra",
+    "title": "Sandbox infrastructure",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "observer",
+    "presence": "Missing",
+    "purpose": "Retain actual scope, units, timestamps, quality and current authorization. Observer never controls Workspace execution or approvals.",
+    "review": "Retain actual scope, units, timestamps, quality and current authorization. Observer never controls Workspace execution or approvals.",
+    "fields": []
+  },
+  {
+    "id": "observer/saturation",
+    "route": "/observer/saturation",
+    "title": "Collaboration & lock saturation",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "observer",
+    "presence": "Missing",
+    "purpose": "Retain actual scope, units, timestamps, quality and current authorization. Observer never controls Workspace execution or approvals.",
+    "review": "Retain actual scope, units, timestamps, quality and current authorization. Observer never controls Workspace execution or approvals.",
+    "fields": []
+  },
+  {
+    "id": "observer/obs-audit",
+    "route": "/observer/obs-audit",
+    "title": "Diagnostic audit explorer",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "observer",
+    "presence": "Missing",
+    "purpose": "Retain actual scope, units, timestamps, quality and current authorization. Observer never controls Workspace execution or approvals.",
+    "review": "Retain actual scope, units, timestamps, quality and current authorization. Observer never controls Workspace execution or approvals.",
+    "fields": []
+  },
+  {
+    "id": "observer/exports",
+    "route": "/observer/exports",
+    "title": "Telemetry export center",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "table",
+    "presence": "Partial",
+    "purpose": "Request a bounded redacted diagnostic job with purpose and expiry. Ready requires actual bytes, manifest/hash and current download authorization.",
+    "review": "Request a bounded redacted diagnostic job with purpose and expiry. Ready requires actual bytes, manifest/hash and current download authorization.",
+    "fields": []
+  },
+  {
+    "id": "observer/index",
+    "route": "/observer/index",
+    "title": "Observer screen index",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "table",
+    "presence": "Review scope",
+    "purpose": "Choose a read-only diagnostic scope, quality-aware drilldown and authorized export path.",
+    "review": "Choose a read-only diagnostic scope, quality-aware drilldown and authorized export path.",
+    "fields": []
+  },
+  {
+    "id": "observer/data-quality",
+    "route": "/observer/data-quality",
+    "title": "Telemetry data quality",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "review",
+    "presence": "Partial",
+    "purpose": "Show source completeness, last observed timestamp, clock skew, sampling, units and method. Data absence remains explicit.",
+    "review": "Show source completeness, last observed timestamp, clock skew, sampling, units and method. Data absence remains explicit.",
+    "fields": []
+  },
+  {
+    "id": "observer/export-job",
+    "route": "/observer/export-job",
+    "title": "Diagnostic export job",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "review",
+    "presence": "Partial",
+    "purpose": "Track requested/accepted/job progress/partial/failure separately. A download is unavailable until finalized bytes and authorization exist.",
+    "review": "Track requested/accepted/job progress/partial/failure separately. A download is unavailable until finalized bytes and authorization exist.",
+    "fields": []
+  },
+  {
+    "id": "observer/profile-compatibility",
+    "route": "/observer/profile-compatibility",
+    "title": "Profile comparison readiness",
+    "module": "observer",
+    "surface": "observer",
+    "bare": false,
+    "kind": "notice",
+    "presence": "Missing",
+    "purpose": "Selected profiles differ in runtime/build or sample type. Show precise mismatch and select compatible scoped inputs.",
+    "review": "Selected profiles differ in runtime/build or sample type. Show precise mismatch and select compatible scoped inputs.",
+    "fields": []
+  }
+]

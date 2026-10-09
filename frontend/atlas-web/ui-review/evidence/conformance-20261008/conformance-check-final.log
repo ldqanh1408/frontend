@@ -1,0 +1,53 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> atlas-web@1.0.0-rc.1 check
+> npm run typecheck && npm run test && npm run build
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> atlas-web@1.0.0-rc.1 typecheck
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.node.json
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> atlas-web@1.0.0-rc.1 test
+> vitest run
+
+
+ RUN  v5.0.3 /workspace/scratch/a98056651892/project/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web
+
+ ❯ src/views/definitions/validate.test.ts (6 tests | 1 failed) 16ms
+   ❯ field validation (5)
+     × rejects secrets in place of vault references and credentials in URLs 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/views/definitions/validate.test.ts > field validation > rejects secrets in place of vault references and credentials in URLs
+AssertionError: expected 'Use vault references such as vault://…' to match /credentials/
+
+- Expected:
+/credentials/
+
++ Received:
+"Use vault references such as vault://team/provider. Never save secret values in device drafts."
+
+ ❯ src/views/definitions/validate.test.ts:28:86
+     26|   it('rejects secrets in place of vault references and credentials in …
+     27|     expect(validateField({ ...base, key: 'credentialReference' }, 'sk-…
+     28|     expect(validateField({ ...base, key: 'endpoint' }, 'https://u:p@x.…
+       |                                                                                      ^
+     29|   });
+     30|   it('only enforces required fields for complete validation', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 12 passed (13)
+      Tests  1 failed | 77 passed (78)
+   Start at  13:46:17
+   Duration  2.53s (environment 54%, tests 16%, transform 13%, setup 9%, import 8%, worker 1%)
+
+Environment  jsdom was created 13 times · 7.11s total, 54% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+

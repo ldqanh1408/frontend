@@ -1,0 +1,126 @@
+{
+  "format": "atlas-conformance-verification/v1",
+  "date": "2026-10-08",
+  "scope": "Focused frontend implementation checks, not full product E2E",
+  "sourceDigest": "77cdc3b38905142365bb758b060be0a16e4f7b5335fe91c4c7a79d1054ce8bf3",
+  "sourceKind": "archive",
+  "sourceCommit": null,
+  "typecheck": "PASS",
+  "productionBuild": "PASS",
+  "unit": {
+    "passed": 78,
+    "failed": 0,
+    "log": "conformance-check-final-2.log"
+  },
+  "releaseTooling": {
+    "passed": 7,
+    "failed": 0,
+    "log": "conformance-tooling.log"
+  },
+  "focusedBrowser": {
+    "passed": 57,
+    "failed": 0,
+    "skipped": 0,
+    "engines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "suites": [
+      "definitions.spec.ts",
+      "service.spec.ts",
+      "realtime.spec.ts",
+      "scope-presence.spec.ts"
+    ],
+    "report": "conformance-browser-final.json",
+    "protocolPeersOnly": true
+  },
+  "release": {
+    "format": "atlas-local-release-verification/v1",
+    "status": "PASS",
+    "identicalFiles": 126,
+    "buildId": "source-77cdc3b389051423",
+    "sourceDigest": "77cdc3b38905142365bb758b060be0a16e4f7b5335fe91c4c7a79d1054ce8bf3",
+    "sourceKind": "archive",
+    "sourceCommit": null,
+    "manifest": "release/local-conformance/release-manifest.json",
+    "deployed": false,
+    "productionOriginsConfigured": false
+  },
+  "requirementCounts": {
+    "FR": 35,
+    "NFR": 10,
+    "BR": 40,
+    "EX": 27,
+    "ADR": 19,
+    "Assumption": 14,
+    "Config": 19
+  },
+  "prReview": {
+    "url": "https://github.com/ldqanh1408/frontend/pull/1",
+    "head": "0e8cf8340f0f90bc3dee5a5e37019450bfcda24f",
+    "base": "4737b155e9f106bc7351c271d19ef207cfbb9a66",
+    "state": "open",
+    "merged": false,
+    "observedDate": "2026-10-08",
+    "commitStatuses": 0,
+    "checkRuns": 0,
+    "localBaselineTestsPassed": 29,
+    "addedSecurityExpectationsFailed": 4,
+    "recommendation": "FIX_BEFORE_MERGE",
+    "remoteWrites": false
+  },
+  "iterations": {
+    "conformance-check-final.log": "FAIL: one validation-message regression; preserved, corrected and rerun",
+    "conformance-check.log": "PASS76 at earlier source; historical only",
+    "conformance-browser.json": "PASS57 at earlier source; final report is separate"
+  },
+  "peerTimingObservations": [
+    {
+      "presenceObservedMs": 46,
+      "environment": "local protocol peer"
+    },
+    {
+      "crdtPeerObservedMs": 39,
+      "environment": "local protocol peer"
+    },
+    {
+      "presenceObservedMs": 429,
+      "environment": "local protocol peer"
+    },
+    {
+      "crdtPeerObservedMs": 17,
+      "environment": "local protocol peer"
+    },
+    {
+      "presenceObservedMs": 276,
+      "environment": "local protocol peer"
+    },
+    {
+      "crdtPeerObservedMs": 53,
+      "environment": "local protocol peer"
+    }
+  ],
+  "nfrLatencyAccepted": false,
+  "nfrLatencyNote": "Test observations include Playwright expectation/polling overhead. One presence observation was 276ms; no <200ms NFR pass is claimed. Real backend/network measurements remain required.",
+  "previousBroadEvidence": "acceptance-20261008 is historical source coverage; not a full green run of current changes",
+  "fullCurrentSourceFunctionalRun": false,
+  "liveBackendAcceptance": false,
+  "liveJourneys": {
+    "J0": "NOT_RUN_BACKEND_REQUIRED",
+    "J1": "NOT_RUN_BACKEND_REQUIRED",
+    "J2": "NOT_RUN_BACKEND_REQUIRED",
+    "J3": "NOT_RUN_BACKEND_REQUIRED",
+    "J4": "NOT_RUN_BACKEND_REQUIRED",
+    "J5": "NOT_RUN_BACKEND_REQUIRED",
+    "J6": "NOT_RUN_BACKEND_REQUIRED",
+    "J7": "NOT_RUN_BACKEND_REQUIRED",
+    "O1": "NOT_RUN_BACKEND_REQUIRED"
+  },
+  "currentSourceGitHubCI": false,
+  "pushed": false,
+  "deployed": false,
+  "stagingAcceptance": false,
+  "manualNVDAOrVoiceOver": false,
+  "evidenceDirectory": "ui-review/evidence/conformance-20261008"
+}

@@ -1,123 +1,95 @@
-import { startTransition, useEffect, useRef } from 'react';
-import { EditorState, Compartment, type Extension } from '@codemirror/state';
-import { EditorView, keymap, lineNumbers, highlightActiveLine, highlightActiveLineGutter, drawSelection } from '@codemirror/view';
-import { defaultKeymap, history, historyKeymap, indentWithTab } from '@codemirror/commands';
-import { searchKeymap, highlightSelectionMatches } from '@codemirror/search';
-import { syntaxHighlighting, HighlightStyle, bracketMatching, indentOnInput } from '@codemirror/language';
-import { tags as t } from '@lezer/highlight';
-import { markdown } from '@codemirror/lang-markdown';
-import { javascript } from '@codemirror/lang-javascript';
-import { css } from '@codemirror/lang-css';
-import { html } from '@codemirror/lang-html';
+import { startTransition, useEffect, useRef, useState } from 'react';
+import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js';
+import 'monaco-editor/esm/vs/basic-languages/markdown/markdown.contribution.js';
+import 'monaco-editor/esm/vs/basic-languages/typescript/typescript.contribution.js';
+import 'monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution.js';
+import 'monaco-editor/esm/vs/basic-languages/css/css.contribution.js';
+import 'monaco-editor/esm/vs/basic-languages/html/html.contribution.js';
+import 'monaco-editor/esm/vs/basic-languages/xml/xml.contribution.js';
+import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
+import type { EditorLanguage } from './editor-language';
+import type { CollaborationTarget } from '../data/collaboration';
+export { languageFor, type EditorLanguage } from './editor-language';
 
-export type EditorLanguage = 'markdown' | 'javascript' | 'typescript' | 'jsx' | 'tsx' | 'json' | 'css' | 'html' | 'text';
-
-export function languageFor(path: string): EditorLanguage {
-  const ext = path.split('.').pop()?.toLowerCase() ?? '';
-  return ({ md: 'markdown', markdown: 'markdown', mdx: 'markdown', js: 'javascript', mjs: 'javascript', cjs: 'javascript', jsx: 'jsx', ts: 'typescript', mts: 'typescript', cts: 'typescript', tsx: 'tsx', json: 'json', css: 'css', scss: 'css', html: 'html', htm: 'html', vue: 'html', svelte: 'html' } as Record<string, EditorLanguage>)[ext] ?? 'text';
-}
-
-function lang(l: EditorLanguage): Extension {
-  switch (l) {
-    case 'markdown': return markdown();
-    case 'javascript': return javascript();
-    case 'jsx': return javascript({ jsx: true });
-    case 'typescript': return javascript({ typescript: true });
-    case 'tsx': return javascript({ typescript: true, jsx: true });
-    case 'json': return javascript();
-    case 'css': return css();
-    case 'html': return html();
-    default: return [];
-  }
-}
-
-// Colors come from the design tokens so both themes follow "Atlas / v8 Color".
-const highlight = HighlightStyle.define([
-  { tag: [t.keyword, t.modifier, t.operatorKeyword], color: 'var(--color-purple)' },
-  { tag: [t.string, t.special(t.string), t.regexp], color: 'var(--color-success)' },
-  { tag: [t.number, t.bool, t.null, t.atom], color: 'var(--color-warning)' },
-  { tag: [t.comment, t.lineComment, t.blockComment], color: 'var(--color-muted)', fontStyle: 'italic' },
-  { tag: [t.function(t.variableName), t.function(t.propertyName), t.definition(t.variableName)], color: 'var(--color-info)' },
-  { tag: [t.typeName, t.className, t.tagName], color: 'var(--color-accent)' },
-  { tag: t.heading, color: 'var(--color-text)', fontWeight: '600' },
-  { tag: [t.link, t.url], color: 'var(--color-accent)', textDecoration: 'underline' },
-  { tag: t.emphasis, fontStyle: 'italic' },
-  { tag: t.strong, fontWeight: '600' },
-  { tag: t.quote, color: 'var(--color-secondary)' },
-]);
-const theme = EditorView.theme({
-  '&': { backgroundColor: 'var(--color-bg)', color: 'var(--color-text)' },
-  '.cm-content': { caretColor: 'var(--color-accent)', fontFamily: 'var(--font-mono)' },
-  '.cm-gutters': { backgroundColor: 'var(--color-panel)', color: 'var(--color-muted)', borderRight: '1px solid var(--color-border)' },
-  '.cm-activeLine': { backgroundColor: 'color-mix(in srgb, var(--color-raised) 60%, transparent)' },
-  '.cm-activeLineGutter': { backgroundColor: 'var(--color-raised)', color: 'var(--color-text)' },
-  '&.cm-focused .cm-selectionBackground, .cm-selectionBackground, ::selection': { backgroundColor: 'var(--color-accent-soft) !important' },
-  '.cm-cursor': { borderLeftColor: 'var(--color-accent)' },
-  '.cm-searchMatch': { backgroundColor: 'var(--color-warning-soft)', outline: '1px solid var(--color-warning)' },
-  '.cm-panels': { backgroundColor: 'var(--color-panel)', color: 'var(--color-text)', borderColor: 'var(--color-border)' },
-  '.cm-panel input, .cm-panel button': { font: 'var(--text-caption)' },
-});
-
-/** Read-only stays focusable (keyboard scrolling, selection, search) but rejects edits. */
-const readOnlyExt = (ro: boolean): Extension => [EditorState.readOnly.of(ro), EditorView.contentAttributes.of({ 'aria-readonly': String(ro) })];
-
+self.MonacoEnvironment = { getWorker: () => new EditorWorker() };
 export interface EditorHandle { goToLine: (line: number) => void; focus: () => void; getValue: () => string }
 
-/**
- * CodeMirror 6 editor. While mounted the editor owns its document (typing never races React renders); `value` is loaded
- * at mount and again only when `resetKey` changes (file switch, restore, discard). Tab indents; Escape then Tab leaves.
- */
-export function CodeEditor({ value, onChange, language = 'text', readOnly = false, label, onSave, handleRef, minHeight = 420, describedBy, resetKey }: {
+function updateTheme() {
+  const style = getComputedStyle(document.documentElement);
+  const color = (name: string) => style.getPropertyValue(`--color-${name}`).trim();
+  const dark = document.documentElement.dataset.theme !== 'light';
+  monaco.editor.defineTheme('atlas', { base: dark ? 'vs-dark' : 'vs', inherit: false, rules: [
+    { token: '', foreground: color('text').replace('#', '') },
+    { token: 'comment', foreground: color('secondary').replace('#', '') },
+    { token: 'keyword', foreground: color('info').replace('#', '') },
+    { token: 'type', foreground: color('purple').replace('#', '') },
+    { token: 'string', foreground: color('success').replace('#', '') },
+    { token: 'number', foreground: color('warning').replace('#', '') },
+    { token: 'tag', foreground: color('info').replace('#', '') },
+    { token: 'invalid', foreground: color('danger').replace('#', '') },
+  ], colors: {
+    'editor.background': color('bg'), 'editor.foreground': color('text'),
+    'editorLineNumber.foreground': color('muted'), 'editorLineNumber.activeForeground': color('text'),
+    'editorCursor.foreground': color('accent'), 'editor.selectionBackground': color('accent-soft'),
+    'editor.lineHighlightBackground': color('raised'), 'editorWidget.background': color('panel'),
+  } });
+  monaco.editor.setTheme('atlas');
+}
+const languageId = (language: EditorLanguage) => language === 'text' ? 'plaintext' : language === 'tsx' ? 'typescript' : language === 'jsx' ? 'javascript' : language;
+
+/** Monaco owns the model while mounted. Only resetKey replaces its document; React updates follow typing. */
+export function CodeEditor({ value, onChange, language = 'text', readOnly = false, label, onSave, handleRef, minHeight = 420, describedBy, resetKey, collaboration }: {
   value: string; onChange?: (v: string) => void; language?: EditorLanguage; readOnly?: boolean; label: string; onSave?: () => void;
-  handleRef?: React.RefObject<EditorHandle | null>; minHeight?: number; describedBy?: string; resetKey?: unknown;
+  handleRef?: React.RefObject<EditorHandle | null>; minHeight?: number; describedBy?: string; resetKey?: unknown; collaboration?: CollaborationTarget;
 }) {
   const host = useRef<HTMLDivElement>(null);
-  const view = useRef<EditorView | null>(null);
-  const cbs = useRef({ onChange, onSave });
-  cbs.current = { onChange, onSave };
-  const langC = useRef(new Compartment());
-  const roC = useRef(new Compartment());
+  const editor = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
+  const callbacks = useRef({ onChange, onSave });
+  callbacks.current = { onChange, onSave };
+  const [collabStatus, setCollabStatus] = useState<string | null>(null);
   useEffect(() => {
-    const v = new EditorView({
-      parent: host.current!,
-      state: EditorState.create({
-        doc: value,
-        extensions: [
-          lineNumbers(), highlightActiveLineGutter(), history(), drawSelection(), indentOnInput(), bracketMatching(), highlightActiveLine(), highlightSelectionMatches(),
-          syntaxHighlighting(highlight), theme, EditorView.lineWrapping,
-          keymap.of([{ key: 'Mod-s', preventDefault: true, run: () => { cbs.current.onSave?.(); return true; } }, ...defaultKeymap, ...historyKeymap, ...searchKeymap, indentWithTab]),
-          langC.current.of(lang(language)), roC.current.of(readOnlyExt(readOnly)),
-          EditorView.contentAttributes.of({ 'aria-label': label, tabindex: '0', ...(describedBy ? { 'aria-describedby': describedBy } : {}), 'aria-multiline': 'true' }),
-          // Non-urgent: React state follows the editor without blocking typing (and without long synchronous update chains).
-          EditorView.updateListener.of((u) => { if (u.docChanged) { const doc = u.state.doc.toString(); startTransition(() => cbs.current.onChange?.(doc)); } }),
-        ],
-      }),
+    updateTheme();
+    const model = monaco.editor.createModel(value, languageId(language));
+    const view = monaco.editor.create(host.current!, {
+      model, theme: 'atlas', readOnly: readOnly || Boolean(collaboration), ariaLabel: label, automaticLayout: true,
+      accessibilitySupport: 'on', minimap: { enabled: false }, wordWrap: 'on', scrollBeyondLastLine: false,
+      fontFamily: 'JetBrains Mono, monospace', fontSize: 13, lineHeight: 22, padding: { top: 12 },
+      tabSize: 2, renderLineHighlight: 'line', stickyScroll: { enabled: false },
+      wordBasedSuggestions: 'off', quickSuggestions: false,
+      folding: true, fixedOverflowWidgets: false, contextmenu: true,
     });
-    view.current = v;
-    return () => { v.destroy(); view.current = null; };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    editor.current = view;
+    const change = model.onDidChangeContent(() => { const text = model.getValue(); startTransition(() => callbacks.current.onChange?.(text)); });
+    view.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => callbacks.current.onSave?.());
+    view.addCommand(monaco.KeyMod.WinCtrl | monaco.KeyCode.KeyS, () => callbacks.current.onSave?.());
+    const theme = new MutationObserver(updateTheme);
+    theme.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    if (describedBy) view.getDomNode()?.querySelector('textarea')?.setAttribute('aria-describedby', describedBy);
+    if (handleRef) handleRef.current = {
+      focus: () => view.focus(), getValue: () => model.getValue(),
+      goToLine: (line) => { const n = Math.max(1, Math.min(model.getLineCount(), line)); view.setPosition({ lineNumber: n, column: 1 }); view.revealLineInCenter(n); view.focus(); },
+    };
+    return () => { theme.disconnect(); change.dispose(); if (handleRef) handleRef.current = null; editor.current = null; view.dispose(); model.dispose(); };
+  }, []); // The editor is deliberately not controlled by React's value prop.
   const first = useRef(true);
   useEffect(() => {
     if (first.current) { first.current = false; return; }
-    const v = view.current;
-    if (v && v.state.doc.toString() !== value) v.dispatch({ changes: { from: 0, to: v.state.doc.length, insert: value } });
-  }, [resetKey]); // eslint-disable-line react-hooks/exhaustive-deps
-  useEffect(() => { view.current?.dispatch({ effects: langC.current.reconfigure(lang(language)) }); }, [language]);
-  useEffect(() => { view.current?.dispatch({ effects: roC.current.reconfigure(readOnlyExt(readOnly)) }); }, [readOnly]);
+    const model = editor.current?.getModel();
+    if (model && model.getValue() !== value) model.setValue(value);
+  }, [resetKey]);
+  useEffect(() => { const model = editor.current?.getModel(); if (model) monaco.editor.setModelLanguage(model, languageId(language)); }, [language]);
+  useEffect(() => { editor.current?.updateOptions({ readOnly: readOnly || Boolean(collaboration), ariaLabel: label }); }, [readOnly, label, collaboration?.documentId, collaboration?.branchId]);
   useEffect(() => {
-    if (!handleRef) return;
-    handleRef.current = {
-      goToLine: (line) => {
-        const v = view.current;
-        if (!v) return;
-        const l = v.state.doc.line(Math.min(Math.max(1, line), v.state.doc.lines));
-        v.dispatch({ selection: { anchor: l.from }, effects: EditorView.scrollIntoView(l.from, { y: 'center' }) });
-        v.focus();
-      },
-      focus: () => view.current?.focus(),
-      getValue: () => view.current?.state.doc.toString() ?? value,
-    };
-  }, [handleRef]);
-  // Fixed height with an internal scroller: jumping to a line never scrolls the page header out of view.
-  return <div ref={host} className="editor-host" style={{ height: `max(${minHeight}px, min(70vh, 900px))` }} />;
+    const view = editor.current;
+    if (!collaboration || !view || readOnly) { setCollabStatus(null); return; }
+    let disposed = false;
+    let stop: (() => void) | undefined;
+    setCollabStatus('Joining authorized document…');
+    void import('../data/collaboration').then(({ bindCollaborativeEditor }) => {
+      if (disposed) return;
+      stop = bindCollaborativeEditor(view, collaboration, status => { if (!disposed) setCollabStatus(status); });
+    }).catch(() => { if (!disposed) setCollabStatus('Collaboration unavailable. Device draft remains local.'); });
+    return () => { disposed = true; stop?.(); };
+  }, [collaboration?.documentId, collaboration?.branchId, readOnly]);
+  return <div className="stack-8"><div ref={host} className="editor-host" data-editor="monaco" style={{ height: `max(${minHeight}px, min(70vh, 900px))` }} />{collabStatus && <p className="caption" role="status">{collabStatus}</p>}</div>;
 }

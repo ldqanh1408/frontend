@@ -1,0 +1,31 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:32) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22mnpm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:45) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 2 workers
+
+(node:79) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:85) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:79) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:85) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual workflow (1.5s)
+  ✓   2 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual execution (1.7s)
+  ✓   3 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 1024 › visual workflow (1.6s)
+  ✓   5 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 1440 › visual workflow (1.5s)
+  ✓   4 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 1024 › visual execution (1.6s)
+  ✓   7 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual workflow (1.3s)
+  ✓   6 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 1440 › visual execution (1.9s)
+  ✓   8 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual execution (1.4s)
+  ✓  10 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 1024 › visual execution (1.3s)
+  ✓   9 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 1024 › visual workflow (3.3s)
+  ✓  11 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 1440 › visual workflow (1.8s)
+  ✓  12 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 1440 › visual execution (2.0s)
+
+  12 passed (15.3s)

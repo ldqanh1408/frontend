@@ -35,6 +35,9 @@ export default function ViewPage({ viewId, bare = false }: { viewId: string; bar
       const next = new URLSearchParams(params);
       if (to === data.view.defaultScene) next.delete('state'); else next.set('state', to);
       setParams(next);
+    } else if (to === '/observer' || to.startsWith('/observer/')) {
+      const origin = import.meta.env.VITE_OBSERVER_URL;
+      window.location.assign(origin ? new URL(to.replace(/^\/observer\/?/, ''), `${origin.replace(/\/+$/, '')}/`).href : to);
     } else navigate(to);
   };
   return (

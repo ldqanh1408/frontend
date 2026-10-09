@@ -1,0 +1,30 @@
+{
+  "format": "atlas-acceptance/v1",
+  "mode": "local",
+  "run": "20261008-local-02",
+  "node": "v24.19.0",
+  "startedAt": "2026-10-08T11:37:48.245Z",
+  "sourceDigest": "2d05aa5b5ab64192be0934df3904bc6f9701cd9233436e0034c9de4beca8bcf7",
+  "gates": [
+    {
+      "name": "check",
+      "code": 0,
+      "durationMs": 5666,
+      "status": "PASS",
+      "log": "check.log"
+    },
+    {
+      "name": "tooling",
+      "code": 0,
+      "durationMs": 271,
+      "status": "PASS",
+      "log": "tooling.log"
+    }
+  ],
+  "result": "INTERRUPTED",
+  "limitations": [
+    "Live backend business acceptance and manual NVDA/VoiceOver are not established by this command."
+  ],
+  "finishedAt": "2026-10-08T11:39:41.376194+00:00",
+  "interruptionReason": "Restarted with two workers after observing the container near its 8 GiB limit; no quality threshold change."
+}

@@ -1,0 +1,23 @@
+# PR #1 — fix/secret-handling
+
+**Recommendation: fix the four issues below before merging.** Reviewed head `0e8cf8340f0f90bc3dee5a5e37019450bfcda24f` against base `4737b155e9f106bc7351c271d19ef207cfbb9a66`. [PR](https://github.com/ldqanh1408/frontend/pull/1) remains open; no remote review/comment, commit, merge or push was performed.
+
+The PR targets an older frontend baseline. Corrections in this handoff were applied to the latest supplied continuation without replacing its scope, realtime, independent Observer or release changes. This does not change the remote PR.
+
+## Findings
+
+1. **[P1] Environment map names can bypass the new secret guard.** [validate.ts:24–30](https://github.com/ldqanh1408/frontend/blob/0e8cf8340f0f90bc3dee5a5e37019450bfcda24f/frontend/atlas-web/src/views/definitions/validate.ts#L24-L30) skips any string under name/key/env/variable at every nesting level. The actual MCP schema allows environment maps; `{"KEY":"review-only-secret-value"}` returns no validation error because comparison lowercases KEY. Metadata exemptions must apply only to explicit reference descriptors; map values must remain vault references. Direct reproduction failed the rejection assertion.
+
+2. **[P1] A constant secret placeholder breaks the input fingerprint contract.** [service.ts:162–165](https://github.com/ldqanh1408/frontend/blob/0e8cf8340f0f90bc3dee5a5e37019450bfcda24f/frontend/atlas-web/src/data/service.ts#L162-L165) replaces each sensitive input with `[secret]` before hashing at line187. Two different API keys now produce the same fingerprint while the real POST input differs. Under the handoff's exact canonical-payload receipt contract, a backend hashing the real input cannot match; a backend hashing the placeholder cannot distinguish credential changes. The frontend journal never needed to store input to hash it. Retain exact input binding, or approve a new server-issued/HMAC commitment protocol end to end; do not silently change this contract. Reproduction asserted distinct hashes and failed.
+
+3. **[P1] JSON import bypasses the new policy before IndexedDB writes.** The guard is only called from [UI validation at validate.ts:51–56](https://github.com/ldqanh1408/frontend/blob/0e8cf8340f0f90bc3dee5a5e37019450bfcda24f/frontend/atlas-web/src/views/definitions/validate.ts#L51-L56). `importDefinition` calls `createDefinition` and writes a draft plus revision before any form validator runs. Importing `{"environmentRefs":{"API_KEY":"review-only-secret-value"}}` succeeds and persists the literal. Put the shared policy at create/save/import/duplicate/export boundaries, including preserved fields and unsaved/recovery exports. Reproduction expected import rejection and failed.
+
+4. **[P1] Write-only input can be persisted through echoed error reasons.** The PR adds sensitive input metadata/masking, but [service.ts:221](https://github.com/ldqanh1408/frontend/blob/0e8cf8340f0f90bc3dee5a5e37019450bfcda24f/frontend/atlas-web/src/data/service.ts#L221) still copies arbitrary rejection `reason` into the persisted journal and UI feedback. A matching service response `reason: "Invalid API key <submitted value>"` persists the plaintext despite the write-only hint. Reconciliation has the same path. Retain sensitivity policy without input values, omit sensitive arbitrary reasons/evidence, and clear input on every outcome. Backend redaction remains mandatory for logs/traces/artifacts. Reproduction checked both returned entry and journal and failed.
+
+## Verification
+
+The exact PR checkout passed its existing `npm run check`: 29 tests, typecheck and build. The four added security expectation tests all failed on that same head. Synthetic strings only were used; no real credentials or external business mutations were involved. Raw logs and the reproduction test are retained under `evidence/conformance-20261008/pr-review/`.
+
+GitHub re-read on 2026-10-08 confirmed the same head, zero commit statuses and zero check runs. The PR-body claim of 304 browser passes/3 skips was not treated as independently verified CI evidence. Its workflow has push/manual triggers but no pull_request trigger.
+
+The updated handoff adds positive and negative coverage for environment maps/descriptors, all draft/export boundaries, exact-payload fingerprints, secret reason/evidence exclusion and reconciliation after reload. See `verification-conformance-20261008.json` for the final source's actual local results. FR-6.3/NFR-2.2 still require backend scanning of the entire generated diff with regex+entropy, plus server redaction tests; a frontend validator cannot fulfill those product requirements by itself.

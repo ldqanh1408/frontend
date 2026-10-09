@@ -34,7 +34,7 @@ export function NotFound() {
   return (
     <div className="page">
       <PageHeader title="Workspace view not found" purpose="This link does not identify a supported view. No fallback service resource was loaded." />
-      <div><ButtonLink to="/" icon="home">Return to overview</ButtonLink></div>
+      <EmptyState icon="search" title="This view is unavailable" actions={<ButtonLink to="/" icon="home">Return to overview</ButtonLink>}>Check the link or choose a supported workspace view from navigation.</EmptyState>
     </div>
   );
 }
@@ -46,7 +46,7 @@ export function RouteError() {
     <div className="page" role="alert">
       <h1 tabIndex={-1} data-page-title>Something went wrong</h1>
       <EmptyState icon="danger" title="This view could not be displayed" actions={<><ButtonLink to="/" icon="home">Return to overview</ButtonLink><button className="btn" onClick={() => location.reload()}>Reload</button></>}>
-        {msg}. Your device drafts are kept; reload to try again.
+        {msg}. Your device drafts are kept. Reload to try again, or return to the overview.
       </EmptyState>
     </div>
   );

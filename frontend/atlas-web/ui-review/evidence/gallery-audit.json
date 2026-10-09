@@ -1,0 +1,58 @@
+{
+  "selected_image_states": 230,
+  "sections_axe": [
+    {
+      "width": 390,
+      "section": "preview",
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "section": "comparison",
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "section": "archive",
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "section": "states",
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "section": "quality",
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "section": "preview",
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "section": "comparison",
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "section": "archive",
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "section": "states",
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "section": "quality",
+      "violations": 0
+    }
+  ],
+  "dialog_axe": 0,
+  "console_errors": [],
+  "horizontal_overflow": false
+}

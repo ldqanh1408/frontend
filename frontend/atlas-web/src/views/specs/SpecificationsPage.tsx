@@ -1,5 +1,6 @@
 import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useBlocker, useSearchParams } from 'react-router';
+import { DOMAIN_STATES, statePresentation } from '../../data/states';
 import { nav } from '../../data/catalog';
 import { capability, toast, useApp } from '../../data/app-store';
 import { archiveItem, createItem, getDraft, importFiles, listDocRevisions, listDocuments, pathOf, purgeItem, setDraft, uniqueName, updateItem, type DocRevision } from '../../lib/documents';
@@ -8,16 +9,18 @@ import { useDeviceQuery } from '../../lib/hooks';
 import { relativeTime } from '../../lib/format';
 import { isValidName } from '../../lib/ids';
 import { diffLines, withContext } from '../../lib/diff';
-import { Badge, Banner, Button, EmptyState, PageHeader, Panel, Skeleton } from '../../components/ui';
+import { Badge, Banner, Button, EmptyState, PageHeader, Panel, KeyValue, Skeleton } from '../../components/ui';
 import { Dialog, Tabs } from '../../components/overlays';
-import { CodeEditor, type EditorHandle } from '../../components/CodeEditor';
+import type { EditorHandle } from '../../components/CodeEditor';
+import { LazyCodeEditor as CodeEditor } from '../../components/LazyCodeEditor';
+import { ResponsiveIde } from '../../components/ResponsiveIde';
 import { usePageMeta } from '../../shell/page-meta';
 import { ProvenanceBanner } from '../shared';
 import { ModuleViews } from '../modules/common';
 import { DocTree } from './DocTree';
 import { outline, renderMarkdown, requirements } from './markdown';
 
-const LIFECYCLE = ['Draft', 'In review', 'Merged', 'Locked / frozen manifest', 'Submitted to AI', 'Implemented after acceptance'];
+const LIFECYCLE = DOMAIN_STATES.SpecDocument.map(s => statePresentation(s).label);
 
 type NameDialogState = { mode: 'folder' | 'document' | 'rename'; rec?: DocumentRecord } | null;
 
@@ -78,7 +81,7 @@ export default function SpecificationsPage() {
         <Button icon="file-plus" variant="primary" onClick={() => setNameDlg({ mode: 'document' })}>New document</Button>
       </>} />
       <ProvenanceBanner />
-      <div className="ide">
+      <ResponsiveIde activeKey={open?.id}>
         <section className="panel ide-side" aria-labelledby="docs-h">
           <div className="panel-head"><h2 id="docs-h" className="eyebrow">Documents</h2><span className="caption">{docs.filter((d) => d.kind === 'document' && !d.archived).length}</span></div>
           <div className="panel-pad stack-12">
@@ -111,8 +114,8 @@ export default function SpecificationsPage() {
           )}
           <div className="panel-section stack">
             <p className="caption">Folder catalog ≠ document outline</p>
-            <Button compact block blocked={cut.ok ? undefined : cut.reason} reasonId={cut.ok ? undefined : 'cut-reason'}>Create revision cut</Button>
-            {!cut.ok && <p id="cut-reason" className="caption">Revision cuts are created by the review service for an authorized scope.</p>}
+            <Button compact block blocked={cut.ok ? 'Requires an authorized revision-cut command from the review service.' : cut.reason} reasonId="cut-reason">Create revision cut</Button>
+            {<p id="cut-reason" className="caption">Revision cuts are created by the review service for an authorized scope.</p>}
           </div>
         </section>
         {open ? <DocEditor key={open.id} rec={open} all={docs} /> : (
@@ -129,7 +132,7 @@ export default function SpecificationsPage() {
             <DocInspector content="" hasDoc={false} onGo={() => {}} />
           </>
         )}
-      </div>
+      </ResponsiveIde>
       <ModuleViews module="specifications" />
       {nameDlg && <NameDialog state={nameDlg} all={docs} parentId={nameDlg.mode === 'rename' ? nameDlg.rec!.parentId : targetFolder} onClose={() => setNameDlg(null)} onSubmit={onName} />}
       {moveRec && <MoveDialog rec={moveRec} all={docs} onClose={() => setMoveRec(null)} />}
@@ -256,7 +259,7 @@ function DocEditor({ rec, all }: { rec: DocumentRecord; all: DocumentRecord[] })
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
-  const gate = (g: string, what: string) => { const c = capability(g, what); return c.ok ? undefined : c.reason; };
+  const gate = (g: string, what: string) => { const c = capability(g, what); return c.ok ? 'An authorized document revision and service command contract are required.' : c.reason; };
   const shared = connection !== 'connected' ? 'doc-gate-note' : undefined;
   const html = useMemo(() => (tab === 'preview' ? renderMarkdown(content) : ''), [tab, content]);
   return (
@@ -294,9 +297,11 @@ function DocEditor({ rec, all }: { rec: DocumentRecord; all: DocumentRecord[] })
           </Banner>
         )}
         <div className="row" role="group" aria-label="Lifecycle requests">
-          <Button compact icon="checklist" blocked={gate('specifications:review', 'Request review')} reasonId={shared}>Request review</Button>
-          <Button compact icon="freeze" blocked={gate('specifications:freeze', 'Freeze')} reasonId={shared}>Freeze</Button>
-          <Button compact icon="send" blocked={gate('specifications:submit', 'Submit to AI')} reasonId={shared}>Submit to AI</Button>
+          <Button compact icon="checklist" blocked={gate('spec:edit', 'Request review')} reasonId={shared}>Request review</Button>
+          <Button compact icon="freeze" blocked={gate('spec:lock', 'Freeze')} reasonId={shared}>Freeze</Button>
+          <Button compact icon="lock" blocked={gate('spec:lock', 'Lock')} reasonId={shared}>Lock</Button>
+          <Button compact icon="lock" blocked={gate('spec:unlock', 'Unlock')} reasonId={shared}>Unlock</Button>
+          <Button compact icon="send" blocked={gate('spec:submit_to_ai', 'Submit to AI')} reasonId={shared}>Submit to AI</Button>
           {connection !== 'connected' && <span className="caption" id="doc-gate-note">Connect review and freeze services before submission. <Link to="/connection">Resolve connection</Link></span>}
         </div>
         <Tabs label="Document view" value={tab} onValueChange={onTab} activation="manual" tabs={[
@@ -403,6 +408,7 @@ function DocInspector({ content, hasDoc, onGo }: { content: string; hasDoc: bool
           <li data-current={hasDoc || undefined}><span>Device draft</span><span className="caption">{hasDoc ? 'Current' : ''}</span></li>
           {LIFECYCLE.slice(1).map((s) => <li key={s}><span>{s}</span><span className="caption">Requires service</span></li>)}
         </ol>
+        <KeyValue items={[[ 'Locked / frozen manifest', 'Not observed' ], [ 'Implemented after acceptance', 'Not observed' ]]} />
       </section>
     </aside>
   );

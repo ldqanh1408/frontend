@@ -1,0 +1,4987 @@
+{
+  "file_key": "0md9BEFI1rU0aRAvf98TWO",
+  "read_at": "2026-10-07",
+  "method": "Figma Plugin API read-only: exact text and relative coordinates",
+  "frames": [
+    {
+      "id": "250:2813",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / SP-Catalog",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Specifications · catalog, outline and relationships",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Browse a large document workspace without conflating folders, headings and business traceability.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Catalog controls",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Location",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Business / Billing / Invoices · illustrative folder path",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Catalog search",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Name, folder, status, owner and revision filters",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Open document",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Stable document ID; selected body loads independently",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Outline",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Headings of the selected document only",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Relationships",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Requirements, agents, plans and source evidence; separate view",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Large collections",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Bounded mounted rows; cursor and partial counts come from service",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Import and recovery",
+          "x": 42,
+          "y": 478,
+          "size": 16
+        },
+        {
+          "text": "Editable formats",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Markdown / TXT within import limits",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "Attachments",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Read-only binary files; download original bytes separately",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Partial import",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Show per-file accepted, rejected and failed outcomes",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Unsaved change",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Save draft, discard explicitly or keep recovery draft",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Shared update",
+          "x": 42,
+          "y": 632,
+          "size": 12
+        },
+        {
+          "text": "Revision conflict review; never overwrite silently",
+          "x": 220,
+          "y": 632,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Workspace",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Device drafts and shared service documents use separate sources",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Source status",
+          "x": 774,
+          "y": 332,
+          "size": 12
+        },
+        {
+          "text": "This frame contains illustrative content",
+          "x": 952,
+          "y": 332,
+          "size": 14
+        },
+        {
+          "text": "Next step",
+          "x": 774,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Choose a document, inspect revision, then review acceptance",
+          "x": 952,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 488,
+          "size": 16
+        },
+        {
+          "text": "New folder",
+          "x": 786,
+          "y": 533,
+          "size": 12
+        },
+        {
+          "text": "New document",
+          "x": 881,
+          "y": 533,
+          "size": 12
+        },
+        {
+          "text": "Import files",
+          "x": 1000,
+          "y": 533,
+          "size": 12
+        },
+        {
+          "text": "Open relationships",
+          "x": 786,
+          "y": 577,
+          "size": 12
+        },
+        {
+          "text": "Shared review requires a scoped service session.",
+          "x": 774,
+          "y": 616,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 672,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 715,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "250:2909",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / SP-Conflict",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Specifications · resolve a revision conflict",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Keep base, current saved revision and the user's draft visible before creating a resolved revision.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Compare revisions",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Base",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Example r4 · revision originally edited",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Current saved",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Example r5 · saved by another editor",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Local draft",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Unsaved content based on r4; retained for recovery",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Resolved draft",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "User chooses final content; no automatic semantic merge",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Save precondition",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Expected current revision must still match",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Resolution choices",
+          "x": 42,
+          "y": 448,
+          "size": 16
+        },
+        {
+          "text": "Keep recovery",
+          "x": 42,
+          "y": 482,
+          "size": 12
+        },
+        {
+          "text": "Preserve the unsaved draft on this device",
+          "x": 220,
+          "y": 482,
+          "size": 14
+        },
+        {
+          "text": "Discard local",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Explicitly acknowledge that local edits will be discarded",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "Save resolution",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Creates a new revision; rechecks current revision",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Conflict repeats",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Read the newer revision and reopen comparison",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "AI suggestion",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Suggestion remains a draft until reviewed and saved",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Scope",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Device conflict example; shared collaboration contract is separate",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Lifecycle",
+          "x": 774,
+          "y": 332,
+          "size": 12
+        },
+        {
+          "text": "Resolving a draft does not merge or freeze a shared document",
+          "x": 952,
+          "y": 332,
+          "size": 14
+        },
+        {
+          "text": "Accessibility",
+          "x": 774,
+          "y": 402,
+          "size": 12
+        },
+        {
+          "text": "Focus stays in the dialog; error summary links to fields",
+          "x": 952,
+          "y": 402,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 488,
+          "size": 16
+        },
+        {
+          "text": "Keep recovery",
+          "x": 786,
+          "y": 533,
+          "size": 12
+        },
+        {
+          "text": "Discard local",
+          "x": 900,
+          "y": 533,
+          "size": 12
+        },
+        {
+          "text": "Save resolution",
+          "x": 1005,
+          "y": 533,
+          "size": 12
+        },
+        {
+          "text": "Shared merge is unavailable without a matching server revision.",
+          "x": 774,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 628,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 671,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "250:2991",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / SP-Freeze",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Specifications · freeze and submit deliberately",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "A local revision cut is distinct from a durable shared freeze and a deliberate AI submission.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Freeze manifest",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Selected documents",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Stable IDs and exact revisions; include required closure",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Local cut",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Digest of saved device revisions; downloadable manifest",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Durable cuts",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Server must acknowledge every required persisted cut",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Closure",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Dependencies and required acceptance entries must be included",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Finalize freeze",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Only after all required durable cuts are observed",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Submit to AI",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Separate action with an explicit frozen manifest",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Change after freeze",
+          "x": 42,
+          "y": 478,
+          "size": 16
+        },
+        {
+          "text": "New draft",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Remains distinct from the verified frozen revision",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "Supersede",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Explicitly select a new manifest; never upgrade silently",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Unknown command",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Reconcile the original operation ID before another submission",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Implemented",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Requires independent mandatory acceptance at merged revision",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "State example",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Cuts staged; final shared manifest not observed",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Blocking reason",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "Durable closure and session grants are required",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Boundary",
+          "x": 774,
+          "y": 362,
+          "size": 12
+        },
+        {
+          "text": "No claim of a distributed atomic CRDT freeze",
+          "x": 952,
+          "y": 362,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 448,
+          "size": 16
+        },
+        {
+          "text": "Create local cut",
+          "x": 786,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Request freeze",
+          "x": 908,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Inspect manifest",
+          "x": 1026,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Submit to AI",
+          "x": 786,
+          "y": 537,
+          "size": 12
+        },
+        {
+          "text": "Freeze and submit remain blocked until service evidence is available.",
+          "x": 774,
+          "y": 576,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 650,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 693,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "251:3305",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / CI-Coverage",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Code intelligence · exact source and semantic coverage",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Explain what the IDE actually knows before presenting symbols, impact or AI context.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Source identity",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Repository ref",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Selected provider ref; full object ID when available",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Local import",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Actual file bytes and SHA-256 digest; not a Git commit",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "File location",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Repository path, snapshot ID and line range",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "History / blame",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Provider-backed data; never invented from local timestamps",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Diff",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Exact compared snapshots or provider revisions",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Editing",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Separate authorized workspace; read-only analysis does not grant write",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Analysis matrix",
+          "x": 42,
+          "y": 478,
+          "size": 16
+        },
+        {
+          "text": "JavaScript / TypeScript",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Local compiler AST, definitions, references and diagnostics",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "External library types",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Excluded in standalone local analysis",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "tsconfig / generated files",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Excluded from the standalone coverage claim",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Java",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Highlighting available; semantic adapter is required",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "AST candidate",
+          "x": 42,
+          "y": 632,
+          "size": 12
+        },
+        {
+          "text": "Syntax structure does not establish business semantics",
+          "x": 220,
+          "y": 632,
+          "size": 14
+        },
+        {
+          "text": "Impact / CI",
+          "x": 42,
+          "y": 662,
+          "size": 12
+        },
+        {
+          "text": "Show incomplete coverage and unobserved CI explicitly",
+          "x": 220,
+          "y": 662,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Quality",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Coverage is scoped, not a global green verdict",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Source export",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "Manifest includes real file digest and limits",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Journey",
+          "x": 774,
+          "y": 362,
+          "size": 12
+        },
+        {
+          "text": "Source selection → analysis → cited context → specification / task",
+          "x": 952,
+          "y": 362,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 468,
+          "size": 16
+        },
+        {
+          "text": "Analyze JS/TS",
+          "x": 786,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Definition",
+          "x": 900,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "References",
+          "x": 987,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Inspect coverage",
+          "x": 786,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "Export manifest",
+          "x": 916,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "Edit workspace",
+          "x": 1038,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "Git provider operations and source editing need separate service capabilities.",
+          "x": 774,
+          "y": 596,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 670,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 715,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "250:3078",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / AG-Readiness",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Agent · readiness is independent from publication",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Inspect each prerequisite at the pinned definition revision before making an assignment.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Readiness dimensions",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Definition format",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Configured locally; this does not prove model availability",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Provider / model",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Not observed; requires a scoped capability report",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Tools",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Discovery does not grant invocation permission",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Resources",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Exact immutable versions must resolve",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Memory",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Access policy and budget must be checked",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Guardrails",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Required boundaries must be evaluated",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Runtime",
+          "x": 42,
+          "y": 442,
+          "size": 12
+        },
+        {
+          "text": "Sandbox availability and entitlement not observed",
+          "x": 220,
+          "y": 442,
+          "size": 14
+        },
+        {
+          "text": "Output / acceptance",
+          "x": 42,
+          "y": 472,
+          "size": 12
+        },
+        {
+          "text": "Schema and mandatory acceptance have not been executed",
+          "x": 220,
+          "y": 472,
+          "size": 14
+        },
+        {
+          "text": "Version and consumers",
+          "x": 42,
+          "y": 538,
+          "size": 16
+        },
+        {
+          "text": "Agent definition",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Example draft r3; unpublished device definition",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Pinned inputs",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Exact resource and context revisions; no latest upgrade",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Consumers",
+          "x": 42,
+          "y": 632,
+          "size": 12
+        },
+        {
+          "text": "Service must return active plans, assignments and runs",
+          "x": 220,
+          "y": 632,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Overall readiness",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Blocked · provider, tools and runtime not observed",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Publication",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "Published does not mean runnable",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Journey",
+          "x": 774,
+          "y": 362,
+          "size": 12
+        },
+        {
+          "text": "Define → evaluate → publish → assign → admit → accept",
+          "x": 952,
+          "y": 362,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 448,
+          "size": 16
+        },
+        {
+          "text": "Validate draft",
+          "x": 786,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Evaluate",
+          "x": 895,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Publish",
+          "x": 976,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Assign",
+          "x": 1050,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Evaluation, publication and assignment need session grants and matching revisions.",
+          "x": 774,
+          "y": 532,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 606,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 685,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "250:3168",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / AG-Guardrails",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Agent · guardrails and tool permissions",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Make scope, effects, approval requirements and immutable resource versions reviewable.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Execution boundaries",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Network",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Allowed destinations and denied egress are explicit",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Files",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Approved roots, read/write policy and output paths",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Tools",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Allowlisted tool IDs; no permission inferred from discovery",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Approval",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Human checkpoint before actions with required review",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Secrets",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Opaque secret references; credentials never exported",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Cleanup",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Lease and runtime release require verified cleanup",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Resource selection",
+          "x": 42,
+          "y": 478,
+          "size": 16
+        },
+        {
+          "text": "Tool server",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Pinned MCP server definition and capability revision",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "Tool capability",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Review input schema and effect classification",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Context",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Pin exact package revision and access policy",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Changed version",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "New pin requires evaluation; existing runs keep their pins",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Policy example",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Draft policies are illustrative and not active grants",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Output",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "JSON format validation is distinct from business acceptance",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Runtime",
+          "x": 774,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Source editing does not confer terminal access",
+          "x": 952,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 468,
+          "size": 16
+        },
+        {
+          "text": "Save draft",
+          "x": 786,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Inspect tools",
+          "x": 877,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Inspect resources",
+          "x": 982,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Evaluate guardrails",
+          "x": 786,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "No tool invocation can be enabled by a design fixture or local validation.",
+          "x": 774,
+          "y": 596,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 670,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 713,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "250:3255",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / RS-MCP",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Resources · MCP lifecycle and consumers",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Validate definitions, inspect actual runtime capabilities and retain safe revocation paths.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Resource lifecycle",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Definition",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Draft → validate → publish version",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Runtime",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Deployment, readiness and health require observed service evidence",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Capabilities",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Discovered tools include schema, version and effect scope",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Invocation",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Explicit allowlist and session grant; discovery is insufficient",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Consumer pins",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Show agent and plan revisions using each immutable resource",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Revoke / retire",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Inspect active consumers and current leases before action",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Failure and cleanup",
+          "x": 42,
+          "y": 478,
+          "size": 16
+        },
+        {
+          "text": "Connection lost",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Retain last observed timestamp and stale warning",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "Secret invalid",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Re-authenticate using references; never print secret contents",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Health unknown",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Show unknown separately from failed or healthy",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Cleanup pending",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Hold relevant lease until verified fence and cleanup",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Runtime example",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Unavailable · no deployment or health result observed",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Release boundary",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "A completed task is not a cleanup receipt",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Journey",
+          "x": 774,
+          "y": 362,
+          "size": 12
+        },
+        {
+          "text": "Resource definition → agent pin → task → cleanup",
+          "x": 952,
+          "y": 362,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 448,
+          "size": 16
+        },
+        {
+          "text": "Validate",
+          "x": 786,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Publish version",
+          "x": 864,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Inspect capabilities",
+          "x": 982,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Revoke",
+          "x": 786,
+          "y": 537,
+          "size": 12
+        },
+        {
+          "text": "Inspect cleanup",
+          "x": 860,
+          "y": 537,
+          "size": 12
+        },
+        {
+          "text": "Runtime and effectful actions require scoped service capabilities.",
+          "x": 774,
+          "y": 576,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 632,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 675,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "250:3347",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / MM-Context",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Memory · source lineage and context budget",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Build explicit context candidates with immutable pins and a visible inclusion decision.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Candidate inspection",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Source locator",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "File path, line range and content digest",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Quality",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Standalone JS/TS analysis scope; external semantic coverage excluded",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Access",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Workspace audience and policy must permit each source",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Pin",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Exact source snapshot and memory revision",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Required candidate",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Cannot be silently omitted or truncated",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Excluded candidate",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Show the exclusion reason and preserve its provenance",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Package budget",
+          "x": 42,
+          "y": 478,
+          "size": 16
+        },
+        {
+          "text": "Bytes",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Measure actual UTF-8 bytes before export",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "Token count",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Unknown unless an identified tokenizer produced the count",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Budget overflow",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Block package creation; user changes inclusion or budget",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Expiry / recall",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Service-owned access and recall lifecycle remain separate",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Download",
+          "x": 42,
+          "y": 632,
+          "size": 12
+        },
+        {
+          "text": "Export actual selected bytes and the package digest",
+          "x": 220,
+          "y": 632,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Package example",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Illustrative selection; no live provider context submitted",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Integrity",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "Content digest is not a Git commit ID",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Journey",
+          "x": 774,
+          "y": 362,
+          "size": 12
+        },
+        {
+          "text": "Repository source → candidate → package → agent pin",
+          "x": 952,
+          "y": 362,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 468,
+          "size": 16
+        },
+        {
+          "text": "Select candidates",
+          "x": 786,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Build package",
+          "x": 920,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Inspect provenance",
+          "x": 1032,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Export package",
+          "x": 786,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "Shared recall, retention and access policy require service evidence.",
+          "x": 774,
+          "y": 596,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 652,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 695,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "250:3437",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / WF-Task",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Workflow · task inspector and immutable inputs",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Design a dependency graph, review every task input and acceptance boundary, then activate explicitly.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Task definition",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Task",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Example: implement invitation expiry",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Agent pin",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Exact saved agent definition revision",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Dependencies",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Stable task IDs; cyclic and missing edges are rejected",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Input contract",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Pinned specification manifest and context package",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Output contract",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Schema, expected artifacts and business outcome",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Human checkpoint",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Approval point and allowed decisions are explicit",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Acceptance",
+          "x": 42,
+          "y": 442,
+          "size": 12
+        },
+        {
+          "text": "Given / When / Then; mandatory cases are not optional",
+          "x": 220,
+          "y": 442,
+          "size": 14
+        },
+        {
+          "text": "Activation gates",
+          "x": 42,
+          "y": 508,
+          "size": 16
+        },
+        {
+          "text": "Draft validation",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Checks graph, task fields, dependencies and stale pins",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Generated plan",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "AI output remains a reviewable draft",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Activate",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Separate command after required reviews",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Admit",
+          "x": 42,
+          "y": 632,
+          "size": 12
+        },
+        {
+          "text": "Separate run admission with resource and budget evidence",
+          "x": 220,
+          "y": 632,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Plan state",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Device draft; no admitted run",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Editing",
+          "x": 774,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Graph and task table are both supported",
+          "x": 952,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Journey",
+          "x": 774,
+          "y": 342,
+          "size": 12
+        },
+        {
+          "text": "Specifications → agent pins → plan → admission → delivery",
+          "x": 952,
+          "y": 342,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 428,
+          "size": 16
+        },
+        {
+          "text": "Save plan",
+          "x": 786,
+          "y": 473,
+          "size": 12
+        },
+        {
+          "text": "Add task",
+          "x": 873,
+          "y": 473,
+          "size": 12
+        },
+        {
+          "text": "Validate graph",
+          "x": 956,
+          "y": 473,
+          "size": 12
+        },
+        {
+          "text": "Activate",
+          "x": 1070,
+          "y": 473,
+          "size": 12
+        },
+        {
+          "text": "Admit run",
+          "x": 786,
+          "y": 517,
+          "size": 12
+        },
+        {
+          "text": "Local graph validation does not create an execution.",
+          "x": 774,
+          "y": 556,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 612,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 685,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "251:2903",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / EX-TaskAttempt",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Execution · task, attempt and agent activity",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Inspect dependency, input, output, tool and approval state independently for every task attempt.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Task 01 · inspect inputs",
+          "x": 42,
+          "y": 228,
+          "size": 14
+        },
+        {
+          "text": "Pinned agent r3 · example attempt 1",
+          "x": 42,
+          "y": 256,
+          "size": 12
+        },
+        {
+          "text": "Ready · fixture",
+          "x": 42,
+          "y": 282,
+          "size": 12
+        },
+        {
+          "text": "Task 02 · review output",
+          "x": 358,
+          "y": 228,
+          "size": 14
+        },
+        {
+          "text": "Depends on task 01 · example attempt 1",
+          "x": 358,
+          "y": 256,
+          "size": 12
+        },
+        {
+          "text": "Awaiting human · fixture",
+          "x": 358,
+          "y": 282,
+          "size": 12
+        },
+        {
+          "text": "Selected task inspector",
+          "x": 42,
+          "y": 346,
+          "size": 16
+        },
+        {
+          "text": "Task ID",
+          "x": 42,
+          "y": 380,
+          "size": 12
+        },
+        {
+          "text": "Fixture task-02 · not a live execution",
+          "x": 220,
+          "y": 380,
+          "size": 14
+        },
+        {
+          "text": "Dependencies",
+          "x": 42,
+          "y": 410,
+          "size": 12
+        },
+        {
+          "text": "Fixture task-01 output; exact revision required",
+          "x": 220,
+          "y": 410,
+          "size": 14
+        },
+        {
+          "text": "Agent / attempt",
+          "x": 42,
+          "y": 440,
+          "size": 12
+        },
+        {
+          "text": "Pinned definition r3 · example attempt 1",
+          "x": 220,
+          "y": 440,
+          "size": 14
+        },
+        {
+          "text": "Input manifest",
+          "x": 42,
+          "y": 470,
+          "size": 12
+        },
+        {
+          "text": "Specification freeze, context and resource pins",
+          "x": 220,
+          "y": 470,
+          "size": 14
+        },
+        {
+          "text": "Output",
+          "x": 42,
+          "y": 500,
+          "size": 12
+        },
+        {
+          "text": "Public artifact references returned by service",
+          "x": 220,
+          "y": 500,
+          "size": 14
+        },
+        {
+          "text": "Approval",
+          "x": 42,
+          "y": 530,
+          "size": 12
+        },
+        {
+          "text": "Awaiting human checkpoint; no implicit approval",
+          "x": 220,
+          "y": 530,
+          "size": 14
+        },
+        {
+          "text": "Retry",
+          "x": 42,
+          "y": 560,
+          "size": 12
+        },
+        {
+          "text": "New attempt only if admitted; preserve the previous evidence",
+          "x": 220,
+          "y": 560,
+          "size": 14
+        },
+        {
+          "text": "Activity and logs",
+          "x": 42,
+          "y": 626,
+          "size": 16
+        },
+        {
+          "text": "Public events",
+          "x": 42,
+          "y": 660,
+          "size": 12
+        },
+        {
+          "text": "Sequence, actor, attempt, timestamp and gap marker",
+          "x": 220,
+          "y": 660,
+          "size": 14
+        },
+        {
+          "text": "Tool call",
+          "x": 42,
+          "y": 690,
+          "size": 12
+        },
+        {
+          "text": "Schema and granted effect scope; no secret inputs displayed",
+          "x": 220,
+          "y": 690,
+          "size": 14
+        },
+        {
+          "text": "Logs",
+          "x": 42,
+          "y": 720,
+          "size": 12
+        },
+        {
+          "text": "Bounded, redacted service snapshot with truncation marker",
+          "x": 220,
+          "y": 720,
+          "size": 14
+        },
+        {
+          "text": "PTY",
+          "x": 42,
+          "y": 750,
+          "size": 12
+        },
+        {
+          "text": "Separate entitlement and session; logs do not grant terminal access",
+          "x": 220,
+          "y": 750,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Frame data",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Task cards are illustrative fixtures",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Readiness",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "Runtime and provider availability have not been observed",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Journey",
+          "x": 774,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Input pins → attempt → output → independent acceptance",
+          "x": 952,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 468,
+          "size": 16
+        },
+        {
+          "text": "Pause",
+          "x": 786,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Resume",
+          "x": 853,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Approve",
+          "x": 931,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Reject",
+          "x": 1011,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Retry task",
+          "x": 1079,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Inspect logs",
+          "x": 786,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "Task actions require matching task revision, session grant and preconditions.",
+          "x": 774,
+          "y": 596,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 670,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 803,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "251:3018",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / CMD-Unknown",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Operation · reconcile an unknown outcome",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Keep the original request identity and last acknowledgement when transport fails.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Unknown",
+          "x": 42,
+          "y": 228,
+          "size": 14
+        },
+        {
+          "text": "Fixture operation-pause-01 · original ID",
+          "x": 42,
+          "y": 256,
+          "size": 12
+        },
+        {
+          "text": "Last acknowledgement: Accepted. The effect is not observed. Reconcile the original operation ID.",
+          "x": 42,
+          "y": 282,
+          "size": 12
+        },
+        {
+          "text": "Original command identity",
+          "x": 42,
+          "y": 364,
+          "size": 16
+        },
+        {
+          "text": "Operation",
+          "x": 42,
+          "y": 398,
+          "size": 12
+        },
+        {
+          "text": "Fixture operation-pause-01; never treated as a live receipt",
+          "x": 220,
+          "y": 398,
+          "size": 14
+        },
+        {
+          "text": "Scope",
+          "x": 42,
+          "y": 428,
+          "size": 12
+        },
+        {
+          "text": "Subject, audience, tenant and project from the session",
+          "x": 220,
+          "y": 428,
+          "size": 14
+        },
+        {
+          "text": "Target",
+          "x": 42,
+          "y": 458,
+          "size": 12
+        },
+        {
+          "text": "Stable resource ID and expected revision",
+          "x": 220,
+          "y": 458,
+          "size": 14
+        },
+        {
+          "text": "Input fingerprint",
+          "x": 42,
+          "y": 488,
+          "size": 12
+        },
+        {
+          "text": "SHA-256 of canonical input; journal omits raw secrets",
+          "x": 220,
+          "y": 488,
+          "size": 14
+        },
+        {
+          "text": "Last acknowledgement",
+          "x": 42,
+          "y": 518,
+          "size": 12
+        },
+        {
+          "text": "Accepted example; effective effect is not observed",
+          "x": 220,
+          "y": 518,
+          "size": 14
+        },
+        {
+          "text": "Current outcome",
+          "x": 42,
+          "y": 548,
+          "size": 12
+        },
+        {
+          "text": "Unknown; reconnect and reconcile the original operation ID",
+          "x": 220,
+          "y": 548,
+          "size": 14
+        },
+        {
+          "text": "Readback checks",
+          "x": 42,
+          "y": 614,
+          "size": 16
+        },
+        {
+          "text": "Match",
+          "x": 42,
+          "y": 648,
+          "size": 12
+        },
+        {
+          "text": "Operation, scope, resource, fingerprint and expected revision",
+          "x": 220,
+          "y": 648,
+          "size": 14
+        },
+        {
+          "text": "Evidence",
+          "x": 42,
+          "y": 678,
+          "size": 12
+        },
+        {
+          "text": "Observed revision, timestamp and allowed evidence references",
+          "x": 220,
+          "y": 678,
+          "size": 14
+        },
+        {
+          "text": "Do not retry blindly",
+          "x": 42,
+          "y": 708,
+          "size": 12
+        },
+        {
+          "text": "PR creation, charge, merge and run admission may be non-repeatable",
+          "x": 220,
+          "y": 708,
+          "size": 14
+        },
+        {
+          "text": "Reconciliation",
+          "x": 42,
+          "y": 738,
+          "size": 12
+        },
+        {
+          "text": "Read-only GET for the original operation; no repeated POST",
+          "x": 220,
+          "y": 738,
+          "size": 14
+        },
+        {
+          "text": "Terminal result",
+          "x": 42,
+          "y": 768,
+          "size": 12
+        },
+        {
+          "text": "Only matching readback can establish an effective effect",
+          "x": 220,
+          "y": 768,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Displayed stage",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Unknown · last acknowledgement preserved",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Journal",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "Persist command identity before transmission",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Session",
+          "x": 774,
+          "y": 362,
+          "size": 12
+        },
+        {
+          "text": "An expired or different audience cannot reconcile as authority",
+          "x": 952,
+          "y": 362,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 468,
+          "size": 16
+        },
+        {
+          "text": "Reconnect",
+          "x": 786,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Reconcile original ID",
+          "x": 879,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Export evidence",
+          "x": 1026,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "No retry or effective success is inferred from an acknowledgement or timeout.",
+          "x": 774,
+          "y": 552,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 626,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 821,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "251:3107",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / EX-Cleanup",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Execution · cancellation, fencing and cleanup",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Keep leases and locks visible until the service proves the relevant fence and cleanup.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Cancellation example",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Cancel command",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Received / accepted are acknowledgement stages",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Execution state",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Cancelling is distinct from cancelled",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Outstanding effects",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Inspect task attempts, tools and delivery boundaries",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Lease",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Held until the required fence is observed",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Cleanup",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Pending, failed and verified are separate outcomes",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Release",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Allowed only after matching fenced cleanup evidence",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Recovery paths",
+          "x": 42,
+          "y": 478,
+          "size": 16
+        },
+        {
+          "text": "Lost connection",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Reconcile original cancel operation ID",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "Cleanup failure",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Expose failure, logs and operator-approved recovery",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Forced action",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Explicit policy, authorization and evidence required",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Post-merge cancellation",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Use corrective delivery; already merged code is not undone",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Acceptance conflict",
+          "x": 42,
+          "y": 632,
+          "size": 12
+        },
+        {
+          "text": "EX-LOCK-03 and the newer fence policy require a BA decision",
+          "x": 220,
+          "y": 632,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Fixture state",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Cleanup pending; no lease release result",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Delivery",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "Run completion is distinct from business acceptance",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Open decision",
+          "x": 774,
+          "y": 362,
+          "size": 12
+        },
+        {
+          "text": "Original BA ambiguity is preserved, not silently resolved",
+          "x": 952,
+          "y": 362,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 468,
+          "size": 16
+        },
+        {
+          "text": "Cancel",
+          "x": 786,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Inspect fence",
+          "x": 858,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Inspect cleanup",
+          "x": 967,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Reconcile",
+          "x": 1089,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Release lease",
+          "x": 786,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "Release stays blocked without matching fencing and cleanup evidence.",
+          "x": 774,
+          "y": 596,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 670,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 713,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "251:3202",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / RV-Acceptance",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Delivery · independent acceptance at the merged revision",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Treat execution completion, repository delivery, CI and business acceptance as separate evidence.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Evidence bundle",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Run",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Completed is an execution outcome only",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Change",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Provider-owned branch and PR identifiers",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Merge",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Exact merged commit ID returned by the repository provider",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "CI",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Observed status and immutable check references",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Acceptance",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Every mandatory requirement evaluated at merged revision",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Implemented",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Only after the required independent acceptance succeeds",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Review and exception paths",
+          "x": 42,
+          "y": 478,
+          "size": 16
+        },
+        {
+          "text": "Requirement mismatch",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Keep delivery review open; do not report implemented",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "Stale CI",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Read the exact revision instead of accepting earlier checks",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Reviewer role",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Enforce session grant and required independence",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Rejected delivery",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Record reason, corrective action and revision",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "After merge",
+          "x": 42,
+          "y": 632,
+          "size": 12
+        },
+        {
+          "text": "Corrective PR or explicit compensating workflow",
+          "x": 220,
+          "y": 632,
+          "size": 14
+        },
+        {
+          "text": "Cleanup",
+          "x": 42,
+          "y": 662,
+          "size": 12
+        },
+        {
+          "text": "Inspect independently; merged does not imply cleaned up",
+          "x": 220,
+          "y": 662,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Review state",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Illustrative incomplete evidence; acceptance NOT_RUN",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Repository",
+          "x": 774,
+          "y": 332,
+          "size": 12
+        },
+        {
+          "text": "No live PR, merge or CI result is asserted",
+          "x": 952,
+          "y": 332,
+          "size": 14
+        },
+        {
+          "text": "Journey",
+          "x": 774,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Run output → review → merge → acceptance → closure",
+          "x": 952,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 468,
+          "size": 16
+        },
+        {
+          "text": "Inspect PR",
+          "x": 786,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Inspect CI",
+          "x": 879,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Approve review",
+          "x": 969,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Reject review",
+          "x": 786,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "Record acceptance",
+          "x": 895,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "Corrective PR",
+          "x": 1037,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "Acceptance and corrective actions require provider evidence and authorized reviewers.",
+          "x": 774,
+          "y": 596,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 670,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 715,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "251:3408",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / IAM-Scope",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Access · session recovery and audience boundaries",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Recover access without inventing a role, widening scope or confusing UI disconnect with server revocation.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Session and membership",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Session",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Subject, expiry, audience and CSRF material returned by service",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Invitation",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Accept, expired, revoked and already-used states",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Membership",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Explicit tenant / project membership and effective grants",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Role change",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Re-read authority and invalidate stale capabilities",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Workspace audience",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Cannot be reused as observer authority",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Offboarding",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Server-confirmed revocation; local disconnect is not revocation",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Recovery and isolation",
+          "x": 42,
+          "y": 478,
+          "size": 16
+        },
+        {
+          "text": "401 / expired",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Discard stale authority and reconnect",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "403 / denied",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Explain required grant; keep the action visible",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Tenant switch",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Clear scoped selection and re-read session/capabilities",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Existing operation",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Preserve original scope in the command journal",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Cross-tenant access",
+          "x": 42,
+          "y": 632,
+          "size": 12
+        },
+        {
+          "text": "Deny by server policy; UI filtering is not the security boundary",
+          "x": 220,
+          "y": 632,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "State example",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Session expired · no effective role inferred",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Navigation",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "Preserve a safe return location after re-authentication",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Audit",
+          "x": 774,
+          "y": 362,
+          "size": 12
+        },
+        {
+          "text": "Public action history; secrets and internal reasoning excluded",
+          "x": 952,
+          "y": 362,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 468,
+          "size": 16
+        },
+        {
+          "text": "Reconnect",
+          "x": 786,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Inspect grants",
+          "x": 879,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Switch project",
+          "x": 993,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Revoke session",
+          "x": 786,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "Grant and revocation outcomes must come from scoped server readback.",
+          "x": 774,
+          "y": 596,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 670,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 713,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "251:3498",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / CFG-Policy",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Configuration · review, activate and roll back policy",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Separate editable local policy drafts from shared evaluation, approval and effective activation.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Policy change review",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Draft",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Provider, tools, resources, memory and runtime boundaries",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Diff",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Compare exact policy revisions and changed effects",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Evaluate",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Check consumers, incompatible pins and required review",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Approval",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Required reviewer and scope returned by service",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Activate",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Expected current revision and immutable new revision",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Roll back",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Explicit compensating change; keep the command audit trail",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Collaboration and audit",
+          "x": 42,
+          "y": 478,
+          "size": 16
+        },
+        {
+          "text": "Conflict",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Base/current/resolved policy content; no silent overwrite",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "Presence",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Service-observed collaborators only",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Change request",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Draft suggestion remains distinct from accepted policy",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Sensitive fields",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Use secret references; public summaries are redacted",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Consumers",
+          "x": 42,
+          "y": 632,
+          "size": 12
+        },
+        {
+          "text": "Display affected agents, plans and current runs",
+          "x": 220,
+          "y": 632,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Policy state",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Local draft; no active shared policy changed",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Change risk",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "Effect classification and reviewer policy are explicit",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Journey",
+          "x": 774,
+          "y": 362,
+          "size": 12
+        },
+        {
+          "text": "Draft → compare → evaluate → approve → activate → observe",
+          "x": 952,
+          "y": 362,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 468,
+          "size": 16
+        },
+        {
+          "text": "Save draft",
+          "x": 786,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Compare revision",
+          "x": 877,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Evaluate",
+          "x": 1008,
+          "y": 513,
+          "size": 12
+        },
+        {
+          "text": "Request approval",
+          "x": 786,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "Activate",
+          "x": 917,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "Roll back",
+          "x": 996,
+          "y": 557,
+          "size": 12
+        },
+        {
+          "text": "Activation and rollback need current revision, grants and matching operation readback.",
+          "x": 774,
+          "y": 596,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 670,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 713,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "251:3598",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / SAAS-Budget",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Budget and billing · reserve, observe and reconcile",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Expose entitlement, provider readiness and financial outcomes without fabricated balances or payments.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Run and provider limits",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Entitlement",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Service-returned product limits and allowed runtimes",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Provider readiness",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Credential, model and budget results are distinct",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Reservation",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Admission-scoped reservation and exact policy revision",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Budget hold",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Explain amount, scope, expiry and release conditions",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Usage",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Observed usage window and source; no guessed counters",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Rate / provider failure",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Visible retry policy and unknown outcome reconciliation",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Billing and data",
+          "x": 42,
+          "y": 478,
+          "size": 16
+        },
+        {
+          "text": "Checkout / invoice",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Provider-owned identifiers and observed state",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "Payment result",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Accepted request does not prove a successful charge",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Retry",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Never blindly repeat a charge after timeout",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Export",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Authenticated data export lifecycle and actual artifact",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Delete / retention",
+          "x": 42,
+          "y": 632,
+          "size": 12
+        },
+        {
+          "text": "Required confirmation, scope, hold and completion evidence",
+          "x": 220,
+          "y": 632,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Displayed values",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "No live balance, charge or invoice is asserted",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Cross-module",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "Provider configuration and run admission depend on these gates",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Journey",
+          "x": 774,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Plan → entitlement → reserve → execute → usage → reconcile",
+          "x": 952,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 488,
+          "size": 16
+        },
+        {
+          "text": "Inspect usage",
+          "x": 786,
+          "y": 533,
+          "size": 12
+        },
+        {
+          "text": "Inspect entitlement",
+          "x": 898,
+          "y": 533,
+          "size": 12
+        },
+        {
+          "text": "Manage provider",
+          "x": 1040,
+          "y": 533,
+          "size": 12
+        },
+        {
+          "text": "Reconcile payment",
+          "x": 786,
+          "y": 577,
+          "size": 12
+        },
+        {
+          "text": "Export data",
+          "x": 926,
+          "y": 577,
+          "size": 12
+        },
+        {
+          "text": "Money, usage and export effects require scoped service/provider evidence.",
+          "x": 774,
+          "y": 616,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 690,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 733,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "251:3693",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / DT-Unavailable",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Desktop · runtime installation and recovery",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Describe actual device and sandbox capabilities rather than assuming a runtime is available.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Runtime readiness",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Device connection",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Observed agent version and signed capability report",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Install / update",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Progress, interruption, signature and rollback results",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "gVisor",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Selected baseline; availability still requires device evidence",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Firecracker",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Template definition is not an available runtime",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Workspace",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Approved directory scope and file access mode",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Terminal",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Separate runtime grant and authenticated session",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Failure and recovery",
+          "x": 42,
+          "y": 478,
+          "size": 16
+        },
+        {
+          "text": "Offline device",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Stale timestamp, queued request policy and reconnect",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "Unsupported host",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Explain the missing runtime capability",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Port conflict",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Inspect actual mapping and a permitted retry",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Interrupted update",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Resume or roll back based on actual installation state",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Cleanup",
+          "x": 42,
+          "y": 632,
+          "size": 12
+        },
+        {
+          "text": "Fenced lease release and verified workspace cleanup",
+          "x": 220,
+          "y": 632,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Runtime example",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Unavailable · installation not observed",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Source",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "Importing files does not grant native device access",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Journey",
+          "x": 774,
+          "y": 362,
+          "size": 12
+        },
+        {
+          "text": "Connect device → inspect → install → admit → cleanup",
+          "x": 952,
+          "y": 362,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 448,
+          "size": 16
+        },
+        {
+          "text": "Connect device",
+          "x": 786,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Inspect readiness",
+          "x": 907,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Install runtime",
+          "x": 1040,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Open workspace",
+          "x": 786,
+          "y": 537,
+          "size": 12
+        },
+        {
+          "text": "Inspect cleanup",
+          "x": 914,
+          "y": 537,
+          "size": 12
+        },
+        {
+          "text": "Native actions remain unavailable until the device reports matching capabilities.",
+          "x": 774,
+          "y": 576,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 650,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 693,
+          "size": 12
+        }
+      ]
+    },
+    {
+      "id": "251:3788",
+      "width": 1200,
+      "height": 900,
+      "texts": [
+        {
+          "text": "Atlas / Lifecycle detail / OB-Stale",
+          "x": 25,
+          "y": 25,
+          "size": 12
+        },
+        {
+          "text": "Observer · stale data, alerts and operator actions",
+          "x": 25,
+          "y": 59,
+          "size": 24
+        },
+        {
+          "text": "Keep operational observation separate from workspace membership and user execution authority.",
+          "x": 25,
+          "y": 107,
+          "size": 14
+        },
+        {
+          "text": "Design example",
+          "x": 46,
+          "y": 160,
+          "size": 12
+        },
+        {
+          "text": "Illustrative UI content · no live service, provider, run, CI, delivery or cleanup evidence",
+          "x": 161,
+          "y": 156,
+          "size": 12
+        },
+        {
+          "text": "Observation health",
+          "x": 42,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Audience",
+          "x": 42,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Observer session and grants checked independently",
+          "x": 220,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Snapshot",
+          "x": 42,
+          "y": 292,
+          "size": 12
+        },
+        {
+          "text": "Observed timestamp, source and retention window",
+          "x": 220,
+          "y": 292,
+          "size": 14
+        },
+        {
+          "text": "Stream gaps",
+          "x": 42,
+          "y": 322,
+          "size": 12
+        },
+        {
+          "text": "Sequence gap and last observed event remain visible",
+          "x": 220,
+          "y": 322,
+          "size": 14
+        },
+        {
+          "text": "Stale data",
+          "x": 42,
+          "y": 352,
+          "size": 12
+        },
+        {
+          "text": "Do not report healthy from an old successful observation",
+          "x": 220,
+          "y": 352,
+          "size": 14
+        },
+        {
+          "text": "Alert",
+          "x": 42,
+          "y": 382,
+          "size": 12
+        },
+        {
+          "text": "Trigger, severity, acknowledgement and resolution evidence",
+          "x": 220,
+          "y": 382,
+          "size": 14
+        },
+        {
+          "text": "Unknown state",
+          "x": 42,
+          "y": 412,
+          "size": 12
+        },
+        {
+          "text": "Unknown, degraded and failed are not conflated",
+          "x": 220,
+          "y": 412,
+          "size": 14
+        },
+        {
+          "text": "Operator journey",
+          "x": 42,
+          "y": 478,
+          "size": 16
+        },
+        {
+          "text": "Investigate",
+          "x": 42,
+          "y": 512,
+          "size": 12
+        },
+        {
+          "text": "Correlate run, task, attempt, lease and operation IDs",
+          "x": 220,
+          "y": 512,
+          "size": 14
+        },
+        {
+          "text": "Evidence",
+          "x": 42,
+          "y": 542,
+          "size": 12
+        },
+        {
+          "text": "Public redacted logs and safe exported diagnostics",
+          "x": 220,
+          "y": 542,
+          "size": 14
+        },
+        {
+          "text": "Action",
+          "x": 42,
+          "y": 572,
+          "size": 12
+        },
+        {
+          "text": "Requires separate operational grant and effect scope",
+          "x": 220,
+          "y": 572,
+          "size": 14
+        },
+        {
+          "text": "Recovery",
+          "x": 42,
+          "y": 602,
+          "size": 12
+        },
+        {
+          "text": "Reconcile original request before repeating an effect",
+          "x": 220,
+          "y": 602,
+          "size": 14
+        },
+        {
+          "text": "Close incident",
+          "x": 42,
+          "y": 632,
+          "size": 12
+        },
+        {
+          "text": "Record resolution evidence and the resulting state",
+          "x": 220,
+          "y": 632,
+          "size": 14
+        },
+        {
+          "text": "Scope and lifecycle",
+          "x": 774,
+          "y": 228,
+          "size": 16
+        },
+        {
+          "text": "Observer example",
+          "x": 774,
+          "y": 262,
+          "size": 12
+        },
+        {
+          "text": "Stale / disconnected; no health inferred",
+          "x": 952,
+          "y": 262,
+          "size": 14
+        },
+        {
+          "text": "Boundary",
+          "x": 774,
+          "y": 312,
+          "size": 12
+        },
+        {
+          "text": "Workspace authority cannot enable operator controls",
+          "x": 952,
+          "y": 312,
+          "size": 14
+        },
+        {
+          "text": "Journey",
+          "x": 774,
+          "y": 362,
+          "size": 12
+        },
+        {
+          "text": "Observe → investigate → act → readback → resolve",
+          "x": 952,
+          "y": 362,
+          "size": 14
+        },
+        {
+          "text": "Available actions",
+          "x": 774,
+          "y": 448,
+          "size": 16
+        },
+        {
+          "text": "Connect observer",
+          "x": 786,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Refresh snapshot",
+          "x": 920,
+          "y": 493,
+          "size": 12
+        },
+        {
+          "text": "Acknowledge alert",
+          "x": 786,
+          "y": 537,
+          "size": 12
+        },
+        {
+          "text": "Inspect incident",
+          "x": 924,
+          "y": 537,
+          "size": 12
+        },
+        {
+          "text": "Reconcile",
+          "x": 1047,
+          "y": 537,
+          "size": 12
+        },
+        {
+          "text": "Operator effects require an observer audience and explicit operational grants.",
+          "x": 774,
+          "y": 576,
+          "size": 12
+        },
+        {
+          "text": "Back to workspace",
+          "x": 769,
+          "y": 650,
+          "size": 12
+        },
+        {
+          "text": "Prototype controls illustrate decisions. Actual effects require service receipts and matching readback.",
+          "x": 25,
+          "y": 693,
+          "size": 12
+        }
+      ]
+    }
+  ]
+}

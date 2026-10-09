@@ -1,0 +1,632 @@
+{
+  "source_commit": "b598ec62c53c30108c036722d21c52229593f27a",
+  "base_commit": "4737b155e9f106bc7351c271d19ef207cfbb9a66",
+  "source_sha256": "ddea85c1fe4135ecf5be3516a95c4f4b049edbeb1f99ddd699fde11dd2586d0f",
+  "stats": {
+    "functional": {
+      "startTime": "2026-10-07T12:22:21.465Z",
+      "duration": 2117746.452,
+      "expected": 1683,
+      "skipped": 9,
+      "unexpected": 6,
+      "flaky": 0
+    },
+    "final_ui": {
+      "startTime": "2026-10-07T12:59:23.293Z",
+      "duration": 625420.8740000001,
+      "expected": 274,
+      "skipped": 0,
+      "unexpected": 5,
+      "flaky": 0
+    },
+    "final_focus": {
+      "startTime": "2026-10-07T13:16:39.558Z",
+      "duration": 272353.932,
+      "expected": 65,
+      "skipped": 0,
+      "unexpected": 1,
+      "flaky": 0
+    },
+    "ides_final": {
+      "startTime": "2026-10-07T13:24:05.276Z",
+      "duration": 95925.22899999999,
+      "expected": 12,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "a11y_recheck": {
+      "startTime": "2026-10-07T13:05:06.202Z",
+      "duration": 35116.356999999996,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "visual": {
+      "startTime": "2026-10-07T13:11:42.531Z",
+      "duration": 251572.769,
+      "expected": 150,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "visual_mobile": {
+      "startTime": "2026-10-07T13:21:34.576Z",
+      "duration": 59063.913,
+      "expected": 50,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "visual_graph": {
+      "startTime": "2026-10-07T13:47:26.440Z",
+      "duration": 15333.527999999998,
+      "expected": 12,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "review": {
+      "startTime": "2026-10-07T12:44:26.121Z",
+      "duration": 1115874.964,
+      "expected": 174,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "graph_review": {
+      "startTime": "2026-10-07T13:44:51.540Z",
+      "duration": 78524.835,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "performance": {
+      "startTime": "2026-10-07T13:47:44.823Z",
+      "duration": 16562.697,
+      "expected": 8,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "performance_initial": {
+      "startTime": "2026-10-07T13:28:12.785Z",
+      "duration": 16313.422,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 2,
+      "flaky": 0
+    }
+  },
+  "projects": {
+    "functional": {
+      "chromium": {
+        "expected": 563,
+        "skipped": 3,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "firefox": {
+        "expected": 562,
+        "skipped": 3,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "webkit": {
+        "expected": 558,
+        "skipped": 3,
+        "unexpected": 5,
+        "flaky": 0
+      }
+    },
+    "final_ui": {
+      "chromium": {
+        "expected": 92,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "firefox": {
+        "expected": 91,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      },
+      "webkit": {
+        "expected": 91,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    "final_focus": {
+      "chromium": {
+        "expected": 22,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "firefox": {
+        "expected": 22,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "webkit": {
+        "expected": 21,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    "ides_final": {
+      "chromium": {
+        "expected": 4,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "firefox": {
+        "expected": 4,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "webkit": {
+        "expected": 4,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "a11y_recheck": {
+      "chromium": {
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "firefox": {
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "webkit": {
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "visual": {
+      "visual-chromium": {
+        "expected": 150,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "visual_mobile": {
+      "visual-chromium": {
+        "expected": 50,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "visual_graph": {
+      "visual-chromium": {
+        "expected": 12,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "review": {
+      "chromium": {
+        "expected": 58,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "firefox": {
+        "expected": 58,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "webkit": {
+        "expected": 58,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "graph_review": {
+      "chromium": {
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "firefox": {
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "webkit": {
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "performance": {
+      "visual-chromium": {
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "performance_initial": {
+      "visual-chromium": {
+        "expected": 6,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    }
+  },
+  "validated_coverage": {
+    "expected": 1695,
+    "skipped": 9,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "coverage_projects": {
+    "chromium": {
+      "expected": 565,
+      "skipped": 3,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "firefox": {
+      "expected": 565,
+      "skipped": 3,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "webkit": {
+      "expected": 565,
+      "skipped": 3,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "initial_failures_rechecked": [
+    {
+      "project": "webkit",
+      "file": "a11y.spec.ts",
+      "title": "/specifications/ide-state-large-file",
+      "status": "unexpected",
+      "source": "e2e-initial-all-engines.json"
+    },
+    {
+      "project": "firefox",
+      "file": "figma-parity.spec.ts",
+      "title": "figma parity collaboration",
+      "status": "unexpected",
+      "source": "e2e-initial-all-engines.json"
+    },
+    {
+      "project": "webkit",
+      "file": "figma-parity.spec.ts",
+      "title": "figma parity home",
+      "status": "unexpected",
+      "source": "e2e-initial-all-engines.json"
+    },
+    {
+      "project": "webkit",
+      "file": "figma-parity.spec.ts",
+      "title": "figma parity collaboration",
+      "status": "unexpected",
+      "source": "e2e-initial-all-engines.json"
+    },
+    {
+      "project": "webkit",
+      "file": "figma-parity.spec.ts",
+      "title": "figma parity tenancy",
+      "status": "unexpected",
+      "source": "e2e-initial-all-engines.json"
+    },
+    {
+      "project": "webkit",
+      "file": "realtime.spec.ts",
+      "title": "Yjs synchronizes two Monaco editors and closes editing on disconnect",
+      "status": "unexpected",
+      "source": "e2e-initial-all-engines.json"
+    }
+  ],
+  "followup_failures_rechecked": [
+    {
+      "project": "webkit",
+      "file": "archive.spec.ts",
+      "title": "memory hub searches knowledge type and keeps saved episodic drafts in its review queue",
+      "status": "unexpected",
+      "source": "final-ui-all-engines.json"
+    },
+    {
+      "project": "chromium",
+      "file": "shell.spec.ts",
+      "title": "mobile breadcrumb labels stay within the header and scope remains compact",
+      "status": "unexpected",
+      "source": "final-ui-all-engines.json"
+    },
+    {
+      "project": "firefox",
+      "file": "shell.spec.ts",
+      "title": "skip link, route focus, title and breadcrumb",
+      "status": "unexpected",
+      "source": "final-ui-all-engines.json"
+    },
+    {
+      "project": "firefox",
+      "file": "shell.spec.ts",
+      "title": "mobile breadcrumb labels stay within the header and scope remains compact",
+      "status": "unexpected",
+      "source": "final-ui-all-engines.json"
+    },
+    {
+      "project": "webkit",
+      "file": "shell.spec.ts",
+      "title": "mobile breadcrumb labels stay within the header and scope remains compact",
+      "status": "unexpected",
+      "source": "final-ui-all-engines.json"
+    }
+  ],
+  "editor_failures_rechecked": [
+    {
+      "project": "webkit",
+      "file": "ides.spec.ts",
+      "title": "specifications: create, edit, save, outline, preview, history",
+      "status": "unexpected",
+      "source": "final-focus-all-engines.json"
+    }
+  ],
+  "unit": {
+    "passed": 54,
+    "failed": 0,
+    "files": 11
+  },
+  "performance": [
+    {
+      "lcp": 724,
+      "dcl": 345,
+      "jsFiles": 10,
+      "jsBytes": 166751,
+      "editorLoaded": false,
+      "editorResources": [],
+      "totalBytes": 269515,
+      "cls": 0.001,
+      "route": "/"
+    },
+    {
+      "lcp": 384,
+      "dcl": 186,
+      "jsFiles": 14,
+      "jsBytes": 210278,
+      "editorLoaded": false,
+      "editorResources": [],
+      "totalBytes": 291874,
+      "cls": 0.001,
+      "route": "/specifications"
+    },
+    {
+      "lcp": 452,
+      "dcl": 164,
+      "jsFiles": 15,
+      "jsBytes": 184932,
+      "editorLoaded": false,
+      "editorResources": [],
+      "totalBytes": 266528,
+      "cls": 0.002,
+      "route": "/code"
+    },
+    {
+      "lcp": 724,
+      "dcl": 377,
+      "jsFiles": 19,
+      "jsBytes": 229908,
+      "editorLoaded": false,
+      "editorResources": [],
+      "totalBytes": 311504,
+      "cls": 0.006,
+      "route": "/agents"
+    },
+    {
+      "lcp": 500,
+      "dcl": 204,
+      "jsFiles": 17,
+      "jsBytes": 202309,
+      "editorLoaded": false,
+      "editorResources": [],
+      "totalBytes": 283905,
+      "cls": 0.031,
+      "route": "/workflow"
+    },
+    {
+      "lcp": 568,
+      "dcl": 169,
+      "jsFiles": 19,
+      "jsBytes": 223428,
+      "editorLoaded": false,
+      "editorResources": [],
+      "totalBytes": 326192,
+      "cls": 0.001,
+      "route": "/execution"
+    },
+    {
+      "lcp": 456,
+      "dcl": 175,
+      "jsFiles": 14,
+      "jsBytes": 196032,
+      "editorLoaded": false,
+      "editorResources": [],
+      "totalBytes": 277628,
+      "cls": 0.001,
+      "route": "/definitions/agent"
+    },
+    {
+      "lcp": 472,
+      "dcl": 168,
+      "jsFiles": 16,
+      "jsBytes": 227995,
+      "editorLoaded": false,
+      "editorResources": [],
+      "totalBytes": 309591,
+      "cls": 0.001,
+      "route": "/execution/runs"
+    }
+  ],
+  "parity": {
+    "hit": 451,
+    "total": 457,
+    "modules": {
+      "home": [
+        18,
+        18,
+        "—"
+      ],
+      "specifications": [
+        27,
+        27,
+        "—"
+      ],
+      "collaboration": [
+        29,
+        29,
+        "—"
+      ],
+      "code": [
+        17,
+        17,
+        "—"
+      ],
+      "agents": [
+        21,
+        21,
+        "—"
+      ],
+      "resources": [
+        18,
+        19,
+        "Endpoint / artifact reference"
+      ],
+      "workflow": [
+        17,
+        17,
+        "—"
+      ],
+      "memory": [
+        20,
+        22,
+        "Source revision / snapshot; Source digest"
+      ],
+      "execution": [
+        35,
+        35,
+        "—"
+      ],
+      "governance": [
+        35,
+        35,
+        "—"
+      ],
+      "gateway": [
+        31,
+        31,
+        "—"
+      ],
+      "configuration": [
+        18,
+        21,
+        "Proposed scope; Policy JSON; Rollback proposal"
+      ],
+      "identity": [
+        28,
+        28,
+        "—"
+      ],
+      "tenancy": [
+        27,
+        27,
+        "—"
+      ],
+      "saas": [
+        30,
+        30,
+        "—"
+      ],
+      "desktop": [
+        31,
+        31,
+        "—"
+      ],
+      "observer": [
+        30,
+        30,
+        "—"
+      ],
+      "connection": [
+        19,
+        19,
+        "—"
+      ]
+    }
+  },
+  "design_counts": {
+    "views": 210,
+    "scenes": 751,
+    "schemas": 49,
+    "fields": 852,
+    "lifecycles": 39,
+    "lifecycleStates": 303,
+    "sourceActions": 55,
+    "uxJourneys": 42,
+    "uxSteps": 174,
+    "scenesWithoutTarget": 0
+  },
+  "evidence_sha256": {
+    "e2e-initial-all-engines.json": "be6985007000d302782e728ee10d2f1f7a3ba45b6ae6a0904924f7fc783a5e29",
+    "final-ui-all-engines.json": "cc799d9ddd5fadc273a5a324d5379741247a7d846a3c8a8392385aec53906595",
+    "final-focus-all-engines.json": "ff1910845ff66631eb35afb8227ae65ab748a3d2ca4e42e12ed1b0609c465691",
+    "ides-final-all-engines.json": "d46804e0aab918979202236dad53109fefff8c0d498bb5f02ff57875e8b6e14e",
+    "a11y-recheck-all-engines.json": "9eaa085656fddb8dda5c5041695df4de219ad99da72dadfdddb49e2db421bbac",
+    "visual-chromium.json": "07612a5f5583aaee80607329eb68c8dfcba17667c01ca21b95bcbb2a48652ab5",
+    "visual-mobile-final.json": "0b481581dde8c30e1755d9d8e535fcc5e4771484ed38302edb90d386d50643a5",
+    "graph-visual-final.json": "95324fb29a3fb0e21097e52b60d69e5ba59b8a32d2c486ff758b3b81ac6c3394",
+    "review-all-engines.json": "9c2d3f2bea8c111d83e5ced7bc7d3e914864a4cad5c3f2fd0da27c04713ffe36",
+    "graph-review-final.json": "8ae124d3ca73703410ff2022e650070304ca71fc69e2a7895ba1db2a48751719",
+    "perf-final.json": "e642b67bc505ceb0fec70161e1f8de8f4bae9302bf03f137a8119ee79fe4aff6",
+    "perf-initial.json": "b615a986da6be0e84565fab78a271fb179e7fc0e86ece912431e23151333d9d2",
+    "unit-final.json": "cd12e82e36a97f8881dc1904f91b0a715ae675885156483b2a7a9eba96a7e27d",
+    "perf-final.log": "77ed0a62dab6fa4a33c442246f1914c1f50c4cc613675ab3c4bf2ebd48da43f6",
+    "perf-initial.log": "e0c44025ce96d9eff09e7de1c65dfb135c7515c678b6a5d66e90d2a7b19758c8"
+  },
+  "deployed": false,
+  "pushed": false,
+  "current_ci": "not_verified_push_blocked_by_auto_review",
+  "push_blocked_reason": "Remote and external source/artifact transfer were not explicitly authorized; automatic approval review rejected the push.",
+  "firefox": "local_functional_and_review_passed",
+  "webkit": "local_functional_and_review_passed",
+  "manual_assistive_technology": "not_run",
+  "live_business_backend": "not_provided",
+  "production_origin_cookie_isolation": "not_accepted",
+  "ui_approval_before_deploy": "pending",
+  "final_ui_delta": "mobile breadcrumb/scope layout, lazy heading and input focus, Observer disconnected status tone, Memory/Identity panel data mapping and SVG dependency edge clipping; affected suites rerun"
+}

@@ -18,6 +18,8 @@ export interface JournalEntry {
   fingerprint: string; scope: string; createdAt: string; updatedAt: string; message: string; evidence: string | null;
   /** Service-declared follow-up links (statusHref may contain {operationId}). */
   statusHref: string | null; effectHref: string | null; resourceName: string; expectedRevision: number | null;
+  /** Retains the response-redaction policy after reload, without retaining input values. */
+  hasSecretInputs?: boolean;
 }
 type StoreName = 'definitions' | 'revisions' | 'documents' | 'docRevisions' | 'sources' | 'journal' | 'kv' | 'workflows';
 

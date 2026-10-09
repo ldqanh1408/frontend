@@ -1,0 +1,23 @@
+{
+  "format": "atlas-complete-source-provenance/v1",
+  "repository": "ldqanh1408/frontend",
+  "userSelectedScope": "FRONTEND_IN_THIS_REPOSITORY",
+  "localBranch": "handoff/frontend-e2e",
+  "patchBaseCommit": "0e3dfc9982e1e583c71d9c081a4a5fa89c5b2833",
+  "localEvidenceCommit": "24daa6e4784a731ecd16764c5814d7bba567eebd",
+  "runtimeImplementationCommit": "12627631dba60e6e15ddc94baaf9a8de169a75f3",
+  "sourceDigest": "77cdc3b38905142365bb758b060be0a16e4f7b5335fe91c4c7a79d1054ce8bf3",
+  "archiveSourceKind": "archive",
+  "archiveSourceCommit": null,
+  "patch": {
+    "path": "continuation-patches/0007-complete-frontend-verification.patch",
+    "size": 3346356,
+    "sha256": "15cb241249b4cb45458ea530184a1e3f156ab6e312ced21998a5a8f3f57319f6"
+  },
+  "remoteBranch": "claude/sharp-thompson-5tff91",
+  "observedRemoteHead": "4737b155e9f106bc7351c271d19ef207cfbb9a66",
+  "remotePRHead": "0e8cf8340f0f90bc3dee5a5e37019450bfcda24f",
+  "pushed": false,
+  "deployed": false,
+  "publication": "pending_explicit_source_and_evidence_transfer_authorization_after_automatic_approval_rejection"
+}

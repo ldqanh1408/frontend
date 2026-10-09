@@ -3,6 +3,7 @@ import { nav } from '../data/catalog';
 import { useApp } from '../data/app-store';
 import { Icon } from '../components/Icon';
 import type { ModuleRoute } from '../data/types';
+import { prefetchModule } from './prefetch';
 
 export const modulePath = (r: ModuleRoute) => (r === 'home' ? '/' : `/${r}`);
 
@@ -41,9 +42,9 @@ export function NavContent({ onNavigate }: { onNavigate?: () => void }) {
                   const m = nav.modules[r];
                   return (
                     <li key={r}>
-                      <Link to={modulePath(r)} className="nav-link" aria-current={active === r ? 'page' : undefined} onClick={onNavigate}>
+                      {r === 'observer' ? <a href={import.meta.env.VITE_OBSERVER_URL || '/observer'} className="nav-link"><Icon name={m.icon} />{m.label}</a> : <Link to={modulePath(r)} className="nav-link" aria-current={active === r ? 'page' : undefined} onClick={onNavigate} onPointerEnter={() => prefetchModule(r)} onFocus={() => prefetchModule(r)}>
                         <Icon name={m.icon} />{m.label}
-                      </Link>
+                      </Link>}
                     </li>
                   );
                 })}

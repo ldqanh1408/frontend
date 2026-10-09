@@ -1,0 +1,328 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - link "Skip to workspace" [ref=e4]:
+    - /url: "#main"
+  - complementary "Workspace navigation" [ref=e5]:
+    - generic [ref=e6]:
+      - link "Atlas home" [ref=e7]:
+        - /url: /
+        - generic [ref=e8]: A
+        - generic [ref=e9]: atlas
+      - generic [ref=e10]: Device workspace
+      - generic [ref=e11]:
+        - strong [ref=e12]: Device draft area
+        - generic [ref=e13]: No tenant inferred
+      - navigation "Workspace" [ref=e14]:
+        - generic [ref=e15]:
+          - heading "BUILD" [level=2] [ref=e16]
+          - list [ref=e17]:
+            - listitem [ref=e18]:
+              - link "Overview" [ref=e19]:
+                - /url: /
+                - img [ref=e20]
+                - text: Overview
+            - listitem [ref=e23]:
+              - link "Specifications" [ref=e24]:
+                - /url: /specifications
+                - img [ref=e25]
+                - text: Specifications
+            - listitem [ref=e28]:
+              - link "Code intelligence" [ref=e29]:
+                - /url: /code
+                - img [ref=e30]
+                - text: Code intelligence
+            - listitem [ref=e33]:
+              - link "Agents" [ref=e34]:
+                - /url: /agents
+                - img [ref=e35]
+                - text: Agents
+            - listitem [ref=e38]:
+              - link "Resources" [ref=e39]:
+                - /url: /resources
+                - img [ref=e40]
+                - text: Resources
+            - listitem [ref=e50]:
+              - link "Workflow & planning" [ref=e51]:
+                - /url: /workflow
+                - img [ref=e52]
+                - text: Workflow & planning
+            - listitem [ref=e56]:
+              - link "Runs & activity" [ref=e57]:
+                - /url: /execution
+                - img [ref=e58]
+                - text: Runs & activity
+            - listitem [ref=e61]:
+              - link "Reviews & delivery" [ref=e62]:
+                - /url: /governance
+                - img [ref=e63]
+                - text: Reviews & delivery
+        - generic [ref=e66]:
+          - heading "KNOWLEDGE & SERVICES" [level=2] [ref=e67]
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "Memory & context" [ref=e70]:
+                - /url: /memory
+                - img [ref=e71]
+                - text: Memory & context
+            - listitem [ref=e79]:
+              - link "AI access & budget" [ref=e80]:
+                - /url: /gateway
+                - img [ref=e81]
+                - text: AI access & budget
+            - listitem [ref=e84]:
+              - link "Collaboration" [ref=e85]:
+                - /url: /collaboration
+                - img [ref=e86]
+                - text: Collaboration
+            - listitem [ref=e91]:
+              - link "Configuration & policy" [ref=e92]:
+                - /url: /configuration
+                - img [ref=e93]
+                - text: Configuration & policy
+        - generic [ref=e96]:
+          - heading "ADMINISTRATION" [level=2] [ref=e97]
+          - list [ref=e98]:
+            - listitem [ref=e99]:
+              - link "People & access" [ref=e100]:
+                - /url: /identity
+                - img [ref=e101]
+                - text: People & access
+            - listitem [ref=e113]:
+              - link "Organization & projects" [ref=e114]:
+                - /url: /tenancy
+                - img [ref=e115]
+                - text: Organization & projects
+            - listitem [ref=e119]:
+              - link "Usage, billing & data" [ref=e120]:
+                - /url: /saas
+                - img [ref=e121]
+                - text: Usage, billing & data
+            - listitem [ref=e124]:
+              - link "Desktop & runtime" [ref=e125]:
+                - /url: /desktop
+                - img [ref=e126]
+                - text: Desktop & runtime
+            - listitem [ref=e128]:
+              - link "Operations observer" [ref=e129]:
+                - /url: /observer
+                - img [ref=e130]
+                - text: Operations observer
+            - listitem [ref=e133]:
+              - link "Connection & receipts" [ref=e134]:
+                - /url: /connection
+                - img [ref=e135]
+                - text: Connection & receipts
+    - link "Browse definitions" [ref=e139] [cursor=pointer]:
+      - /url: /definitions
+      - img [ref=e140]
+      - text: Browse definitions
+  - banner [ref=e144]:
+    - button "Open workspace navigation" [ref=e145] [cursor=pointer]:
+      - img [ref=e146]
+      - generic [ref=e147]: Open workspace navigation
+    - navigation "Breadcrumb" [ref=e148]:
+      - list [ref=e149]:
+        - listitem [ref=e150]:
+          - link "Workspace" [ref=e151]:
+            - /url: /
+        - listitem [ref=e152]:
+          - text: /
+          - generic [ref=e153]: Turn specifications into traceable work
+    - generic [ref=e154]:
+      - button "Search workspace" [ref=e155] [cursor=pointer]:
+        - img [ref=e156]
+        - generic [ref=e159]: Search workspace
+        - generic [ref=e160]: Ctrl K
+      - link "Service disconnected — open connection" [ref=e161]:
+        - /url: /connection
+        - text: Service disconnected
+      - button "Switch to light theme" [ref=e162] [cursor=pointer]:
+        - img [ref=e163]
+        - generic [ref=e169]: Switch to light theme
+      - button "Open notification inbox" [ref=e170] [cursor=pointer]:
+        - img [ref=e171]
+        - generic [ref=e174]: Open notification inbox
+      - button "Display preferences" [ref=e175] [cursor=pointer]:
+        - img [ref=e176]
+        - generic [ref=e177]: Display preferences
+      - button "Help and keyboard shortcuts" [ref=e178] [cursor=pointer]:
+        - img [ref=e179]
+        - generic [ref=e182]: Help and keyboard shortcuts
+  - main [ref=e183]:
+    - generic "Tenant context" [ref=e184]:
+      - generic [ref=e185]:
+        - strong [ref=e186]: Organization
+        - generic [ref=e187]: Not observed
+      - generic [ref=e188]:
+        - strong [ref=e189]: Workspace
+        - generic [ref=e190]: Not observed
+      - generic [ref=e191]:
+        - strong [ref=e192]: Project
+        - generic [ref=e193]: Not observed
+      - link "Review scope" [ref=e194]:
+        - /url: /tenancy
+      - generic [ref=e195]:
+        - button "Switch organization" [disabled] [ref=e196]
+        - generic [ref=e197]: Connect a workspace service to load authorized organization and project choices.
+    - generic [ref=e198]:
+      - generic [ref=e199]:
+        - generic [ref=e200]:
+          - heading "Turn specifications into traceable work" [level=1] [ref=e201]
+          - paragraph [ref=e202]: Author requirements, inspect source and prepare agent work with explicit checkpoints.
+        - link "Connect workspace" [ref=e204] [cursor=pointer]:
+          - /url: /connection
+          - img [ref=e205]
+          - text: Connect workspace
+      - note [ref=e207]:
+        - generic [ref=e208]: Device drafts
+        - paragraph [ref=e209]: No service is connected. Local drafts stay on this device; no provider, run, PR, CI or cleanup result is inferred.
+        - link "Connect a service" [ref=e210]:
+          - /url: /connection
+      - list "Workspace summary" [ref=e211]:
+        - 'listitem "Document drafts: 0" [ref=e212] [cursor=pointer]':
+          - generic [ref=e213]: Document drafts
+          - generic [ref=e214]: "0"
+          - generic [ref=e215]: Saved on this device
+        - 'listitem "Agent drafts: 0" [ref=e216] [cursor=pointer]':
+          - generic [ref=e217]: Agent drafts
+          - generic [ref=e218]: "0"
+          - generic [ref=e219]: Saved on this device
+        - 'listitem "Workflow drafts: 0" [ref=e220] [cursor=pointer]':
+          - generic [ref=e221]: Workflow drafts
+          - generic [ref=e222]: "0"
+          - generic [ref=e223]: Saved on this device
+        - listitem [ref=e224]:
+          - generic [ref=e225]: Workspace session
+          - generic [ref=e226]: Disconnected
+          - generic [ref=e227]: No service result inferred
+      - generic [ref=e228]:
+        - region "Build your first complete journey" [ref=e229]:
+          - heading "Build your first complete journey" [level=2] [ref=e230]
+          - list [ref=e231]:
+            - listitem [ref=e232]:
+              - generic [ref=e233]: "01"
+              - generic [ref=e234]:
+                - generic [ref=e235]: Define the outcome
+                - generic [ref=e236]: Document tree and Given / When / Then criteria
+              - 'link "Open: Define the outcome" [ref=e237] [cursor=pointer]':
+                - /url: /specifications
+                - text: Open
+            - listitem [ref=e238]:
+              - generic [ref=e239]: "02"
+              - generic [ref=e240]:
+                - generic [ref=e241]: Inspect the source
+                - generic [ref=e242]: Real paths, immutable local snapshots and provenance
+              - 'link "Open: Inspect the source" [ref=e243] [cursor=pointer]':
+                - /url: /code
+                - text: Open
+            - listitem [ref=e244]:
+              - generic [ref=e245]: "03"
+              - generic [ref=e246]:
+                - generic [ref=e247]: Constrain the agent
+                - generic [ref=e248]: Instructions, explicit resources and output contracts
+              - 'link "Open: Constrain the agent" [ref=e249] [cursor=pointer]':
+                - /url: /agents
+                - text: Open
+            - listitem [ref=e250]:
+              - generic [ref=e251]: "04"
+              - generic [ref=e252]:
+                - generic [ref=e253]: Plan and admit work
+                - generic [ref=e254]: Version pins, dependencies and service preflight
+              - 'link "Open: Plan and admit work" [ref=e255] [cursor=pointer]':
+                - /url: /workflow
+                - text: Open
+        - region "Workspace readiness" [ref=e256]:
+          - heading "Workspace readiness" [level=2] [ref=e257]
+          - list [ref=e258]:
+            - listitem [ref=e259]:
+              - link "Workspace session Service observation required" [ref=e260]:
+                - /url: /connection
+                - generic [ref=e261]: Workspace session
+                - generic [ref=e262]: Service observation required
+            - listitem [ref=e263]:
+              - link "Repository Service observation required" [ref=e264]:
+                - /url: /code
+                - generic [ref=e265]: Repository
+                - generic [ref=e266]: Service observation required
+            - listitem [ref=e267]:
+              - link "Provider & budget Service observation required" [ref=e268]:
+                - /url: /gateway
+                - generic [ref=e269]: Provider & budget
+                - generic [ref=e270]: Service observation required
+            - listitem [ref=e271]:
+              - link "Runtime capabilities Service observation required" [ref=e272]:
+                - /url: /desktop
+                - generic [ref=e273]: Runtime capabilities
+                - generic [ref=e274]: Service observation required
+          - paragraph [ref=e275]: Local drafts are usable before connecting. Production execution is not verified.
+      - region "Specification to verified delivery" [ref=e276]:
+        - heading "Specification to verified delivery" [level=2] [ref=e278]
+        - list [ref=e279]:
+          - listitem [ref=e280]:
+            - generic [ref=e281]: "1"
+            - generic [ref=e282]:
+              - link "Lock specification" [ref=e283] [cursor=pointer]:
+                - /url: /specifications
+              - generic [ref=e284]: Not observed · spec:lock
+          - listitem [ref=e285]:
+            - generic [ref=e286]: "2"
+            - generic [ref=e287]:
+              - link "Submit to AI" [ref=e288] [cursor=pointer]:
+                - /url: /specifications
+              - generic [ref=e289]: Not observed · spec:submit_to_ai
+          - listitem [ref=e290]:
+            - generic [ref=e291]: "3"
+            - generic [ref=e292]:
+              - link "Memory preparation" [ref=e293] [cursor=pointer]:
+                - /url: /memory
+              - generic [ref=e294]: Not observed · workspace:memory_manage
+          - listitem [ref=e295]:
+            - generic [ref=e296]: "4"
+            - generic [ref=e297]:
+              - link "Review proposed DAG" [ref=e298] [cursor=pointer]:
+                - /url: /workflow
+              - generic [ref=e299]: Not observed · dag:plan_approve
+          - listitem [ref=e300]:
+            - generic [ref=e301]: "5"
+            - generic [ref=e302]:
+              - link "Human checkpoint" [ref=e303] [cursor=pointer]:
+                - /url: /execution
+              - generic [ref=e304]: Not observed · dag:milestone_approve
+          - listitem [ref=e305]:
+            - generic [ref=e306]: "6"
+            - generic [ref=e307]:
+              - link "Risk & approval gate" [ref=e308] [cursor=pointer]:
+                - /url: /governance
+              - generic [ref=e309]: Not observed · gov:approve_medium / gov:approve_high
+          - listitem [ref=e310]:
+            - generic [ref=e311]: "7"
+            - generic [ref=e312]:
+              - link "PR & CI verification" [ref=e313] [cursor=pointer]:
+                - /url: /governance
+              - generic [ref=e314]: Not observed · Service integration required
+          - listitem [ref=e315]:
+            - generic [ref=e316]: "8"
+            - generic [ref=e317]:
+              - link "Post-merge drift" [ref=e318] [cursor=pointer]:
+                - /url: /code
+              - generic [ref=e319]: Not observed · code:view_graph
+          - listitem [ref=e320]:
+            - generic [ref=e321]: "9"
+            - generic [ref=e322]:
+              - link "Implemented" [ref=e323] [cursor=pointer]:
+                - /url: /specifications
+              - generic [ref=e324]: Not observed · Matched drift verification required
+          - listitem [ref=e325]:
+            - generic [ref=e326]: "10"
+            - generic [ref=e327]:
+              - link "Episodic draft → Promote" [ref=e328] [cursor=pointer]:
+                - /url: /memory
+              - generic [ref=e329]: Not observed · workspace:memory_manage
+        - paragraph [ref=e330]: Locking never starts an agent. Submit to AI is an explicit request; every approval and outcome requires current service evidence.
+  - contentinfo [ref=e331]:
+    - generic [ref=e332]: Device drafts / disconnected service
+    - generic [ref=e333]: Acknowledgement ≠ effective execution
+  - region "Notifications"
+```

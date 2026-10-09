@@ -127,7 +127,7 @@ function LifecyclePanel({ schema, rec }: { schema: SchemaSpec; rec?: DefinitionR
         {rec && errs && <Badge tone={Object.keys(errs).length ? 'neutral' : 'success'}>{Object.keys(errs).length ? `Complete validation: ${Object.keys(errs).length} open` : 'Local field checks passed'}</Badge>}
         {schema.actions.map((a) => {
           const cap = capability(`${schema.id}:${a.toLowerCase().replace(/[^a-z]+/g, '-')}`, a);
-          return <Button key={a} block blocked={cap.ok ? undefined : rec ? `Requires authorized scope, exact revision and service input contract. ${cap.reason}` : 'Create and save a local definition first.'}>{a}</Button>;
+          return <Button key={a} block blocked={cap.ok ? 'Requires an authorized definition revision and service input contract.' : rec ? `Requires authorized scope, exact revision and service input contract. ${cap.reason}` : 'Create and save a local definition first.'}>{a}</Button>;
         })}
         <Link className="btn btn-block btn-quiet" to="/connection">Open service lifecycle</Link>
       </section>
@@ -206,12 +206,20 @@ export function useDefinitionDraft(schema: SchemaSpec, rec: DefinitionRecord, ba
     } catch (e) { toast({ tone: 'danger', title: 'Could not change the collection', body: e instanceof Error ? e.message : String(e) }); }
   };
   const duplicate = async () => {
-    const copy = await duplicateDefinition(schema, base);
-    toast({ tone: 'success', title: 'Definition duplicated', body: `${copy.name}. Approvals and service state are never copied.` });
-    navigate(`${basePath}/${copy.id}`);
+    try {
+      const copy = await duplicateDefinition(schema, base);
+      toast({ tone: 'success', title: 'Definition duplicated', body: `${copy.name}. Approvals and service state are never copied.` });
+      navigate(`${basePath}/${copy.id}`);
+    } catch (e) { toast({ tone: 'danger', title: 'Duplicate blocked', body: e instanceof Error ? e.message : 'Review draft content.' }); }
   };
-  const exportDraft = async () => downloadJson(`${base.name}.json`, { ...(await exportDefinition(base)), unsaved: dirty ? toData(schema, values) : undefined });
-  const exportEdits = () => downloadJson(`${base.name}-unsaved.json`, { format: 'atlas-recovery/v1', schemaId: schema.id, name, data: toData(schema, values) });
+  const exportDraft = async () => {
+    try { downloadJson(`${base.name}.json`, { ...(await exportDefinition(base)), unsaved: dirty ? toData(schema, values) : undefined }); }
+    catch (e) { toast({ tone: 'danger', title: 'Export blocked', body: e instanceof Error ? e.message : 'Review draft content.' }); }
+  };
+  const exportEdits = () => {
+    try { downloadJson(`${base.name}-unsaved.json`, { format: 'atlas-recovery/v1', schemaId: schema.id, name, data: toData(schema, values) }); }
+    catch (e) { toast({ tone: 'danger', title: 'Export blocked', body: e instanceof Error ? e.message : 'Review draft content.' }); }
+  };
   const discardAndLoad = () => { setBase(rec); setValues(initialValues(schema, rec.data)); setName(rec.name); setConflict(null); };
   const applyPins = (key: string, pins: Pin[]) => {
     const existing = (() => { try { const v = JSON.parse(String(values[key] || '[]')); return Array.isArray(v) ? v : []; } catch { return []; } })();

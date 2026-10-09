@@ -1,0 +1,31 @@
+{
+  "branch": "claude/sharp-thompson-5tff91",
+  "base_commit": "4737b155e9f106bc7351c271d19ef207cfbb9a66",
+  "final_tree_commit": "9fb8d4dd8c8b767b552e86e9cd60cfd601194327",
+  "tested_source_checkpoint": "b598ec62c53c30108c036722d21c52229593f27a",
+  "source_runtime_sha256": "ddea85c1fe4135ecf5be3516a95c4f4b049edbeb1f99ddd699fde11dd2586d0f",
+  "patches": 30,
+  "patch_checkpoint": "b598ec62c53c30108c036722d21c52229593f27a",
+  "patch_recovery": "git am --keep-cr; exact checkpoint tree match verified",
+  "final_tree_note": "Evidence and gallery proof commits follow the patch checkpoint. The complete final source tree is included.",
+  "pushed": false,
+  "push_status": "blocked_by_auto_review",
+  "push_block_reason": "Remote and external source/artifact transfer were not explicitly authorized; automatic approval review rejected the push.",
+  "deployed": false,
+  "staging_run": false,
+  "live_backend_acceptance": false,
+  "manual_NVDA_VoiceOver": false,
+  "functional_coverage_kind": "derived_unique_case_coverage",
+  "functional_coverage": {
+    "expected": 1695,
+    "skipped": 9,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "files": 1443,
+  "originalArchiveFieldsAreHistorical": true,
+  "currentContinuation": "frontend/atlas-web/ui-review/verification-complete-20261008.json",
+  "currentSourceDigest": "77cdc3b38905142365bb758b060be0a16e4f7b5335fe91c4c7a79d1054ce8bf3",
+  "currentConformance": "frontend/atlas-web/docs/SRS-ADR-CONFORMANCE.md",
+  "currentFrontendRun": "20261008-complete"
+}

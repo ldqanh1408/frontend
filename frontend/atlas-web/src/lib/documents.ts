@@ -97,6 +97,7 @@ export async function purgeItem(all: DocumentRecord[], rec: DocumentRecord) {
   if (!rec.archived) throw new Error('Archive the item before deleting it permanently.');
   for (const it of [rec, ...descendants(all, rec.id)]) {
     for (const r of await listDocRevisions(it.id)) await del('docRevisions', r.id);
+    await setDraft(it.id, null);
     await del('documents', it.id);
   }
 }

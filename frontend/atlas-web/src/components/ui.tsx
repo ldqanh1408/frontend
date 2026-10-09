@@ -1,6 +1,7 @@
 import { forwardRef, useId, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { Link } from 'react-router';
 import { Icon } from './Icon';
+import { domainTone } from '../data/states';
 
 type Variant = 'primary' | 'secondary' | 'quiet' | 'danger';
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,12 +32,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   return (
     <span className="blocked-action">
       {btn}
-      <span id={rid} className="blocked-reason">{blocked}</span>
+      <span id={rid} className="blocked-reason" data-gate-kind={/plan|entitlement/i.test(blocked) ? 'entitlement' : /^Limit/.test(blocked) ? 'quota' : /session|connect/i.test(blocked) ? 'session' : 'permission'}>{blocked}</span>
     </span>
   );
 });
 
 export function ButtonLink({ to, variant = 'secondary', compact, icon, children, className, 'aria-label': ariaLabel }: { to: string; variant?: Variant; compact?: boolean; icon?: string; children: ReactNode; className?: string; 'aria-label'?: string }) {
+  if (to.startsWith('/observer')) return <a href={import.meta.env.VITE_OBSERVER_URL ? new URL(to, import.meta.env.VITE_OBSERVER_URL).toString() : to} aria-label={ariaLabel} className={cls(variant, compact, false, false, className)}>{icon && <Icon name={icon} />}{children}</a>;
   return <Link to={to} aria-label={ariaLabel} className={cls(variant, compact, false, false, className)}>{icon && <Icon name={icon} />}{children}</Link>;
 }
 
@@ -48,7 +50,7 @@ const TONES: Record<string, string> = {
 };
 export function toneFor(status: string): string {
   const s = status.toLowerCase();
-  return TONES[s] ?? Object.entries(TONES).find(([k]) => s.includes(k))?.[1] ?? 'neutral';
+  return domainTone(status) ?? TONES[s] ?? Object.entries(TONES).find(([k]) => s.includes(k))?.[1] ?? 'neutral';
 }
 export function Badge({ children, tone, className }: { children: ReactNode; tone?: string; className?: string }) {
   const t = tone ?? (typeof children === 'string' ? toneFor(children) : 'neutral');

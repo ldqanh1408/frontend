@@ -1,0 +1,41 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:5008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22mnpm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:5021) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 22 tests using 2 workers
+
+(node:5056) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:5055) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:5055) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:5056) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [chromium] › e2e/review.spec.ts:8:47 › review labels dark · batch 2 (15.3s)
+  ✓   1 [chromium] › e2e/review.spec.ts:8:47 › review labels dark · batch 1 (17.0s)
+  ✓   3 [chromium] › e2e/review.spec.ts:8:47 › review labels dark · batch 3 (11.2s)
+  ✓   4 [chromium] › e2e/review.spec.ts:8:47 › review labels dark · batch 4 (10.9s)
+  ✓   5 [chromium] › e2e/review.spec.ts:8:47 › review labels dark · batch 5 (11.8s)
+  ✓   6 [chromium] › e2e/review.spec.ts:8:47 › review labels dark · batch 6 (11.7s)
+  ✓   7 [chromium] › e2e/review.spec.ts:8:47 › review labels dark · batch 7 (10.3s)
+  ✓   8 [chromium] › e2e/review.spec.ts:8:47 › review labels dark · batch 8 (10.4s)
+  ✓   9 [chromium] › e2e/review.spec.ts:8:47 › review labels dark · batch 9 (10.3s)
+  ✓  10 [chromium] › e2e/review.spec.ts:8:47 › review labels dark · batch 10 (10.3s)
+  ✓  12 [chromium] › e2e/review.spec.ts:8:47 › review labels light · batch 1 (11.7s)
+  ✓  11 [chromium] › e2e/review.spec.ts:20:3 › execution states, inspector and keyboard list · dark (15.1s)
+  ✓  13 [chromium] › e2e/review.spec.ts:8:47 › review labels light · batch 2 (10.4s)
+  ✓  14 [chromium] › e2e/review.spec.ts:8:47 › review labels light · batch 3 (10.4s)
+  ✓  15 [chromium] › e2e/review.spec.ts:8:47 › review labels light · batch 4 (10.4s)
+  ✓  16 [chromium] › e2e/review.spec.ts:8:47 › review labels light · batch 5 (11.6s)
+  ✓  17 [chromium] › e2e/review.spec.ts:8:47 › review labels light · batch 6 (12.7s)
+  ✓  18 [chromium] › e2e/review.spec.ts:8:47 › review labels light · batch 7 (11.6s)
+  ✓  19 [chromium] › e2e/review.spec.ts:8:47 › review labels light · batch 8 (10.8s)
+  ✓  20 [chromium] › e2e/review.spec.ts:8:47 › review labels light · batch 9 (10.4s)
+  ✓  21 [chromium] › e2e/review.spec.ts:8:47 › review labels light · batch 10 (11.2s)
+  ✓  22 [chromium] › e2e/review.spec.ts:20:3 › execution states, inspector and keyboard list · light (15.0s)
+
+  22 passed (2.3m)

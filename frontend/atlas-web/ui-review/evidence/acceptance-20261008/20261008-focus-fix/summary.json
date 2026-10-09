@@ -1,0 +1,19 @@
+{
+  "format": "atlas-interrupted-evidence/v1",
+  "result": "INTERRUPTED",
+  "attempts": [
+    {
+      "log": "shell-ides.log",
+      "reason": "Stopped after correcting the StrictMode test fixture; production bundle not yet rebuilt."
+    },
+    {
+      "log": "final.log",
+      "reason": "Stopped after trace inspection identified missing React mount readiness in keyboard E2E."
+    },
+    {
+      "log": "verified.log",
+      "reason": "Execution environment interrupted the process when Firefox background updater requested blocked https://aus5.mozilla.org:443. No complete JSON report."
+    }
+  ],
+  "rerun": "20261008-final/targeted.json"
+}

@@ -1,0 +1,140 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+vite v8.3.2 building client environment for production...
+
+ WARN  advancedChunks option is deprecated, please use codeSplitting instead.
+
+transforming...
+✓ 3446 modules transformed.
+
+(!) outDir /tmp/atlas-dist-final is not inside project root and will not be emptied.
+Use --emptyOutDir to override.
+
+rendering chunks...
+computing gzip size...
+../../../../../../tmp/atlas-dist-final/telemetry-console.html                                            0.84 kB │ gzip:   0.43 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-cyrillic-ext-400-normal-C_uLvvQ5.woff2      1.16 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-cyrillic-ext-500-normal-C9ShMxGR.woff2      1.17 kB
+../../../../../../tmp/atlas-dist-final/index.html                                                        1.23 kB │ gzip:   0.53 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-cyrillic-ext-500-normal-CEVyPk4Y.woff       1.74 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-cyrillic-ext-400-normal-Bh0R7Dhr.woff       1.74 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-vietnamese-400-normal-ByoDsISC.woff2        3.92 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-vietnamese-500-normal-BvH7FW2L.woff2        4.04 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-greek-400-normal-C190GLew.woff2             4.22 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-greek-500-normal-JpySY46c.woff2             4.28 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-cyrillic-400-normal-BEIGL1Tu.woff2          5.32 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-cyrillic-500-normal-DmUKJPL_.woff2          5.35 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-vietnamese-400-normal-CqNFfHCs.woff         5.37 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-vietnamese-500-normal-DNRqzVM1.woff         5.47 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-greek-400-normal-B9oWc5Lo.woff              5.66 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-greek-500-normal-D7SFKleX.woff              5.72 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-cyrillic-400-normal-ugxPyKxw.woff           6.97 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-cyrillic-500-normal-DJqRU3vO.woff           7.02 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-latin-ext-400-normal-Bc8Ftmh3.woff2         7.33 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-latin-ext-500-normal-Cut-4mMH.woff2         7.52 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-latin-ext-400-normal-fXTG6kC5.woff         10.12 kB
+../../../../../../tmp/atlas-dist-final/assets/inter-vietnamese-wght-normal-CBcvBZtf.woff2               10.25 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-latin-ext-500-normal-ckzbgY84.woff         10.33 kB
+../../../../../../tmp/atlas-dist-final/assets/inter-greek-ext-wght-normal-DlzME5K_.woff2                11.23 kB
+../../../../../../tmp/atlas-dist-final/assets/inter-cyrillic-wght-normal-DqGufNeO.woff2                 18.74 kB
+../../../../../../tmp/atlas-dist-final/assets/inter-greek-wght-normal-CkhJZR-_.woff2                    18.99 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2            21.16 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-latin-500-normal-BWZEU5yA.woff2            21.83 kB
+../../../../../../tmp/atlas-dist-final/assets/inter-cyrillic-ext-wght-normal-BOeWTOD4.woff2             25.96 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-latin-400-normal-6-qcROiO.woff             27.49 kB
+../../../../../../tmp/atlas-dist-final/assets/jetbrains-mono-latin-500-normal-CJOVTJB7.woff             28.20 kB
+../../../../../../tmp/atlas-dist-final/assets/inter-latin-wght-normal-Dx4kXJAl.woff2                    48.25 kB
+../../../../../../tmp/atlas-dist-final/assets/inter-latin-ext-wght-normal-DO1Apj_S.woff2                85.06 kB
+../../../../../../tmp/atlas-dist-final/assets/codicon-ngg6Pgfi.ttf                                     121.97 kB
+../../../../../../tmp/atlas-dist-final/assets/editor.worker-O-CH8JUO.js                                280.57 kB
+../../../../../../tmp/atlas-dist-final/assets/workspace-B-Gn59ZV.css                                     2.16 kB │ gzip:   0.65 kB
+../../../../../../tmp/atlas-dist-final/assets/LiveTerminal-B1njb2Cr.css                                  3.96 kB │ gzip:   1.02 kB
+../../../../../../tmp/atlas-dist-final/assets/TaskGraph-DLioOiRN.css                                    15.41 kB │ gzip:   2.56 kB
+../../../../../../tmp/atlas-dist-final/assets/ui-try9e67V.css                                           55.51 kB │ gzip:  10.33 kB
+../../../../../../tmp/atlas-dist-final/assets/CodeEditor-BBlRgZ6L.css                                   71.54 kB │ gzip:  11.62 kB
+../../../../../../tmp/atlas-dist-final/assets/editor-DSBK4mQa.css                                       74.48 kB │ gzip:  11.69 kB
+../../../../../../tmp/atlas-dist-final/assets/ModuleLanding-BNhK1Ma0.js                                  0.49 kB │ gzip:   0.29 kB
+../../../../../../tmp/atlas-dist-final/assets/javascript-GpQ7ZP4R.js                                     0.68 kB │ gzip:   0.41 kB
+../../../../../../tmp/atlas-dist-final/assets/LazyTaskGraph-DMyJIrzP.js                                  0.69 kB │ gzip:   0.40 kB
+../../../../../../tmp/atlas-dist-final/assets/rolldown-runtime-hePW80VL.js                               0.71 kB │ gzip:   0.42 kB
+../../../../../../tmp/atlas-dist-final/assets/format-A2Y5zJrE.js                                         0.74 kB │ gzip:   0.46 kB
+../../../../../../tmp/atlas-dist-final/assets/NativeStatePanels-BrE6y0EK.js                              0.82 kB │ gzip:   0.38 kB
+../../../../../../tmp/atlas-dist-final/assets/DefinitionTypePage-CQzE91Ma.js                             0.86 kB │ gzip:   0.49 kB
+../../../../../../tmp/atlas-dist-final/assets/hooks-dPjyNUuz.js                                          0.88 kB │ gzip:   0.43 kB
+../../../../../../tmp/atlas-dist-final/assets/LazyCodeEditor-BpqqQRZc.js                                 1.23 kB │ gzip:   0.68 kB
+../../../../../../tmp/atlas-dist-final/assets/LifecycleBody-DPwhzpWR.js                                  1.64 kB │ gzip:   0.83 kB
+../../../../../../tmp/atlas-dist-final/assets/SchemaSceneForm-nfga_WMA.js                                1.67 kB │ gzip:   0.92 kB
+../../../../../../tmp/atlas-dist-final/assets/xml-DAIxpck7.js                                            1.95 kB │ gzip:   0.75 kB
+../../../../../../tmp/atlas-dist-final/assets/definitions-n0WpCd_z.js                                    2.30 kB │ gzip:   1.10 kB
+../../../../../../tmp/atlas-dist-final/assets/NativeState--JRSHMQi.js                                    2.40 kB │ gzip:   1.14 kB
+../../../../../../tmp/atlas-dist-final/assets/CollaborationWorkspace-BchnsPXQ.js                         2.78 kB │ gzip:   1.31 kB
+../../../../../../tmp/atlas-dist-final/assets/DefinitionsCatalog-D19NFtDS.js                             2.85 kB │ gzip:   1.32 kB
+../../../../../../tmp/atlas-dist-final/assets/NotificationInbox-BPkKk0aS.js                              3.03 kB │ gzip:   1.32 kB
+../../../../../../tmp/atlas-dist-final/assets/ExecutionPage-BFKMu8uF.js                                  3.24 kB │ gzip:   1.44 kB
+../../../../../../tmp/atlas-dist-final/assets/stream-lcOnrllc.js                                         3.33 kB │ gzip:   1.55 kB
+../../../../../../tmp/atlas-dist-final/assets/NativeStatePage-GUPL9tiI.js                                3.50 kB │ gzip:   1.64 kB
+../../../../../../tmp/atlas-dist-final/assets/markdown-Cimd5fb3.js                                       3.63 kB │ gzip:   1.34 kB
+../../../../../../tmp/atlas-dist-final/assets/DocTree-BF542SwG.js                                        3.92 kB │ gzip:   1.71 kB
+../../../../../../tmp/atlas-dist-final/assets/Overview-DvD5hUR6.js                                       4.11 kB │ gzip:   1.53 kB
+../../../../../../tmp/atlas-dist-final/assets/css-DIMkf-bt.js                                            4.36 kB │ gzip:   1.33 kB
+../../../../../../tmp/atlas-dist-final/assets/html-DDSTjwEb.js                                           4.55 kB │ gzip:   1.17 kB
+../../../../../../tmp/atlas-dist-final/assets/typescript-D_kOQLOa.js                                     4.70 kB │ gzip:   1.96 kB
+../../../../../../tmp/atlas-dist-final/assets/ConnectionPage-41MZnNry.js                                 5.71 kB │ gzip:   2.27 kB
+../../../../../../tmp/atlas-dist-final/assets/storage-CFCjzjRZ.js                                        6.23 kB │ gzip:   2.46 kB
+../../../../../../tmp/atlas-dist-final/assets/SrsDetails-CYkrVG1A.js                                     6.38 kB │ gzip:   2.55 kB
+../../../../../../tmp/atlas-dist-final/assets/common-Cep_ziY0.js                                         6.99 kB │ gzip:   2.35 kB
+../../../../../../tmp/atlas-dist-final/assets/validate-Wr5REXtv.js                                       9.77 kB │ gzip:   3.59 kB
+../../../../../../tmp/atlas-dist-final/assets/X01-Bm8azYMQ.js                                           10.44 kB │ gzip:   2.36 kB
+../../../../../../tmp/atlas-dist-final/assets/J09-BaxLzDdD.js                                           12.36 kB │ gzip:   2.43 kB
+../../../../../../tmp/atlas-dist-final/assets/X02-2cf51oJJ.js                                           12.79 kB │ gzip:   2.70 kB
+../../../../../../tmp/atlas-dist-final/assets/DraftModulePage-B_O5UIon.js                               14.43 kB │ gzip:   4.99 kB
+../../../../../../tmp/atlas-dist-final/assets/X03-D376fY2W.js                                           15.73 kB │ gzip:   2.98 kB
+../../../../../../tmp/atlas-dist-final/assets/ExecutionWorkspace-BIlZv1si.js                            15.93 kB │ gzip:   5.51 kB
+../../../../../../tmp/atlas-dist-final/assets/X05-Dt93ybyD.js                                           17.66 kB │ gzip:   3.66 kB
+../../../../../../tmp/atlas-dist-final/assets/DefinitionWorkspace-BZrwt92I.js                           18.10 kB │ gzip:   6.03 kB
+../../../../../../tmp/atlas-dist-final/assets/CodePage-BLOAMHy0.js                                      18.47 kB │ gzip:   6.80 kB
+../../../../../../tmp/atlas-dist-final/assets/ServiceModulePage-QLQZ-R30.js                             20.91 kB │ gzip:   6.53 kB
+../../../../../../tmp/atlas-dist-final/assets/ViewPage-BiFdHgec.js                                      22.83 kB │ gzip:   6.30 kB
+../../../../../../tmp/atlas-dist-final/assets/observer-DNTnk7as.js                                      22.96 kB │ gzip:   6.59 kB
+../../../../../../tmp/atlas-dist-final/assets/WorkflowPage-DKTs6UnX.js                                  23.54 kB │ gzip:   7.34 kB
+../../../../../../tmp/atlas-dist-final/assets/service-query-D1ujUFqQ.js                                 24.54 kB │ gzip:   7.23 kB
+../../../../../../tmp/atlas-dist-final/assets/X07-0UxF56Jj.js                                           25.20 kB │ gzip:   3.62 kB
+../../../../../../tmp/atlas-dist-final/assets/native-states-BDXdceFo.js                                 29.84 kB │ gzip:   8.91 kB
+../../../../../../tmp/atlas-dist-final/assets/J11-D6e92Em9.js                                           30.29 kB │ gzip:   4.18 kB
+../../../../../../tmp/atlas-dist-final/assets/X06-CDShrDwV.js                                           38.59 kB │ gzip:   4.63 kB
+../../../../../../tmp/atlas-dist-final/assets/ui-D0HFL6SU.js                                            39.37 kB │ gzip:  13.48 kB
+../../../../../../tmp/atlas-dist-final/assets/J14-BO-d4LAI.js                                           42.10 kB │ gzip:   6.26 kB
+../../../../../../tmp/atlas-dist-final/assets/X04-B38RGuJt.js                                           45.82 kB │ gzip:   5.48 kB
+../../../../../../tmp/atlas-dist-final/assets/J05-VUGULZiy.js                                           48.05 kB │ gzip:   7.24 kB
+../../../../../../tmp/atlas-dist-final/assets/lifecycles-BK5i1G0i.js                                    49.63 kB │ gzip:   9.57 kB
+../../../../../../tmp/atlas-dist-final/assets/source-actions-bGCVBVUK.js                                50.18 kB │ gzip:   9.68 kB
+../../../../../../tmp/atlas-dist-final/assets/J12-Cmk1pnGl.js                                           50.19 kB │ gzip:   5.93 kB
+../../../../../../tmp/atlas-dist-final/assets/J06-CxL_B-1n.js                                           53.70 kB │ gzip:   6.27 kB
+../../../../../../tmp/atlas-dist-final/assets/journeys-Cf9Dd-I8.js                                      54.01 kB │ gzip:  13.35 kB
+../../../../../../tmp/atlas-dist-final/assets/radix-Bqw9BC-B.js                                         62.38 kB │ gzip:  20.74 kB
+../../../../../../tmp/atlas-dist-final/assets/J02-DfEq5OBL.js                                           65.40 kB │ gzip:   8.52 kB
+../../../../../../tmp/atlas-dist-final/assets/X08-B0YwC4y2.js                                           72.80 kB │ gzip:   5.95 kB
+../../../../../../tmp/atlas-dist-final/assets/J08-DtVWm6G7.js                                           78.77 kB │ gzip:   8.92 kB
+../../../../../../tmp/atlas-dist-final/assets/J01-zL1EyimJ.js                                           85.34 kB │ gzip:  10.91 kB
+../../../../../../tmp/atlas-dist-final/assets/J10-Bf7h0gFb.js                                           88.20 kB │ gzip:   7.51 kB
+../../../../../../tmp/atlas-dist-final/assets/J07-CpyxcVrW.js                                           92.11 kB │ gzip:   8.83 kB
+../../../../../../tmp/atlas-dist-final/assets/collaboration-_zKMox5S.js                                 93.52 kB │ gzip:  28.61 kB
+../../../../../../tmp/atlas-dist-final/assets/SpecificationsPage--U8CgGq6.js                           100.77 kB │ gzip:  33.44 kB
+../../../../../../tmp/atlas-dist-final/assets/workspace-BK7tz1SG.js                                    115.04 kB │ gzip:  26.89 kB
+../../../../../../tmp/atlas-dist-final/assets/J04-BIC-y9NS.js                                          129.25 kB │ gzip:  15.65 kB
+../../../../../../tmp/atlas-dist-final/assets/TaskGraph-PIR0ukqr.js                                    179.93 kB │ gzip:  58.02 kB
+../../../../../../tmp/atlas-dist-final/assets/J13-CrQ4Vvqh.js                                          187.70 kB │ gzip:  19.80 kB
+../../../../../../tmp/atlas-dist-final/assets/scene-index-DnykmSxS.js                                  187.76 kB │ gzip:  24.04 kB
+../../../../../../tmp/atlas-dist-final/assets/J03-DUSpZvfX.js                                          190.54 kB │ gzip:  22.59 kB
+../../../../../../tmp/atlas-dist-final/assets/views-tmt-_cZN.js                                        253.84 kB │ gzip:  18.88 kB
+../../../../../../tmp/atlas-dist-final/assets/react-BzUSLvjY.js                                        312.43 kB │ gzip:  98.50 kB
+../../../../../../tmp/atlas-dist-final/assets/schemas-B0lsjKeu.js                                      331.10 kB │ gzip:  22.43 kB
+../../../../../../tmp/atlas-dist-final/assets/LiveTerminal-CEmNjyJv.js                                 335.55 kB │ gzip:  84.71 kB
+../../../../../../tmp/atlas-dist-final/assets/CodeEditor-Dl1luxzF.js                                 1,083.83 kB │ gzip: 274.85 kB
+../../../../../../tmp/atlas-dist-final/assets/editor.api2-CHymt6O3.js                                2,555.39 kB │ gzip: 660.21 kB
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 600 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 5.22s

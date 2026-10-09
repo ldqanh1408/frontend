@@ -3,13 +3,25 @@ name: atlas-web
 # Frontend quality gate for frontend/atlas-web, plus read-only acceptance of the deployed staging release.
 # It never deploys and never calls the Cloudflare API: staging is checked over public HTTPS like any user.
 on:
+  pull_request:
+    branches: [claude/sharp-thompson-5tff91]
+    paths: ['frontend/atlas-web/**', '.github/workflows/atlas-web.yml']
   push:
     branches: [claude/sharp-thompson-5tff91]
     paths: ['frontend/atlas-web/**', '.github/workflows/atlas-web.yml']
   workflow_dispatch:
+    inputs:
+      check_staging:
+        description: 'Run read-only staging acceptance (requires explicit request)'
+        type: boolean
+        default: false
+      expected_release:
+        description: 'Exact buildId to accept; required for staging'
+        type: string
+        default: ''
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: atlas-web-${{ github.ref }}
@@ -23,14 +35,20 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, firefox, webkit]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: '22', cache: npm, cache-dependency-path: frontend/atlas-web/package-lock.json }
       - run: npm ci --no-audit --no-fund
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps ${{ matrix.engine }}
       - name: Typecheck
         run: npm run typecheck
+      - name: Release tooling tests
+        run: npm run test:tooling
       - name: Unit tests
         run: npx vitest run
       - name: Production build
@@ -39,63 +57,66 @@ jobs:
         run: |
           if grep -RIl "Illustrative" dist/assets/*.js | xargs -r grep -l "Design review build" ; then echo "review-mode copy found in production bundle"; exit 1; fi
       - name: E2E + accessibility (local preview with production headers)
-        run: npx playwright test --reporter=list,json
+        run: npx playwright test --project=${{ matrix.engine }} --reporter=list,json
         env: { PLAYWRIGHT_JSON_OUTPUT_NAME: test-results/e2e.json }
-      - name: Release reproducibility
+      - name: Canonical Linux layout and performance gates
+        if: matrix.engine == 'chromium'
+        run: npx playwright test --project=layout-chromium --reporter=list,json
+        env: { PLAYWRIGHT_JSON_OUTPUT_NAME: test-results/layout-perf.json }
+      - name: Review-only fixtures and execution states
+        run: npx vite build --mode review --outDir dist-review && npx playwright test -c playwright.review.config.ts --project=${{ matrix.engine }}
+      - name: Current source release reproducibility
+        if: matrix.engine == 'chromium'
         run: |
-          M=release/staging/release-manifest.json
-          if [ ! -f "$M" ]; then echo "no committed release"; exit 0; fi
-          SRC=$(node -p "require('./$M').sourceCommit"); ID=$(node -p "require('./$M').buildId")
-          git -C "$GITHUB_WORKSPACE" fetch --depth=1 origin "$SRC"
-          rm -rf /tmp/repro && git -C "$GITHUB_WORKSPACE" worktree add /tmp/repro "$SRC"
-          cd /tmp/repro/frontend/atlas-web && npm ci --no-audit --no-fund >/dev/null && ATLAS_BUILD_ID="$ID" npx vite build >/dev/null
-          node -e '
-            const fs=require("fs"),c=require("crypto"),m=require(process.argv[1]);let bad=0,n=0;
-            for (const [p,f] of Object.entries(m.files)) { if (p==="/release-manifest.json") continue; n++;
-              const b=fs.readFileSync("dist"+p); const s=c.createHash("sha256").update(b).digest("hex");
-              if (s!==f.sha256) { bad++; console.log("DIFF",p); } }
-            console.log(`reproducible: ${n-bad}/${n} files identical`); process.exit(bad?1:0);' "$GITHUB_WORKSPACE/frontend/atlas-web/$M"
+          npm run release -- ci-validation
+          ID=$(node -p "require('./release/ci-validation/release-manifest.json').buildId")
+          ATLAS_BUILD_ID="$ID" npx vite build
+          node --input-type=module - <<'JS'
+          import { readFileSync } from 'node:fs';
+          import { deepStrictEqual } from 'node:assert';
+          import { hashFiles, sourceDigest, validateManifest } from './tools/release-manifest.mjs';
+          const manifest = validateManifest(JSON.parse(readFileSync('release/ci-validation/release-manifest.json', 'utf8')));
+          if (manifest.sourceCommit !== process.env.GITHUB_SHA || manifest.sourceKind !== 'git' || manifest.sourceDirty || manifest.sourceDigest !== sourceDigest(process.cwd())) throw new Error('Reproducibility must use the current clean commit.');
+          deepStrictEqual(hashFiles('dist', ['/release-manifest.json']), manifest.files);
+          console.log(`current source reproducible: ${manifest.fileCount}/${manifest.fileCount} files identical`);
+          JS
       - uses: actions/upload-artifact@v4
         if: always()
-        with: { name: atlas-web-verify, path: frontend/atlas-web/test-results, retention-days: 14 }
+        with:
+          name: atlas-web-verify-${{ matrix.engine }}
+          # Public repository: retain structured results without screenshots, video or trace archives.
+          path: |
+            frontend/atlas-web/test-results/**/*.json
+            frontend/atlas-web/test-results/**/*.log
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always() && matrix.engine == 'chromium'
+        with: { name: 'atlas-web-current-release', path: frontend/atlas-web/release/ci-validation, retention-days: 14 }
 
   staging:
     needs: verify
-    if: always()
+    if: github.event_name == 'workflow_dispatch' && inputs.check_staging
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-      - name: Staging target
-        id: t
-        run: |
-          F=deploy/staging-target.json
-          if [ ! -f "$F" ]; then echo "url=" >> "$GITHUB_OUTPUT"; exit 0; fi
-          echo "url=$(node -p "require('./$F').url")" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@v4
-        if: steps.t.outputs.url != ''
         with: { node-version: '22', cache: npm, cache-dependency-path: frontend/atlas-web/package-lock.json }
-      - if: steps.t.outputs.url != ''
-        run: npm ci --no-audit --no-fund && npx playwright install --with-deps chromium
-      - name: Acceptance against staging (read-only)
-        if: steps.t.outputs.url != ''
-        continue-on-error: true
-        env: { BASE_URL: '${{ steps.t.outputs.url }}', RELEASE_CHECK: '1', PLAYWRIGHT_JSON_OUTPUT_NAME: test-results/staging.json }
-        run: npx playwright test --reporter=list,json
-      - name: Commit staging results
-        if: steps.t.outputs.url != ''
-        working-directory: .
+      - run: npm ci --no-audit --no-fund && npx playwright install --with-deps chromium firefox webkit
+      - name: Validate independent targets and requested release
+        env: { EXPECTED_BUILD_ID: '${{ inputs.expected_release }}' }
         run: |
-          OUT=frontend-acceptance/evidence/runs/web-staging-${GITHUB_RUN_ID}
-          mkdir -p "$OUT"
-          cp frontend/atlas-web/test-results/staging.json "$OUT/" 2>/dev/null || true
-          node -e '
-            const r=require("./'"$OUT"'/staging.json");const out={target:process.env.URL,commit:process.env.GITHUB_SHA,stats:r.stats,failed:[]};
-            const walk=s=>{(s.specs||[]).forEach(sp=>sp.tests.forEach(t=>t.results.forEach(x=>{if(x.status!=="passed"&&x.status!=="skipped")out.failed.push({title:sp.title,file:sp.file,error:(x.error&&x.error.message||"").slice(0,1500)})})));(s.suites||[]).forEach(walk)};
-            r.suites.forEach(walk);require("fs").writeFileSync("'"$OUT"'/summary.json",JSON.stringify(out,null,2));console.log(JSON.stringify(out.stats),out.failed.length,"failed")' || true
-          git config user.name "atlas-acceptance-bot"
-          git config user.email "atlas-acceptance-bot@users.noreply.github.com"
-          git add "$OUT" && git commit -m "atlas-web staging acceptance (run ${GITHUB_RUN_ID})" || exit 0
-          for i in 1 2 3 4 5; do git pull --rebase --no-edit origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0; git rebase --abort 2>/dev/null || true; sleep $((i*5)); done
-          exit 1
-        env: { URL: '${{ steps.t.outputs.url }}' }
+          node --input-type=module - <<'JS'
+          import { readFileSync, appendFileSync } from 'node:fs';
+          const target = JSON.parse(readFileSync('deploy/staging-target.json', 'utf8'));
+          if (!target.workspaceUrl || !target.observerUrl || !process.env.EXPECTED_BUILD_ID) throw new Error('Configure workspaceUrl/observerUrl and request an exact expected_release. Legacy target metadata is not acceptance.');
+          for (const [name, value] of Object.entries({ WORKSPACE_URL: target.workspaceUrl, OBSERVER_URL: target.observerUrl, EXPECTED_BUILD_ID: process.env.EXPECTED_BUILD_ID })) {
+            if (/[\r\n]/.test(value)) throw new Error('Invalid staging input');
+            appendFileSync(process.env.GITHUB_ENV, `${name}=${value}\n`);
+          }
+          JS
+      - name: Read-only staging acceptance (fails on any failed gate)
+        run: npm run verify:staging
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'atlas-web-staging-acceptance', path: frontend/atlas-web/test-results, retention-days: 14 }

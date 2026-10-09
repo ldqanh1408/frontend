@@ -7,6 +7,12 @@ import nav from '../src/generated/nav.json' with { type: 'json' };
 type Mod = { title: string; purpose: string; controls: string[] };
 const modules = nav.modules as Record<string, Mod>;
 const norm = (s: string) => s.toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, ' ').trim();
+// UI-9: Field Dictionary labels are deliberate deviations. Any additional missing label fails the gate.
+const dictionaryLabels: Record<string, string[]> = {
+  resources: ['Endpoint / artifact reference'],
+  memory: ['Source revision / snapshot', 'Knowledge type', 'Source digest'],
+  configuration: ['Proposed scope', 'Policy JSON', 'Rollback proposal'],
+};
 
 async function prepare(page: Page, r: string) {
   const go = (p: string) => page.goto(p, { waitUntil: 'networkidle' });
@@ -14,12 +20,12 @@ async function prepare(page: Page, r: string) {
     await go('/specifications');
     await page.getByRole('button', { name: 'New document' }).first().click();
     await page.getByRole('button', { name: 'Create' }).click();
-    await expect(page.locator('.cm-content')).toBeVisible();
+    await expect(page.locator('.monaco-editor')).toBeVisible();
   } else if (r === 'code') {
     await go('/code');
     await page.locator('input[type=file]').setInputFiles(path.resolve('src/lib'));
     await page.getByRole('treeitem', { name: /storage\.ts/ }).click();
-    await expect(page.locator('.cm-content')).toBeVisible();
+    await expect(page.locator('.monaco-editor')).toBeVisible();
   } else if (['agents', 'resources', 'memory', 'configuration'].includes(r)) {
     await go(`/${r}`);
     await page.locator('.page-head').getByRole('button', { name: /^New / }).click();
@@ -30,6 +36,9 @@ async function prepare(page: Page, r: string) {
     await page.getByRole('button', { name: 'Create' }).click();
     await expect(page.getByRole('button', { name: 'Add task' }).first()).toBeVisible();
   } else await go(r === 'home' ? '/' : `/${r}`);
+  // Network idle can precede the React commit of a lazy route. Measure the actual
+  // module heading rather than a shell/Suspense snapshot; the label gate is unchanged.
+  await expect(page.getByRole('heading', { level: 1, name: modules[r].title, exact: true })).toBeVisible();
 }
 
 const results: Record<string, { hit: number; total: number; missing: string[] }> = {};
@@ -41,6 +50,8 @@ for (const [r, m] of Object.entries(modules)) {
     const missing = labels.filter((l) => !text.includes(norm(l)));
     results[r] = { hit: labels.length - missing.length, total: labels.length, missing };
     console.log(`PARITY ${r} ${labels.length - missing.length}/${labels.length}${missing.length ? ` missing: ${missing.join(' | ')}` : ''}`);
-    expect(labels.length - missing.length, `${r}: ${missing.join(' | ')}`).toBeGreaterThanOrEqual(Math.ceil(labels.length * 0.7));
+    const approved = (dictionaryLabels[r] ?? []).map(norm);
+    expect(missing.filter(l => !approved.includes(norm(l))), `${r}: unapproved missing labels`).toEqual([]);
+    expect(labels.length - missing.length, `${r}: ${missing.join(' | ')}`).toBeGreaterThanOrEqual(labels.length - approved.length);
   });
 }

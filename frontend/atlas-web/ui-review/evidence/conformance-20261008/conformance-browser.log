@@ -1,0 +1,98 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:32) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22mnpm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:45) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 57 tests using 2 workers
+
+(node:80) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:79) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:79) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:80) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › e2e/definitions.spec.ts:3:1 › secret-bearing imports and unsaved exports are blocked before persistence or download (946ms)
+  ✓   3 [chromium] › e2e/definitions.spec.ts:98:1 › unsaved changes are guarded on navigation (766ms)
+  ✓   2 [chromium] › e2e/definitions.spec.ts:58:1 › author, validate, save, compare and archive a definition (3.6s)
+  ✓   5 [chromium] › e2e/definitions.spec.ts:136:1 › agents workbench follows the Figma frame: tabs, gated lifecycle, readiness and versions (3.1s)
+  ✓   6 [chromium] › e2e/definitions.spec.ts:172:1 › own saves never raise a conflict; a save from another tab does (1.3s)
+REALTIME {"presenceObservedMs":48,"environment":"local protocol peer"}
+  ✓   7 [chromium] › e2e/realtime.spec.ts:137:1 › presence arrives through its scoped endpoint and expires from resolved policy (2.4s)
+  ✓   8 [chromium] › e2e/realtime.spec.ts:208:1 › scoped DAG, terminal and structured thoughts reject gaps without replaying commands (6.4s)
+REALTIME {"crdtPeerObservedMs":21,"environment":"local protocol peer"}
+  ✓   9 [chromium] › e2e/realtime.spec.ts:303:1 › Yjs synchronizes two Monaco editors and closes editing on disconnect (6.2s)
+  ✓  10 [chromium] › e2e/realtime.spec.ts:401:1 › Observer does not restore workspace authority and has independent grants (1.5s)
+  ✓  11 [chromium] › e2e/realtime.spec.ts:448:1 › resolved policy overrides drive risk and three budget classifications (1.7s)
+  ✓  12 [chromium] › e2e/scope-presence.spec.ts:6:49 › scope switch Effective preserves command identity and checks readback (1.9s)
+  ✓   4 [chromium] › e2e/definitions.spec.ts:120:1 › every definition type can be created with defaults (FND-004) (27.0s)
+  ✓  13 [chromium] › e2e/scope-presence.spec.ts:6:49 › scope switch Unknown preserves command identity and checks readback (1.5s)
+  ✓  14 [chromium] › e2e/service.spec.ts:124:1 › secret command fields are masked and echoed rejection details never enter persisted receipts (1.3s)
+  ✓  15 [chromium] › e2e/service.spec.ts:172:1 › rejects credentials in the service URL (376ms)
+  ✓  17 [chromium] › e2e/service.spec.ts:220:1 › server error after send is Unknown and never resent (1.2s)
+  ✓  18 [chromium] › e2e/service.spec.ts:245:1 › session is restored after a reload from the service cookie session (978ms)
+  ✓  16 [chromium] › e2e/service.spec.ts:184:1 › connect, inspect a record and send one command per activation (2.8s)
+(node:818) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  19 [chromium] › e2e/service.spec.ts:255:1 › 401 ends the session with a single reconnect notice (FND-005) (764ms)
+(node:826) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:818) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:826) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  20 [firefox] › e2e/definitions.spec.ts:3:1 › secret-bearing imports and unsaved exports are blocked before persistence or download (2.3s)
+  ✓  22 [firefox] › e2e/definitions.spec.ts:98:1 › unsaved changes are guarded on navigation (1.2s)
+  ✓  21 [firefox] › e2e/definitions.spec.ts:58:1 › author, validate, save, compare and archive a definition (5.1s)
+  ✓  24 [firefox] › e2e/definitions.spec.ts:136:1 › agents workbench follows the Figma frame: tabs, gated lifecycle, readiness and versions (4.3s)
+  ✓  25 [firefox] › e2e/definitions.spec.ts:172:1 › own saves never raise a conflict; a save from another tab does (2.3s)
+REALTIME {"presenceObservedMs":906,"environment":"local protocol peer"}
+  ✓  26 [firefox] › e2e/realtime.spec.ts:137:1 › presence arrives through its scoped endpoint and expires from resolved policy (2.7s)
+  ✓  27 [firefox] › e2e/realtime.spec.ts:208:1 › scoped DAG, terminal and structured thoughts reject gaps without replaying commands (6.4s)
+REALTIME {"crdtPeerObservedMs":23,"environment":"local protocol peer"}
+  ✓  28 [firefox] › e2e/realtime.spec.ts:303:1 › Yjs synchronizes two Monaco editors and closes editing on disconnect (8.5s)
+  ✓  29 [firefox] › e2e/realtime.spec.ts:401:1 › Observer does not restore workspace authority and has independent grants (2.5s)
+  ✓  30 [firefox] › e2e/realtime.spec.ts:448:1 › resolved policy overrides drive risk and three budget classifications (2.3s)
+  ✓  31 [firefox] › e2e/scope-presence.spec.ts:6:49 › scope switch Effective preserves command identity and checks readback (3.0s)
+  ✓  32 [firefox] › e2e/scope-presence.spec.ts:6:49 › scope switch Unknown preserves command identity and checks readback (2.5s)
+  ✓  33 [firefox] › e2e/service.spec.ts:124:1 › secret command fields are masked and echoed rejection details never enter persisted receipts (1.9s)
+  ✓  34 [firefox] › e2e/service.spec.ts:172:1 › rejects credentials in the service URL (846ms)
+  ✓  23 [firefox] › e2e/definitions.spec.ts:120:1 › every definition type can be created with defaults (FND-004) (41.0s)
+  ✓  36 [firefox] › e2e/service.spec.ts:220:1 › server error after send is Unknown and never resent (1.9s)
+  ✓  35 [firefox] › e2e/service.spec.ts:184:1 › connect, inspect a record and send one command per activation (4.6s)
+  ✓  37 [firefox] › e2e/service.spec.ts:245:1 › session is restored after a reload from the service cookie session (1.8s)
+  ✓  38 [firefox] › e2e/service.spec.ts:255:1 › 401 ends the session with a single reconnect notice (FND-005) (1.4s)
+(node:2298) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2298) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2310) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2310) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  39 [webkit] › e2e/definitions.spec.ts:3:1 › secret-bearing imports and unsaved exports are blocked before persistence or download (2.9s)
+  ✓  41 [webkit] › e2e/definitions.spec.ts:98:1 › unsaved changes are guarded on navigation (2.1s)
+  ✓  40 [webkit] › e2e/definitions.spec.ts:58:1 › author, validate, save, compare and archive a definition (6.6s)
+  ✓  43 [webkit] › e2e/definitions.spec.ts:136:1 › agents workbench follows the Figma frame: tabs, gated lifecycle, readiness and versions (6.3s)
+  ✓  44 [webkit] › e2e/definitions.spec.ts:172:1 › own saves never raise a conflict; a save from another tab does (3.7s)
+REALTIME {"presenceObservedMs":734,"environment":"local protocol peer"}
+  ✓  45 [webkit] › e2e/realtime.spec.ts:137:1 › presence arrives through its scoped endpoint and expires from resolved policy (3.7s)
+  ✓  46 [webkit] › e2e/realtime.spec.ts:208:1 › scoped DAG, terminal and structured thoughts reject gaps without replaying commands (8.2s)
+REALTIME {"crdtPeerObservedMs":143,"environment":"local protocol peer"}
+  ✓  47 [webkit] › e2e/realtime.spec.ts:303:1 › Yjs synchronizes two Monaco editors and closes editing on disconnect (13.1s)
+  ✓  48 [webkit] › e2e/realtime.spec.ts:401:1 › Observer does not restore workspace authority and has independent grants (3.6s)
+  ✓  49 [webkit] › e2e/realtime.spec.ts:448:1 › resolved policy overrides drive risk and three budget classifications (2.8s)
+  ✓  42 [webkit] › e2e/definitions.spec.ts:120:1 › every definition type can be created with defaults (FND-004) (45.6s)
+  ✓  50 [webkit] › e2e/scope-presence.spec.ts:6:49 › scope switch Effective preserves command identity and checks readback (3.7s)
+  ✓  51 [webkit] › e2e/scope-presence.spec.ts:6:49 › scope switch Unknown preserves command identity and checks readback (3.2s)
+  ✓  53 [webkit] › e2e/service.spec.ts:172:1 › rejects credentials in the service URL (1.2s)
+  ✓  52 [webkit] › e2e/service.spec.ts:124:1 › secret command fields are masked and echoed rejection details never enter persisted receipts (3.2s)
+  ✓  55 [webkit] › e2e/service.spec.ts:220:1 › server error after send is Unknown and never resent (3.0s)
+  ✓  54 [webkit] › e2e/service.spec.ts:184:1 › connect, inspect a record and send one command per activation (5.5s)
+  ✓  56 [webkit] › e2e/service.spec.ts:245:1 › session is restored after a reload from the service cookie session (2.3s)
+  ✓  57 [webkit] › e2e/service.spec.ts:255:1 › 401 ends the session with a single reconnect notice (FND-005) (1.9s)
+
+  57 passed (2.5m)

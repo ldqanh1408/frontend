@@ -1,0 +1,20 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> atlas-web@1.0.0-rc.1 test:tooling
+> node --test tools/tests/*.test.mjs
+
+✔ independent entries and origin boundaries (15.552362ms)
+✔ missing files, unsupported methods and malformed routes fail explicitly (1.582262ms)
+✔ GET/HEAD, cache and ETag preserve release identity and security headers (2.615768ms)
+✔ upstream integrity failure never serves HTML or caches unverified bytes (0.966825ms)
+✔ corrupt cached bytes are rejected and repaired from verified upstream (6.279092ms)
+✔ release validates channel before filesystem writes and validates both entries (0.604791ms)
+✔ source digest detects Observer entry changes and ignores generated evidence (1.317273ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.197414

@@ -1,4 +1,5 @@
 dist/
+dist-review/
 node_modules/
 __pycache__/
 frontend-acceptance/work/release-mirror/

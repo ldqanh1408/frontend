@@ -1,0 +1,17 @@
+{
+  "base_commit": "4737b155e9f106bc7351c271d19ef207cfbb9a66",
+  "original_zip_sha256": "e03ed39e7b923c8e2a289b2133e0e2606a9dbe764bfa46c5af92b2e836ea0b3f",
+  "inputs": [
+    {
+      "file": "design-source/Atlas-Tech-Stack-ADR.md",
+      "original_filename": "Atlas_Tech_Stack_and_ADR_SaaS(1).md",
+      "sha256": "03b0e31105b33a3a3fa37d4e0136af610c0fdb5ad7de6c3ac94b20fb6f982df1"
+    },
+    {
+      "file": "design-source/Atlas-SRS-v1.1.txt",
+      "original_filename": "Pasted text(5).txt",
+      "sha256": "7a7641ef1957d2ecc5dd01b87c880a87cc0c92f2678d4bcc8dfa20aeabed6ea6"
+    }
+  ],
+  "patches": "5 code/quality commits from base through e83226c4c37b8f229fb7adb6d93d75dde141bf17"
+}

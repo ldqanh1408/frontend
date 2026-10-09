@@ -1,0 +1,38 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:239) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22mnpm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:252) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 19 tests using 2 workers
+
+(node:287) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:287) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:286) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:286) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › e2e/ides.spec.ts:63:1 › specifications: preview never runs scripts from Markdown (4.2s)
+  ✓   2 [chromium] › e2e/ides.spec.ts:4:1 › specifications: create, edit, save, outline, preview, history (7.0s)
+  ✓   3 [chromium] › e2e/ides.spec.ts:84:1 › code intelligence: import folder, search, outline symbols (5.7s)
+  ✓   5 [chromium] › e2e/scene.spec.ts:8:3 › dedicated ide template without service (2.1s)
+  ✓   6 [chromium] › e2e/scene.spec.ts:8:3 › dedicated review template without service (1.7s)
+  ✓   7 [chromium] › e2e/scene.spec.ts:8:3 › dedicated table template without service (1.7s)
+  ✓   4 [chromium] › e2e/ides.spec.ts:119:1 › workflow: tasks, pinned agent, cycle detection, save (6.8s)
+  ✓   8 [chromium] › e2e/scene.spec.ts:8:3 › dedicated statepattern template without service (1.7s)
+  ✓   9 [chromium] › e2e/scene.spec.ts:8:3 › dedicated run template without service (2.3s)
+  ✓  10 [chromium] › e2e/scene.spec.ts:8:3 › dedicated observer template without service (1.6s)
+  ✓  11 [chromium] › e2e/scene.spec.ts:8:3 › dedicated trace template without service (1.7s)
+  ✓  12 [chromium] › e2e/scene.spec.ts:8:3 › dedicated terminal template without service (1.6s)
+  ✓  13 [chromium] › e2e/scene.spec.ts:8:3 › dedicated diff template without service (1.9s)
+  ✓  14 [chromium] › e2e/scene.spec.ts:8:3 › dedicated merge template without service (1.7s)
+  ✓  15 [chromium] › e2e/scene.spec.ts:8:3 › dedicated plan template without service (1.9s)
+  ✓  16 [chromium] › e2e/scene.spec.ts:8:3 › dedicated tasklist template without service (2.4s)
+  ✓  17 [chromium] › e2e/scene.spec.ts:8:3 › dedicated workflow template without service (2.0s)
+  ✓  18 [chromium] › e2e/scene.spec.ts:8:3 › dedicated palette template without service (2.3s)
+  ✓  19 [chromium] › e2e/scene.spec.ts:29:1 › mobile IDE reveals imported source and switches panels without document overflow (2.4s)
+
+  19 passed (30.9s)

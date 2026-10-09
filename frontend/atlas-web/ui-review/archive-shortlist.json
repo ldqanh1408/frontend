@@ -1,0 +1,254 @@
+{
+  "criteria": [
+    "Khả dụng",
+    "Bám SRS",
+    "App hiện tại còn thiếu",
+    "Ít công refactor",
+    "Rủi ro a11y/performance thấp"
+  ],
+  "scale": "0–2 mỗi tiêu chí; điểm cao hơn tốt hơn. Đây là đánh giá sơ bộ về layout, không phải nghiệm thu nghiệp vụ.",
+  "items": [
+    {
+      "group": "Onboarding & tenancy",
+      "key": "onboarding",
+      "node_id": "149:2718",
+      "app": "tenancy",
+      "image": "archive-onboarding.png",
+      "scores": [
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "total": 9,
+      "recommendation": "Đã dùng một phần",
+      "reason": "Giữ hướng dẫn từng bước và readiness; hành động tạo cần contract service và grant tại scope hiện tại.",
+      "status": "selected_partial_implemented",
+      "light_node_id": "166:3882",
+      "light_image": "archive-onboarding-light.png"
+    },
+    {
+      "group": "Thành viên & RBAC",
+      "key": "members",
+      "node_id": "138:1530",
+      "app": "identity",
+      "image": "archive-members.png",
+      "scores": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "total": 10,
+      "recommendation": "Đã dùng một phần",
+      "reason": "Danh sách thành viên và invitation; giữ grant thực tế, tách Observer và workspace.",
+      "status": "selected_partial_implemented",
+      "light_node_id": "166:1733",
+      "light_image": "archive-members-light.png"
+    },
+    {
+      "group": "Gateway & ngân sách",
+      "key": "gateway",
+      "node_id": "150:3577",
+      "app": "gateway",
+      "image": "archive-gateway.png",
+      "scores": [
+        2,
+        1,
+        2,
+        1,
+        2
+      ],
+      "total": 8,
+      "recommendation": "Đã dùng một phần",
+      "reason": "Giữ provider/routing/budget; bổ sung 3 tầng, cấu hình động và trạng thái không quan sát được.",
+      "status": "selected_partial_implemented",
+      "light_node_id": "167:3291",
+      "light_image": "archive-gateway-light.png"
+    },
+    {
+      "group": "Agent Customization Hub",
+      "key": "hub",
+      "node_id": "150:5003",
+      "app": "agents",
+      "image": "archive-hub.png",
+      "scores": [
+        2,
+        1,
+        1,
+        1,
+        2
+      ],
+      "total": 7,
+      "recommendation": "Đã dùng một phần",
+      "reason": "Giữ điều hướng theo loại resource; ghép với draft workbench và Field Dictionary hiện tại.",
+      "status": "selected_partial_implemented",
+      "light_node_id": "167:4058",
+      "light_image": "archive-hub-light.png"
+    },
+    {
+      "group": "Memory Hub",
+      "key": "memory",
+      "node_id": "150:7864",
+      "app": "memory",
+      "image": "archive-memory.png",
+      "scores": [
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "total": 9,
+      "recommendation": "Đã dùng một phần",
+      "reason": "Giữ 4 lớp, lineage và curation; cần projection service cho retrieval/provenance.",
+      "status": "selected_partial_implemented",
+      "light_node_id": "167:5468",
+      "light_image": "archive-memory-light.png"
+    },
+    {
+      "group": "Specifications & merge",
+      "key": "editor",
+      "node_id": "137:887",
+      "app": "specifications",
+      "image": "archive-editor.png",
+      "scores": [
+        2,
+        2,
+        1,
+        1,
+        2
+      ],
+      "total": 8,
+      "recommendation": "Đã dùng một phần",
+      "reason": "Giữ outline và immutable pins; Monaco lazy đã thay editor theo D1.",
+      "status": "selected_partial_implemented",
+      "light_node_id": "166:892",
+      "light_image": "archive-editor-light.png"
+    },
+    {
+      "group": "Code intelligence",
+      "key": "code",
+      "node_id": "137:1651",
+      "app": "code",
+      "image": "archive-code.png",
+      "scores": [
+        2,
+        1,
+        1,
+        1,
+        2
+      ],
+      "total": 7,
+      "recommendation": "Đã dùng một phần",
+      "reason": "Giữ inspector symbol/context; không suy ra AST, refs hay OID từ snapshot thiết bị.",
+      "status": "selected_partial_implemented",
+      "light_node_id": "165:730",
+      "light_image": "archive-code-light.png"
+    },
+    {
+      "group": "Workflow & Plan-first",
+      "key": "workflow",
+      "node_id": "139:2679",
+      "app": "workflow",
+      "image": "archive-workflow.png",
+      "scores": [
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "total": 8,
+      "recommendation": "Đã dùng một phần",
+      "reason": "Giữ canvas và human gate; cần List tương đương, không tự admit run.",
+      "status": "selected_partial_implemented",
+      "light_node_id": "166:2690",
+      "light_image": "archive-workflow-light.png"
+    },
+    {
+      "group": "Thực thi multi-agent",
+      "key": "execution",
+      "node_id": "137:2483",
+      "app": "execution",
+      "image": "execution-dark.png",
+      "scores": [
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "total": 9,
+      "recommendation": "Đã chọn — đã refactor",
+      "reason": "Graph/List, Task/Context/Access, snapshot/locks/budget và activity tabs đã vào shell Current UI.",
+      "status": "selected_implemented",
+      "light_node_id": "166:1253",
+      "light_image": "archive-execution-light.png"
+    },
+    {
+      "group": "Governance",
+      "key": "gates",
+      "node_id": "152:10772",
+      "app": "governance",
+      "image": "archive-gates.png",
+      "scores": [
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "total": 9,
+      "recommendation": "Đã dùng một phần",
+      "reason": "Giữ queue và signature status; bổ sung 6 trục, Veto và cấm tự duyệt theo SRS.",
+      "status": "selected_partial_implemented",
+      "light_node_id": "169:7607",
+      "light_image": "archive-gates-light.png"
+    },
+    {
+      "group": "Collaboration & notifications",
+      "key": "notifications",
+      "node_id": "153:8588",
+      "app": "collaboration",
+      "image": "archive-notifications.png",
+      "scores": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "total": 10,
+      "recommendation": "Đã dùng một phần",
+      "reason": "Giữ inbox và next step; cần record revision và deep link được service cấp.",
+      "status": "selected_partial_implemented",
+      "light_node_id": "169:9585",
+      "light_image": "archive-notifications-light.png"
+    },
+    {
+      "group": "Observer console",
+      "key": "obs-overview",
+      "node_id": "141:803",
+      "app": "observer",
+      "image": "archive-obs-overview.png",
+      "scores": [
+        2,
+        1,
+        2,
+        1,
+        1
+      ],
+      "total": 7,
+      "recommendation": "Đã dùng một phần",
+      "reason": "Giữ coverage/freshness và layout metric; Observer đã tách entry theo D2; metric cần scoped service evidence.",
+      "status": "selected_partial_implemented",
+      "light_node_id": "175:28904",
+      "light_image": "archive-obs-overview-light.png"
+    }
+  ],
+  "selection_basis": "User requested implementation and acceptance of the whole handoff after the shortlist was delivered; recommended partial patterns were implemented. No deployment approval is inferred.",
+  "light_reference_read_at": "2026-10-07"
+}

@@ -1,0 +1,162 @@
+{
+  "format": "atlas-acceptance-evidence-index/v1",
+  "files": {
+    "20261008-final/focus-repeat.json": {
+      "size": 35535,
+      "sha256": "4938091890b1897c9f31ab60b2578c416f55db98f7498e69ca048afb67f52182"
+    },
+    "20261008-final/review.json": {
+      "size": 183081,
+      "sha256": "2060b70ccb2ba45c0749d59449fd4737e63340c2a0ba919003cc17d9be163ee6"
+    },
+    "20261008-final/targeted.json": {
+      "size": 241482,
+      "sha256": "07e41259df56a6e7a7790b25d2d7d9c02595e403baa0f34431f31b1931b312ad"
+    },
+    "20261008-focus-fix/final.log": {
+      "size": 11967,
+      "sha256": "0ad71fa74481a348975d00dd1616c3eaf3d18f8d92ed6ee5f04abd0202defc16"
+    },
+    "20261008-focus-fix/shell-ides.log": {
+      "size": 3580,
+      "sha256": "8027464af6a9aa53b385f9aad1862312d6f2fedfecd2b77d42bd3cdc6c8068b7"
+    },
+    "20261008-focus-fix/summary.json": {
+      "size": 646,
+      "sha256": "e495878317dcc455a6fedff9ae43c721a5858bfc1db2c1d7e36545fa53e9a625"
+    },
+    "20261008-focus-fix/verified.log": {
+      "size": 4948,
+      "sha256": "2a672b641eb6f12182bd2c4bdc9e240226149bc95ef19cbaa5a837cb81191388"
+    },
+    "20261008-local-01/check.log": {
+      "size": 13292,
+      "sha256": "73ee2875af425d86c854307457b81b7a6e427c6ba8f2c83d9be37cecf7c40ca6"
+    },
+    "20261008-local-01/functional.log": {
+      "size": 58141,
+      "sha256": "64543d6815803d2ec66682e14ca320efd5d43023d585334489d2126065457e44"
+    },
+    "20261008-local-01/summary.json": {
+      "size": 898,
+      "sha256": "1e6fa22cb52bd1bde569d34527688f5fe121cd5e3b369eafa97c6d1c5bd05d02"
+    },
+    "20261008-local-01/tooling.log": {
+      "size": 891,
+      "sha256": "8f5266db45f12561c7e6df4ad7b335871cd22bf46980013ed0783d9b190e93af"
+    },
+    "20261008-local-02/check.log": {
+      "size": 13292,
+      "sha256": "51cf4d17ac8084e5567d72cb3f4cfea3c2448e1341f5f1b537d24b4f7809609d"
+    },
+    "20261008-local-02/functional.log": {
+      "size": 34081,
+      "sha256": "19082a51d0dd7394c4f2adada6319f8c60c18162163877e41fe481cbf43de33f"
+    },
+    "20261008-local-02/summary.json": {
+      "size": 854,
+      "sha256": "94fb512a4ddb3ea7b51a6b7e6f99c97253814d2de6a30dd9fe74dd7a1bf857f0"
+    },
+    "20261008-local-02/tooling.log": {
+      "size": 890,
+      "sha256": "2bca419247c3a5e5bf58314951d897bddde912e2b0e427b567d443c96519ff6e"
+    },
+    "20261008-local-03/check.log": {
+      "size": 13294,
+      "sha256": "05ea5e68a8769fb370254ca027b368e6c73703063bfe0ec28478bc27fa896c19"
+    },
+    "20261008-local-03/functional/shell-skip-link-route-focus-title-and-breadcrumb-webkit/error-context.md": {
+      "size": 14613,
+      "sha256": "1f0c19e69c54413fa2d547403b94e30346b31b9fd38185e4387d48946977b7e3"
+    },
+    "20261008-local-03/functional/shell-skip-link-route-focus-title-and-breadcrumb-webkit/trace.zip": {
+      "size": 273536,
+      "sha256": "403178910a3a93a59dcb46f1b6ca4a9baee684da4c5dc5931429510371090cc6"
+    },
+    "20261008-local-03/functional.json": {
+      "size": 1957044,
+      "sha256": "ca3d2c1645480d817555a120908d8ef2daf5851949ca06b0200706c1e1b941b4"
+    },
+    "20261008-local-03/functional.log": {
+      "size": 199688,
+      "sha256": "cac2838889bd152187bf41a579417f7edc256b27a84b0c15cdb331a310224ca9"
+    },
+    "20261008-local-03/summary.json": {
+      "size": 1071,
+      "sha256": "6264872590ada3f7e9ff00dd7659b85ee6df438a490b99d1ee1e78b68e1f66f7"
+    },
+    "20261008-local-03/tooling.log": {
+      "size": 891,
+      "sha256": "68ff269a73c818a0c9f8b1d3922dc5003be8f08a572b6eae416cd4b4d6f03d38"
+    },
+    "20261008-missing-target/staging.log": {
+      "size": 1486,
+      "sha256": "dcd7d27da7d5fbd9b7f9fa6276cafc268b166e6895faab41e678b23a9791a13e"
+    },
+    "20261008-missing-target/summary.json": {
+      "size": 611,
+      "sha256": "ce885a4c3eae828f6018702496798ba42cc503bfd7d6d3f608e617602d5a5951"
+    },
+    "README.md": {
+      "size": 1342,
+      "sha256": "a2afd067d0878cf297adb88de9ecded24b7e0a8e783913397b94e796ecb0315c"
+    },
+    "archive-worker-guard.log": {
+      "size": 802,
+      "sha256": "c5af694c9fd2b346769dc05e5268a735ddef1b0d9b85de4e3f946290e717682d"
+    },
+    "baseline-original-check.log": {
+      "size": 13292,
+      "sha256": "67be9e2881d60c7c50b4a8e5e45611d0f7df5e471618086fb477750e82ebc2bf"
+    },
+    "build-review-final.log": {
+      "size": 13064,
+      "sha256": "c293c6c4d547412730e30a08f1d2286f64f61d1af5bd9d9e7028ec2814b34175"
+    },
+    "ci-repro-final.log": {
+      "size": 24401,
+      "sha256": "06e85b9db1fc8f379db293e04e32177d767b87a1d5eefc4f57d423cef5b3d3cf"
+    },
+    "focus-repeat-final.log": {
+      "size": 13458,
+      "sha256": "45b7107dbd6e97f5a3640eca8c040a2eb87f56d12c4437f68f11f03c68bb0d5a"
+    },
+    "functional-coverage.json": {
+      "size": 468608,
+      "sha256": "8477c25abd6699bf2499bc65b410a74e607f7fe760a1b1be5fdac876804f72d5"
+    },
+    "release-local-first.log": {
+      "size": 12443,
+      "sha256": "241a336617e0701c5ccd5bec2e00abce6c0c101afc988ab8e83b1e3bb8864e61"
+    },
+    "release-local-second.log": {
+      "size": 12443,
+      "sha256": "8e95d31703b67c0ae2429fa953968af9c6606dd43f7bd2bb8bad8306ae14ed09"
+    },
+    "review-final.log": {
+      "size": 19519,
+      "sha256": "ab68387c6c95a4889037380bc5fc1a6268854d50a3b399c5ebaeb4fd4f7785a6"
+    },
+    "targeted-final.log": {
+      "size": 25757,
+      "sha256": "1891c3c504df0d5d5dfb88d3727a61652f33360cf896076a4c779dc05fd3334a"
+    },
+    "tooling-final.log": {
+      "size": 717,
+      "sha256": "4cd01bad7f4526cfe5aae5ffd0cdb58d6f571fed0ab0dffe114994185d379493"
+    },
+    "unit-and-build-final.log": {
+      "size": 13292,
+      "sha256": "507feb9a79a18f1e6ba338391fe9b9422b23fb02a7b68c21b87ebfde4decff71"
+    },
+    "unit-fixture-initial.log": {
+      "size": 3960,
+      "sha256": "dcb77d4f68e57c7ab7c6ea54d4855f1976a3fc3fca298d3029f0b3fbd25a2d81"
+    }
+  },
+  "rawReportsPreserved": true,
+  "excluded": [
+    "Transient hidden browser trace buffers; finalized failure trace is retained."
+  ],
+  "relocation": "Raw Playwright reports retain original absolute attachment paths. Finalized attachments are stored under the matching relative run path."
+}

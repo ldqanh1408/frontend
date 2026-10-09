@@ -9,9 +9,16 @@ export type Tone = 'info' | 'success' | 'warning' | 'danger';
 export interface Toast { id: string; tone: Tone; title: string; body?: string; kind: 'local' | 'session' | 'operation'; sticky?: boolean }
 
 export interface ServiceScope { org: string | null; workspace: string | null; project: string | null; label: string }
+export type StreamKind = 'presence' | 'dag' | 'terminal' | 'thought' | 'notifications';
+export interface StreamEndpoint { href: string; grant: string; protocol: 'atlas-stream/v1' }
 export interface ServiceSession {
   serviceUrl: string; audience: 'workspace' | 'observer'; actor: { id: string; name: string }; scope: ServiceScope;
   grants: string[]; expiresAt: string | null; collections: Record<string, string>; logoutHref: string | null; capabilityVersion: string;
+  entitlements?: Record<string, boolean>; limits?: Record<string, { used: number; limit: number }>;
+  streams?: Partial<Record<StreamKind, StreamEndpoint>>;
+  collaboration?: { href: string; grant: 'collab:edit_realtime'; protocol: 'y-websocket'; roomPrefix: string };
+  scopeSwitchHref?: string;
+  configurationHref?: string;
 }
 export type ConnectionStatus = 'disconnected' | 'connecting' | 'connected' | 'ended';
 
@@ -73,22 +80,28 @@ export function endSession(reason: string) {
   if (had) toast({ tone: 'warning', title: 'Service session ended', body: `${reason} Reconnect to load authorized records.`, kind: 'local', sticky: true });
 }
 
-export interface Capability { ok: boolean; reason: string }
+export interface Capability { ok: boolean; reason: string; kind: 'permission' | 'entitlement' | 'quota' | 'session' }
 /**
  * Capability gate. Roles never authorize by name (RBAC matrix): an action is enabled only when the current service session
  * explicitly grants it. Disconnected or ended sessions always yield a visible, specific reason.
  */
-export function capability(grant: string, what = 'this action'): Capability {
+export function capability(grant: string, what = 'this action', options: { entitlement?: string; resource?: string } = {}): Capability {
   const { connection, session } = app.get();
   if (connection !== 'connected' || !session) {
-    return { ok: false, reason: `Requires an authorized service session with ${grant}. ${connection === 'ended' ? 'The previous session ended.' : 'No service is connected.'}` };
+    return { ok: false, kind: 'session', reason: `Requires an authorized service session with ${grant}. ${connection === 'ended' ? 'The previous session ended.' : 'No service is connected.'}` };
   }
-  if (session.audience === 'observer' && !grant.startsWith('observer:')) return { ok: false, reason: 'Observer sessions cannot perform workspace actions.' };
-  if (!session.grants.includes(grant) && !session.grants.includes('*')) return { ok: false, reason: `Requires ${grant} in ${session.scope.label || 'the current scope'} for ${what}.` };
-  return { ok: true, reason: '' };
+  if (session.expiresAt && Date.parse(session.expiresAt) <= Date.now()) return { ok: false, kind: 'session', reason: 'The service session expired. Reconnect before acting.' };
+  if (!session.scope.label.trim()) return { ok: false, kind: 'session', reason: 'No authorized tenant context. Select a scope through the service.' };
+  if (session.audience === 'observer' && !/^(obs:|observer:)/.test(grant)) return { ok: false, kind: 'permission', reason: 'Observer sessions are read-only. Workspace actions are unavailable.' };
+  if (!session.grants.includes(grant) && !session.grants.includes('*')) return { ok: false, kind: 'permission', reason: `Requires ${grant} in ${session.scope.label || 'the current scope'} for ${what}.` };
+  if (options.entitlement && session.entitlements?.[options.entitlement] !== true) return { ok: false, kind: 'entitlement', reason: session.entitlements?.[options.entitlement] === false ? "Not included in your organization's plan." : 'Plan entitlement not observed. Refresh before acting.' };
+  const quota = options.resource ? session.limits?.[options.resource] : null;
+  if (options.resource && !quota) return { ok: false, kind: 'quota', reason: `Limit not observed: ${options.resource}. Refresh before acting.` };
+  if (quota && quota.used >= quota.limit) return { ok: false, kind: 'quota', reason: `Limit reached: ${options.resource}.` };
+  return { ok: true, kind: 'permission', reason: '' };
 }
 export function useCapability(grant: string, what?: string): Capability {
-  // Select a primitive key (stable snapshot) and derive the object from it.
-  const key = useApp((s) => `${s.connection}|${s.session?.audience ?? ''}|${s.session?.grants.join(',') ?? ''}`);
-  return useMemo(() => capability(grant, what), [key, grant, what]); // eslint-disable-line react-hooks/exhaustive-deps
+  const session = useApp((s) => s.session);
+  const connection = useApp((s) => s.connection);
+  return useMemo(() => capability(grant, what), [session, connection, grant, what]);
 }

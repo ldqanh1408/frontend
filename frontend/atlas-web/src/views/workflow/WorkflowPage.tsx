@@ -1,3 +1,5 @@
+import { ProposedPlans } from '../modules/ArchivePanels';
+import { LazyTaskGraph } from '../../components/LazyTaskGraph';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useBlocker, useSearchParams } from 'react-router';
 import { nav } from '../../data/catalog';
@@ -67,6 +69,7 @@ export default function WorkflowPage() {
         </div>
       </div>
       <LifecycleChain states={null} ids={['LC-15', 'LC-16', 'LC-20']} label={m.title} />
+      <ProposedPlans/>
       <ModuleViews module="workflow" />
       {creating && <NameDialog title="New workflow" initial="Untitled workflow" onClose={() => setCreating(false)} onSubmit={onCreate} />}
     </div>
@@ -125,7 +128,7 @@ function WorkflowEditor({ rec }: { rec: WorkflowRecord }) {
   const upsert = (t: WfTask) => { setTasks((ts) => (ts.some((x) => x.id === t.id) ? ts.map((x) => (x.id === t.id ? t : x)) : [...ts, t])); setEditing(null); setIssues(null); };
   const remove = (id: string) => { setTasks((ts) => ts.filter((t) => t.id !== id).map((t) => ({ ...t, dependsOn: t.dependsOn.filter((d) => d !== id) }))); setEditing(null); setIssues(null); };
   const addTask = () => setEditing({ id: nextTaskId(tasks), title: '', agent: null, dependsOn: tasks.length ? [tasks[tasks.length - 1].id] : [], checkpoint: false, instructions: '', output: '' });
-  const gate = (g: string, w: string) => { const c = capability(g, w); return c.ok ? undefined : c.reason; };
+  const gate = (g: string, w: string) => { const c = capability(g, w); return c.ok ? 'An authorized proposed DAG and service command contract are required.' : c.reason; };
   const shared = connection !== 'connected' ? 'wf-gate' : undefined;
   const errors = issues?.filter((i) => i.level === 'error') ?? [];
   return (
@@ -147,8 +150,9 @@ function WorkflowEditor({ rec }: { rec: WorkflowRecord }) {
             <Button icon="download" onClick={() => downloadJson(`${base.name}.workflow.json`, { format: 'atlas-workflow/v1', authority: 'DEVICE_ONLY', name: base.name, rev: base.rev, tasks, inputs })}>Export workflow draft</Button>
           </div>
           <div className="row" role="group" aria-label="Service actions">
-            <Button compact icon="sparkles" blocked={gate('workflow:generate', 'Generate with AI')} reasonId={shared}>Generate with AI</Button>
-            <Button compact icon="play" blocked={gate('workflow:activate', 'Activate')} reasonId={shared}>Activate</Button>
+            <Button compact icon="sparkles" blocked={gate('agent_workflow:meta_prompt', 'Generate with AI')} reasonId={shared}>Generate with AI</Button>
+            <Button compact icon="shield-check" blocked={gate('dag:plan_approve', 'Approve plan')} reasonId={shared}>Approve plan</Button>
+            <Button compact icon="play" blocked={gate('agent_workflow:approve', 'Activate')} reasonId={shared}>Activate</Button>
             <Button compact icon="play-circle" blocked={gate('execution:admit', 'Admit run')} reasonId={shared}>Admit run</Button>
             <Button compact icon="shield-check" blocked={gate('workflow:admission-read', 'Inspect service admission')} reasonId={shared}>Inspect service admission</Button>
           </div>
@@ -180,7 +184,7 @@ function WorkflowEditor({ rec }: { rec: WorkflowRecord }) {
   );
 }
 
-const NODE_W = 208, NODE_H = 84, COL = 256, ROW = 108;
+const COL = 256, ROW = 178;
 function Graph({ tasks, issues, onOpen, onAdd }: { tasks: WfTask[]; issues: Issue[] | null; onOpen: (t: WfTask) => void; onAdd: () => void }) {
   const lv = useMemo(() => layers(tasks), [tasks]);
   if (!tasks.length) return <EmptyState icon="workflow" headingLevel={3} title="No tasks yet" actions={<Button icon="plus" onClick={onAdd}>Add task</Button>}>Each task runs one pinned agent revision. Connect tasks by dependency to form the plan.</EmptyState>;
@@ -188,37 +192,8 @@ function Graph({ tasks, issues, onOpen, onAdd }: { tasks: WfTask[]; issues: Issu
   tasks.forEach((t) => { const l = lv.get(t.id) ?? 0; cols.set(l, [...(cols.get(l) ?? []), t]); });
   const pos = new Map<string, { x: number; y: number }>();
   [...cols.entries()].forEach(([l, ts]) => ts.forEach((t, i) => pos.set(t.id, { x: 16 + l * COL, y: 16 + i * ROW })));
-  const w = 32 + (Math.max(...cols.keys()) + 1) * COL - (COL - NODE_W);
-  const h = 32 + Math.max(...[...cols.values()].map((c) => c.length)) * ROW - (ROW - NODE_H);
   const bad = new Set((issues ?? []).filter((i) => i.level === 'error' && i.task).map((i) => i.task));
-  return (
-    <div className="graph-scroll">
-      <div className="graph" style={{ width: w, height: h }} role="group" aria-label={`Task graph with ${tasks.length} tasks. The task list tab shows the same information as a table.`}>
-        <svg width={w} height={h} aria-hidden="true" className="graph-edges">
-          <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="currentColor" /></marker></defs>
-          {tasks.flatMap((t) => t.dependsOn.filter((d) => pos.has(d)).map((d) => {
-            const a = pos.get(d)!, b = pos.get(t.id)!;
-            const back = (lv.get(d) ?? 0) >= (lv.get(t.id) ?? 0);
-            const x1 = a.x + NODE_W, y1 = a.y + NODE_H / 2, x2 = b.x, y2 = b.y + NODE_H / 2;
-            const dx = Math.max(40, Math.abs(x2 - x1) / 2);
-            return <path key={`${d}-${t.id}`} d={back ? `M${x1} ${y1} C ${x1 + 60} ${y1 - 70}, ${x2 - 60} ${y2 - 70}, ${x2} ${y2}` : `M${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`}
-              className={back ? 'edge edge-bad' : 'edge'} markerEnd="url(#arrow)" />;
-          }))}
-        </svg>
-        {tasks.map((t) => {
-          const p = pos.get(t.id)!;
-          return (
-            <button key={t.id} className="graph-node" data-error={bad.has(t.id) || undefined} style={{ left: p.x, top: p.y, width: NODE_W, height: NODE_H }} onClick={() => onOpen(t)}
-              aria-label={`${t.id} ${t.title || 'untitled'}${t.dependsOn.length ? `, depends on ${t.dependsOn.join(', ')}` : ''}${t.checkpoint ? ', human checkpoint' : ''}${t.agent ? '' : ', no agent pinned'}`}>
-              <span className="row-between" style={{ gap: 6 }}><span className="mono caption">{t.id}</span>{t.checkpoint && <span className="badge badge-warning">Checkpoint</span>}</span>
-              <span className="label graph-title">{t.title || 'Untitled task'}</span>
-              <span className="caption graph-agent">{t.agent ? `Agent r${t.agent.rev} · ${t.agent.hash.slice(0, 8)}` : 'No agent pinned'}</span>
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  );
+  return <LazyTaskGraph label={`Task graph with ${tasks.length} tasks. The task list tab shows the same information as a table.`} onOpen={id => { const task = tasks.find(t => t.id === id); if (task) onOpen(task); }} items={tasks.map(t => ({ id: t.id, ...pos.get(t.id)!, dependencies: t.dependsOn, error: bad.has(t.id), label: `${t.id} ${t.title || 'untitled'}${t.dependsOn.length ? `, depends on ${t.dependsOn.join(', ')}` : ''}${t.checkpoint ? ', human checkpoint' : ''}${t.agent ? '' : ', no agent pinned'}`, content: <><span className="row-between"><span className="mono caption">{t.id}</span>{t.checkpoint && <span className="badge badge-warning">Checkpoint</span>}</span><span className="label graph-title">{t.title || 'Untitled task'}</span><span className="caption graph-agent">{t.agent ? `Agent r${t.agent.rev} · ${t.agent.hash.slice(0, 8)}` : 'No agent pinned'}</span></> }))} />;
 }
 
 function TaskTable({ tasks, onOpen }: { tasks: WfTask[]; onOpen: (t: WfTask) => void }) {

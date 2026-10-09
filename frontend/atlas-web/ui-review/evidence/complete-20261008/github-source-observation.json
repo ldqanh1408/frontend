@@ -1,0 +1,48 @@
+{
+  "format": "atlas-github-source-observation/v1",
+  "observedAt": "2026-10-08T14:32:42.584Z",
+  "userConfirmedRepository": "https://github.com/ldqanh1408/frontend",
+  "repository": "ldqanh1408/frontend",
+  "private": false,
+  "defaultBranch": "claude/sharp-thompson-5tff91",
+  "remoteBranches": [
+    {
+      "name": "claude/sharp-thompson-5tff91",
+      "commit": "4737b155e9f106bc7351c271d19ef207cfbb9a66"
+    },
+    {
+      "name": "fix/secret-handling",
+      "commit": "0e8cf8340f0f90bc3dee5a5e37019450bfcda24f"
+    }
+  ],
+  "pullRequest": {
+    "url": "https://github.com/ldqanh1408/frontend/pull/1",
+    "head": "0e8cf8340f0f90bc3dee5a5e37019450bfcda24f",
+    "state": "open",
+    "merged": false,
+    "statusAggregate": "pending",
+    "commitStatuses": 0,
+    "checkRuns": 0
+  },
+  "backendSourceInspection": {
+    "commit": "4737b155e9f106bc7351c271d19ef207cfbb9a66",
+    "method": "git ls-tree -r of exact observed default-branch commit",
+    "checkedPatterns": [
+      "*.java",
+      "pom.xml",
+      "build.gradle",
+      "build.gradle.kts",
+      "compose*",
+      "docker-compose*",
+      "Dockerfile"
+    ],
+    "matches": 0,
+    "meaning": "No backend implementation or Compose stack found under these filenames. This does not establish the absence of an externally hosted backend."
+  },
+  "githubWrites": false,
+  "cloudflareWrites": false,
+  "pushed": false,
+  "deployed": false,
+  "userSelectedScope": "FRONTEND_IN_THIS_REPOSITORY",
+  "recheckedAt": "2026-10-08T14:58:40.891049+00:00"
+}

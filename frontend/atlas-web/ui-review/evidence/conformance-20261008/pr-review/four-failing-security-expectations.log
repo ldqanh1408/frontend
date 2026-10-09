@@ -1,0 +1,103 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+ RUN  v5.0.3 /workspace/scratch/a98056651892/review-pr-1/frontend/atlas-web
+
+ ❯ src/review-secret-handling.test.ts (4 tests | 4 failed) 35ms
+   × environment map KEY rejects literal secret values 7ms
+   × different secret values produce different input commitments 2ms
+   × import rejects secret-bearing known fields before persisting 15ms
+   × write-only service input is absent from persisted rejection messages 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/review-secret-handling.test.ts > environment map KEY rejects literal secret values
+AssertionError: expected null not to be null
+ ❯ src/review-secret-handling.test.ts:16:94
+     14|
+     15| test('environment map KEY rejects literal secret values', () => {
+     16|   expect(validateField(env, JSON.stringify({ KEY: 'review-only-secret-…
+       |                                                                                              ^
+     17| });
+     18| test('different secret values produce different input commitments', as…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  src/review-secret-handling.test.ts > different secret values produce different input commitments
+AssertionError: expected 'c563d8db66643f801d02f4a2a1254143f0a56…' not to be 'c563d8db66643f801d02f4a2a1254143f0a56…' // Object.is equality
+ ❯ src/review-secret-handling.test.ts:21:80
+     19|   const payload = { scope: 'org:a/ws:b', resourceId: 'key-1', actionId…
+     20|   const other = { ...payload, input: { apiKey: 'review-value-B' } };
+     21|   expect(await sha256Hex(stableJson(fingerprintPayload(payload, action…
+       |                                                                                ^
+     22| });
+     23| test('import rejects secret-bearing known fields before persisting', a…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  src/review-secret-handling.test.ts > import rejects secret-bearing known fields before persisting
+AssertionError: promise resolved "{ id: 'def-56a5fcc3', …(8) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "archived": false,
++   "createdAt": "2026-10-08T13:25:06.835Z",
++   "data": {
++     "allowlist": [],
++     "args": [],
++     "capabilities": [],
++     "currency": "USD",
++     "deniedTools": [],
++     "environmentRefs": {
++       "API_KEY": "review-only-secret-value",
++     },
++     "humanApproval": true,
++     "inputPolicy": {},
++     "labels": [],
++     "oauthScopes": [],
++     "outputPolicy": {},
++     "type": "mcp",
++   },
++   "id": "def-56a5fcc3",
++   "name": "MCP server aadab9ae",
++   "preserved": {},
++   "rev": 1,
++   "schemaId": "mcp-resource",
++   "updatedAt": "2026-10-08T13:25:06.835Z",
+  }
+
+ ❯ src/review-secret-handling.test.ts:24:119
+     22| });
+     23| test('import rejects secret-bearing known fields before persisting', a…
+     24|   await expect(importDefinition(schema, JSON.stringify({ environmentRe…
+       |                                                                                                                       ^
+     25| });
+     26| test('write-only service input is absent from persisted rejection mess…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  src/review-secret-handling.test.ts > write-only service input is absent from persisted rejection messages
+AssertionError: expected '{"id":"c221b827-ec07-4738-a032-6936db…' not to contain 'review-only-secret-value'
+
+Expected: "review-only-secret-value"
+Received: "{"id":"c221b827-ec07-4738-a032-6936db43fb31","module":"gateway","resourceId":"key-1","resourceName":"Test key","actionId":"rotate","label":"Rotate key","stage":"Rejected","idempotencyKey":"c221b827-ec07-4738-a032-6936db43fb31","fingerprint":"c563d8db66643f801d02f4a2a1254143f0a561f5fc927072c12a10252336a234","scope":"org:a/ws:b","createdAt":"2026-10-08T13:25:06.851Z","updatedAt":"2026-10-08T13:25:06.855Z","message":"Rejected: Invalid API key review-only-secret-value","evidence":null,"statusHref":null,"effectHref":null,"expectedRevision":1}"
+
+ ❯ src/review-secret-handling.test.ts:34:37
+     32|   }));
+     33|   const entry = await sendCommand('gateway', { id: 'key-1', name: 'Tes…
+     34|   expect(JSON.stringify(entry)).not.toContain(secret);
+       |                                     ^
+     35|   expect(JSON.stringify(await listJournal())).not.toContain(secret);
+     36| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed (4)
+   Start at  13:25:05
+   Duration  920ms (environment 53%, transform 25%, setup 8%, import 7%, tests 5%, worker 2%)
+
