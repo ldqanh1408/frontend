@@ -31,7 +31,7 @@ export function TopBar({ onOpenNav, onOpenSearch, onOpenHelp, onOpenPrefs, navOp
         </ol>
       </nav>
       <div className="bar-actions">
-        <Button className="search-trigger" icon="search" onClick={onOpenSearch} aria-label="Search workspace" aria-keyshortcuts={isMac ? 'Meta+K' : 'Control+K'}>
+        <Button className="search-trigger" icon="search" onClick={event => { event.currentTarget.focus(); onOpenSearch(); }} aria-label="Search workspace" aria-keyshortcuts={isMac ? 'Meta+K' : 'Control+K'}>
           <span className="search-label">Search workspace</span><Kbd>{isMac ? '⌘ K' : 'Ctrl K'}</Kbd>
         </Button>
         <Link to="/connection" className={`badge hide-xs ${connection === 'connected' ? 'badge-success' : connection === 'ended' ? 'badge-warning' : ''}`} aria-label={`Service ${connection === 'connected' ? 'connected' : connection === 'ended' ? 'session ended' : 'disconnected'} — open connection`}>
