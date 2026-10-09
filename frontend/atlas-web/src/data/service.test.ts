@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { app } from './app-store';
-import { actionGate, connect, loadCollection, reconcile, sendCommand, validateServiceUrl, type ServiceRecord } from './service';
+import { actionGate, connect, listJournal, loadCollection, reconcile, sendCommand, validateServiceUrl, type ServiceRecord } from './service';
+import { sha256Hex, stableJson } from '../lib/hash';
 
 const B = 'https://svc.example.test';
 type Mode = 'Received' | 'Effective' | 'http500' | 'netfail' | 'mismatch' | 'Rejected';
@@ -61,6 +62,19 @@ describe('atlas-ui/v1 adapter', () => {
     expect(actionGate(null, undefined)).toMatch(/Select a resource/);
     expect(actionGate(col.items[0], col.items[0].actions![0])).toBeNull();
   });
+  it('sends secret inputs but keeps them out of the local fingerprint and journal', async () => {
+    await connect(B, 'workspace');
+    const r = record();
+    const action = { ...r.actions![0], inputs: [{ key: 'apiKey', label: 'API key', secret: true, required: true }, { key: 'note', label: 'Note' }] };
+    const e = await sendCommand('execution', r, action, { apiKey: 'sk-test-SECRET-123', note: 'rotate' });
+    expect(posts[0].body.input).toEqual({ apiKey: 'sk-test-SECRET-123', note: 'rotate' });
+    const expected = await sha256Hex(stableJson({ scope: 'org:a/ws:b', resourceId: 'run-1', actionId: 'pause', expectedRevision: 3, input: { apiKey: '[secret]', note: 'rotate' } }));
+    expect(e.fingerprint).toBe(expected);
+    expect(JSON.stringify(e)).not.toContain('SECRET-123');
+    expect(JSON.stringify(await listJournal())).not.toContain('SECRET-123');
+  });
+
+  
 
   it('sends exactly one POST for a double activation, with idempotency, CSRF and If-Match', async () => {
     await connect(B, 'workspace');

@@ -34,6 +34,32 @@ describe('field validation', () => {
   });
 });
 
+
+describe('secret policy', () => {
+  const env = { ...base, key: 'environmentRefs', control: 'json' as const, type: ['object', 'array'] };
+  const args = { ...base, key: 'args', control: 'list' as const, type: 'array' };
+
+  it('requires vault:// for every credential reference key, including replacementCredentialRef', () => {
+    expect(validateField({ ...base, key: 'replacementCredentialRef' }, 'sk-live-123', false)).toMatch(/vault/);
+    expect(validateField({ ...base, key: 'replacementCredentialRef' }, 'vault://a/b', false)).toBeNull();
+    expect(validateField({ ...base, key: 'ownerRef' }, 'user:alex', false)).toBeNull();
+  });
+  it('rejects literal values in environmentRefs', () => {
+    expect(validateField(env, '{"API_KEY":"sk-live-abcdef123"}', false)).toMatch(/vault reference/);
+    expect(validateField(env, '{"API_KEY":"vault://team/k"}', false)).toBeNull();
+    expect(validateField(env, '[{"name":"API_KEY","valueRef":"vault://t/k"}]', false)).toBeNull();
+    expect(validateField(env, '[{"name":"API_KEY","valueRef":"abc"}]', false)).toMatch(/valueRef/);
+  });
+  it('flags inline secrets in args without flagging ordinary flags', () => {
+    expect(validateField(args, '--api-key=abc123', false)).toMatch(/secret/);
+    expect(validateField(args, '--token\nabc123', false)).toMatch(/secret/);
+    expect(validateField(args, 'ghp_abcdefghijklmnopqrstuv', false)).toMatch(/secret/);
+    expect(validateField(args, '--token=vault://t/x', false)).toBeNull();
+    expect(validateField(args, '-y\n@modelcontextprotocol/server-github\n--port=8080\n--keyboard=us', false)).toBeNull();
+  });
+});
+
+
 describe('every schema', () => {
   it('round-trips defaults without shape errors', () => {
     for (const s of list) {

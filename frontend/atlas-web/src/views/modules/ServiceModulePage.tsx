@@ -63,8 +63,8 @@ export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
         <section className="panel service-records" aria-label={`${m.title} records`}>
           {col && <p className="caption service-observed">Observed {relativeTime(col.observedAt)}{col.complete ? '' : ' · partial'}</p>}
           {err && <div className="panel-pad"><Banner tone="danger" title="Records could not be loaded" role="alert">{err}</Banner></div>}
-          <RecordsTable col={col} loading={loading} selId={selId} onSelect={setSelId} label={m.title} />
-          <LifecycleSection states={spec.lifecycle} ids={spec.lifecycleIds} label={m.title} />
+          <RecordsTable col={col} loading={loading} selId={selId} onSelect={setSelId} label={m.title}
+            emptyHint={module === 'gateway' ? 'This frontend stores only references. Create the first credential in the service, or ask an administrator.' : undefined} />          <LifecycleSection states={spec.lifecycle} ids={spec.lifecycleIds} label={m.title} />
           <ContinueJourney links={spec.links} />
         </section>
         <aside className="panel service-inspect" aria-labelledby="iba-h">
@@ -123,15 +123,14 @@ export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
   );
 }
 
-function RecordsTable({ col, loading, selId, onSelect, label }: { col: Collection | null; loading: boolean; selId: string | null; onSelect: (id: string) => void; label: string }) {
-  const connection = useApp((s) => s.connection);
+function RecordsTable({ col, loading, selId, onSelect, label, emptyHint }: { col: Collection | null; loading: boolean; selId: string | null; onSelect: (id: string) => void; label: string; emptyHint?: string }) {  const connection = useApp((s) => s.connection);
   // Figma keeps the column structure visible even before the service returns records.
   const head = <thead><tr><th scope="col">Name</th><th scope="col">State</th><th scope="col">Revision</th><th scope="col">Observed</th></tr></thead>;
   const empty = !col ? (
     <EmptyState icon="play" headingLevel={3} title={loading ? 'Loading records…' : 'Connect this lifecycle'}>
       {connection === 'connected' ? 'Loading authorized records for this scope.' : 'Records, states and revisions come from an authorized service. Nothing is shown until the service returns it.'}
     </EmptyState>
-  ) : !col.items.length ? <EmptyState icon="inbox" headingLevel={3} title="No records in this scope">The connected service returned no {label.toLowerCase()} records for your current scope.</EmptyState> : null;
+  ) : !col.items.length ? <EmptyState icon="inbox" headingLevel={3} title="No records in this scope">The connected service returned no {label.toLowerCase()} records for your current scope.{emptyHint && <> {emptyHint}</>}</EmptyState>: null;
   return (
     <div className="table-wrap">
       <table className="table">
@@ -182,6 +181,7 @@ function CommandDialog({ module, record, action, onClose, onDone }: { module: st
     try {
       const e = await sendCommand(module, record, action, input);
       setResult(e);
+      setInput({});
       toast({ tone: e.stage === 'Effective' ? 'success' : e.stage === 'Rejected' ? 'danger' : e.stage === 'Unknown' ? 'warning' : 'info', title: `${action.label}: ${e.stage}`, body: e.message, kind: 'operation' });
       onDone();
     } catch (e) {
@@ -197,12 +197,19 @@ function CommandDialog({ module, record, action, onClose, onDone }: { module: st
       </>}>
       <div className="stack-12">
         <KeyValue items={[['Resource', record.name], ['Expected revision', `r${action.expectedRevision}`], ['Scope', session?.scope.label ?? '—'], ['Grant', action.grant]]} />
-        {!result && (action.inputs ?? []).map((i) => (
+          
+          {!result && (action.inputs ?? []).map((i) => (
           <div className="field" key={i.key}>
             <label className="field-label" htmlFor={`cmd-${i.key}`}>{i.label}{i.required && <span className="req" aria-hidden="true"> *</span>}</label>
-            <input id={`cmd-${i.key}`} className="input" required={i.required} value={input[i.key] ?? ''} onChange={(e) => setInput((s) => ({ ...s, [i.key]: e.target.value }))} />
+            <input id={`cmd-${i.key}`} className="input" required={i.required}
+              type={i.secret ? 'password' : 'text'} autoComplete={i.secret ? 'new-password' : undefined} spellCheck={i.secret ? false : undefined}
+              aria-describedby={i.secret ? `cmd-${i.key}-hint` : undefined}
+              value={input[i.key] ?? ''} onChange={(e) => setInput((s) => ({ ...s, [i.key]: e.target.value }))} />
+            {i.secret && <small id={`cmd-${i.key}-hint`} className="field-hint">Write-only. Not stored on this device; the service shows only a fingerprint.</small>}
           </div>
         ))}
+
+
         {err && <Banner tone="danger" title="Not sent" role="alert">{err}</Banner>}
         {result && (
           <div className="stack" role="status">
