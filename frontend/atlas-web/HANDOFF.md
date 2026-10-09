@@ -1,15 +1,17 @@
 # Master plan bàn giao: hoàn thiện frontend Atlas web
 
+> Điểm tiếp quản hiện tại: repo `ldqanh1408/frontend`, branch `handoff/frontend-e2e`. Người dùng đã cho phép push. Xem `docs/UI-UX-ACCEPTANCE.md`, `docs/UI-UX-DESIGN-SYSTEM.md` và `docs/SRS-ADR-CONFORMANCE.md` trước khi dùng các checkpoint lịch sử bên dưới. Ảnh kiểm thử mới được giữ trong evidence riêng theo `docs/VISUAL-EVIDENCE.md`; CI công khai kiểm tra layout, chức năng, accessibility và hiệu năng. Chưa có nghiệm thu backend hoặc production.
+
 Văn bản này dùng độc lập: dán nguyên vào phiên agent mới.
 
 ## 1. Vai trò, mục tiêu, thứ tự
 
-Bạn tiếp quản frontend Atlas trong `frontend/atlas-web`, repo `ldqanh1408/hehe`, nhánh `claude/sharp-thompson-5tff91`.
+Bạn tiếp quản frontend Atlas trong `frontend/atlas-web`, repo `ldqanh1408/frontend`, nhánh `handoff/frontend-e2e`.
 
 **Mục tiêu:** đưa frontend lên mức production-grade, bám sát Figma.
 
 **Thứ tự bắt buộc:**
-1. Hỏi người dùng các quyết định kiến trúc ở mục 10.1 (một lần, gom chung một câu hỏi).
+1. Đối chiếu các quyết định kiến trúc đã ghi nhận ở mục 10.1 và báo cáo conformance hiện tại; chỉ hỏi khi có quyết định mới thực sự chưa xác định.
 2. Làm xong phần UI/UX còn lại: mục 4, cộng thêm mục 10 (bám Tech stack ADR + SRS v1.1) và mục 11 (UI-11: tái sử dụng các mẫu UI khả dụng cao trong Figma Archive, có refactor).
 3. Sau đó mới làm test và cổng chất lượng (mục 5).
 
@@ -25,7 +27,7 @@ Mọi lệch còn lại phải ghi vào báo cáo.
 ## 2. Ràng buộc (giữ nguyên từ master prompt gốc)
 
 **Git**
-- Chỉ commit và push lên `claude/sharp-thompson-5tff91`. Người dùng đã xác nhận nhánh này.
+- Commit và push lên `handoff/frontend-e2e` trong repo `ldqanh1408/frontend` theo phạm vi bàn giao hiện tại đã được người dùng cho phép.
 - Không tạo PR nếu người dùng không yêu cầu.
 - Không force-push, không viết lại lịch sử, không tạo commit rỗng.
 - Mỗi hạng mục là một commit nhỏ, kết thúc bằng dòng attribution do hệ thống của phiên bạn cung cấp.

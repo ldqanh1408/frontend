@@ -43,7 +43,9 @@ if (mode === 'local') {
   passed = await gate('check', 'npm', ['run', 'check']);
   if (passed) passed = await gate('tooling', 'npm', ['run', 'test:tooling']);
   if (passed) passed = await gate('functional', 'npx', ['playwright', 'test', '--project=chromium', '--project=firefox', '--project=webkit'], 'functional');
-  if (passed) passed = await gate('visual-performance', 'npx', ['playwright', 'test', '--project=visual-chromium'], 'visual-performance');
+  if (passed) passed = await gate('layout-performance', 'npx', ['playwright', 'test', '--project=layout-chromium'], 'layout-performance');
+  if (passed && process.env.ATLAS_VISUAL_BASELINE_DIR) passed = await gate('private-visual', 'npx', ['playwright', 'test', 'e2e/visual.spec.ts', '--project=visual-chromium'], 'private-visual');
+  else if (passed) summary.limitations.push('Private pixel regression was not run: ATLAS_VISUAL_BASELINE_DIR was not supplied. Layout checks do not establish pixel equality.');
   if (passed) passed = await gate('build-review', 'npm', ['run', 'build:review']);
   if (passed) passed = await gate('review', 'npx', ['playwright', 'test', '-c', 'playwright.review.config.ts'], 'review');
 } else passed = await gate('staging', 'npx', ['playwright', 'test', '-c', 'playwright.staging.config.ts'], 'staging');

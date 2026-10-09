@@ -4,11 +4,11 @@ name: atlas-web
 # It never deploys and never calls the Cloudflare API: staging is checked over public HTTPS like any user.
 on:
   pull_request:
-    branches: [claude/sharp-thompson-5tff91]
-    paths: ['frontend/atlas-web/**', '.github/workflows/atlas-web.yml']
+    branches: [claude/sharp-thompson-5tff91, handoff/frontend-e2e]
+    paths: ['frontend/atlas-web/**', '!frontend/atlas-web/docs/**', '!frontend/atlas-web/ui-review/**', '!frontend/atlas-web/HANDOFF.md', '!frontend/atlas-web/README.md', '.github/workflows/atlas-web.yml']
   push:
-    branches: [claude/sharp-thompson-5tff91]
-    paths: ['frontend/atlas-web/**', '.github/workflows/atlas-web.yml']
+    branches: [claude/sharp-thompson-5tff91, handoff/frontend-e2e]
+    paths: ['frontend/atlas-web/**', '!frontend/atlas-web/docs/**', '!frontend/atlas-web/ui-review/**', '!frontend/atlas-web/HANDOFF.md', '!frontend/atlas-web/README.md', '.github/workflows/atlas-web.yml']
   workflow_dispatch:
     inputs:
       check_staging:
@@ -33,7 +33,7 @@ defaults:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     strategy:
       fail-fast: false
@@ -96,7 +96,7 @@ jobs:
   staging:
     needs: verify
     if: github.event_name == 'workflow_dispatch' && inputs.check_staging
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
@@ -119,4 +119,9 @@ jobs:
         run: npm run verify:staging
       - uses: actions/upload-artifact@v4
         if: always()
-        with: { name: 'atlas-web-staging-acceptance', path: frontend/atlas-web/test-results, retention-days: 14 }
+        with:
+          name: atlas-web-staging-acceptance
+          path: |
+            frontend/atlas-web/test-results/**/*.json
+            frontend/atlas-web/test-results/**/*.log
+          retention-days: 14

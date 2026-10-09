@@ -1,6 +1,6 @@
 # atlas-web
 
-Latest handoff: checkpoint16 in [HANDOFF.md](HANDOFF.md); current local results in [verification-complete-20261008.json](ui-review/verification-complete-20261008.json). Full frontend checks passed in one fresh pipeline; backend business E2E, current-source GitHub CI, deployment/staging and manual assistive technology remain pending.
+Latest handoff: branch `handoff/frontend-e2e` in `ldqanh1408/frontend`. See [UI/UX acceptance](docs/UI-UX-ACCEPTANCE.md), [design decisions](docs/UI-UX-DESIGN-SYSTEM.md) and [SRS/ADR conformance](docs/SRS-ADR-CONFORMANCE.md). Earlier checkpoints retain historical results. Backend business E2E, deployment/staging and manual assistive technology require separate evidence.
 
 Atlas — AI engineering workspace frontend, rebuilt from the Figma E2E delivery (file `0md9BEFI1rU0aRAvf98TWO`) and the
 `Atlas-E2E-Delivery` package in `design-source/`.
@@ -11,12 +11,18 @@ Atlas — AI engineering workspace frontend, rebuilt from the Figma E2E delivery
 npm ci
 npm run dev            # http://localhost:5173
 npm run check          # typecheck + unit tests + production build
-npx playwright test    # e2e + axe (WCAG 2.2 AA) against `vite preview`, which serves the production headers
+npm run e2e           # functional + axe + layout/performance against production preview headers
 ```
 
 Playwright browsers are expected at `PLAYWRIGHT_BROWSERS_PATH`. CI installs Chromium, Firefox and WebKit with
 `npx playwright install --with-deps chromium firefox webkit`. Functional tests run in all three engines;
-visual/performance tests use one Linux Chromium project.
+layout/performance tests use one Linux Chromium project. Private pixel regression is separate:
+
+```bash
+ATLAS_VISUAL_BASELINE_DIR=/absolute/private/baselines npm run e2e:visual
+```
+
+See [visual evidence policy](docs/VISUAL-EVIDENCE.md) before generating or restoring baselines.
 
 ## UI review before deployment
 
