@@ -63,8 +63,8 @@ export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
         <section className="panel service-records" aria-label={`${m.title} records`}>
           {col && <p className="caption service-observed">Observed {relativeTime(col.observedAt)}{col.complete ? '' : ' · partial'}</p>}
           {err && <div className="panel-pad"><Banner tone="danger" title="Records could not be loaded" role="alert">{err}</Banner></div>}
-          <RecordsTable col={col} loading={loading} selId={selId} onSelect={setSelId} label={m.title} />
-          <LifecycleSection states={spec.lifecycle} ids={spec.lifecycleIds} label={m.title} />
+          <RecordsTable col={col} loading={loading} selId={selId} onSelect={setSelId} label={m.title}
+            emptyHint={module === 'gateway' ? 'This frontend stores only references. Create the first credential in the service, or ask an administrator.' : undefined} />          <LifecycleSection states={spec.lifecycle} ids={spec.lifecycleIds} label={m.title} />
           <ContinueJourney links={spec.links} />
         </section>
         <aside className="panel service-inspect" aria-labelledby="iba-h">
@@ -123,15 +123,14 @@ export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
   );
 }
 
-function RecordsTable({ col, loading, selId, onSelect, label }: { col: Collection | null; loading: boolean; selId: string | null; onSelect: (id: string) => void; label: string }) {
-  const connection = useApp((s) => s.connection);
+function RecordsTable({ col, loading, selId, onSelect, label, emptyHint }: { col: Collection | null; loading: boolean; selId: string | null; onSelect: (id: string) => void; label: string; emptyHint?: string }) {  const connection = useApp((s) => s.connection);
   // Figma keeps the column structure visible even before the service returns records.
   const head = <thead><tr><th scope="col">Name</th><th scope="col">State</th><th scope="col">Revision</th><th scope="col">Observed</th></tr></thead>;
   const empty = !col ? (
     <EmptyState icon="play" headingLevel={3} title={loading ? 'Loading records…' : 'Connect this lifecycle'}>
       {connection === 'connected' ? 'Loading authorized records for this scope.' : 'Records, states and revisions come from an authorized service. Nothing is shown until the service returns it.'}
     </EmptyState>
-  ) : !col.items.length ? <EmptyState icon="inbox" headingLevel={3} title="No records in this scope">The connected service returned no {label.toLowerCase()} records for your current scope.</EmptyState> : null;
+  ) : !col.items.length ? <EmptyState icon="inbox" headingLevel={3} title="No records in this scope">The connected service returned no {label.toLowerCase()} records for your current scope.{emptyHint && <> {emptyHint}</>}</EmptyState>: null;
   return (
     <div className="table-wrap">
       <table className="table">

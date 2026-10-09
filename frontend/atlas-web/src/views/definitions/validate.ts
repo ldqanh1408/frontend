@@ -13,6 +13,11 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const VAULT_REF = /^vault:\/\/\S+$/;
 /** Keys that hold a reference to a secret: credentialReference, replacementCredentialRef, apiKeyRef, tokenRef… */
 const SECRET_REF_KEY = /(credential|secret|password|token|apikey)[a-z]*ref(erence)?$|vault/i;
+
+// true for keys that hold a reference to a secret
+export const isSecretRefKey = (key: string) => SECRET_REF_KEY.test(key);
+
+
 const ENV_REFS_KEY = /environmentRefs$/i;
 /** In an environmentRefs object/array these keys name the variable; every other string must be a vault reference. */
 const ENV_NAME_KEYS = new Set(['name', 'key', 'env', 'variable']);

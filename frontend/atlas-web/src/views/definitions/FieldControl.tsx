@@ -1,6 +1,9 @@
 import { memo } from 'react';
+
+import { Link } from 'react-router';
 import type { FieldSpec } from '../../data/types';
-import type { FormValue } from './validate';
+import { isSecretRefKey, type FormValue } from './validate';
+
 import { Button } from '../../components/ui';
 
 /** DOM contract kept stable for automated acceptance: control id `definition-<key>`, hint/error id `<id>-hint`. */
@@ -11,7 +14,7 @@ export function hintFor(f: FieldSpec): string {
   if (f.hint && !/^Required for complete validation$/.test(f.hint)) parts.push(f.hint);
   else if (f.unit) parts.push(`Unit: ${f.unit}${f.minimum !== null || f.maximum !== null ? ` · Range: ${f.minimum ?? '−∞'}–${f.maximum ?? '∞'}` : ''}`);
   if (f.control === 'list' && !parts.some((p) => p.includes('per line'))) parts.push('One value per line. Duplicate entries are rejected.');
-  parts.push(f.required ? 'Required for complete validation' : 'Optional');
+    parts.push(f.required ? 'Required to complete this definition; drafts may leave it empty' : 'Optional');
   return parts.join(' · ');
 }
 
@@ -73,13 +76,13 @@ export const FieldControl = memo(function FieldControl({ field: f, value, error,
       control = <input {...common} className="input" type="text" placeholder="2026-10-03T09:00:00Z" value={str} onChange={(e) => onChange(f.key, e.target.value)} />;
       break;
     default:
-      control = <input {...common} className="input" type={f.format === 'email' ? 'email' : f.format === 'uri' ? 'url' : 'text'} value={str} maxLength={f.maxLength ?? undefined} onChange={(e) => onChange(f.key, e.target.value)} />;
-  }
+      control = <input {...common} className="input" type={f.format === 'email' ? 'email' : f.format === 'uri' ? 'url' : 'text'} value={str} maxLength={f.maxLength ?? undefined}
+        placeholder={isSecretRefKey(f.key) ? 'vault://team/provider' : undefined} autoComplete={isSecretRefKey(f.key) ? 'off' : undefined} spellCheck={isSecretRefKey(f.key) ? false : undefined}
+        onChange={(e) => onChange(f.key, e.target.value)} />;  }
   return (
     <div className="field" data-field={f.key}>
       <label className="field-label" htmlFor={id}><span>{f.label}{f.required && <span className="req" aria-hidden="true"> *</span>}</span></label>
       {control}
-      <small id={hid} className={error ? 'field-error' : 'field-hint'}>{error ?? hintFor(f)}</small>
-    </div>
+      <small id={hid} className={error ? 'field-error' : 'field-hint'}>{error ?? hintFor(f)}{!error && isSecretRefKey(f.key) && <> · <Link to="/gateway">Manage credentials in Gateway</Link></>}</small>    </div>
   );
 });
