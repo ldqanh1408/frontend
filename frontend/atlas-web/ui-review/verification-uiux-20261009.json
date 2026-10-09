@@ -1,0 +1,343 @@
+{
+  "format": "atlas-uiux-acceptance/v1",
+  "date": "2026-10-09",
+  "status": "FRONTEND_GATES_PASSED_BACKEND_ACCEPTANCE_PENDING",
+  "scope": "Frontend; backend/live staging/production acceptance excluded",
+  "sourceCommit": "06c4f25404b5b20a5e2bf6261936792f137ee740",
+  "sourceDigest": "aeda5bd9e3ae4242c793eaeb34a2019f9b887f7c6bc5a74c35753ee937badc60",
+  "sourceTree": "cce77f7ecf69eb3ed3f090b3bbf1f09181539ef3",
+  "skill": {
+    "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "commit": "1a2c459b35f26116fd165b0a0f30597f252749ff",
+    "offTopicGeneratedPatternApplied": false
+  },
+  "unit": {
+    "passed": 83,
+    "failed": 0
+  },
+  "releaseTooling": {
+    "passed": 7,
+    "failed": 0
+  },
+  "uxShell": {
+    "startTime": "2026-10-09T03:07:10.356Z",
+    "duration": 67813.398,
+    "expected": 40,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "layoutPerformance": {
+    "startTime": "2026-10-09T03:11:52.742Z",
+    "duration": 100880.97899999999,
+    "expected": 158,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "performance": {
+    "measurements": [
+      {
+        "route": "/",
+        "lcp": 268,
+        "dcl": 153,
+        "jsFiles": 10,
+        "jsBytes": 167540,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 270566,
+        "cls": 0.001
+      },
+      {
+        "route": "/specifications",
+        "lcp": 404,
+        "dcl": 132,
+        "jsFiles": 14,
+        "jsBytes": 211077,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 292935,
+        "cls": 0.001
+      },
+      {
+        "route": "/code",
+        "lcp": 224,
+        "dcl": 140,
+        "jsFiles": 16,
+        "jsBytes": 186918,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 268776,
+        "cls": 0.002
+      },
+      {
+        "route": "/agents",
+        "lcp": 340,
+        "dcl": 155,
+        "jsFiles": 20,
+        "jsBytes": 232079,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 313937,
+        "cls": 0.006
+      },
+      {
+        "route": "/workflow",
+        "lcp": 268,
+        "dcl": 163,
+        "jsFiles": 18,
+        "jsBytes": 204399,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 286257,
+        "cls": 0.031
+      },
+      {
+        "route": "/execution",
+        "lcp": 444,
+        "dcl": 132,
+        "jsFiles": 19,
+        "jsBytes": 224328,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 327354,
+        "cls": 0.001
+      },
+      {
+        "route": "/definitions/agent",
+        "lcp": 340,
+        "dcl": 168,
+        "jsFiles": 15,
+        "jsBytes": 198105,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 279963,
+        "cls": 0.001
+      },
+      {
+        "route": "/execution/runs",
+        "lcp": 352,
+        "dcl": 140,
+        "jsFiles": 16,
+        "jsBytes": 228808,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 310666,
+        "cls": 0.001
+      }
+    ],
+    "maxLcpMs": 444,
+    "maxCls": 0.031,
+    "maxInitialJsBytes": 232079,
+    "budgets": {
+      "lcpMs": 2500,
+      "cls": 0.1,
+      "initialJsBytes": 524288
+    },
+    "desktopLocalNoThrottling": true
+  },
+  "privateVisual": {
+    "stats": {
+      "startTime": "2026-10-09T03:08:23.243Z",
+      "duration": 105626.459,
+      "expected": 150,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "threshold": 0.005,
+    "baselineCommit": "0ea93bcbe83df529a8a99840238877e143d90388",
+    "targetCommit": "06c4f25404b5b20a5e2bf6261936792f137ee740",
+    "updateSnapshotsUsedDuringAcceptance": false,
+    "publicPixelCIGate": false
+  },
+  "release": {
+    "sourceCommit": "06c4f25404b5b20a5e2bf6261936792f137ee740",
+    "sourceDirty": false,
+    "sourceDigest": "aeda5bd9e3ae4242c793eaeb34a2019f9b887f7c6bc5a74c35753ee937badc60",
+    "buildId": "06c4f25404b5",
+    "fileCount": 126,
+    "identicalFiles": 126,
+    "entries": {
+      "workspace": "/index.html",
+      "observer": "/telemetry-console.html"
+    },
+    "checkedAt": "2026-10-09T03:07:08.516Z"
+  },
+  "specifications": {
+    "format": "atlas-specification-baseline/v1",
+    "date": "2026-10-08",
+    "documents": [
+      {
+        "uploadedName": "SYSTEM_REQUIREMENTS(1).md",
+        "path": "docs/specifications/SYSTEM_REQUIREMENTS.md",
+        "sha256": "908da151956c4dc87e74b964423ee2b91db082ad1ef3b255347957230c4b6b60",
+        "size": 168586
+      },
+      {
+        "uploadedName": "Atlas_Tech_Stack_and_ADR_SaaS(2).md",
+        "path": "docs/specifications/Atlas_Tech_Stack_and_ADR_SaaS.md",
+        "sha256": "03b0e31105b33a3a3fa37d4e0136af610c0fdb5ad7de6c3ac94b20fb6f982df1",
+        "size": 44297
+      }
+    ]
+  },
+  "currentSourceGitHubCI": {
+    "runId": 37877622378,
+    "url": "https://github.com/ldqanh1408/frontend/actions/runs/37877622378",
+    "headSha": "06c4f25404b5b20a5e2bf6261936792f137ee740",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 113650525021,
+        "name": "verify (webkit)",
+        "conclusion": "success",
+        "startedAt": "2026-10-09T03:08:23Z",
+        "completedAt": "2026-10-09T03:30:37Z"
+      },
+      {
+        "id": 113650525113,
+        "name": "verify (firefox)",
+        "conclusion": "success",
+        "startedAt": "2026-10-09T03:08:22Z",
+        "completedAt": "2026-10-09T03:25:12Z"
+      },
+      {
+        "id": 113650525232,
+        "name": "verify (chromium)",
+        "conclusion": "success",
+        "startedAt": "2026-10-09T03:08:24Z",
+        "completedAt": "2026-10-09T03:22:06Z"
+      },
+      {
+        "id": 113655999414,
+        "name": "staging",
+        "conclusion": "skipped",
+        "startedAt": "2026-10-09T03:30:38Z",
+        "completedAt": "2026-10-09T03:30:37Z"
+      }
+    ]
+  },
+  "rawReportIntegrity": [
+    {
+      "file": "uiux-final-unit.json",
+      "sha256": "3707800a321ea2e419d5b631b38b6fc003e96911e4fd4c1c0651e6dd23e74d73",
+      "bytes": 31225
+    },
+    {
+      "file": "uiux-final-ux.json",
+      "sha256": "d2aba74d23b60f6fae299c2008770a099ddf015a3ec6004c3293abc607cb5799",
+      "bytes": 46683
+    },
+    {
+      "file": "uiux-final-layout-perf.json",
+      "sha256": "caf25728c77edd48b58ec585f90652979dd91a45bbe37058d7af95ab2c340d2d",
+      "bytes": 190743
+    },
+    {
+      "file": "uiux-final-visual.json",
+      "sha256": "0ea42a0d88e9ae541232b07e309a915829a96bb7efe9585e8948d821734b4d29",
+      "bytes": 180515
+    }
+  ],
+  "secretHandlingPR": {
+    "number": 1,
+    "head": "0e8cf8340f0f90bc3dee5a5e37019450bfcda24f",
+    "merged": false,
+    "handoffContainsFixes": true
+  },
+  "deployed": false,
+  "liveBackendAccepted": false,
+  "manualScreenReaderAccepted": false,
+  "limitations": [
+    "Automated frontend contracts and fixtures do not prove backend business behavior or server-side tenant/RBAC isolation.",
+    "Local performance is not field Core Web Vitals or production load acceptance.",
+    "Two deployed HTTPS hosts and Observer host-only cookie perimeter remain unverified.",
+    "Manual NVDA/VoiceOver and real Safari/macOS pointer behavior remain separate manual acceptance.",
+    "Local isolated worktree reused node_modules through a symlink. Only 90/126 output files match CI byte-for-byte across environments; each environment independently rebuilds 126/126 identically. Deploy the canonical CI artifact, not the local copy."
+  ],
+  "recordedAt": "2026-10-09T03:15:02.657827+00:00",
+  "crossEnvironmentRelease": {
+    "ciArtifactSha256": "ce689219d7901f84b4c6d716e2e93709f75699ade4388736155ae9e850b10a78",
+    "fileCount": 126,
+    "allCiFileHashesVerified": true,
+    "localCiIdenticalFiles": 90
+  },
+  "functional": {
+    "passed": 1725,
+    "skipped": 9,
+    "unexpected": 0,
+    "flaky": 0,
+    "byEngine": {
+      "chromium": {
+        "functional": {
+          "startTime": "2026-10-09T03:09:17.028Z",
+          "duration": 527079.695,
+          "expected": 575,
+          "skipped": 3,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "review": {
+          "startTime": "2026-10-09T03:19:27.824Z",
+          "duration": 147123.27800000002,
+          "expected": 58,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      "firefox": {
+        "functional": {
+          "startTime": "2026-10-09T03:09:03.811Z",
+          "duration": 756995.923,
+          "expected": 575,
+          "skipped": 3,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "review": {
+          "startTime": "2026-10-09T03:21:43.869Z",
+          "duration": 206611.048,
+          "expected": 58,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      "webkit": {
+        "functional": {
+          "startTime": "2026-10-09T03:09:37.513Z",
+          "duration": 1000236.553,
+          "expected": 575,
+          "skipped": 3,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "review": {
+          "startTime": "2026-10-09T03:26:20.861Z",
+          "duration": 251844.723,
+          "expected": 58,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      }
+    }
+  },
+  "review": {
+    "passed": 174,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "stagingAcceptance": "NOT_RUN_JOB_SKIPPED",
+  "imagePublication": "PRIVATE_AUTO_REVIEW_REJECTED_PUBLIC_UPLOAD",
+  "canonicalRelease": "Use the CI artifact built from sourceCommit; local symlinked dependencies do not produce a byte-identical cross-environment artifact.",
+  "completedAt": "2026-10-09T03:41:38.991419+00:00",
+  "qaInputDigest": {
+    "sha256": "1104d182a7608a8cfcb414044403308637f4177b9ae6feb03a3c0d34d9870884",
+    "files": 26,
+    "sourceCommit": "06c4f25404b5b20a5e2bf6261936792f137ee740"
+  }
+}

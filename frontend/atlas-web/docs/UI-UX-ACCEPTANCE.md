@@ -1,34 +1,51 @@
 # UI/UX acceptance — 2026-10-09
 
-Implementation is on `handoff/frontend-e2e` in [ldqanh1408/frontend](https://github.com/ldqanh1408/frontend). This checkpoint supersedes historical current-status wording in HANDOFF checkpoints 12–16. It does not certify backend business acceptance or production deployment.
+Frontend gates passed for source commit [`06c4f25404b5`](https://github.com/ldqanh1408/frontend/commit/06c4f25404b5b20a5e2bf6261936792f137ee740). [CI run 37877622378](https://github.com/ldqanh1408/frontend/actions/runs/37877622378) completed successfully in Chromium, Firefox and WebKit. Runtime source SHA-256: `aeda5bd9e3ae4242c793eaeb34a2019f9b887f7c6bc5a74c35753ee937badc60`. Evidence-only commits after this source commit do not change runtime or QA inputs.
 
 ## Delivered
 
-Search now examines all device records before limiting rendered matches, distinguishes same-name records, reports loading/partial failures, cancels stale reads and offers an empty-search reset. Keyboard hints are visible; Escape restores the invoker and navigation preserves route focus. Shared typography scales with browser text preferences. Footer status wraps, mobile header actions retain 44px targets, key/value columns use available space, and selected rows remain visible in system contrast. Both existing themes and the ADR stack are preserved.
+Search examines all device records before limiting each rendered collection to 50 matches, distinguishes same-name records, reports loading/partial failures, cancels stale reads and offers an empty-search reset. Visible keyboard hints, Escape-to-invoker focus and route focus preserve navigation. Pointer-open explicitly establishes the search invoker for Safari's differing click-focus behavior.
 
-See [UI-UX-DESIGN-SYSTEM.md](UI-UX-DESIGN-SYSTEM.md) for verified skill guidance, platform references and requirement mappings. Public test entrypoints use layout checks; private pixel comparisons require explicitly supplied baselines. No new screenshot bytes are published to this public repository.
+Shared typography respects text preferences. Tenant scope changes its column count with text size, including 200% text at 320/375px; labels no longer overlap. Footer status wraps, small-screen header actions retain 44px targets, key/value columns use available width, and selection retains an outline in system contrast. Desktop sidebar no longer shows a duplicate drawer control. Both themes, self-hosted fonts, the ADR stack and business authority guards are preserved.
 
-## Verification status
+The requested skill was reviewed at a pinned commit; its off-topic generated landing-page pattern was rejected after a narrower retry. Verified guidance and functional references from VS Code, Linear and Primer were applied through Atlas's existing tokens. See [design decisions and requirement mappings](UI-UX-DESIGN-SYSTEM.md) and [full SRS/ADR conformance](SRS-ADR-CONFORMANCE.md).
 
-The implementation checkpoint has passed typecheck, production/review builds, 83 unit tests and 7 release-tooling tests. New focused UX tests passed on Chromium and Firefox before the final complete run. Full functional, layout/performance, private pixel regression and current-commit CI are being verified; their final reports will be appended to this document and `ui-review/verification-uiux-20261009.json`.
+## Verified results
 
-The prior handoff commit `b24f9a3f214c05f12cb01bfa87c0a2ae3b8ec578` passed 150 private visual and 150 layout cases before these UI changes. Those historical results are not counted as acceptance of the changed UI.
+| Gate | Result | Evidence / scope |
+| --- | --- | --- |
+| Typecheck and production/review builds | Pass | Clean CI checkout; both independent entries |
+| Unit / release tooling | 83 / 7 passed | Local final checkout and all CI jobs |
+| Functional + axe | 1,725 passed; 9 skipped; 0 failed/flaky | 575 + 3 skipped per engine; skipped release/staging checks are not acceptance |
+| Review fixtures / execution states | 174 passed; 0 failed/flaky | 58 per engine; illustrative fixtures restricted to review build |
+| Public layout | 150 passed | 25 views × 3 widths × 2 themes; includes opened editors |
+| Private pixel regression | 150 passed | Chromium/Linux; changed-pixel ratio ≤0.005; independent run without update flag |
+| Performance | 8 passed | Local max LCP 444ms, max CLS 0.031, max initial JS 232,079 bytes; lazy Monaco verified |
+| Focused UX/shell | 40 passed | Final release in Chromium/Firefox; included in the full CI suite |
+| Release repeat build | 126/126 files identical | Independently within local environment and within canonical CI |
+| Private evidence gallery | 16 checks passed | Loaded images and no horizontal overflow at 390/1440px |
 
-## Reproduce
+See [structured receipt](../ui-review/verification-uiux-20261009.json) for timestamps, source/QA digests, measurements and CI job IDs. The two supplied specification files were verified against their original SHA-256 and sizes. A private evidence package contains before/after images, all pixel baselines, raw CI JSON/log results and integrity indexes; images are kept private after automatic approval review rejected public screenshot publication. Public CI uploads JSON/log results without screenshot, video or trace bytes.
+
+## Canonical release and reproduction
+
+Deploy the `atlas-web-current-release` artifact from the linked CI run: buildId `06c4f25404b5`, source commit `06c4f25404b5b20a5e2bf6261936792f137ee740`, ZIP SHA-256 `ce689219d7901f84b4c6d716e2e93709f75699ade4388736155ae9e850b10a78`. All 126 manifest-listed files were independently checked for byte size and SHA-256 after download.
+
+CI uses Ubuntu 24.04, Node 22 and the lockfile with `npm ci`. The local isolated worktree reused dependencies through a symlink: 90/126 files match CI across environments. Each environment rebuilds its own output identically; cross-environment identity is not certified. The CI artifact is authoritative for deployment.
 
 ```sh
 npm ci
 npx playwright install --with-deps chromium firefox webkit
 npm run verify
-# Include private pixel regression only with reviewed baseline PNGs restored:
+# Add private pixel comparison only after restoring reviewed baselines:
 ATLAS_VISUAL_BASELINE_DIR=/absolute/private/baselines npm run verify
 ```
 
-Fresh run directories prevent results from successful reruns being merged. Baseline generation with `--update-snapshots` is calibration and is followed by independent comparison without that flag. See [VISUAL-EVIDENCE.md](VISUAL-EVIDENCE.md).
+Fresh acceptance run directories keep failed attempts separate. Candidate-baseline generation is calibration, followed by acceptance without `--update-snapshots`. See [visual policy](VISUAL-EVIDENCE.md). The reviewed pixel baseline belongs to `0ea93bc`; the independent acceptance targets source `06c4f25`, whose final pointer-focus adjustment does not change appearance.
 
 ## Remaining acceptance boundaries
 
-- WebKit could not launch locally because system libraries are absent and Ubuntu package endpoints return 503 in this execution environment. The public CI matrix installs all engines on Ubuntu 24.04. Its actual conclusion is recorded separately from local results.
-- [SRS-ADR-CONFORMANCE.md](SRS-ADR-CONFORMANCE.md) tracks missing backend, tenant/RBAC enforcement, Temporal recovery, sandbox, live CRDT/terminal latency and two-host/cookie Observer perimeter evidence.
-- Local browser budgets are not field Core Web Vitals or production load tests. Axe and keyboard checks are not a manual NVDA/VoiceOver audit.
-- No deployment, merge, live staging acceptance or production sign-off has occurred. [DEPLOY-ACCEPTANCE.md](DEPLOY-ACCEPTANCE.md) defines the remaining deployment gates.
+- CI staging job was skipped. No deployment, merge, real staging acceptance or production sign-off occurred. Follow [deployment acceptance](DEPLOY-ACCEPTANCE.md) and [live journeys](LIVE-E2E-ACCEPTANCE.md).
+- Backend contracts, server-side tenant/RBAC isolation, Temporal recovery, sandbox guarantees, production CRDT/terminal latency and the two-host/cookie Observer perimeter require real backend/deployment evidence. Frontend fixtures do not establish them.
+- Local browser budgets do not establish field Core Web Vitals or production load behavior. Automated axe/keyboard tests do not replace manual NVDA/VoiceOver and real Safari/macOS testing.
+- PR #1 `fix/secret-handling` remains open at `0e8cf8340f0f90bc3dee5a5e37019450bfcda24f`. Its four reviewed issues are fixed in the handoff source; the original PR was not changed or merged. See [PR review](../ui-review/PR-1-SECRET-HANDLING-REVIEW.md).

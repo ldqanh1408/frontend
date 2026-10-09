@@ -547,3 +547,12 @@ Bằng chứng mới: `ui-review/verification-conformance-20261008.json`, raw lo
 - Giữ gate duyệt UI trước deploy; còn cần authorization xuất source/evidence, CI commit mới, backend/contract/test resources, hai HTTPS origin/cookie độc lập, staging và NVDA/VoiceOver thủ công.
 
 Kết quả: `ui-review/verification-complete-20261008.json`; raw/case index/hash: `ui-review/evidence/complete-20261008/`; remote observation: `ui-review/github-source-observation-20261008.json`; báo cáo tiếp quản: `ui-review/CONTINUATION-REPORT-20261008.md`.
+
+
+## 17. Checkpoint UI/UX và CI source hiện tại — 09/10/2026
+
+Source `06c4f25404b5b20a5e2bf6261936792f137ee740` đã push lên `handoff/frontend-e2e`, repo `ldqanh1408/frontend`. CI https://github.com/ldqanh1408/frontend/actions/runs/37877622378 xanh cả Chromium/Firefox/WebKit: 1.725 functional + axe, 174 review; 9 release/staging skip; không fail/flaky. Local source cuối: 83 unit, 7 tooling, 150 layout, 150 pixel, 8 performance và 40 UX/shell. CI release build lại 126/126 file giống nhau.
+
+Thay đổi: tìm kiếm toàn bộ device records trước giới hạn render, unique IDs, loading/partial-error/cancelled-read feedback, focus liên tục, touch targets, chữ 200%, scope columns không chồng nhãn, footer đủ trạng thái và system contrast. Skill ui-ux-pro-max đã đối chiếu với ADR/Figma/SRS; giữ stack và authority model. Xem `docs/UI-UX-ACCEPTANCE.md` cùng `ui-review/verification-uiux-20261009.json` để đọc phạm vi và bằng chứng.
+
+Dùng artifact CI source `06c4f25404b5` khi deploy; local symlink dependency topology không có checksum đồng nhất toàn bộ với CI. Ảnh mới nằm trong evidence riêng; không thêm PNG/trace vào repo công khai. PR secret-handling gốc vẫn chưa merge, còn handoff đã chứa các sửa lỗi. Backend/live staging/manual screen reader/production chưa nghiệm thu. Các checkpoint 12–16 giữ vai trò lịch sử.
