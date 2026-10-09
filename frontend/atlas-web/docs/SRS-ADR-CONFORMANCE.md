@@ -2,7 +2,7 @@
 
 **The handoff is a frontend implementation and integration proposal. It does not satisfy the complete Atlas product E2E acceptance yet.** No Java/Spring/Modulith backend, Temporal workflows, PostgreSQL schema/RLS, sandbox runtime or Test/Prod Compose files exist in the supplied source. No live backend was exercised.
 
-The two supplied specifications are copied byte-for-byte under `specifications/`; `source-manifest.json` records their SHA-256 and sizes. This report supersedes the current status in checkpoints 12–14 while keeping their historical evidence.
+The two supplied specifications are copied byte-for-byte under `specifications/`; `specifications/source-manifest.json` records their SHA-256 and sizes. This report supersedes the current status in checkpoints 12–14 while keeping their historical evidence. Current frontend verification is in [UI-UX-ACCEPTANCE.md](UI-UX-ACCEPTANCE.md); current deployment plan and acceptance obligations are in [DEPLOY-READINESS-20261009.md](DEPLOY-READINESS-20261009.md).
 
 ## Interpretation and unresolved conflicts
 
@@ -104,6 +104,6 @@ For all 51 SRS entities, server storage, ownership and migrations remain require
 
 ## Acceptance disposition
 
-Frontend checks and local release reproducibility are reported in `ui-review/verification-conformance-20261008.json`. Older broad visual/performance/full-functional evidence is retained with its original source and limitations. The final source has focused checks; there is no claim of a new full-system green run.
+The 2026-10-08 conformance checkpoint is retained in `ui-review/verification-conformance-20261008.json`. Final frontend source `06c4f25404b5b20a5e2bf6261936792f137ee740` passed the three-engine CI run linked in [UI-UX-ACCEPTANCE.md](UI-UX-ACCEPTANCE.md), including 1,725 functional checks and 174 review checks. That result establishes the documented frontend gates, not a full-system green run.
 
-Live journeys J0–J7 and O1 are **NOT_RUN / BLOCKED** pending the backend source/API contract, GitHub App test installation, scoped test tenants, Test Compose fixtures and independent authenticated HTTPS origins. `LIVE-E2E-ACCEPTANCE.md` defines the exact positive and negative outcomes and proof to collect. Deployment is still subject to the existing UI review gate. No push, PR review comment, merge, deployment or staging write was performed.
+Live journeys J0–J7 and O1 are **NOT_RUN / BLOCKED** pending the backend source/API contract, GitHub App test installation, scoped test tenants, Test Compose fixtures and independent authenticated HTTPS origins. `LIVE-E2E-ACCEPTANCE.md` defines the exact positive and negative outcomes and proof to collect. Authorized source/evidence push has completed on `handoff/frontend-e2e`. Deployment remains subject to the UI review gate; no PR review comment, merge, deployment or staging write was performed.

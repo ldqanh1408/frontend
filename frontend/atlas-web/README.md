@@ -63,7 +63,7 @@ Rules the UI keeps everywhere:
 
 ```bash
 npm run test:tooling   # release routing, entry isolation, integrity and cache contracts
-npm run verify         # check + tooling + functional (3 engines) + visual/perf + review (3 engines)
+npm run verify         # check + tooling + functional (3 engines) + layout/perf + review (3 engines)
 ```
 
 Each invocation writes its own `test-results/acceptance/<run>/summary.json`, raw reports and logs. Failed gates fail the
@@ -95,6 +95,11 @@ Staging acceptance checks bytes, expected release identity, audience, headers, c
 on both independent origins in three engines. It sends GET/HEAD only, never service commands. Missing targets, stale
 build IDs and failed tests fail the gate. CI uploads evidence as artifacts and does not commit or deploy from this job.
 Legacy `url/release` metadata is historical; it cannot certify the current source.
+
+The current CI release is an unconfigured baseline; it does not contain approved production origin inputs. Follow
+[deployment acceptance](docs/DEPLOY-ACCEPTANCE.md) to build and verify a target-configured candidate, and read the
+[current readiness report](docs/DEPLOY-READINESS-20261009.md) before continuing. Record build-time origin inputs alongside
+the release manifest; environment variables are not included in the runtime source digest.
 
 The Cloudflare plugin helps inspect Workers, deployment versions and account configuration. GitHub helps inspect/publish
 source and CI. Playwright already supplies functional, visual and axe automation; it needs no browser plugin. Backend

@@ -1,0 +1,84 @@
+{
+  "format": "atlas-deploy-readiness/v1",
+  "date": "2026-10-09",
+  "status": "BLOCKED_DEPLOYMENT_INPUTS_AND_LIVE_ACCEPTANCE",
+  "source": {
+    "branch": "handoff/frontend-e2e",
+    "inspectedHead": "a824bd9a67d7f0db754e77ab08b1bc6d679fa03e",
+    "testedCommit": "06c4f25404b5b20a5e2bf6261936792f137ee740",
+    "sourceDigest": "aeda5bd9e3ae4242c793eaeb34a2019f9b887f7c6bc5a74c35753ee937badc60",
+    "runtimeAndQAUnchanged": true
+  },
+  "ci": {
+    "runId": 37877622378,
+    "url": "https://github.com/ldqanh1408/frontend/actions/runs/37877622378",
+    "status": "completed",
+    "conclusion": "success",
+    "stagingAccepted": false
+  },
+  "baselineArtifact": {
+    "name": "atlas-web-current-release",
+    "buildId": "06c4f25404b5",
+    "sha256": "ce689219d7901f84b4c6d716e2e93709f75699ade4388736155ae9e850b10a78",
+    "fileCount": 126,
+    "allFileHashesVerified": true,
+    "repeatBuildIdenticalFiles": 126,
+    "targetOriginsConfigured": false,
+    "productionCandidate": false,
+    "sourceDigestIncludesEnvironmentInputs": false
+  },
+  "latestChecks": {
+    "releaseTooling": {
+      "passed": 7,
+      "failed": 0,
+      "node": "v24.19.0",
+      "scope": "read-only tooling recheck; original CI uses Node 22"
+    },
+    "browserSuitesRerun": false
+  },
+  "blockers": [
+    {
+      "id": "D01",
+      "owner": "User / UI reviewer",
+      "required": "Review final gallery and record UI acceptance before deployment",
+      "status": "PENDING"
+    },
+    {
+      "id": "D02",
+      "owner": "Frontend / platform",
+      "required": "Exact independent Workspace and Observer HTTPS origins and target-configured candidate receipt",
+      "status": "MISSING"
+    },
+    {
+      "id": "D03",
+      "owner": "Backend / identity",
+      "required": "Approved contract, separate audiences, host-only Secure cookies, test tenants and scoped live environment",
+      "status": "MISSING"
+    },
+    {
+      "id": "D04",
+      "owner": "User / platform",
+      "required": "Explicit deployment scope and authorization after UI review",
+      "status": "NOT_RECORDED"
+    },
+    {
+      "id": "D05",
+      "owner": "QA / security / product",
+      "required": "Two-origin delivery checks, J0\u2013J7/O1, all BR/EX, conflict decisions and manual screen-reader/Safari acceptance",
+      "status": "NOT_RUN"
+    }
+  ],
+  "mutations": {
+    "cloudflareWrites": false,
+    "deployment": false,
+    "merge": false,
+    "prCreated": false,
+    "legacyTargetChanged": false,
+    "publicImagesAdded": false,
+    "sourceReportPushAuthorized": true
+  },
+  "plannedPublicDiffScope": "Documentation and text receipts only; runtime, QA, workflows and deployment target remain unchanged.",
+  "completedAt": "2026-10-09T06:34:14.043Z",
+  "infrastructureEvidence": "PRIVATE; not included in this public report",
+  "imageAndInfrastructurePublication": "New image and infrastructure observations retained privately after automatic review rejected public disclosure."
+}

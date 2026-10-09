@@ -29,7 +29,7 @@ See [structured receipt](../ui-review/verification-uiux-20261009.json) for times
 
 ## Canonical release and reproduction
 
-Deploy the `atlas-web-current-release` artifact from the linked CI run: buildId `06c4f25404b5`, source commit `06c4f25404b5b20a5e2bf6261936792f137ee740`, ZIP SHA-256 `ce689219d7901f84b4c6d716e2e93709f75699ade4388736155ae9e850b10a78`. All 126 manifest-listed files were independently checked for byte size and SHA-256 after download.
+The `atlas-web-current-release` artifact from the linked CI run is the verified unconfigured frontend baseline: buildId `06c4f25404b5`, source commit `06c4f25404b5b20a5e2bf6261936792f137ee740`, ZIP SHA-256 `ce689219d7901f84b4c6d716e2e93709f75699ade4388736155ae9e850b10a78`. All 126 manifest-listed files were independently checked for byte size and SHA-256 after download. It does not contain approved production origin inputs. Prepare and reverify a target-configured candidate as described in [deployment acceptance](DEPLOY-ACCEPTANCE.md); preserve the exact artifact and input receipt.
 
 CI uses Ubuntu 24.04, Node 22 and the lockfile with `npm ci`. The local isolated worktree reused dependencies through a symlink: 90/126 files match CI across environments. Each environment rebuilds its own output identically; cross-environment identity is not certified. The CI artifact is authoritative for deployment.
 

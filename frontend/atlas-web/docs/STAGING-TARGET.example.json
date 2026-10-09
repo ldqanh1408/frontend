@@ -1,0 +1,5 @@
+{
+  "workspaceUrl": "https://workspace.example.invalid",
+  "observerUrl": "https://observer.example.invalid/observer/",
+  "note": "Replace both placeholders with independently authenticated HTTPS hosts after UI review and scoped deployment authorization. This example configures no deployment. Supply exact candidate buildId separately through EXPECTED_BUILD_ID or workflow expected_release."
+}
