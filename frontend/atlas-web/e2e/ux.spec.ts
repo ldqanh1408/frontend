@@ -47,19 +47,30 @@ for (const width of [320, 375, 768]) test(`readable status and touch actions at 
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
-test('text enlargement preserves workspace reflow and search keyboard navigation', async ({ page }) => {
-  await page.setViewportSize({ width: 375, height: 844 }); await page.goto('/configuration');
+for (const width of [320, 375]) test(`text enlargement preserves scope and search navigation at ${width}px`, async ({ page }) => {
+  await page.setViewportSize({ width, height: 844 }); await page.goto('/configuration');
   await expect(page.locator('h1')).toBeVisible();
   const initial = await page.locator('h1').evaluate(el => parseFloat(getComputedStyle(el).fontSize));
   await page.addStyleTag({ content: 'html { font-size: 200%; }' });
   expect(await page.locator('h1').evaluate(el => parseFloat(getComputedStyle(el).fontSize))).toBe(initial * 2);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  expect(await page.locator('.tenant-context > span > strong').evaluateAll(labels => labels.every(label => {
+    const range = document.createRange(); range.selectNodeContents(label);
+    const box = label.getBoundingClientRect();
+    return [...range.getClientRects()].every(rect => rect.left >= box.left - 1 && rect.right <= box.right + 1);
+  })), 'Scope labels must fit their columns without overlapping adjacent labels').toBe(true);
   await page.getByRole('button', { name: 'Search workspace' }).click();
   const input = page.getByRole('combobox', { name: 'Search workspace' });
   await input.fill('help keyboard');
   await expect(page.getByRole('option', { name: 'Help and keyboard shortcuts' })).toBeVisible();
   await page.keyboard.press('Escape'); await expect(input).toBeHidden();
   await expect(page.getByRole('button', { name: 'Search workspace' })).toBeFocused();
+});
+
+test('desktop sidebar does not show a duplicate drawer control', async ({ page }) => {
+  await page.goto('/'); await expect(page.locator('h1')).toBeVisible();
+  await expect(page.getByRole('navigation', { name: 'Workspace' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Open workspace navigation' })).toBeHidden();
 });
 
 test('reduced motion and system contrast retain keyboard focus and selection', async ({ page }) => {

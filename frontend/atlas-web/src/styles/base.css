@@ -7,7 +7,7 @@ body {
 }
 h1, h2, h3, h4, p, ul, ol, dl, dd, figure { margin: 0; }
 ul[role='list'], ol[role='list'] { list-style: none; padding: 0; }
-h1 { font: var(--text-title); letter-spacing: -0.01em; }
+h1 { font: var(--text-title); letter-spacing: -0.01em; overflow-wrap: anywhere; }
 h2 { font: var(--text-heading); }
 h3 { font: var(--text-label); }
 a { color: var(--color-accent); text-underline-offset: 2px; }
