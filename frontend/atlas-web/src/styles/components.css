@@ -416,3 +416,25 @@ a.card:hover, button.card:hover { border-color: var(--color-control-border); }
 .skeleton-title { height: 32px; width: 280px; }
 .skeleton-block { border: 1px solid var(--color-border); border-radius: var(--radius-panel); background: var(--color-panel); animation: skeleton-pulse 1.4s ease-in-out infinite; }
 @keyframes skeleton-pulse { 50% { opacity: 0.55; } }
+
+
+.ssh-layout { align-items: start; }
+.ssh-record-list { display: flex; flex-direction: column; gap: var(--space-8); }
+.ssh-record {
+  width: 100%; border: 1px solid var(--color-border); border-radius: var(--radius-control); background: var(--color-bg); color: var(--color-text);
+  text-align: left; padding: var(--space-12); display: flex; flex-direction: column; gap: var(--space-6); cursor: pointer; font: inherit; min-width: 0;
+}
+.ssh-record:hover { border-color: var(--color-control-border); }
+.ssh-record[aria-selected='true'] { background: var(--color-accent-soft); border-color: var(--color-accent); }
+.ssh-record > .mono { overflow-wrap: anywhere; }
+.ssh-actions { flex-wrap: wrap; }
+.ssh-binding-row { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-12); padding: var(--space-12); border: 1px solid var(--color-border); border-radius: var(--radius-control); }
+.ssh-binding-row > :first-child { min-width: 0; overflow-wrap: anywhere; }
+.ssh-binding-editor { padding-top: var(--space-16); border-top: 1px solid var(--color-border); }
+.ssh-permission-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: var(--space-8); }
+.ssh-permission { display: flex; align-items: flex-start; gap: var(--space-8); padding: var(--space-12); border: 1px solid var(--color-border); border-radius: var(--radius-control); cursor: pointer; }
+.ssh-permission input { margin-top: 3px; accent-color: var(--color-accent); }
+.ssh-permission > span { display: flex; flex-direction: column; gap: var(--space-4); }
+.ssh-permission strong { font: var(--text-label); }
+.ssh-permission small { line-height: 1.4; }
+@media (max-width: 640px) { .ssh-binding-row { flex-direction: column; } }
