@@ -2,7 +2,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, typ
 import { Link } from 'react-router';
 import { Badge, Banner, Button, EmptyState, KeyValue, PageHeader, Panel } from '../../components/ui';
 import { Dialog } from '../../components/overlays';
-import { capability, toast, useApp } from '../../data/app-store';
+import { useCapability,capability, toast, useApp } from '../../data/app-store';
 import { hasServiceCsrfToken, ServiceError} from '../../data/service';
 import {
   createSshConnection, getSshConnectionTest, listSshAgentBindings, listSshConnections, replaceSshAgentBindings,
@@ -13,7 +13,6 @@ import {
 } from '../../data/ssh';
 import { usePageMeta } from '../../shell/page-meta';
 import { ProvenanceBanner } from '../shared';
-import { useCapability } from '../../data/app-store';
 
 const PERMISSIONS: { id: SshAgentPermission; label: string; description: string }[] = [
   { id: 'connect', label: 'Connect', description: 'Open an SSH session; no command execution is implied.' },
@@ -87,6 +86,7 @@ export default function SSHConnectionsPage() {
   const [query, setQuery] = useState('');
   const [createOpen, setCreateOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
+  const [createStep, setCreateStep] = useState(1);
   const [rotateOpen, setRotateOpen] = useState(false);
   const [bindingOpen, setBindingOpen] = useState(false);
   const [revokeOpen, setRevokeOpen] = useState(false);
@@ -202,9 +202,49 @@ export default function SSHConnectionsPage() {
     finally { setTestBusy(false); }
   };
 
-  const beginCreate = () => { setForm({ ...BLANK }); setFormErrors({}); setCreateOpen(true); };
-  const beginEdit = () => { if (!selected) return; setForm(toValues(selected)); setFormErrors({}); setEditOpen(true); };
+  const beginCreate = () => {
+    setForm({ ...BLANK });
+    setFormErrors({});
+    setCreateStep(1);
+    setCreateOpen(true);
+  };
+  
 
+  const beginEdit = () => { if (!selected) return; setForm(toValues(selected)); setFormErrors({}); setEditOpen(true); };
+  function validateCreateStep(step: number): boolean {
+  const allErrors = validateSshConnection(form, 'create');
+
+  const keys: (keyof SshConnectionFormValues)[] =
+    step === 1
+      ? ['name', 'host', 'port', 'username']
+      : ['credentialReference', 'hostKeyFingerprints'];
+
+  const stepErrors: Partial<
+    Record<keyof SshConnectionFormValues, string>
+  > = {};
+
+  for (const key of keys) {
+    if (allErrors[key]) {
+      stepErrors[key] = allErrors[key];
+    }
+  }
+
+  setFormErrors(stepErrors);
+
+  return Object.keys(stepErrors).length === 0;
+}
+const handleCreateSubmit = (event: FormEvent) => {
+    event.preventDefault();
+
+    if (createStep < 3) {
+      if (validateCreateStep(createStep)) {
+        setCreateStep((step) => Math.min(3, step + 1));
+      }
+      return;
+    }
+
+    void submitCreate(event);
+  };
   const submitCreate = async (event: FormEvent) => {
     event.preventDefault();
     const actionScopeKey = scopeKeyRef.current;
@@ -438,11 +478,182 @@ export default function SSHConnectionsPage() {
       </div>
     </Panel>
 
-    <Dialog open={createOpen} onOpenChange={(open) => !formBusy && setCreateOpen(open)} title="New SSH connection" description="Create metadata at Workspace scope. The backend does not receive a private key or password; only a Vault reference is sent." wide footer={<><Button onClick={() => setCreateOpen(false)} disabled={formBusy}>Cancel</Button><Button type="submit" form="ssh-create-form" variant="primary" disabled={formBusy} blocked={mutationGate(canCreate) || undefined}>{formBusy ? 'Creating…' : 'Create connection'}</Button></>}>
-      <form id="ssh-create-form" onSubmit={submitCreate} className="stack-16" noValidate>
-        <ConnectionFields values={form} errors={formErrors} create onChange={setForm} />
-        {workspaceReason && <Banner tone="warning" title="Workspace ID missing">{workspaceReason}</Banner>}
-        {csrfReason && <Banner tone="warning" title="Write token missing">{csrfReason}</Banner>}
+    <Dialog open={createOpen} onOpenChange={(open) => !formBusy && setCreateOpen(open)} title="New SSH connection" description="Create metadata at Workspace scope. The backend does not receive a private key or password; only a Vault reference is sent." wide footer = {
+      <>
+        <Button
+          onClick={() => setCreateOpen(false)}
+          disabled={formBusy}
+        >
+          Cancel
+        </Button>
+
+        {createStep > 1 && (
+          <Button
+            onClick={() => {
+              setCreateStep((step) => Math.max(1, step - 1));
+              setFormErrors({});
+            }}
+            disabled={formBusy}
+          >
+            Back
+          </Button>
+        )}
+
+        {createStep < 3 ? (
+          <Button
+            type="submit"
+            form="ssh-create-form"
+            variant="primary"
+            disabled={formBusy}
+          >
+            Continue →
+          </Button>
+        ) : (
+          <Button
+            type="submit"
+            form="ssh-create-form"
+            variant="primary"
+            disabled={formBusy}
+            blocked={mutationGate(canCreate) || undefined}
+          >
+            {formBusy ? 'Creating…' : 'Create connection'}
+          </Button>
+        )}
+      </>
+    }>
+      <form
+        id="ssh-create-form"
+        onSubmit={handleCreateSubmit}
+        className="stack-16"
+        noValidate>
+        <div
+          className="ssh-wizard-steps"
+          aria-label="Connection setup steps">
+          {[
+            {
+              number: 1,
+              title: 'Target',
+              subtitle: 'Where to connect',
+            },
+            {
+              number: 2,
+              title: 'Authentication',
+              subtitle: 'Credential and trust',
+            },
+            {
+              number: 3,
+              title: 'Review',
+              subtitle: 'Confirm settings',
+            },
+          ].map((step) => (
+            <div
+              key={step.number}
+              className="ssh-wizard-step"
+              data-active={createStep === step.number}
+              data-complete={createStep > step.number}
+              aria-current={
+                createStep === step.number ? 'step' : undefined
+              }
+            >
+              <span className="ssh-wizard-number">
+                {createStep > step.number ? '✓' : step.number}
+              </span>
+
+              <span>
+                <strong>{step.title}</strong>
+                <small>{step.subtitle}</small>
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {createStep < 3 ? (
+          <ConnectionFields
+            values={form}
+            errors={formErrors}
+            create
+            onChange={setForm}
+            step={createStep}
+          />
+        ) : (
+          <div className="stack-12">
+            <h3>Review connection</h3>
+
+            <div className="ssh-review-list">
+              <div>
+                <span>Connection</span>
+                <strong>{form.name.trim() || 'Not set'}</strong>
+              </div>
+
+              <div>
+                <span>Target</span>
+                <strong className="mono">
+                  {form.host.trim()
+                    ? formatSshHostPort(
+                        normalizeSshHost(form.host),
+                        Number(form.port) || 22
+                      )
+                    : 'Not set'}
+                </strong>
+              </div>
+
+              <div>
+                <span>Remote user</span>
+                <strong>{form.username.trim() || 'Not set'}</strong>
+              </div>
+
+              <div>
+                <span>Authentication</span>
+                <strong>{authMethodLabel(form.authMethod)}</strong>
+              </div>
+
+              <div>
+                <span>Vault reference</span>
+                <strong className="mono break">
+                  {form.credentialReference.trim() || 'Not set'}
+                </strong>
+              </div>
+
+              <div>
+                <span>Trusted fingerprints</span>
+                <strong>
+                  {splitLines(form.hostKeyFingerprints).length}
+                  {' '}configured
+                </strong>
+              </div>
+            </div>
+
+            <Banner
+              tone="info"
+              title="Creation does not prove SSH access"
+            >
+              After creating the profile, run Test connection.
+              Only bind an Agent after the backend reports a successful
+              test and the connection status becomes Ready.
+            </Banner>
+
+            <Banner
+              tone="warning"
+              title="Direct SSH only"
+            >
+              Bastion / ProxyJump routes are not configurable in the
+              current API contract. Confirm that the Agent runtime can
+              reach this host directly before creating the connection.
+            </Banner>
+          </div>
+        )}
+
+        {workspaceReason && (
+          <Banner tone="warning" title="Workspace ID missing">
+            {workspaceReason}
+          </Banner>
+        )}
+
+        {csrfReason && (
+          <Banner tone="warning" title="Write token missing">
+            {csrfReason}
+          </Banner>
+        )}
       </form>
     </Dialog>
 
@@ -515,37 +726,226 @@ export default function SSHConnectionsPage() {
   </div>;
 }
 
-function ConnectionFields({ values, errors, create, onChange }: {
-  values: SshConnectionFormValues; errors: Partial<Record<keyof SshConnectionFormValues, string>>; create: boolean; onChange: (values: SshConnectionFormValues) => void;
+function ConnectionFields({
+  values,
+  errors,
+  create,
+  onChange,
+  step,
+}: {
+  values: SshConnectionFormValues;
+  errors: Partial<
+    Record<keyof SshConnectionFormValues, string>
+  >;
+  create: boolean;
+  onChange: (values: SshConnectionFormValues) => void;
+  step?: number;
 }) {
-  const set = (key: keyof SshConnectionFormValues, value: string) => onChange({ ...values, [key]: value });
-  return <div className="stack-16">
-    <div className="form-grid">
-      <Field id="ssh-name" label="Connection name" required error={errors.name} hint="A recognisable name such as Production app host.">
-        <input id="ssh-name" className="input" value={values.name} onChange={(e) => set('name', e.target.value)} maxLength={120} required aria-describedby="ssh-name-hint" aria-invalid={Boolean(errors.name)} />
-      </Field>
-      <Field id="ssh-host" label="Host" required error={errors.host} hint="DNS or IP only; for IPv6 enter the address with or without brackets. Do not include protocol, username, password or port.">
-        <input id="ssh-host" className="input mono" value={values.host} onChange={(e) => set('host', e.target.value)} maxLength={253} required autoCapitalize="none" spellCheck={false} aria-describedby="ssh-host-hint" aria-invalid={Boolean(errors.host)} />
-      </Field>
-      <Field id="ssh-port" label="SSH port" required error={errors.port} hint="Default: 22. The backend enforces network egress policy.">
-        <input id="ssh-port" className="input" type="number" min={1} max={65535} step={1} value={values.port} onChange={(e) => set('port', e.target.value)} required aria-describedby="ssh-port-hint" aria-invalid={Boolean(errors.port)} />
-      </Field>
-      <Field id="ssh-username" label="Remote username" required error={errors.username} hint="Use a dedicated least-privilege remote account, not root where avoidable.">
-        <input id="ssh-username" className="input" value={values.username} onChange={(e) => set('username', e.target.value)} maxLength={128} required autoCapitalize="none" autoComplete="off" aria-describedby="ssh-username-hint" aria-invalid={Boolean(errors.username)} />
-      </Field>
+  const set = (
+    key: keyof SshConnectionFormValues,
+    value: string,
+  ) => {
+    onChange({
+      ...values,
+      [key]: value,
+    });
+  };
+
+  const showTarget = !create || step === 1;
+  const showAuthentication = !create || step === 2;
+  const showTrust = !create || step === 2;
+
+  return (
+    <div className="stack-16">
+      {showTarget && (
+        <div className="form-grid">
+          <Field
+            id="ssh-name"
+            label="Connection name"
+            required
+            error={errors.name}
+            hint="A recognisable name such as Production app host."
+          >
+            <input
+              id="ssh-name"
+              className="input"
+              value={values.name}
+              onChange={(event) =>
+                set('name', event.target.value)
+              }
+              maxLength={120}
+              required
+              aria-describedby="ssh-name-hint"
+              aria-invalid={Boolean(errors.name)}
+            />
+          </Field>
+
+          <Field
+            id="ssh-host"
+            label="Host"
+            required
+            error={errors.host}
+            hint="DNS or IP only; for IPv6 enter the address with or without brackets. Do not include protocol, username, password or port."
+          >
+            <input
+              id="ssh-host"
+              className="input mono"
+              value={values.host}
+              onChange={(event) =>
+                set('host', event.target.value)
+              }
+              maxLength={253}
+              required
+              autoCapitalize="none"
+              spellCheck={false}
+              aria-describedby="ssh-host-hint"
+              aria-invalid={Boolean(errors.host)}
+            />
+          </Field>
+
+          <Field
+            id="ssh-port"
+            label="SSH port"
+            required
+            error={errors.port}
+            hint="Default: 22. The backend enforces network egress policy."
+          >
+            <input
+              id="ssh-port"
+              className="input"
+              type="number"
+              min={1}
+              max={65535}
+              step={1}
+              value={values.port}
+              onChange={(event) =>
+                set('port', event.target.value)
+              }
+              required
+              aria-describedby="ssh-port-hint"
+              aria-invalid={Boolean(errors.port)}
+            />
+          </Field>
+
+          <Field
+            id="ssh-username"
+            label="Remote username"
+            required
+            error={errors.username}
+            hint="Use a dedicated least-privilege remote account, not root where avoidable."
+          >
+            <input
+              id="ssh-username"
+              className="input"
+              value={values.username}
+              onChange={(event) =>
+                set('username', event.target.value)
+              }
+              maxLength={128}
+              required
+              autoCapitalize="none"
+              autoComplete="off"
+              aria-describedby="ssh-username-hint"
+              aria-invalid={Boolean(errors.username)}
+            />
+          </Field>
+        </div>
+      )}
+
+      {create && showAuthentication && (
+        <>
+          <Field
+            id="ssh-auth-method"
+            label="Authentication method"
+            required
+            hint="Private key is preferred. Password auth is available only if backend policy allows it."
+          >
+            <select
+              id="ssh-auth-method"
+              className="select"
+              value={values.authMethod}
+              onChange={(event) =>
+                set(
+                  'authMethod',
+                  event.target.value as SshConnectionFormValues['authMethod'],
+                )
+              }
+            >
+              <option value="private_key">
+                SSH private key in Vault
+              </option>
+              <option value="password">
+                SSH password in Vault
+              </option>
+              <option value="ssh_certificate">
+                SSH certificate (private key + signed user certificate in Vault)
+              </option>
+            </select>
+          </Field>
+
+          <Field
+            id="ssh-credential-ref"
+            label="Credential Vault reference"
+            required
+            error={errors.credentialReference}
+            hint={
+              values.authMethod === 'private_key'
+                ? 'Vault secret contains the SSH private key and optional passphrase; never paste the key here.'
+                : values.authMethod === 'password'
+                  ? 'Vault secret contains the remote account password; never paste the password here.'
+                  : 'Vault secret contains the SSH private key, signed user certificate and optional passphrase; backend validates principal and validity.'
+            }
+          >
+            <input
+              id="ssh-credential-ref"
+              className="input mono"
+              value={values.credentialReference}
+              onChange={(event) =>
+                set(
+                  'credentialReference',
+                  event.target.value,
+                )
+              }
+              autoComplete="off"
+              spellCheck={false}
+              required
+              aria-describedby="ssh-credential-ref-hint"
+              aria-invalid={Boolean(
+                errors.credentialReference,
+              )}
+              placeholder="vault://workspace/infra/ssh/build-host"
+            />
+          </Field>
+        </>
+      )}
+
+      {showTrust && (
+        <Field
+          id="ssh-host-fingerprint"
+          label="Trusted SSH host-key fingerprint(s)"
+          required
+          error={errors.hostKeyFingerprints}
+          hint="One OpenSSH SHA256 fingerprint per line from a trusted infrastructure inventory. First-seen keys are not trusted automatically."
+        >
+          <textarea
+            id="ssh-host-fingerprint"
+            className="textarea code"
+            value={values.hostKeyFingerprints}
+            onChange={(event) =>
+              set(
+                'hostKeyFingerprints',
+                event.target.value,
+              )
+            }
+            required
+            aria-describedby="ssh-host-fingerprint-hint"
+            aria-invalid={Boolean(
+              errors.hostKeyFingerprints,
+            )}
+            placeholder="SHA256:..........................................."
+          />
+        </Field>
+      )}
     </div>
-    {create && <>
-      <Field id="ssh-auth-method" label="Authentication method" required hint="Private key is preferred. Password auth is available only if backend policy allows it.">
-        <select id="ssh-auth-method" className="select" value={values.authMethod} onChange={(e) => set('authMethod', e.target.value as SshConnectionFormValues['authMethod'])}>
-          <option value="private_key">SSH private key in Vault</option><option value="password">SSH password in Vault</option><option value="ssh_certificate">SSH certificate (private key + signed user certificate in Vault)</option>
-        </select>
-      </Field>
-      <Field id="ssh-credential-ref" label="Credential Vault reference" required error={errors.credentialReference} hint={values.authMethod === 'private_key' ? 'Vault secret contains the SSH private key and optional passphrase; never paste the key here.' : values.authMethod === 'password' ? 'Vault secret contains the remote account password; never paste the password here.' : 'Vault secret contains the SSH private key, signed user certificate and optional passphrase; backend validates principal and validity.'}>
-        <input id="ssh-credential-ref" className="input mono" value={values.credentialReference} onChange={(e) => set('credentialReference', e.target.value)} autoComplete="off" spellCheck={false} required aria-describedby="ssh-credential-ref-hint" aria-invalid={Boolean(errors.credentialReference)} placeholder="vault://workspace/infra/ssh/build-host" />
-      </Field>
-    </>}
-    <Field id="ssh-host-fingerprint" label="Trusted SSH host-key fingerprint(s)" required error={errors.hostKeyFingerprints} hint="One OpenSSH SHA256 fingerprint per line from a trusted infrastructure inventory. First-seen keys are not trusted automatically.">
-      <textarea id="ssh-host-fingerprint" className="textarea code" value={values.hostKeyFingerprints} onChange={(e) => set('hostKeyFingerprints', e.target.value)} required aria-describedby="ssh-host-fingerprint-hint" aria-invalid={Boolean(errors.hostKeyFingerprints)} placeholder="SHA256:..........................................." />
-    </Field>
-  </div>;
+  );
 }
