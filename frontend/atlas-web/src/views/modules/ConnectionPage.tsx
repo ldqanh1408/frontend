@@ -15,7 +15,7 @@ export async function exportDeviceDrafts() {
   downloadJson(`atlas-device-drafts-${new Date().toISOString().slice(0, 10)}.json`, {
     format: 'atlas-device-export/v1', authority: 'DEVICE_ONLY', exportedAt: new Date().toISOString(), definitions, revisions, documents,
   });
-  toast({ tone: 'success', title: 'Device drafts exported', body: `${definitions.length} definitions · ${documents.length} documents. The file contains no credentials.` });
+  toast({ tone: 'success', title: 'Device drafts exported', body: `${definitions.length} definitions · ${documents.length} documents. Drafts keep vault references only and local checks catch common secret patterns, but this cannot prove the file is secret-free. Review before sharing.` });
 }
 
 /** Connection & operation receipts (Figma connection frame): connect a service session and reconcile uncertain effects. */
@@ -62,18 +62,18 @@ export default function ConnectionPage() {
           ) : (
             <form className="panel-pad stack-12" onSubmit={onConnect} noValidate>
               <div className="field">
-                <label className="field-label" htmlFor="service-audience">Audience</label>
-                <select id="service-audience" className="select" value={audience} onChange={(e) => setAudience(e.target.value as Audience)} aria-describedby="service-audience-hint">
-                  <option value="workspace">Workspace</option><option value="observer">Observer</option>
-                </select>
-                <small id="service-audience-hint" className="field-hint">Observer uses a separate session.</small>
-              </div>
-              <div className="field">
                 <label className="field-label" htmlFor="service-endpoint">Service URL<span className="req" aria-hidden="true"> *</span></label>
                 <input id="service-endpoint" className="input" type="url" inputMode="url" autoComplete="url" spellCheck={false} required value={url}
                   onChange={(e) => setUrl(e.target.value)} aria-invalid={err ? true : undefined} aria-describedby="service-endpoint-hint" placeholder="https://atlas.example.com" />
                 <small id="service-endpoint-hint" className={err ? 'field-error' : 'field-hint'} role={err ? 'alert' : undefined}>{err ?? 'No credentials in the URL.'}</small>
               </div>
+              <div className="field">
+                <label className="field-label" htmlFor="service-audience">Audience</label>
+                <select id="service-audience" className="select" value={audience} onChange={(e) => setAudience(e.target.value as Audience)} aria-describedby="service-audience-hint">
+                  <option value="workspace">Workspace</option><option value="observer">Observer</option>
+                </select>
+                <small id="service-audience-hint" className="field-hint">Observer uses a separate session.</small>              </div>
+              <p className="secondary">This page does not sign you in. Sign in to the service in this browser first, then connect.</p>
               <p className="secondary">The service must expose compatible capabilities and an audience-bound session. No admin role is created by this frontend.</p>
               <div className="row"><Button type="submit" variant="primary" disabled={busy}>{busy ? 'Connecting…' : 'Connect'}</Button></div>
             </form>

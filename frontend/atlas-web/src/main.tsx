@@ -24,6 +24,7 @@ const DefinitionsCatalog = lazy(() => import('./views/definitions/DefinitionsCat
 const DefinitionTypePage = lazy(() => import('./views/definitions/DefinitionTypePage'));
 const ServiceModulePage = lazy(() => import('./views/modules/ServiceModulePage'));
 const DraftModulePage = lazy(() => import('./views/modules/DraftModulePage'));
+const SSHConnectionsPage = lazy(() => import('./views/modules/SSHConnectionsPage'));
 const ConnectionPage = lazy(() => import('./views/modules/ConnectionPage'));
 const ModuleLanding = lazy(() => import('./views/modules/ModuleLanding'));
 const SpecificationsPage = lazy(() => import('./views/specs/SpecificationsPage'));
@@ -82,6 +83,7 @@ const router = createBrowserRouter([
             { path: '/definitions', element: <DefinitionsCatalog /> },
             { path: '/definitions/:schemaId', element: <DefinitionTypePage /> },
             { path: '/definitions/:schemaId/:defId', element: <DefinitionTypePage /> },
+            { path: '/resources/ssh-connections', element: <SSHConnectionsPage /> },
             ...moduleRoutes,
             ...viewRoutes,
             { path: '*', element: <NotFound /> },
