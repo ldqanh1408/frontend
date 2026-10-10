@@ -34,6 +34,20 @@ export class ServiceError extends Error {
 let csrf: string | null = null; // memory only; never persisted or rendered
 let expiryTimer: ReturnType<typeof setTimeout> | null = null;
 const TIMEOUT_MS = 15000;
+export interface ServiceScopeIds {
+  orgId?: string;
+  workspaceId?: string;
+  projectId?: string;
+}
+
+export interface WorkspaceApiRequestOptions {
+  idempotencyKey?: string;
+  ifMatch?: string | number;
+}
+
+export function hasServiceCsrfToken(): boolean {
+  return Boolean(csrf);
+}
 
 export function validateServiceUrl(raw: string): string | null {
   const s = raw.trim();
@@ -94,31 +108,81 @@ export async function connect(url: string, audience: Audience): Promise<void> {
   try {
     const capsRes = await request(`${b}/v1/capabilities?audience=${audience}`, {}, { session: false });
     if (capsRes.status === 401) throw new ServiceError('Sign in to the service first, then connect again.', 'session', 401);
-    const caps = await json<{ protocol: string; audience: string; scope: string; serviceSessionHref: string; modules: Record<string, { collectionHref: string }> }>(capsRes);
+    const caps = await json<{
+      protocol: string;
+      audience: string;
+      scope: string;
+      scopeIds?: ServiceScopeIds;
+      serviceSessionHref: string;
+      modules: Record<string, { collectionHref: string }>;
+    }>(capsRes);
     if (caps.protocol !== 'atlas-ui/v1') throw new ServiceError(`Unsupported protocol “${String(caps.protocol)}”. Atlas expects atlas-ui/v1.`, 'protocol');
     if (caps.audience !== audience) throw new ServiceError(`The service offered a ${caps.audience} session instead of ${audience}.`, 'protocol');
     const origin = new URL(b).origin;
     const check = (h: string) => { const u = new URL(h, b); if (u.origin !== origin) throw new ServiceError('The service advertised links on another origin.', 'policy'); return u.toString(); };
     const sesRes = await request(check(caps.serviceSessionHref), {}, { session: false });
     if (sesRes.status === 401) throw new ServiceError('No authenticated session. Sign in with your identity provider, then connect.', 'session', 401);
-    const ses = await json<{ subject: string; scope: string; audience: string; grants: string[]; expiresAt: string | null; csrfToken?: string; logoutHref?: string; displayName?: string }>(sesRes);
+
+    const ses = await json<{
+      subject: string;
+      scope: string;
+      audience: string;
+      grants: string[];
+      expiresAt: string | null;
+      csrfToken?: string;
+      logoutHref?: string;
+      displayName?: string;
+      scopeIds?: ServiceScopeIds;
+    }>(sesRes);
     if (ses.audience !== audience) throw new ServiceError('Session audience does not match the requested audience.', 'protocol');
     if (ses.scope !== caps.scope) throw new ServiceError('Session scope does not match the advertised scope.', 'protocol');
+
+    const capsIds = caps.scopeIds;
+    const sessionIds = ses.scopeIds;
+
+    if (
+      capsIds &&
+      sessionIds &&
+      (
+        capsIds.orgId !== sessionIds.orgId ||
+        capsIds.workspaceId !== sessionIds.workspaceId ||
+        capsIds.projectId !== sessionIds.projectId
+      )
+    ) {
+      throw new ServiceError(
+        'The service session scope identifiers do not match the advertised capability scope.',
+        'policy'
+      );
+    }
+
+    const scopeIds = sessionIds ?? capsIds ?? {};
+    const validScopeId = (id: string | undefined) =>
+    id === undefined || /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(id);
+
+    if (!validScopeId(scopeIds.orgId) || !validScopeId(scopeIds.workspaceId) || !validScopeId(scopeIds.projectId)) {
+      throw new ServiceError('The service returned an invalid scope identifier; no scope-specific operation was enabled.', 'protocol');
+    }
     if (ses.expiresAt && Date.parse(ses.expiresAt) <= Date.now()) throw new ServiceError('The service returned an expired session.', 'session');
     csrf = ses.csrfToken ?? null;
     const session: ServiceSession = {
       serviceUrl: b, audience, actor: { id: ses.subject, name: ses.displayName ?? ses.subject },
-      scope: { org: null, workspace: null, project: null, label: ses.scope }, grants: Array.isArray(ses.grants) ? ses.grants.map(String) : [],
-      expiresAt: ses.expiresAt, collections: Object.fromEntries(Object.entries(caps.modules ?? {}).map(([m, v]) => [m, check(v.collectionHref)])),
-      logoutHref: ses.logoutHref ? check(ses.logoutHref) : null, capabilityVersion: caps.protocol,
-    };
-    app.set({ connection: 'connected', session });
-    armExpiry(session.expiresAt);
-    safeLocal.set('atlas.serviceRestore', audience);
-  } catch (e) {
-    app.set({ connection: 'disconnected', session: null });
-    csrf = null;
-    throw e;
+      scope: {
+        org: scopeIds.orgId ?? null,
+        workspace: scopeIds.workspaceId ?? null,
+        project: scopeIds.projectId ?? null,
+        label: ses.scope,
+      },
+      grants: Array.isArray(ses.grants) ? ses.grants.map(String) : [],
+        expiresAt: ses.expiresAt, collections: Object.fromEntries(Object.entries(caps.modules ?? {}).map(([m, v]) => [m, check(v.collectionHref)])),
+        logoutHref: ses.logoutHref ? check(ses.logoutHref) : null, capabilityVersion: caps.protocol,
+      };
+      app.set({ connection: 'connected', session });
+      armExpiry(session.expiresAt);
+      safeLocal.set('atlas.serviceRestore', audience);
+    } catch (e) {
+      app.set({ connection: 'disconnected', session: null });
+      csrf = null;
+      throw e;
   }
 }
 
@@ -137,6 +201,67 @@ export function disconnect() {
   app.set((s) => ({ connection: 'disconnected', session: null, endReason: null, toasts: s.toasts.filter((t) => t.kind === 'local') }));
   toast({ tone: 'info', title: 'Disconnected', body: 'Service records were cleared from this view. Device drafts are unchanged.' });
 }
+
+export async function workspaceApi<T>(
+  path: string,
+  options: {
+    method?: 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE';
+    body?: unknown;
+    idempotencyKey?: string;
+    ifMatch?: string | number;
+  } = {},
+): Promise<T> {
+  const session = app.get().session;
+  if (!session || app.get().connection !== 'connected') {
+    throw new ServiceError('Connect an authorized Workspace service session first.', 'session');
+  }
+  if (session.audience !== 'workspace') {
+    throw new ServiceError('Observer sessions cannot call Workspace mutation APIs.', 'policy');
+  }
+  if (!path.startsWith('/api/workspace/') || path.startsWith('//') || path.includes('\\')) {
+    throw new ServiceError('Only fixed /api/workspace/ endpoints are allowed.', 'policy');
+  }
+  const method = options.method ?? 'GET';
+  const url = sameOrigin(new URL(path, session.serviceUrl).toString());
+  const headers: Record<string, string> = {};
+  if (options.body !== undefined) headers['Content-Type'] = 'application/json';
+
+  if (method !== 'GET') {
+    if (!csrf) throw new ServiceError('The service session did not provide a CSRF token. Write actions are blocked.', 'policy');
+    headers['X-CSRF-Token'] = csrf;
+    headers['Idempotency-Key'] = options.idempotencyKey ?? uuid();
+  }
+  if (options.ifMatch !== undefined) {
+    headers['If-Match'] = String(options.ifMatch).startsWith('"')
+      ? String(options.ifMatch)
+      : `"${String(options.ifMatch)}"`;
+  }
+
+  const res = await request(url, {
+    method,
+    headers,
+    ...(options.body !== undefined ? { body: JSON.stringify(options.body) } : {}),
+  });
+  if (!res.ok) {
+    const messages: Record<number, string> = {
+      400: 'The backend rejected the request format (400). Review the required fields.',
+      403: 'The backend denied this operation (403). Check effective permission and Workspace scope.',
+      404: 'The backend route or resource was not found (404). The SSH API may not yet be implemented by this backend.',
+      409: 'The resource state conflicts with this request (409). Refresh the record before trying again.',
+      412: 'The record changed since it was loaded (412). Refresh it and review the latest values.',
+      422: 'Backend validation rejected the request (422). Check the Vault reference, host-key fingerprint and policy.',
+      429: 'The backend rate limit was reached (429). Wait for the service policy window before another test.',
+    };
+    throw new ServiceError(messages[res.status] ?? `The Workspace API answered ${res.status}. No success was inferred.`, 'http', res.status);
+  }
+  if (res.status === 204) return undefined as T;
+  try {
+    return await res.json() as T;
+  } catch {
+    throw new ServiceError('The Workspace API returned invalid JSON. The effect must be reconciled before retrying.', 'protocol');
+  }
+}
+
 
 export async function loadCollection(module: string): Promise<Collection> {
   const href = app.get().session?.collections[module];
