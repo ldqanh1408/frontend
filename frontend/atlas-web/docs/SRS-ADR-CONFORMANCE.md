@@ -2,7 +2,7 @@
 
 **The handoff is a frontend implementation and integration proposal. It does not satisfy the complete Atlas product E2E acceptance yet.** No Java/Spring/Modulith backend, Temporal workflows, PostgreSQL schema/RLS, sandbox runtime or Test/Prod Compose files exist in the supplied source. No live backend was exercised.
 
-The two supplied specifications are copied byte-for-byte under `specifications/`; `specifications/source-manifest.json` records their SHA-256 and sizes. This report supersedes the current status in checkpoints 12–14 while keeping their historical evidence. Current frontend verification is in [UI-UX-ACCEPTANCE.md](UI-UX-ACCEPTANCE.md); current deployment plan and acceptance obligations are in [DEPLOY-READINESS-20261009.md](DEPLOY-READINESS-20261009.md).
+The two supplied specifications are copied byte-for-byte under `specifications/`; `specifications/source-manifest.json` records their SHA-256 and sizes. This report supersedes the current status in checkpoints 12–14 while keeping their historical evidence. Current frontend verification is in [UI-UX-ACCEPTANCE.md](UI-UX-ACCEPTANCE.md); the deployment that has since been performed and accepted is recorded in [STAGING-DEPLOYMENT-20261021.md](STAGING-DEPLOYMENT-20261021.md), and the remaining acceptance obligations are in [DEPLOY-READINESS-20261009.md](DEPLOY-READINESS-20261009.md).
 
 ## Interpretation and unresolved conflicts
 
@@ -65,7 +65,7 @@ The machine-readable registry contains all 35 FR, 10 NFR, 40 formal BR, 27 excep
 | FR-7.3 | M7 / J4 | Structured thought tree only; raw reasoning omitted (C02) | src/views/live/useRunStream.ts; src/data/realtime.test.ts; e2e/realtime.spec.ts | Valid parent/root and render latency; producer must emit structured progress events, resolve SRS raw-CoT wording |
 | FR-7.4 | M7 / J2,J5 | Monaco/Yjs bindings; server-owned initial text and readonly before sync | src/data/collaboration.ts; src/components/CodeEditor.tsx; e2e/realtime.spec.ts | Persisted CRDT snapshots/branch authorization; immutable review diff and comments; revoked/frozen writes fail server-side |
 | FR-7.5 | M7 / J0-J7 | Scoped in-app notifications with service fields | src/views/live/CollaborationWorkspace.tsx; src/data/stream.ts | Persisted notifications, authorized mark-read/unread and realtime fanout; Slack/Discord outside MVP |
-| FR-7.6 | M7/Observer / O1 | Independent entry/router/store; Observer cannot acquire Workspace authority | src/telemetry-console/main.tsx; telemetry-console.html; e2e/realtime.spec.ts; e2e/staging.spec.ts | Two HTTPS hosts and host-only cookies; OTel/Tempo/Prometheus/Loki/Pyroscope, trace/profile/flamegraph correlation, obs-gated dumps/exports |
+| FR-7.6 | M7/Observer / O1 | Independent entry/router/store; Observer cannot acquire Workspace authority | src/telemetry-console/main.tsx; telemetry-console.html; e2e/realtime.spec.ts; e2e/staging.spec.ts | Two HTTPS hosts and host-only cookies; OTel/Tempo/Prometheus/Loki/Pyroscope, trace/profile/flamegraph correlation, obs-gated dumps/exports. Staging delivery on two independent origins is met (`atlas-web-staging`, `atlas-web-observer`); the cookie boundary in a live authenticated session is not yet evidenced. |
 
 ## Nonfunctional acceptance
 
@@ -106,7 +106,7 @@ For all 51 SRS entities, server storage, ownership and migrations remain require
 
 The 2026-10-08 conformance checkpoint is retained in `ui-review/verification-conformance-20261008.json`. Final frontend source `06c4f25404b5b20a5e2bf6261936792f137ee740` passed the three-engine CI run linked in [UI-UX-ACCEPTANCE.md](UI-UX-ACCEPTANCE.md), including 1,725 functional checks and 174 review checks. That result establishes the documented frontend gates, not a full-system green run.
 
-Live journeys J0–J7 and O1 are **NOT_RUN / BLOCKED** pending the backend source/API contract, GitHub App test installation, scoped test tenants, Test Compose fixtures and independent authenticated HTTPS origins. `LIVE-E2E-ACCEPTANCE.md` defines the exact positive and negative outcomes and proof to collect. Authorized source/evidence push has completed on `handoff/frontend-e2e`. Deployment remains subject to the UI review gate; no PR review comment, merge, deployment or staging write was performed.
+Live journeys J0–J7 and O1 are **NOT_RUN / BLOCKED** pending the backend source/API contract, GitHub App test installation, scoped test tenants, Test Compose fixtures and independent authenticated HTTPS origins. `LIVE-E2E-ACCEPTANCE.md` defines the exact positive and negative outcomes and proof to collect. Authorized source/evidence push has completed on `handoff/frontend-e2e`. The staging deployment of release `0a0bba532b1b` to two independent origins completed and passed its acceptance on 2026-10-21 ([STAGING-DEPLOYMENT-20261021.md](STAGING-DEPLOYMENT-20261021.md)); production was not written to, and the live journeys remain blocked by the backend contract and fixtures rather than by frontend delivery.
 
 ## Integrated branch — 2026-10-21
 
@@ -142,7 +142,7 @@ The three open branches and the handoff line were merged into `merge/all-branche
 | Firefox functional + axe | 575 passed, 3 skipped, 0 failed |
 | Three-engine CI on Ubuntu (chromium, firefox, webkit) | Pass |
 
-The three skipped checks are the release/staging acceptance checks. They are not acceptance: staging acceptance requires an explicitly configured target and an exact expected release build, and no deployment or staging write was performed.
+The three skipped checks are the release/staging acceptance checks. Staging acceptance was performed separately against a configured target: release `0a0bba532b1b` is deployed to two independent origins and passed 18 expected, 0 unexpected, 0 flaky across Chromium, Firefox and WebKit. See [STAGING-DEPLOYMENT-20261021.md](STAGING-DEPLOYMENT-20261021.md).
 
 ### Defects found and fixed during the merge
 

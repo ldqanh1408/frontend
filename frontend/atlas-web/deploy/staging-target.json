@@ -3,8 +3,8 @@
   "observerUrl": "https://atlas-web-observer.ekko-okke666.workers.dev",
   "workspaceWorker": "atlas-web-staging",
   "observerWorker": "atlas-web-observer",
-  "release": "0fe3f87b09a0",
-  "sourceCommit": "0fe3f87b09a0ae588e02f89052f1f98f64053a52",
-  "artifactCommit": "5860d0a325c80be46a7b6098072072bc10e27c1d",
+  "release": "0a0bba532b1b",
+  "sourceCommit": "0a0bba532b1b5026855b324f6de6df6947148be3",
+  "artifactCommit": "875cb4140c50024d7ffc6aa733c95b56ba45aab3",
   "note": "Staging only. The Workspace and the Observer are separate Workers on independent origins, so they share no browser session or cookie scope. Production (sparkling-snow-090d) is unchanged until explicitly approved."
 }

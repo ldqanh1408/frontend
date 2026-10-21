@@ -45,7 +45,7 @@ Fresh acceptance run directories keep failed attempts separate. Candidate-baseli
 
 ## Remaining acceptance boundaries
 
-- CI staging job was skipped. No deployment, merge, real staging acceptance or production sign-off occurred. Follow [deployment acceptance](DEPLOY-ACCEPTANCE.md) and [live journeys](LIVE-E2E-ACCEPTANCE.md).
+- CI staging job was skipped in that run. The staging deployment that has since been performed and accepted is recorded in [STAGING-DEPLOYMENT-20261021.md](STAGING-DEPLOYMENT-20261021.md). Production sign-off has not occurred. Follow [deployment acceptance](DEPLOY-ACCEPTANCE.md) and [live journeys](LIVE-E2E-ACCEPTANCE.md).
 - Backend contracts, server-side tenant/RBAC isolation, Temporal recovery, sandbox guarantees, production CRDT/terminal latency and the two-host/cookie Observer perimeter require real backend/deployment evidence. Frontend fixtures do not establish them.
 - Local browser budgets do not establish field Core Web Vitals or production load behavior. Automated axe/keyboard tests do not replace manual NVDA/VoiceOver and real Safari/macOS testing.
 - PR #1 `fix/secret-handling` remains open at `0e8cf8340f0f90bc3dee5a5e37019450bfcda24f`. Its four reviewed issues are fixed in the handoff source; the original PR was not changed or merged. See [PR review](../ui-review/PR-1-SECRET-HANDLING-REVIEW.md).
@@ -68,7 +68,9 @@ The handoff line and the three open branches were merged into `merge/all-branche
 | Review fixtures / execution states | 58 passed per engine | Illustrative fixtures restricted to the review build |
 | Three-engine CI | Pass | Chromium, Firefox and WebKit all completed successfully |
 
-The three skipped checks are the release/staging acceptance checks. They are not acceptance.
+The three skipped checks are the release/staging acceptance checks. Staging acceptance was performed separately against a configured target: release `0a0bba532b1b` is deployed to two independent origins and passed 18 expected, 0 unexpected, 0 flaky across Chromium, Firefox and WebKit. See [STAGING-DEPLOYMENT-20261021.md](STAGING-DEPLOYMENT-20261021.md).
+
+Two defects were found and fixed during the staging deployment itself. The published release artifact was not byte-identical to its manifest because `core.autocrlf` rewrote line endings for six text files; the release directory is now marked `-text -eol` and all 128 files were re-verified byte-for-byte from the published origin. A horizontally scrollable table region was not reachable by keyboard, which the WebKit audit reported as `scrollable-region-focusable`; a shared `ScrollableTable` wrapper now gives such a region a focus stop and an accessible name, and the full accessibility suite passes on all three engines (1398 expected, 0 unexpected).
 
 ## What the new coverage asserts
 
