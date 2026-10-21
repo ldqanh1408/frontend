@@ -7,6 +7,8 @@ import { fileURLToPath } from 'node:url';
 import { sourceDigest } from './release-manifest.mjs';
 const root = fileURLToPath(new URL('..', import.meta.url));
 const mode = process.argv[2] || 'local';
+// On Windows the `npm` executable is `npm.cmd`; a bare `npm` is not resolvable by spawn.
+const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 if (!['local', 'staging'].includes(mode)) throw new Error('Use local or staging.');
 const run = process.env.ATLAS_VERIFY_RUN || new Date().toISOString().replace(/[:.]/g, '-');
 if (!/^[a-zA-Z0-9_-]+$/.test(run)) throw new Error('Invalid run identifier.');
@@ -40,13 +42,13 @@ async function gate(name, command, args, report) {
 }
 let passed = true;
 if (mode === 'local') {
-  passed = await gate('check', 'npm', ['run', 'check']);
-  if (passed) passed = await gate('tooling', 'npm', ['run', 'test:tooling']);
+  passed = await gate('check', npm, ['run', 'check']);
+  if (passed) passed = await gate('tooling', npm, ['run', 'test:tooling']);
   if (passed) passed = await gate('functional', 'npx', ['playwright', 'test', '--project=chromium', '--project=firefox', '--project=webkit'], 'functional');
   if (passed) passed = await gate('layout-performance', 'npx', ['playwright', 'test', '--project=layout-chromium'], 'layout-performance');
   if (passed && process.env.ATLAS_VISUAL_BASELINE_DIR) passed = await gate('private-visual', 'npx', ['playwright', 'test', 'e2e/visual.spec.ts', '--project=visual-chromium'], 'private-visual');
   else if (passed) summary.limitations.push('Private pixel regression was not run: ATLAS_VISUAL_BASELINE_DIR was not supplied. Layout checks do not establish pixel equality.');
-  if (passed) passed = await gate('build-review', 'npm', ['run', 'build:review']);
+  if (passed) passed = await gate('build-review', npm, ['run', 'build:review']);
   if (passed) passed = await gate('review', 'npx', ['playwright', 'test', '-c', 'playwright.review.config.ts'], 'review');
 } else passed = await gate('staging', 'npx', ['playwright', 'test', '-c', 'playwright.staging.config.ts'], 'staging');
 const unchanged = sourceDigest(root) === summary.sourceDigest;
