@@ -1,2 +1,7 @@
 frontend/atlas-web/src/generated/** linguist-generated=true
 frontend/atlas-web/design-source/** linguist-vendored=true
+
+# A published release artifact is the immutable byte source the release Workers pin. The manifest
+# hashes the exact bytes the build produced, so Git must not rewrite line endings on the way in or
+# out: a checkout that normalizes CRLF/LF would serve bytes that no longer match the manifest.
+frontend/atlas-web/release/** -text -eol
