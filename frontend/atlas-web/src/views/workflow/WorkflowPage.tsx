@@ -10,7 +10,7 @@ import { useDeviceQuery } from '../../lib/hooks';
 import { plural, relativeTime } from '../../lib/format';
 import { downloadJson } from '../../lib/definitions';
 import { isValidName } from '../../lib/ids';
-import { Badge, Banner, Button, ButtonLink, EmptyState, PageHeader, Panel, Skeleton } from '../../components/ui';
+import { Badge, Banner, Button, ButtonLink, EmptyState, PageHeader, Panel, ScrollableTable, Skeleton } from '../../components/ui';
 import { Dialog, Tabs } from '../../components/overlays';
 import { usePageMeta } from '../../shell/page-meta';
 import { ProvenanceBanner } from '../shared';
@@ -199,7 +199,7 @@ function Graph({ tasks, issues, onOpen, onAdd }: { tasks: WfTask[]; issues: Issu
 function TaskTable({ tasks, onOpen }: { tasks: WfTask[]; onOpen: (t: WfTask) => void }) {
   if (!tasks.length) return <p className="caption">No tasks yet.</p>;
   return (
-    <div className="table-wrap">
+    <ScrollableTable label="Workflow tasks">
       <table className="table">
         <caption className="sr-only">Workflow tasks</caption>
         <thead><tr><th scope="col">Task</th><th scope="col">Depends on</th><th scope="col">Agent pin</th><th scope="col">Checkpoint</th><th scope="col">Output contract</th></tr></thead>
@@ -213,7 +213,7 @@ function TaskTable({ tasks, onOpen }: { tasks: WfTask[]; onOpen: (t: WfTask) => 
           </tr>
         ))}</tbody>
       </table>
-    </div>
+    </ScrollableTable>
   );
 }
 

@@ -9,7 +9,7 @@ import { app, toast, useApp } from '../../data/app-store';
 import { useAsync } from '../../lib/hooks';
 import { relativeTime, isoUtc } from '../../lib/format';
 import type { JournalEntry } from '../../lib/storage';
-import { Badge, Banner, Button, ButtonLink, EmptyState, KeyValue, PageHeader, Stages } from '../../components/ui';
+import { Badge, Banner, Button, ButtonLink, EmptyState, KeyValue, PageHeader, ScrollableTable, Stages } from '../../components/ui';
 import { Dialog, Tabs } from '../../components/overlays';
 import { usePageMeta } from '../../shell/page-meta';
 import { ProvenanceBanner } from '../shared';
@@ -143,7 +143,7 @@ function RecordsTable({ col, loading, selId, onSelect, label, emptyHint }: { col
     </EmptyState>
   ) : !col.items.length ? <EmptyState icon="inbox" headingLevel={3} title="No records in this scope">The connected service returned no {label.toLowerCase()} records for your current scope.{emptyHint && <> {emptyHint}</>}</EmptyState>: null;
   return (
-    <div className="table-wrap">
+    <ScrollableTable label={`${label} records`}>
       <table className="table">
         <caption className="sr-only">{label} records. Select one to inspect actions.</caption>
         {head}
@@ -158,7 +158,7 @@ function RecordsTable({ col, loading, selId, onSelect, label, emptyHint }: { col
           ))}
         </tbody>
       </table>
-    </div>
+    </ScrollableTable>
   );
 }
 
