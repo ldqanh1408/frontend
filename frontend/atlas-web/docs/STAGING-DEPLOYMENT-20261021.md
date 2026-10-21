@@ -32,6 +32,19 @@ The machine-readable record is [../deploy/staging-deployment.json](../deploy/sta
 1. **The published artifact was not byte-identical to its manifest.** `core.autocrlf` rewrote line endings for six text files on the way into the repository, so the bytes GitHub served did not match the SHA-256 the manifest recorded. The Workers verify every file against that hash, so those six files would have failed the release integrity check. The release directory is now marked `-text -eol`, and all 128 files were re-verified byte-for-byte against the manifest from the published origin.
 2. **A horizontally scrollable table region was not reachable by keyboard** (WCAG 2.1.1). The accessibility audit reported `scrollable-region-focusable` on every view rendering a wide table, in WebKit. A shared `ScrollableTable` wrapper now gives the region a focus stop and an accessible name whenever it actually overflows. The full accessibility suite passes on all three engines: 1398 expected, 0 unexpected.
 
+## WebKit on the local Windows host
+
+The WebKit suite reports failures on this Windows host that the same source does not report on the CI host. The failures are a one-pixel horizontal overflow at the 768 px and 320 px breakpoints: the document reports a scroll width of 615 px against a viewport of 614 px, because the body resolves to a fractional 614.4 px width. No element crosses the viewport edge.
+
+This is a property of the host, not of the release. It was measured, not assumed:
+
+| Source | WebKit on this Windows host | WebKit on the CI host (Ubuntu) |
+| --- | --- | --- |
+| `0a5358a` — before the keyboard-access fix | 105 failed, 485 passed | — |
+| `0f5a569` — the deployed source | 43 failed, 546 passed | 589 passed, 0 failed (CI run 39590304469) |
+
+The failure count fell by 62 with the fix in place, so the fix removed failures rather than adding any. The remaining 43 failures are the same one-pixel overflow, unchanged across both sources. The CI host runs the identical command, `npx playwright test --project=webkit`, and reports 589 passed with no failure. Chromium and Firefox pass locally and on CI.
+
 ## Production is untouched
 
 `sparkling-snow-090d` was not written to. It still has its single deployment of `2026-10-04T14:54:09.581Z` (version `a8b5bc3a-63c9-4996-84e5-e8bc117775d3`) and answers on its own origin. No Cloudflare write targeted it at any point in this deployment.
