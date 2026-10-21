@@ -1,3 +1,4 @@
+import { SrsJourney } from './modules/SrsDetails';
 import { Link } from 'react-router';
 import { nav } from '../data/catalog';
 import { useApp } from '../data/app-store';
@@ -71,6 +72,7 @@ export default function Overview() {
           <p className="caption">Local drafts are usable before connecting. Production execution is not verified.</p>
         </section>
       </div>
+      <SrsJourney />
     </div>
   );
 }

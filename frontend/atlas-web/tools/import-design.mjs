@@ -130,6 +130,8 @@ function fieldHint(h) {
     } catch { return frag; }
   });
 }
+const gaps = J('gap-frames.json');
+const gapNodes = Object.fromEntries(['dark', 'light'].map(theme => [theme, new Map(gaps[theme].map(f => [f.name.split(' · ')[0], f.id]))]));
 const sceneIndex = {};
 const perJourney = {};
 for (const s of specs) {
@@ -146,7 +148,7 @@ for (const s of specs) {
     lifecycle: s.lifecycle_refs || [], uat: s.uat || [], ux: s.ux_steps || [], packages: s.packages || [],
     lifecycleStates: m?.lifecycleStates || null, selectedTask: m?.selectedTask || null, patternKey: m?.patternKey || null,
     fieldError: m?.fieldError || null, blockedBy: s.blocked_by || [],
-    figma: { dark: (s.node_ids || [])[0] || null, light: (s.node_ids || [])[1] || null },
+    figma: { dark: gapNodes.dark.get(`GAP/${s.design_journey}/${s.key}`) || (s.node_ids || [])[0] || null, light: gapNodes.light.get(`GAP/${s.design_journey}/${s.key}`) || (s.node_ids || [])[1] || null },
   };
   sceneIndex[s.id] = { key: s.key, j: s.design_journey, title: s.title, prodTitle: scene.prodTitle, state: s.state, prodState: scene.prodState, kind: scene.kind, planned: scene.planned, reviewOnly: scene.reviewOnly };
   (perJourney[s.design_journey] = perJourney[s.design_journey] || []).push(scene);

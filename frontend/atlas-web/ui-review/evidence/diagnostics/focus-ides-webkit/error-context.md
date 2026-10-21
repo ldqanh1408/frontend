@@ -1,0 +1,440 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Skip to workspace" [ref=e4]:
+      - /url: "#main"
+    - complementary "Workspace navigation" [ref=e5]:
+      - generic [ref=e6]:
+        - link "Atlas home" [ref=e7]:
+          - /url: /
+          - generic [ref=e8]: A
+          - generic [ref=e9]: atlas
+        - generic [ref=e10]: Device workspace
+        - generic [ref=e11]:
+          - strong [ref=e12]: Device draft area
+          - generic [ref=e13]: No tenant inferred
+        - navigation "Workspace" [ref=e14]:
+          - generic [ref=e15]:
+            - heading "BUILD" [level=2] [ref=e16]
+            - list [ref=e17]:
+              - listitem [ref=e18]:
+                - link "Overview" [ref=e19]:
+                  - /url: /
+                  - img [ref=e20]
+                  - text: Overview
+              - listitem [ref=e23]:
+                - link "Specifications" [ref=e24]:
+                  - /url: /specifications
+                  - img [ref=e25]
+                  - text: Specifications
+              - listitem [ref=e28]:
+                - link "Code intelligence" [ref=e29]:
+                  - /url: /code
+                  - img [ref=e30]
+                  - text: Code intelligence
+              - listitem [ref=e33]:
+                - link "Agents" [ref=e34]:
+                  - /url: /agents
+                  - img [ref=e35]
+                  - text: Agents
+              - listitem [ref=e38]:
+                - link "Resources" [ref=e39]:
+                  - /url: /resources
+                  - img [ref=e40]
+                  - text: Resources
+              - listitem [ref=e50]:
+                - link "Workflow & planning" [ref=e51]:
+                  - /url: /workflow
+                  - img [ref=e52]
+                  - text: Workflow & planning
+              - listitem [ref=e56]:
+                - link "Runs & activity" [ref=e57]:
+                  - /url: /execution
+                  - img [ref=e58]
+                  - text: Runs & activity
+              - listitem [ref=e61]:
+                - link "Reviews & delivery" [ref=e62]:
+                  - /url: /governance
+                  - img [ref=e63]
+                  - text: Reviews & delivery
+          - generic [ref=e66]:
+            - heading "KNOWLEDGE & SERVICES" [level=2] [ref=e67]
+            - list [ref=e68]:
+              - listitem [ref=e69]:
+                - link "Memory & context" [ref=e70]:
+                  - /url: /memory
+                  - img [ref=e71]
+                  - text: Memory & context
+              - listitem [ref=e79]:
+                - link "AI access & budget" [ref=e80]:
+                  - /url: /gateway
+                  - img [ref=e81]
+                  - text: AI access & budget
+              - listitem [ref=e84]:
+                - link "Collaboration" [ref=e85]:
+                  - /url: /collaboration
+                  - img [ref=e86]
+                  - text: Collaboration
+              - listitem [ref=e91]:
+                - link "Configuration & policy" [ref=e92]:
+                  - /url: /configuration
+                  - img [ref=e93]
+                  - text: Configuration & policy
+          - generic [ref=e96]:
+            - heading "ADMINISTRATION" [level=2] [ref=e97]
+            - list [ref=e98]:
+              - listitem [ref=e99]:
+                - link "People & access" [ref=e100]:
+                  - /url: /identity
+                  - img [ref=e101]
+                  - text: People & access
+              - listitem [ref=e113]:
+                - link "Organization & projects" [ref=e114]:
+                  - /url: /tenancy
+                  - img [ref=e115]
+                  - text: Organization & projects
+              - listitem [ref=e119]:
+                - link "Usage, billing & data" [ref=e120]:
+                  - /url: /saas
+                  - img [ref=e121]
+                  - text: Usage, billing & data
+              - listitem [ref=e124]:
+                - link "Desktop & runtime" [ref=e125]:
+                  - /url: /desktop
+                  - img [ref=e126]
+                  - text: Desktop & runtime
+              - listitem [ref=e128]:
+                - link "Operations observer" [ref=e129]:
+                  - /url: /observer
+                  - img [ref=e130]
+                  - text: Operations observer
+              - listitem [ref=e133]:
+                - link "Connection & receipts" [ref=e134]:
+                  - /url: /connection
+                  - img [ref=e135]
+                  - text: Connection & receipts
+      - link "Browse definitions" [ref=e139] [cursor=pointer]:
+        - /url: /definitions
+        - img [ref=e140]
+        - text: Browse definitions
+    - banner [ref=e144]:
+      - button "Open workspace navigation" [ref=e145] [cursor=pointer]:
+        - img [ref=e146]
+        - generic [ref=e147]: Open workspace navigation
+      - navigation "Breadcrumb" [ref=e148]:
+        - list [ref=e149]:
+          - listitem [ref=e150]:
+            - link "Workspace" [ref=e151]:
+              - /url: /
+          - listitem [ref=e152]:
+            - text: /
+            - link "Specifications" [ref=e153]:
+              - /url: /specifications
+          - listitem [ref=e154]:
+            - text: /
+            - generic [ref=e155]: Checkout
+      - generic [ref=e156]:
+        - button "Search workspace" [ref=e157] [cursor=pointer]:
+          - img [ref=e158]
+          - generic [ref=e161]: Search workspace
+          - generic [ref=e162]: Ctrl K
+        - link "Service disconnected — open connection" [ref=e163]:
+          - /url: /connection
+          - text: Service disconnected
+        - button "Switch to light theme" [ref=e164] [cursor=pointer]:
+          - img [ref=e165]
+          - generic [ref=e171]: Switch to light theme
+        - button "Open notification inbox" [ref=e172] [cursor=pointer]:
+          - img [ref=e173]
+          - generic [ref=e176]: Open notification inbox
+        - button "Display preferences" [ref=e177] [cursor=pointer]:
+          - img [ref=e178]
+          - generic [ref=e179]: Display preferences
+        - button "Help and keyboard shortcuts" [ref=e180] [cursor=pointer]:
+          - img [ref=e181]
+          - generic [ref=e184]: Help and keyboard shortcuts
+    - main [ref=e185]:
+      - generic "Tenant context" [ref=e186]:
+        - generic [ref=e187]:
+          - strong [ref=e188]: Organization
+          - generic [ref=e189]: Not observed
+        - generic [ref=e190]:
+          - strong [ref=e191]: Workspace
+          - generic [ref=e192]: Not observed
+        - generic [ref=e193]:
+          - strong [ref=e194]: Project
+          - generic [ref=e195]: Not observed
+        - link "Review scope" [ref=e196]:
+          - /url: /tenancy
+        - generic [ref=e197]:
+          - button "Switch organization" [disabled] [ref=e198]
+          - generic [ref=e199]: Connect a workspace service to load authorized organization and project choices.
+      - generic [ref=e200]:
+        - generic [ref=e201]:
+          - generic [ref=e202]:
+            - heading "Specifications" [level=1] [ref=e203]
+            - paragraph [ref=e204]: Review, freeze, submit and reconcile shared document revisions.
+          - generic [ref=e205]:
+            - button "Import" [ref=e206] [cursor=pointer]:
+              - img [ref=e207]
+              - text: Import
+            - button "New folder" [ref=e210] [cursor=pointer]:
+              - img [ref=e211]
+              - text: New folder
+            - button "New document" [ref=e213] [cursor=pointer]:
+              - img [ref=e214]
+              - text: New document
+        - note [ref=e217]:
+          - generic [ref=e218]: Device drafts
+          - paragraph [ref=e219]: No service is connected. Local drafts stay on this device; no provider, run, PR, CI or cleanup result is inferred.
+          - link "Connect a service" [ref=e220]:
+            - /url: /connection
+        - generic [ref=e222]:
+          - region "Documents" [ref=e223]:
+            - generic [ref=e224]:
+              - heading "Documents" [level=2] [ref=e225]
+              - generic [ref=e226]: "1"
+            - generic [ref=e227]:
+              - generic [ref=e228]:
+                - generic [ref=e229]: Search catalog
+                - searchbox "Search catalog" [ref=e230]
+              - generic [ref=e231]:
+                - generic [ref=e232]: Collection
+                - combobox "Collection" [ref=e233]:
+                  - option "Active" [selected]
+                  - option "Archived"
+            - tree "Specification documents" [ref=e235]:
+              - treeitem "Product" [expanded] [level=1] [ref=e236]:
+                - generic [ref=e237] [cursor=pointer]:
+                  - img [ref=e238]
+                  - img [ref=e240]
+                  - generic [ref=e242]: Product
+                - group [ref=e243]:
+                  - treeitem "Checkout" [level=2] [selected] [ref=e244]:
+                    - generic [ref=e245] [cursor=pointer]:
+                      - img [ref=e246]
+                      - generic [ref=e249]: Checkout
+            - generic "Selected item" [ref=e250]:
+              - generic [ref=e251]: Product / Checkout
+              - generic [ref=e252]:
+                - button "Rename" [ref=e253] [cursor=pointer]:
+                  - img [ref=e254]
+                  - text: Rename
+                - button "Move" [ref=e257] [cursor=pointer]:
+                  - img [ref=e258]
+                  - text: Move
+                - button "Archive" [ref=e260] [cursor=pointer]:
+                  - img [ref=e261]
+                  - text: Archive
+            - generic [ref=e264]:
+              - paragraph [ref=e265]: Folder catalog ≠ document outline
+              - button "Create revision cut" [disabled] [ref=e266]
+              - paragraph [ref=e267]: Revision cuts are created by the review service for an authorized scope.
+          - region "Checkout" [ref=e268]:
+            - generic [ref=e269]:
+              - generic [ref=e270]:
+                - heading "Checkout" [level=1] [ref=e271]
+                - generic [ref=e272]: Product / Checkout
+              - generic [ref=e273]:
+                - generic [ref=e274]: Device revision 1
+                - button "Save draft" [disabled] [ref=e275]:
+                  - img [ref=e276]
+                  - text: Save draft
+                - button "History" [ref=e280] [cursor=pointer]:
+                  - img [ref=e281]
+                  - text: History
+                - button "Export source" [ref=e285] [cursor=pointer]:
+                  - img [ref=e286]
+                  - text: Export source
+            - generic [ref=e289]:
+              - group "Lifecycle requests" [ref=e290]:
+                - button "Request review" [disabled] [ref=e291]:
+                  - img [ref=e292]
+                  - text: Request review
+                - button "Freeze" [disabled] [ref=e295]:
+                  - img [ref=e296]
+                  - text: Freeze
+                - button "Lock" [disabled] [ref=e309]:
+                  - img [ref=e310]
+                  - text: Lock
+                - button "Unlock" [disabled] [ref=e313]:
+                  - img [ref=e314]
+                  - text: Unlock
+                - button "Submit to AI" [disabled] [ref=e317]:
+                  - img [ref=e318]
+                  - text: Submit to AI
+                - generic [ref=e321]:
+                  - text: Connect review and freeze services before submission.
+                  - link "Resolve connection" [ref=e322]:
+                    - /url: /connection
+              - generic [ref=e323]:
+                - tablist "Document view" [ref=e324]:
+                  - tab "Source" [selected] [ref=e325] [cursor=pointer]
+                  - tab "Preview" [ref=e326] [cursor=pointer]
+                - tabpanel "Source" [ref=e327]:
+                  - code [ref=e330]:
+                    - generic [ref=e331]:
+                      - textbox "Checkout — Markdown source" [ref=e332]: "# Checkout ## Context Describe the problem, users and constraints. ## Requirements - REQ-1: … ## Acceptance criteria Given … When … Then …"
+                      - generic [ref=e334]:
+                        - generic [ref=e337]: "1"
+                        - generic [ref=e339]: "2"
+                        - generic [ref=e341]: "3"
+                        - generic [ref=e343]: "4"
+                        - generic [ref=e345]: "5"
+                        - generic [ref=e347]: "6"
+                        - generic [ref=e349]: "7"
+                        - generic [ref=e351]: "8"
+                        - generic [ref=e353]: "9"
+                        - generic [ref=e355]: "10"
+                        - generic [ref=e357]: "11"
+                        - generic [ref=e359]: "12"
+                        - generic [ref=e361]: "13"
+                        - generic [ref=e363]: "14"
+                        - generic [ref=e365]: "15"
+                        - generic [ref=e367]: "16"
+                      - generic [ref=e386]:
+                        - generic [ref=e388]: "# Checkout"
+                        - generic [ref=e391]: "## Context"
+                        - generic [ref=e394]: Describe the problem, users and constraints.
+                        - generic [ref=e397]: "## Requirements"
+                        - generic [ref=e400]: "- REQ-1: …"
+                        - generic [ref=e403]: "## Acceptance criteria"
+                        - generic [ref=e406]: Given …
+                        - generic [ref=e408]: When …
+                        - generic [ref=e410]: Then …
+          - complementary "Document outline and lifecycle" [ref=e413]:
+            - generic [ref=e414]:
+              - tablist "Document structure" [ref=e415]:
+                - tab "Outline" [selected] [ref=e416] [cursor=pointer]
+                - tab "Requirements 2" [ref=e417] [cursor=pointer]:
+                  - text: Requirements
+                  - generic [ref=e418]: "2"
+              - tabpanel "Outline" [ref=e419]:
+                - generic [ref=e420]:
+                  - heading "Document outline" [level=2] [ref=e421]
+                  - list [ref=e422]:
+                    - listitem [ref=e423]:
+                      - button "Checkout L1" [ref=e424] [cursor=pointer]:
+                        - generic [ref=e425]: Checkout
+                        - generic [ref=e426]: L1
+                    - listitem [ref=e427]:
+                      - button "Context L3" [ref=e428] [cursor=pointer]:
+                        - generic [ref=e429]: Context
+                        - generic [ref=e430]: L3
+                    - listitem [ref=e431]:
+                      - button "Requirements L7" [ref=e432] [cursor=pointer]:
+                        - generic [ref=e433]: Requirements
+                        - generic [ref=e434]: L7
+                    - listitem [ref=e435]:
+                      - button "Acceptance criteria L11" [ref=e436] [cursor=pointer]:
+                        - generic [ref=e437]: Acceptance criteria
+                        - generic [ref=e438]: L11
+            - region "Document lifecycle" [ref=e439]:
+              - heading "Document lifecycle" [level=2] [ref=e440]
+              - list "Document lifecycle" [ref=e441]:
+                - listitem [ref=e442]:
+                  - generic [ref=e443]: Device draft
+                  - generic [ref=e444]: Current
+                - listitem [ref=e445]:
+                  - generic [ref=e446]: In Review
+                  - generic [ref=e447]: Requires service
+                - listitem [ref=e448]:
+                  - generic [ref=e449]: Conflicted
+                  - generic [ref=e450]: Requires service
+                - listitem [ref=e451]:
+                  - generic [ref=e452]: Merged
+                  - generic [ref=e453]: Requires service
+                - listitem [ref=e454]:
+                  - generic [ref=e455]: Locked
+                  - generic [ref=e456]: Requires service
+                - listitem [ref=e457]:
+                  - generic [ref=e458]: Submitted To AI
+                  - generic [ref=e459]: Requires service
+                - listitem [ref=e460]:
+                  - generic [ref=e461]: Implemented
+                  - generic [ref=e462]: Requires service
+                - listitem [ref=e463]:
+                  - generic [ref=e464]: Unlocked Draft
+                  - generic [ref=e465]: Requires service
+              - generic [ref=e466]:
+                - generic [ref=e467]:
+                  - term [ref=e468]: Locked / frozen manifest
+                  - definition [ref=e469]: Not observed
+                - generic [ref=e470]:
+                  - term [ref=e471]: Implemented after acceptance
+                  - definition [ref=e472]: Not observed
+        - region "Views in this module" [ref=e473]:
+          - generic [ref=e474]:
+            - heading "Views in this module" [level=2] [ref=e475]
+            - generic [ref=e477]: 10 screens · 10 states
+          - navigation "Detailed module states" [ref=e478]:
+            - link "Specifications · catalog, outline and relationships" [ref=e479]:
+              - /url: /states/SP-Catalog
+            - link "Specifications · resolve a revision conflict" [ref=e480]:
+              - /url: /states/SP-Conflict
+            - link "Specifications · freeze and submit deliberately" [ref=e481]:
+              - /url: /states/SP-Freeze
+          - list [ref=e482]:
+            - listitem [ref=e483]:
+              - link "Specifications" [ref=e484] [cursor=pointer]:
+                - /url: /specifications/specs
+                - img [ref=e485]
+                - generic [ref=e487]: Specifications
+            - listitem [ref=e488]:
+              - link "Specification IDE" [ref=e489] [cursor=pointer]:
+                - /url: /specifications/editor
+                - img [ref=e490]
+                - generic [ref=e492]: Specification IDE
+            - listitem [ref=e493]:
+              - link "Locked specification" [ref=e494] [cursor=pointer]:
+                - /url: /specifications/locked
+                - img [ref=e495]
+                - generic [ref=e497]: Locked specification
+            - listitem [ref=e498]:
+              - link "Branches & version history" [ref=e499] [cursor=pointer]:
+                - /url: /specifications/history
+                - img [ref=e500]
+                - generic [ref=e502]: Branches & version history
+            - listitem [ref=e503]:
+              - link "Specification changes" [ref=e504] [cursor=pointer]:
+                - /url: /specifications/spec-diff
+                - img [ref=e505]
+                - generic [ref=e507]: Specification changes
+            - listitem [ref=e508]:
+              - link "Visual three-way merge" [ref=e509] [cursor=pointer]:
+                - /url: /specifications/merge
+                - img [ref=e510]
+                - generic [ref=e512]: Visual three-way merge
+            - listitem [ref=e513]:
+              - link "Recover local edits" [ref=e514] [cursor=pointer]:
+                - /url: /specifications/draft-recovery
+                - img [ref=e515]
+                - generic [ref=e517]: Recover local edits
+            - listitem [ref=e518]:
+              - link "Merge review is out of date" [ref=e519] [cursor=pointer]:
+                - /url: /specifications/stale-merge
+                - img [ref=e520]
+                - generic [ref=e522]: Merge review is out of date
+            - listitem [ref=e523]:
+              - link "Specification conflicts" [ref=e524] [cursor=pointer]:
+                - /url: /specifications/conflicts
+                - img [ref=e525]
+                - generic [ref=e527]: Specification conflicts
+            - listitem [ref=e528]:
+              - link "IDE end-to-end journeys" [ref=e529] [cursor=pointer]:
+                - /url: /specifications/ide-journeys
+                - img [ref=e530]
+                - generic [ref=e532]: IDE end-to-end journeys
+          - button "Show state views (10)" [ref=e534] [cursor=pointer]:
+            - img [ref=e535]
+            - text: Show state views (10)
+    - contentinfo [ref=e537]:
+      - generic [ref=e538]: Device drafts / disconnected service
+      - generic [ref=e539]: Acknowledgement ≠ effective execution
+    - region "Notifications"
+  - generic [ref=e541]:
+    - alert
+    - alert
+```

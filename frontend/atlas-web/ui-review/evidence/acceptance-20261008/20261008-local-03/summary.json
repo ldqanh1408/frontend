@@ -1,0 +1,45 @@
+{
+  "format": "atlas-acceptance/v1",
+  "mode": "local",
+  "run": "20261008-local-03",
+  "node": "v24.19.0",
+  "startedAt": "2026-10-08T11:39:41.548Z",
+  "sourceDigest": "cd13aff76798dbf6f2248ccac180b1a77f30ae443710604b68f1f696fa956453",
+  "gates": [
+    {
+      "name": "check",
+      "code": 0,
+      "durationMs": 5873,
+      "status": "PASS",
+      "log": "check.log"
+    },
+    {
+      "name": "tooling",
+      "code": 0,
+      "durationMs": 291,
+      "status": "PASS",
+      "log": "tooling.log"
+    },
+    {
+      "name": "functional",
+      "code": 1,
+      "durationMs": 1663540,
+      "status": "FAIL",
+      "log": "functional.log",
+      "stats": {
+        "startTime": "2026-10-08T11:39:48.736Z",
+        "duration": 1662440.894,
+        "expected": 1694,
+        "skipped": 9,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    }
+  ],
+  "result": "FAIL",
+  "limitations": [
+    "Live backend business acceptance and manual NVDA/VoiceOver are not established by this command."
+  ],
+  "finishedAt": "2026-10-08T12:07:31.284Z",
+  "sourceUnchanged": true
+}

@@ -2,10 +2,10 @@ import * as RD from '@radix-ui/react-dialog';
 import { Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation } from 'react-router';
 import { NavContent, Sidebar } from './Sidebar';
-import { StatusBar, TopBar } from './TopBar';
+import { StatusBar, TenantContext, TopBar } from './TopBar';
 import { CommandPalette } from './CommandPalette';
 import { HelpDialog, PreferencesDialog } from './dialogs';
-import { useRouteFocus } from './page-meta';
+import { focusPageHeading, useRouteFocus } from './page-meta';
 import { Toaster } from '../components/overlays';
 import { Button, PageSkeleton } from '../components/ui';
 import { useStore } from '../lib/store';
@@ -14,7 +14,7 @@ import { Banner } from '../components/ui';
 
 function isTypingTarget(t: EventTarget | null) {
   const el = t as HTMLElement | null;
-  return !!el && (el.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(el.tagName) || !!el.closest('.cm-editor'));
+  return !!el && (el.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(el.tagName) || !!el.closest('.monaco-editor'));
 }
 
 export function AppShell() {
@@ -35,14 +35,17 @@ export function AppShell() {
       else if (e.key === '?' && !e.ctrlKey && !e.metaKey && !e.altKey && !isTypingTarget(e.target)) { e.preventDefault(); setHelp(true); }
     };
     window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    const openSearch = () => setSearch(true);
+    window.addEventListener('atlas:open-search', openSearch);
+    return () => { window.removeEventListener('keydown', onKey); window.removeEventListener('atlas:open-search', openSearch); };
   }, []);
   return (
     <div className="app-shell">
-      <a className="skip-link" href="#main" onClick={(e) => { e.preventDefault(); const h = mainRef.current?.querySelector<HTMLElement>('[data-page-title]'); (h ?? mainRef.current)?.focus({ preventScroll: false }); }}>Skip to workspace</a>
+      <a className="skip-link" href="#main" onClick={(e) => { e.preventDefault(); focusPageHeading(mainRef.current, false); }}>Skip to workspace</a>
       <Sidebar />
       <TopBar navOpen={navOpen} onOpenNav={() => setNavOpen(true)} onOpenSearch={() => setSearch(true)} onOpenHelp={() => setHelp(true)} onOpenPrefs={() => setPrefs(true)} />
       <main id="main" ref={mainRef} className="app-main" tabIndex={-1}>
+        <TenantContext />
         {p === 'memory' && (
           <div style={{ padding: 'var(--space-16) var(--space-24) 0' }}>
             <Banner tone="warning" title="Local persistence unavailable">This browser blocks IndexedDB. Drafts you create are kept only until this tab closes; export them to keep a copy.</Banner>

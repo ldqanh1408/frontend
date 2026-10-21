@@ -1,0 +1,35 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:32) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22mnpm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:45) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 1 worker
+
+(node:79) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:79) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › e2e/ides.spec.ts:4:1 › specifications: create, edit, save, outline, preview, history (5.9s)
+  ✓   2 [chromium] › e2e/ides.spec.ts:63:1 › specifications: preview never runs scripts from Markdown (2.5s)
+  ✓   3 [chromium] › e2e/ides.spec.ts:84:1 › code intelligence: import folder, search, outline symbols (5.2s)
+  ✓   4 [chromium] › e2e/ides.spec.ts:119:1 › workflow: tasks, pinned agent, cycle detection, save (6.5s)
+(node:316) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:316) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [firefox] › e2e/ides.spec.ts:4:1 › specifications: create, edit, save, outline, preview, history (14.0s)
+  ✓   6 [firefox] › e2e/ides.spec.ts:63:1 › specifications: preview never runs scripts from Markdown (4.6s)
+  ✓   7 [firefox] › e2e/ides.spec.ts:84:1 › code intelligence: import folder, search, outline symbols (5.8s)
+  ✓   8 [firefox] › e2e/ides.spec.ts:119:1 › workflow: tasks, pinned agent, cycle detection, save (8.3s)
+(node:832) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:832) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [webkit] › e2e/ides.spec.ts:4:1 › specifications: create, edit, save, outline, preview, history (10.7s)
+  ✓  10 [webkit] › e2e/ides.spec.ts:63:1 › specifications: preview never runs scripts from Markdown (6.6s)
+  ✓  11 [webkit] › e2e/ides.spec.ts:84:1 › code intelligence: import folder, search, outline symbols (7.4s)
+  ✓  12 [webkit] › e2e/ides.spec.ts:119:1 › workflow: tasks, pinned agent, cycle detection, save (11.9s)
+
+  12 passed (1.6m)

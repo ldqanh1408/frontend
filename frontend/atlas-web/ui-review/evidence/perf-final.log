@@ -1,0 +1,31 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:503) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22mnpm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:516) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 8 tests using 1 worker
+
+(node:550) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:550) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+PERF / {"lcp":724,"dcl":345,"jsFiles":10,"jsBytes":166751,"editorLoaded":false,"editorResources":[],"totalBytes":269515,"cls":0.001}
+  ✓  1 [visual-chromium] › e2e/perf.spec.ts:6:3 › perf / (2.0s)
+PERF /specifications {"lcp":384,"dcl":186,"jsFiles":14,"jsBytes":210278,"editorLoaded":false,"editorResources":[],"totalBytes":291874,"cls":0.001}
+  ✓  2 [visual-chromium] › e2e/perf.spec.ts:6:3 › perf /specifications (1.3s)
+PERF /code {"lcp":452,"dcl":164,"jsFiles":15,"jsBytes":184932,"editorLoaded":false,"editorResources":[],"totalBytes":266528,"cls":0.002}
+  ✓  3 [visual-chromium] › e2e/perf.spec.ts:6:3 › perf /code (1.3s)
+PERF /agents {"lcp":724,"dcl":377,"jsFiles":19,"jsBytes":229908,"editorLoaded":false,"editorResources":[],"totalBytes":311504,"cls":0.006}
+  ✓  4 [visual-chromium] › e2e/perf.spec.ts:6:3 › perf /agents (1.8s)
+PERF /workflow {"lcp":500,"dcl":204,"jsFiles":17,"jsBytes":202309,"editorLoaded":false,"editorResources":[],"totalBytes":283905,"cls":0.031}
+  ✓  5 [visual-chromium] › e2e/perf.spec.ts:6:3 › perf /workflow (1.7s)
+PERF /execution {"lcp":568,"dcl":169,"jsFiles":19,"jsBytes":223428,"editorLoaded":false,"editorResources":[],"totalBytes":326192,"cls":0.001}
+  ✓  6 [visual-chromium] › e2e/perf.spec.ts:6:3 › perf /execution (1.6s)
+PERF /definitions/agent {"lcp":456,"dcl":175,"jsFiles":14,"jsBytes":196032,"editorLoaded":false,"editorResources":[],"totalBytes":277628,"cls":0.001}
+  ✓  7 [visual-chromium] › e2e/perf.spec.ts:6:3 › perf /definitions/agent (1.3s)
+PERF /execution/runs {"lcp":472,"dcl":168,"jsFiles":16,"jsBytes":227995,"editorLoaded":false,"editorResources":[],"totalBytes":309591,"cls":0.001}
+  ✓  8 [visual-chromium] › e2e/perf.spec.ts:6:3 › perf /execution/runs (1.7s)
+
+  8 passed (16.6s)

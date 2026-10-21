@@ -1,7 +1,7 @@
 name: atlas-frontend-acceptance
 
 # AUDIT_ONLY harness: runs read-only browser/HTTP checks against the public
-# Cloudflare deployment and commits the raw results back to this branch.
+# Cloudflare deployment and retains the raw results as Actions artifacts.
 # It never deploys, never calls the Cloudflare API and never writes to the target.
 on:
   push:
@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: atlas-frontend-acceptance
@@ -41,13 +41,11 @@ jobs:
           cat /etc/os-release | head -3
       - name: Run requested suites
         id: run
-        continue-on-error: true
         env:
           MIRROR_DIR: ${{ runner.temp }}/release-mirror
         run: node frontend-acceptance/harness/run.mjs
       - name: Encrypt release mirror (repo is public)
         if: always()
-        continue-on-error: true
         run: |
           if [ -d "$RUNNER_TEMP/release-mirror" ]; then
             OUT=frontend-acceptance/work/release-mirror.enc; mkdir -p "$OUT"
@@ -58,19 +56,13 @@ jobs:
             sha256sum "$RUNNER_TEMP/mirror.tgz" | cut -d' ' -f1 > "$OUT/mirror.tgz.sha256"
             rm -f "$RUNNER_TEMP/k.bin"
           fi
-      - name: Commit results back to branch
+      - name: Retain raw acceptance evidence
         if: always()
-        run: |
-          git config user.name "atlas-acceptance-bot"
-          git config user.email "atlas-acceptance-bot@users.noreply.github.com"
-          git add -A frontend-acceptance/evidence/runs frontend-acceptance/work/release-mirror.enc || true
-          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
-          REQ=$(node -e "console.log(require('./frontend-acceptance/run-request.json').request_id)")
-          git commit -m "acceptance results ${REQ} (run ${GITHUB_RUN_ID})"
-          for i in 1 2 3 4 5; do
-            # results dirs are per request; on add/add conflicts keep this run's files (-X theirs = the replayed results commit)
-            git pull --rebase -X theirs --no-edit origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
-            git rebase --abort 2>/dev/null || true
-            sleep $((i*5))
-          done
-          exit 1
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-legacy-audit-${{ github.run_id }}
+          path: |
+            frontend-acceptance/evidence/runs/**/*.json
+            frontend-acceptance/evidence/runs/**/*.log
+            frontend-acceptance/work/release-mirror.enc
+          retention-days: 14

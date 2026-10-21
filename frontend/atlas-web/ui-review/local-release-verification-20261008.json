@@ -1,0 +1,14 @@
+{
+  "format": "atlas-local-release-verification/v1",
+  "status": "PASS",
+  "buildId": "source-64e0c7e1432138b0",
+  "sourceDigest": "64e0c7e1432138b0d9e2f084a2e354b526a2f05ac092335e900c0fe06fcc28bb",
+  "sourceKind": "archive",
+  "sourceCommit": null,
+  "fileCount": 125,
+  "identicalFiles": 125,
+  "rebuilds": 2,
+  "deployed": false,
+  "remotelyPinned": false,
+  "productionOriginsConfigured": false
+}

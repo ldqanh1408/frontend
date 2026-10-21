@@ -18,17 +18,21 @@ import { initStorage } from './lib/storage';
 import { restoreSession } from './data/service';
 import type { ModuleRoute } from './data/types';
 
+const NativeStatePage = lazy(() => import('./views/NativeStatePage'));
 const Overview = lazy(() => import('./views/Overview'));
 const ViewPage = lazy(() => import('./views/ViewPage'));
 const DefinitionsCatalog = lazy(() => import('./views/definitions/DefinitionsCatalog'));
 const DefinitionTypePage = lazy(() => import('./views/definitions/DefinitionTypePage'));
 const ServiceModulePage = lazy(() => import('./views/modules/ServiceModulePage'));
 const DraftModulePage = lazy(() => import('./views/modules/DraftModulePage'));
+const SSHConnectionsPage = lazy(() => import('./views/modules/SSHConnectionsPage'));
+const ConnectorCatalogPage = lazy(() => import('./views/modules/ConnectorCatalogPage'));
 const ConnectionPage = lazy(() => import('./views/modules/ConnectionPage'));
 const ModuleLanding = lazy(() => import('./views/modules/ModuleLanding'));
 const SpecificationsPage = lazy(() => import('./views/specs/SpecificationsPage'));
 const CodePage = lazy(() => import('./views/code/CodePage'));
 const WorkflowPage = lazy(() => import('./views/workflow/WorkflowPage'));
+const ExecutionPage = lazy(() => import('./views/execution/ExecutionPage'));
 
 function Root() {
   return <PageMetaProvider><Outlet /></PageMetaProvider>;
@@ -51,12 +55,13 @@ function modulePage(r: ModuleRoute) {
   if (r === 'specifications') return <SpecificationsPage />;
   if (r === 'code') return <CodePage />;
   if (r === 'workflow') return <WorkflowPage />;
+  if (r === 'execution') return <ExecutionPage />;
   if (SERVICE_MODULES[r]) return <ServiceModulePage key={r} module={r} />;
   if (DRAFT_MODULES[r]) return <DraftModulePage key={r} module={r} />;
   return <ModuleLanding key={r} module={r} />;
 }
 
-const moduleRoutes: RouteObject[] = (Object.keys(nav.modules) as ModuleRoute[]).filter((r) => r !== 'home').flatMap((r) => {
+const moduleRoutes: RouteObject[] = (Object.keys(nav.modules) as ModuleRoute[]).filter((r) => r !== 'home' && r !== 'observer').flatMap((r) => {
   const out: RouteObject[] = [{ path: `/${r}`, element: modulePage(r) }];
   if (DRAFT_MODULES[r]) {
     out.push({ path: `/${r}/drafts/:schemaId`, element: <DraftModulePage key={r} module={r} /> });
@@ -64,8 +69,8 @@ const moduleRoutes: RouteObject[] = (Object.keys(nav.modules) as ModuleRoute[]).
   }
   return out;
 });
-const viewRoutes: RouteObject[] = routes.filter((r) => !r.bare && r.route !== '/').map((r) => ({ path: r.route, element: <ViewPage key={r.id} viewId={r.id} /> }));
-const bareRoutes: RouteObject[] = routes.filter((r) => r.bare).map((r) => ({ path: r.route, element: <ViewPage key={r.id} viewId={r.id} bare /> }));
+const viewRoutes: RouteObject[] = routes.filter((r) => r.module !== 'observer' && !r.bare && r.route !== '/').map((r) => ({ path: r.route, element: <ViewPage key={r.id} viewId={r.id} /> }));
+const bareRoutes: RouteObject[] = routes.filter((r) => r.module !== 'observer' && r.bare).map((r) => ({ path: r.route, element: <ViewPage key={r.id} viewId={r.id} bare /> }));
 
 const router = createBrowserRouter([
   {
@@ -79,9 +84,12 @@ const router = createBrowserRouter([
           errorElement: <RouteError />,
           children: [
             { index: true, element: <Overview /> },
+            { path: '/states/:stateKey', element: <NativeStatePage /> },
             { path: '/definitions', element: <DefinitionsCatalog /> },
             { path: '/definitions/:schemaId', element: <DefinitionTypePage /> },
             { path: '/definitions/:schemaId/:defId', element: <DefinitionTypePage /> },
+            { path: '/resources/ssh-connections', element: <SSHConnectionsPage /> },
+            { path: '/resources/connectors', element: <ConnectorCatalogPage /> },
             ...moduleRoutes,
             ...viewRoutes,
             { path: '*', element: <NotFound /> },

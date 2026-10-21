@@ -1,0 +1,82 @@
+{
+  "format": "atlas-acceptance/v1",
+  "mode": "local",
+  "run": "20261008-complete",
+  "node": "v24.19.0",
+  "startedAt": "2026-10-08T14:26:10.117Z",
+  "sourceDigest": "77cdc3b38905142365bb758b060be0a16e4f7b5335fe91c4c7a79d1054ce8bf3",
+  "gates": [
+    {
+      "name": "check",
+      "code": 0,
+      "durationMs": 7500,
+      "status": "PASS",
+      "log": "check.log"
+    },
+    {
+      "name": "tooling",
+      "code": 0,
+      "durationMs": 293,
+      "status": "PASS",
+      "log": "tooling.log"
+    },
+    {
+      "name": "functional",
+      "code": 0,
+      "durationMs": 1850544,
+      "status": "PASS",
+      "log": "functional.log",
+      "stats": {
+        "startTime": "2026-10-08T14:26:18.849Z",
+        "duration": 1849538.341,
+        "expected": 1701,
+        "skipped": 9,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "name": "visual-performance",
+      "code": 0,
+      "durationMs": 91352,
+      "status": "PASS",
+      "log": "visual-performance.log",
+      "stats": {
+        "startTime": "2026-10-08T14:57:09.436Z",
+        "duration": 90367.481,
+        "expected": 158,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "name": "build-review",
+      "code": 0,
+      "durationMs": 3136,
+      "status": "PASS",
+      "log": "build-review.log"
+    },
+    {
+      "name": "review",
+      "code": 0,
+      "durationMs": 536806,
+      "status": "PASS",
+      "log": "review.log",
+      "stats": {
+        "startTime": "2026-10-08T14:58:44.200Z",
+        "duration": 535555.671,
+        "expected": 174,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ],
+  "result": "PASS",
+  "limitations": [
+    "Live backend business acceptance and manual NVDA/VoiceOver are not established by this command."
+  ],
+  "finishedAt": "2026-10-08T15:07:39.803Z",
+  "sourceUnchanged": true
+}

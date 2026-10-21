@@ -1,0 +1,700 @@
+{
+  "format": "atlas-acceptance-inputs/v1",
+  "observedDuringRun": true,
+  "localCommit": "0e3dfc9982e1e583c71d9c081a4a5fa89c5b2833",
+  "localCommitIsNotRemote": true,
+  "files": {
+    "e2e/a11y.spec.ts": {
+      "size": 2379,
+      "sha256": "041b4fece3ae32eab15a0475dab126d2da72714411bcfcec0133d1a6cadd2ed9"
+    },
+    "e2e/archive.spec.ts": {
+      "size": 1591,
+      "sha256": "edd3d2c04cedde0eab82b01f4cda9010596186aa80d78133053cdfab9371173d"
+    },
+    "e2e/definitions.spec.ts": {
+      "size": 6820,
+      "sha256": "c6d9292eac09cb9acdad8ce9ce6e9ffad6a349e7eae085e9ef2f84f801ab93aa"
+    },
+    "e2e/figma-parity.spec.ts": {
+      "size": 3628,
+      "sha256": "9bf3a2d23a41b02f10335d25a93e47989e9ec39b1a730d0fc9218451b345ffa4"
+    },
+    "e2e/fixtures/source/sample.ts": {
+      "size": 78,
+      "sha256": "6e9bc8cdbbd515f50513279a939c5e736dcdf97ddf68275e330a11d025ee3fd6"
+    },
+    "e2e/helpers.ts": {
+      "size": 643,
+      "sha256": "6aa5481f2cdbc7207044d53280f597ebdc1bce207871339e6934f6c885a9c9a0"
+    },
+    "e2e/ides.spec.ts": {
+      "size": 5696,
+      "sha256": "ab579b0063309196dc99848a95ba1872cb3a784e907440c2abe8224434a728f9"
+    },
+    "e2e/native-states.spec.ts": {
+      "size": 1661,
+      "sha256": "b4164ffc5fef039558f114c16aef559cb4c565d34b71d96a22e2e50ede579d49"
+    },
+    "e2e/perf.spec.ts": {
+      "size": 2756,
+      "sha256": "17cf9d2f20a7ee26fd6a6236965f3f099633fbc175d3b8e2e5eba18edd2508c5"
+    },
+    "e2e/realtime.spec.ts": {
+      "size": 13895,
+      "sha256": "74b9f1de54a81d1e8fa36804090fcd93b4b9a7cb09bcf040a6756bed2579fdb3"
+    },
+    "e2e/release.spec.ts": {
+      "size": 2552,
+      "sha256": "c827e463015aaec7ee4f02f198b5278795738f8d28c297fee6096569e9812a42"
+    },
+    "e2e/review.spec.ts": {
+      "size": 3909,
+      "sha256": "243bfbc090855208e75a91f5beecf20e55d44cfb9c72e448afc116e6b2dc9b7d"
+    },
+    "e2e/sample-text.ts": {
+      "size": 785,
+      "sha256": "e10a0ed1bab517b7e42daec36b17953ff504ae61cbec66dba4033ad21ff578a2"
+    },
+    "e2e/scene.spec.ts": {
+      "size": 2591,
+      "sha256": "7dec89b458c9ede9ce3e61120110e117900297a8e2b4de2856e5b826b0f12c6e"
+    },
+    "e2e/scope-presence.spec.ts": {
+      "size": 3534,
+      "sha256": "bc3317e8afdacc15f4a940f25b29cb167b6a64f7ebfbe7721bab3d408b5941aa"
+    },
+    "e2e/service.spec.ts": {
+      "size": 7872,
+      "sha256": "c6cc657137327f613eca6d5f6ee0af48177df47623941c580109a0becd6fa352"
+    },
+    "e2e/shell.spec.ts": {
+      "size": 5051,
+      "sha256": "ece7763fd561cd75c25faff5bbde89fcf678705b8377b481f170aef08f166259"
+    },
+    "e2e/staging.spec.ts": {
+      "size": 3465,
+      "sha256": "6e8069abfd5c0087ef9119a87b29b9c5a25a7dc1497883f03a58c55e18a3a6dc"
+    },
+    "e2e/visual.spec.ts": {
+      "size": 2370,
+      "sha256": "9ccc516f4324a07399b9694012c7a44452ecf7828a5a27d0affac1f957f16e3b"
+    },
+    "e2e/visual.spec.ts-snapshots/agents-dark-1024-visual-chromium-linux.png": {
+      "size": 128353,
+      "sha256": "b26cbbaacf2c80377088d9cbf823f5b3eb92084b58f43841a26198222701111b"
+    },
+    "e2e/visual.spec.ts-snapshots/agents-dark-1440-visual-chromium-linux.png": {
+      "size": 139156,
+      "sha256": "93d96a359d9222a030649efb99ba49b75e9eb80d43071b8377b7cb1286110529"
+    },
+    "e2e/visual.spec.ts-snapshots/agents-dark-390-visual-chromium-linux.png": {
+      "size": 54694,
+      "sha256": "e6523d4549e42d2713808e620ba76c52e0e393fd485f3ecc4691a066334c5ee7"
+    },
+    "e2e/visual.spec.ts-snapshots/agents-light-1024-visual-chromium-linux.png": {
+      "size": 128222,
+      "sha256": "e02a0f22dd8122b189d1f81e9194d312f526edacbdc7c9aa04bf0d9f1c898c20"
+    },
+    "e2e/visual.spec.ts-snapshots/agents-light-1440-visual-chromium-linux.png": {
+      "size": 138567,
+      "sha256": "980c6baf3f49f8b158e5d01bba9b438387ecd01c509ca93dbb52693e56b37e9f"
+    },
+    "e2e/visual.spec.ts-snapshots/agents-light-390-visual-chromium-linux.png": {
+      "size": 53905,
+      "sha256": "48e69f4b91bd7521f7cbf01c5ef42be2d054676fae1822769915672f08a09105"
+    },
+    "e2e/visual.spec.ts-snapshots/code-dark-1024-visual-chromium-linux.png": {
+      "size": 153208,
+      "sha256": "09ad58acb8298c8e5a3707c99c80323db5c82e169eb51052128900128b394d1d"
+    },
+    "e2e/visual.spec.ts-snapshots/code-dark-1440-visual-chromium-linux.png": {
+      "size": 174538,
+      "sha256": "7b896ec55034bb3bf1c53bd7ebb885dda09671bcad245118ae53f7b1f2ea451a"
+    },
+    "e2e/visual.spec.ts-snapshots/code-dark-390-visual-chromium-linux.png": {
+      "size": 66721,
+      "sha256": "d60b358c1f112dead67f39cbf837dcc37dd142a0e63614fae0f128a57c1654fc"
+    },
+    "e2e/visual.spec.ts-snapshots/code-light-1024-visual-chromium-linux.png": {
+      "size": 153106,
+      "sha256": "7f7d5367c8157521bf7c1e0b1d91041f3153d79010303ab1638e7b176e942c24"
+    },
+    "e2e/visual.spec.ts-snapshots/code-light-1440-visual-chromium-linux.png": {
+      "size": 175104,
+      "sha256": "27a61b6b23a630bdb908f40cc16bc302b3264987d4cc6b53a3baa3abe84528af"
+    },
+    "e2e/visual.spec.ts-snapshots/code-light-390-visual-chromium-linux.png": {
+      "size": 66299,
+      "sha256": "d2b72e1c215ace748fc24881018329a35f8738dce10255f506c11e8a18c9b955"
+    },
+    "e2e/visual.spec.ts-snapshots/collaboration-dark-1024-visual-chromium-linux.png": {
+      "size": 148071,
+      "sha256": "4a2e3573b6d66379c35ef1a4635504043e9f754852ecd9145bd7630e496214cb"
+    },
+    "e2e/visual.spec.ts-snapshots/collaboration-dark-1440-visual-chromium-linux.png": {
+      "size": 158751,
+      "sha256": "ebe169f3007642b4d0eb83f939b7121d5af5fe4e189ad510522266e444fadb5d"
+    },
+    "e2e/visual.spec.ts-snapshots/collaboration-dark-390-visual-chromium-linux.png": {
+      "size": 62028,
+      "sha256": "d04f37e8fe005efe5dcb190d54de9011f777d837a2caad788bff95ba040f77eb"
+    },
+    "e2e/visual.spec.ts-snapshots/collaboration-light-1024-visual-chromium-linux.png": {
+      "size": 148055,
+      "sha256": "e7e3a0655fddd1eeb7c8e676029dc6490edf93c9ba087f95549af0f8c3968eef"
+    },
+    "e2e/visual.spec.ts-snapshots/collaboration-light-1440-visual-chromium-linux.png": {
+      "size": 157899,
+      "sha256": "01fd9097d557c48c2e8260141f9ce7ed46f04b8267f7f346f17374e12d560356"
+    },
+    "e2e/visual.spec.ts-snapshots/collaboration-light-390-visual-chromium-linux.png": {
+      "size": 61283,
+      "sha256": "841cdf6c887a0b48607eed0665e9b7e2935d4ac17abbfe79d8db547fcf07788e"
+    },
+    "e2e/visual.spec.ts-snapshots/configuration-dark-1024-visual-chromium-linux.png": {
+      "size": 134221,
+      "sha256": "b462ed3f67620e76baaae3f7f9c96b85501430a3f3a72f1cde0882fafbac405a"
+    },
+    "e2e/visual.spec.ts-snapshots/configuration-dark-1440-visual-chromium-linux.png": {
+      "size": 149227,
+      "sha256": "615cff89571800589eecadaf3bf4887889520b04ad301bc1d067af75510bd7af"
+    },
+    "e2e/visual.spec.ts-snapshots/configuration-dark-390-visual-chromium-linux.png": {
+      "size": 65818,
+      "sha256": "e2e13f3f3c123d8156c3863f3bd17cd51cafbb18d6a927d4959953a6747f5f31"
+    },
+    "e2e/visual.spec.ts-snapshots/configuration-light-1024-visual-chromium-linux.png": {
+      "size": 133592,
+      "sha256": "f067d77ca741641cc02fe874ded7a901236241a3575d1e82f6babe0bfd7b7e8a"
+    },
+    "e2e/visual.spec.ts-snapshots/configuration-light-1440-visual-chromium-linux.png": {
+      "size": 148523,
+      "sha256": "5db06156df5a537e672cf9d208ef5ca8fd77fffdcb3786f4dd9cc11321c039fd"
+    },
+    "e2e/visual.spec.ts-snapshots/configuration-light-390-visual-chromium-linux.png": {
+      "size": 65365,
+      "sha256": "620018f47c11eecefb61ba4438ce1e29ef5b102227ffc11fdb5a472782e800fc"
+    },
+    "e2e/visual.spec.ts-snapshots/connection-dark-1024-visual-chromium-linux.png": {
+      "size": 156610,
+      "sha256": "5e57180d0c33b09baeee85f7b6d2c5522bf100572fe6b76c8e7e52591ca466d2"
+    },
+    "e2e/visual.spec.ts-snapshots/connection-dark-1440-visual-chromium-linux.png": {
+      "size": 163474,
+      "sha256": "74741517a67e3c50dc9bfcf8e8454af1ab86ab03b56007399423fcd152d8a70c"
+    },
+    "e2e/visual.spec.ts-snapshots/connection-dark-390-visual-chromium-linux.png": {
+      "size": 64469,
+      "sha256": "aa6c546682c778f0048129bd1c05d97c54d5ec5ce2443244c750daca9146d804"
+    },
+    "e2e/visual.spec.ts-snapshots/connection-light-1024-visual-chromium-linux.png": {
+      "size": 156382,
+      "sha256": "3806b504744a39712bd52bc0ecbc20a0bdc0a119fc7faa0c1c662c391d4ffd20"
+    },
+    "e2e/visual.spec.ts-snapshots/connection-light-1440-visual-chromium-linux.png": {
+      "size": 163128,
+      "sha256": "17cd5285a7ad8346f093f731a2a84a724a04b8e7617fc783e826099402c4e86f"
+    },
+    "e2e/visual.spec.ts-snapshots/connection-light-390-visual-chromium-linux.png": {
+      "size": 63927,
+      "sha256": "ad62f11fb16551e6a9953f140ea792b4be53b02af635b137ae07fdb0852af70c"
+    },
+    "e2e/visual.spec.ts-snapshots/desktop-dark-1024-visual-chromium-linux.png": {
+      "size": 150429,
+      "sha256": "4898588caa0485803f3d80ae6809afcf2f32fc96cc41db7a35c66f49b1d7e472"
+    },
+    "e2e/visual.spec.ts-snapshots/desktop-dark-1440-visual-chromium-linux.png": {
+      "size": 167352,
+      "sha256": "c71a2c0934c31159f6dc31698adc420618cb890f14a5b6d97b5a35faf450b56d"
+    },
+    "e2e/visual.spec.ts-snapshots/desktop-dark-390-visual-chromium-linux.png": {
+      "size": 60897,
+      "sha256": "3fc2d9e745387ad6d6a49f0a1c9190f0d64a5582d641046c6ace564318c7ea35"
+    },
+    "e2e/visual.spec.ts-snapshots/desktop-light-1024-visual-chromium-linux.png": {
+      "size": 150125,
+      "sha256": "951453a6504b343215e5c46b949d382957418111c6e34e04370f8e6350395977"
+    },
+    "e2e/visual.spec.ts-snapshots/desktop-light-1440-visual-chromium-linux.png": {
+      "size": 166670,
+      "sha256": "21258f07d012b6b2bb6d07114d49d9ed92ab74a820f039cbb13585179828cfd5"
+    },
+    "e2e/visual.spec.ts-snapshots/desktop-light-390-visual-chromium-linux.png": {
+      "size": 60312,
+      "sha256": "1eab2340468522b4628e685216a4fc872c1a27efd8f881c60cd965d45dfcf770"
+    },
+    "e2e/visual.spec.ts-snapshots/execution-dark-1024-visual-chromium-linux.png": {
+      "size": 146346,
+      "sha256": "2f8f05d4d8f59c10594540439016f279244ea6a07cc1b46a1364f361c661b36c"
+    },
+    "e2e/visual.spec.ts-snapshots/execution-dark-1440-visual-chromium-linux.png": {
+      "size": 171872,
+      "sha256": "fe1c622a4a3ac4686b3e68562495036b99ecf17881f4ca1aedb1febddc421b41"
+    },
+    "e2e/visual.spec.ts-snapshots/execution-dark-390-visual-chromium-linux.png": {
+      "size": 61811,
+      "sha256": "c5d226c19392efdaa67e1104d4f8cb7d01a83fc8f530ebe9c5cb7723f15c9cfa"
+    },
+    "e2e/visual.spec.ts-snapshots/execution-light-1024-visual-chromium-linux.png": {
+      "size": 145872,
+      "sha256": "9c3dd9a7cd438be8c964c90891ac35c1fe2b853b94eae6fbbd4ec1e51eb87545"
+    },
+    "e2e/visual.spec.ts-snapshots/execution-light-1440-visual-chromium-linux.png": {
+      "size": 171269,
+      "sha256": "30810f589c19c756684c2b9d8311ca1a720871323dbab0d818bf0db0d3aacf3d"
+    },
+    "e2e/visual.spec.ts-snapshots/execution-light-390-visual-chromium-linux.png": {
+      "size": 61392,
+      "sha256": "a4d6c011d7c7823e84f5d2dd86c7b412501d77fc7b8a9ad9aa3ecc01eec51c83"
+    },
+    "e2e/visual.spec.ts-snapshots/gateway-dark-1024-visual-chromium-linux.png": {
+      "size": 151953,
+      "sha256": "23ccba039a990947a43591f496375ad02cd991323328e6dba99b635a5ab6e84a"
+    },
+    "e2e/visual.spec.ts-snapshots/gateway-dark-1440-visual-chromium-linux.png": {
+      "size": 165257,
+      "sha256": "e82694640819c1a28779539d76b47d1b323c62dda5e0654bef75a6ff8644b4a2"
+    },
+    "e2e/visual.spec.ts-snapshots/gateway-dark-390-visual-chromium-linux.png": {
+      "size": 59766,
+      "sha256": "21938b89553218cbdbf3cd6c8be94a25d93a9cce5ab435a7d4cf6bf50d7c6507"
+    },
+    "e2e/visual.spec.ts-snapshots/gateway-light-1024-visual-chromium-linux.png": {
+      "size": 151408,
+      "sha256": "e85c785a206ded285b091a1113f1e20d72865104aa65db4a67abd5121083d976"
+    },
+    "e2e/visual.spec.ts-snapshots/gateway-light-1440-visual-chromium-linux.png": {
+      "size": 164429,
+      "sha256": "646c9f8ea7376f91db6225a4ece07c7c6350fb045f064769fca294167c450d4b"
+    },
+    "e2e/visual.spec.ts-snapshots/gateway-light-390-visual-chromium-linux.png": {
+      "size": 59001,
+      "sha256": "9e7c34730892178a4db27f92b9f4a9cf59fec0d3e66dc0b7298f2c72564994db"
+    },
+    "e2e/visual.spec.ts-snapshots/governance-dark-1024-visual-chromium-linux.png": {
+      "size": 150951,
+      "sha256": "625d6839c67081cb18d78345848c4e25d7488d9f6e64dd241f2a144b26779494"
+    },
+    "e2e/visual.spec.ts-snapshots/governance-dark-1440-visual-chromium-linux.png": {
+      "size": 162724,
+      "sha256": "fd9c54cfaf889b15889f2c6e77f816ce5520ea132e526aa2b186e3d59744e3c7"
+    },
+    "e2e/visual.spec.ts-snapshots/governance-dark-390-visual-chromium-linux.png": {
+      "size": 58716,
+      "sha256": "1030533fc61123e6de7d1d39bd65c9cd0e37809fe45480cef7e4dd24d8189ef3"
+    },
+    "e2e/visual.spec.ts-snapshots/governance-light-1024-visual-chromium-linux.png": {
+      "size": 150813,
+      "sha256": "3412b386acb98914e83d024602ce1d35c6f54b2c6586173d6c692159e829e11e"
+    },
+    "e2e/visual.spec.ts-snapshots/governance-light-1440-visual-chromium-linux.png": {
+      "size": 162195,
+      "sha256": "d0fe7122fb6e46b70b0f21033e32b6eef6df89233d3eaadc0fd4cb59cf915651"
+    },
+    "e2e/visual.spec.ts-snapshots/governance-light-390-visual-chromium-linux.png": {
+      "size": 58244,
+      "sha256": "930a58543e06d3135ff0a9d5013e0d3a71e4b718a34a23e31324a20865ad2681"
+    },
+    "e2e/visual.spec.ts-snapshots/home-dark-1024-visual-chromium-linux.png": {
+      "size": 152688,
+      "sha256": "ac44271f47c6bbe092a60901f7c8ce5eaebefc216485d4209d3f42a913b3c184"
+    },
+    "e2e/visual.spec.ts-snapshots/home-dark-1440-visual-chromium-linux.png": {
+      "size": 156466,
+      "sha256": "2d699fcf411f34b221e36c804774fbbc3884a3f79da357ea99dfd9cc581f627d"
+    },
+    "e2e/visual.spec.ts-snapshots/home-dark-390-visual-chromium-linux.png": {
+      "size": 53455,
+      "sha256": "244e6d36ddff775499d79985eae71e02eaf78ab72436867eb2ce97550292e7f6"
+    },
+    "e2e/visual.spec.ts-snapshots/home-light-1024-visual-chromium-linux.png": {
+      "size": 152902,
+      "sha256": "284f311ccb494e69eb60273a55f603ebcd81d9379eae1e7ea3ad8bf0bc97b42b"
+    },
+    "e2e/visual.spec.ts-snapshots/home-light-1440-visual-chromium-linux.png": {
+      "size": 156042,
+      "sha256": "846091f74dcd7c0816b752317a6ea6188a6d6fc68eaeef52ce3017b49fa961fb"
+    },
+    "e2e/visual.spec.ts-snapshots/home-light-390-visual-chromium-linux.png": {
+      "size": 52958,
+      "sha256": "559bdaa92dd7eac1c3730b174c4719732b52cf6024391b5504b4e3358eaa5250"
+    },
+    "e2e/visual.spec.ts-snapshots/identity-dark-1024-visual-chromium-linux.png": {
+      "size": 146873,
+      "sha256": "1d33576e19e879e2529c5fd9c0dff8c3f28a9193290ce3275d43c6b64fa900f2"
+    },
+    "e2e/visual.spec.ts-snapshots/identity-dark-1440-visual-chromium-linux.png": {
+      "size": 158318,
+      "sha256": "b1f6a300b62cd5cdb6e201bdf630843e5ec53a2fe85d12f6514912b921b1774f"
+    },
+    "e2e/visual.spec.ts-snapshots/identity-dark-390-visual-chromium-linux.png": {
+      "size": 57366,
+      "sha256": "3284fe6f1553d0c1b356956a84ed39121575ffda02fe66c37483b836c9cc86e3"
+    },
+    "e2e/visual.spec.ts-snapshots/identity-light-1024-visual-chromium-linux.png": {
+      "size": 146211,
+      "sha256": "d1fd9d6c9506e7310937365406def606944ef8fb91b0dd606dce2d1c1bf2679d"
+    },
+    "e2e/visual.spec.ts-snapshots/identity-light-1440-visual-chromium-linux.png": {
+      "size": 157367,
+      "sha256": "e2fd1cb87f36493baa88fbeb5c93d7e75bf7bf24c0edf770bccf8932aca2989a"
+    },
+    "e2e/visual.spec.ts-snapshots/identity-light-390-visual-chromium-linux.png": {
+      "size": 56684,
+      "sha256": "5417be36a49e0bea5e533757fd1c23f059b9a0298e853c011219090429be286d"
+    },
+    "e2e/visual.spec.ts-snapshots/invitations-dark-1024-visual-chromium-linux.png": {
+      "size": 94928,
+      "sha256": "7b004b75f28a66c2e345b6977f04b0fed795728962fd8afa4520757f062137b4"
+    },
+    "e2e/visual.spec.ts-snapshots/invitations-dark-1440-visual-chromium-linux.png": {
+      "size": 87512,
+      "sha256": "feb8d7f8b2d5ef209eb5e77fc20056d08cfc66062fd3c3a8394051bb00217ddd"
+    },
+    "e2e/visual.spec.ts-snapshots/invitations-dark-390-visual-chromium-linux.png": {
+      "size": 81945,
+      "sha256": "d6010b46b9caf0cb6b631c09904701dd91fd5368197a0e156b19215024a1cefd"
+    },
+    "e2e/visual.spec.ts-snapshots/invitations-light-1024-visual-chromium-linux.png": {
+      "size": 94758,
+      "sha256": "b4b8e51ac0c22df938e9346b8c7b3e4afbe868416d9c7a3082da85eb2ea8d2fd"
+    },
+    "e2e/visual.spec.ts-snapshots/invitations-light-1440-visual-chromium-linux.png": {
+      "size": 87747,
+      "sha256": "b54d770d3d86d8907d93d3abb1b53702a9010b225bb1f1a93af57a880af5d7cc"
+    },
+    "e2e/visual.spec.ts-snapshots/invitations-light-390-visual-chromium-linux.png": {
+      "size": 82240,
+      "sha256": "f40ce0effc78cf08d6e4d6538548c83f2e59b01d420bc2eabfba0cbcecad44ea"
+    },
+    "e2e/visual.spec.ts-snapshots/memory-dark-1024-visual-chromium-linux.png": {
+      "size": 134051,
+      "sha256": "c1efb684e708a27b9d5248a7f347deadf5c1537d9bc200762d437660361c27f8"
+    },
+    "e2e/visual.spec.ts-snapshots/memory-dark-1440-visual-chromium-linux.png": {
+      "size": 143818,
+      "sha256": "feae0d31703c4638dded65cdcb1c2bc10d3742738ed39cc1fe83cf34cfe8722a"
+    },
+    "e2e/visual.spec.ts-snapshots/memory-dark-390-visual-chromium-linux.png": {
+      "size": 67446,
+      "sha256": "93577384f17e54cd92672310c3c8d4fc738cc99769b5955388f0c726c2f5f23b"
+    },
+    "e2e/visual.spec.ts-snapshots/memory-light-1024-visual-chromium-linux.png": {
+      "size": 133570,
+      "sha256": "fd9950e17b21a3c217d8ffd5f6eadd0109eac3befbd168e7120ebb9f86f0b03f"
+    },
+    "e2e/visual.spec.ts-snapshots/memory-light-1440-visual-chromium-linux.png": {
+      "size": 143103,
+      "sha256": "f48a469a0cf72df11fc28e004ef4c6fa3f270d94fc0771223057b29c1d7c32df"
+    },
+    "e2e/visual.spec.ts-snapshots/memory-light-390-visual-chromium-linux.png": {
+      "size": 66715,
+      "sha256": "9ba30b9fce6d7038a68a25dc0898ce473ca66e0758fbda607f0804e6ced9dbdb"
+    },
+    "e2e/visual.spec.ts-snapshots/observer-dark-1024-visual-chromium-linux.png": {
+      "size": 194383,
+      "sha256": "0bafeef7e327eb8cc0ceb11ae0f255a31985a9762692480efbda27aa2e0a4601"
+    },
+    "e2e/visual.spec.ts-snapshots/observer-dark-1440-visual-chromium-linux.png": {
+      "size": 181189,
+      "sha256": "25b23fdf5e55b9e534e74f34d6d231d44001c6b70d420e69cc50c356e208e119"
+    },
+    "e2e/visual.spec.ts-snapshots/observer-dark-390-visual-chromium-linux.png": {
+      "size": 169196,
+      "sha256": "256f7d90891dc030e939aa5b2d2a58e502aaf3e64f48818b4e496b1fe7ea8eb8"
+    },
+    "e2e/visual.spec.ts-snapshots/observer-light-1024-visual-chromium-linux.png": {
+      "size": 193407,
+      "sha256": "00a333caa8ea8d1d3066989f847595d72827da820894cd2260607f637c13573d"
+    },
+    "e2e/visual.spec.ts-snapshots/observer-light-1440-visual-chromium-linux.png": {
+      "size": 180272,
+      "sha256": "0c3b62490bff19f94dd86120cccb97ed6573e4bbf1e1d5d39ad742ba207f6c64"
+    },
+    "e2e/visual.spec.ts-snapshots/observer-light-390-visual-chromium-linux.png": {
+      "size": 168538,
+      "sha256": "c4ca7ff23de4c32563d968a153265efd6804173d8969347f7ff3946ebc5ba7eb"
+    },
+    "e2e/visual.spec.ts-snapshots/observer-sign-in-dark-1024-visual-chromium-linux.png": {
+      "size": 83360,
+      "sha256": "3069265f2d78a70fb3b8ba728ca8ff5819bf446b971ad2ecbe7cb6de0949b9f2"
+    },
+    "e2e/visual.spec.ts-snapshots/observer-sign-in-dark-1440-visual-chromium-linux.png": {
+      "size": 83773,
+      "sha256": "ea75ceafe9e6b0c969da9e212e213805db708c4f136bd7c38d312895021fce6c"
+    },
+    "e2e/visual.spec.ts-snapshots/observer-sign-in-dark-390-visual-chromium-linux.png": {
+      "size": 48726,
+      "sha256": "d8aa217761275b37dd491816c4dedca05ddac2b633b2714095b7d1b9a1b4e376"
+    },
+    "e2e/visual.spec.ts-snapshots/observer-sign-in-light-1024-visual-chromium-linux.png": {
+      "size": 82935,
+      "sha256": "01e19f758e215d20a77533e679f282e4ca6feaa0c8ba27884d1df02e5d3fe5b1"
+    },
+    "e2e/visual.spec.ts-snapshots/observer-sign-in-light-1440-visual-chromium-linux.png": {
+      "size": 83154,
+      "sha256": "d4261c1bab1766f412f4ca9c349afc08f80715dfdd94becda3cd714167c624f0"
+    },
+    "e2e/visual.spec.ts-snapshots/observer-sign-in-light-390-visual-chromium-linux.png": {
+      "size": 48184,
+      "sha256": "51b0f43aabaeb36275fdcc723ab6a57a6f11a9484a9313593c571773e39c51d1"
+    },
+    "e2e/visual.spec.ts-snapshots/open-agents-dark-1024-visual-chromium-linux.png": {
+      "size": 141475,
+      "sha256": "6c74c87f003028599619da9f2c6e5fc9b108346a35ab8156f6e5355e82e05543"
+    },
+    "e2e/visual.spec.ts-snapshots/open-agents-dark-1440-visual-chromium-linux.png": {
+      "size": 146930,
+      "sha256": "39c4a4f5583b26875e33b28ea6b708e377c08a326bd70ab04c34fcf1b5b31f35"
+    },
+    "e2e/visual.spec.ts-snapshots/open-agents-dark-390-visual-chromium-linux.png": {
+      "size": 56216,
+      "sha256": "46f111629c3cc83fb6ad2db55050c42a34c74213eeae2eea64f644d8e460ccbd"
+    },
+    "e2e/visual.spec.ts-snapshots/open-agents-light-1024-visual-chromium-linux.png": {
+      "size": 143951,
+      "sha256": "0fb6c9b34a7e1a3b3f6459a143bedae325abe9193609064377fd263c3208b1b7"
+    },
+    "e2e/visual.spec.ts-snapshots/open-agents-light-1440-visual-chromium-linux.png": {
+      "size": 149073,
+      "sha256": "1f11741d8777c0ac91ee3c23d2edd9f8e22289803c804ad0d46abba810e8df16"
+    },
+    "e2e/visual.spec.ts-snapshots/open-agents-light-390-visual-chromium-linux.png": {
+      "size": 57823,
+      "sha256": "dff38ca0faa98232ce5f3564158884ffd9fe12a29e1bb8a0a99ce28294803145"
+    },
+    "e2e/visual.spec.ts-snapshots/open-code-dark-1024-visual-chromium-linux.png": {
+      "size": 151098,
+      "sha256": "849c5d3bfcdcc82b7e6f2e312138447a8b433f8283ea7ef6c2c5e062efd8615c"
+    },
+    "e2e/visual.spec.ts-snapshots/open-code-dark-1440-visual-chromium-linux.png": {
+      "size": 177973,
+      "sha256": "465b24404da614720ba6677da7a50cf945028b4cb9d6c7c696fa0b306479d619"
+    },
+    "e2e/visual.spec.ts-snapshots/open-code-dark-390-visual-chromium-linux.png": {
+      "size": 64532,
+      "sha256": "eea686ccda373079971a4928dec9d2bbe59b41c55433d6eac5c054fca72117f2"
+    },
+    "e2e/visual.spec.ts-snapshots/open-code-light-1024-visual-chromium-linux.png": {
+      "size": 153947,
+      "sha256": "1b5371a21a27345de68e9a8df52cf67b245c3b3805f73ccb3ea638ed58afecd6"
+    },
+    "e2e/visual.spec.ts-snapshots/open-code-light-1440-visual-chromium-linux.png": {
+      "size": 181053,
+      "sha256": "27d092fe38d5736f81d95d52d1b139a16daedaa4038d2d95a1e9d9fd6175a242"
+    },
+    "e2e/visual.spec.ts-snapshots/open-code-light-390-visual-chromium-linux.png": {
+      "size": 66516,
+      "sha256": "a94ff5e1287be39d5908a743f13d2f0735eb885d606291b37e73ffc775187dc0"
+    },
+    "e2e/visual.spec.ts-snapshots/open-specifications-dark-1024-visual-chromium-linux.png": {
+      "size": 153032,
+      "sha256": "f1a0cf63f9db69904cfd8a407d0d4b4c614806ee93f301a41bfb359fb2d8ba3b"
+    },
+    "e2e/visual.spec.ts-snapshots/open-specifications-dark-1440-visual-chromium-linux.png": {
+      "size": 189044,
+      "sha256": "5dd7a8d05a261a8b6fc0bcf13c91ca6916aa4304c5367a5509dcbe88ea5131db"
+    },
+    "e2e/visual.spec.ts-snapshots/open-specifications-dark-390-visual-chromium-linux.png": {
+      "size": 63291,
+      "sha256": "25332778031ea94179e6f83ea79086d06c93bc29f67b5e24c26b7ca164c9affe"
+    },
+    "e2e/visual.spec.ts-snapshots/open-specifications-light-1024-visual-chromium-linux.png": {
+      "size": 155547,
+      "sha256": "a6ce04f75c4e6370c887426251eee23af5b547df861f22f122c487322583961c"
+    },
+    "e2e/visual.spec.ts-snapshots/open-specifications-light-1440-visual-chromium-linux.png": {
+      "size": 191765,
+      "sha256": "3cea2400aaeeca045bfb9a6b57f211fafa9b870f06861d65217dbdde6ecde07b"
+    },
+    "e2e/visual.spec.ts-snapshots/open-specifications-light-390-visual-chromium-linux.png": {
+      "size": 64885,
+      "sha256": "cb46608c98188930c94a1a069d3301c8aa9d8f030f800f4caea4fde3d174dbdf"
+    },
+    "e2e/visual.spec.ts-snapshots/resources-dark-1024-visual-chromium-linux.png": {
+      "size": 132045,
+      "sha256": "eb71317f4b593c418bf7f94222761d8b1957dd6d4e4ddef1333baffa7c56f415"
+    },
+    "e2e/visual.spec.ts-snapshots/resources-dark-1440-visual-chromium-linux.png": {
+      "size": 146052,
+      "sha256": "07b7ff5041573bfe7ad04b38d60aa8211380bcfa67ea199ad298b87c68f7ce92"
+    },
+    "e2e/visual.spec.ts-snapshots/resources-dark-390-visual-chromium-linux.png": {
+      "size": 66044,
+      "sha256": "1459e4881bc935af5fa4ddc39d77e590e2e8040a617959c9a20400eb45c47118"
+    },
+    "e2e/visual.spec.ts-snapshots/resources-light-1024-visual-chromium-linux.png": {
+      "size": 131378,
+      "sha256": "9d1a8a6c13ddb42dede57a1da3c6d978e1bf1b71d7163c19e07ce68f966d60bb"
+    },
+    "e2e/visual.spec.ts-snapshots/resources-light-1440-visual-chromium-linux.png": {
+      "size": 145188,
+      "sha256": "5dc6874603ababe4ba733c5d7bf0d9ede7bf104f697e2f74b5944e693e8da807"
+    },
+    "e2e/visual.spec.ts-snapshots/resources-light-390-visual-chromium-linux.png": {
+      "size": 65348,
+      "sha256": "ba6bf6ac4ab59552a0ea6e5b0e0f869e19c704946497ca5c97f520fc9161bcc0"
+    },
+    "e2e/visual.spec.ts-snapshots/saas-dark-1024-visual-chromium-linux.png": {
+      "size": 154957,
+      "sha256": "895baeb52166225bcb12c77c57a96e59f7d3eeb9fa4c5a03d05a467f00a0cb76"
+    },
+    "e2e/visual.spec.ts-snapshots/saas-dark-1440-visual-chromium-linux.png": {
+      "size": 166833,
+      "sha256": "5ff2e0c4aa55ecb4fec2336d6d633c9382de2e458bd62dafe9beb571ec1f0088"
+    },
+    "e2e/visual.spec.ts-snapshots/saas-dark-390-visual-chromium-linux.png": {
+      "size": 59536,
+      "sha256": "a122f90539bb981532f19652e5c6fc183b70cbad7538f50c055d495e62321a83"
+    },
+    "e2e/visual.spec.ts-snapshots/saas-light-1024-visual-chromium-linux.png": {
+      "size": 154502,
+      "sha256": "2c3c79e47d64634a545a2028228ff0390de27795121bb3eba4c2ed9859b94db1"
+    },
+    "e2e/visual.spec.ts-snapshots/saas-light-1440-visual-chromium-linux.png": {
+      "size": 166266,
+      "sha256": "81a02fd984669238947d89056d83d4b459a5e9bae942451d589667ba09ce2761"
+    },
+    "e2e/visual.spec.ts-snapshots/saas-light-390-visual-chromium-linux.png": {
+      "size": 59194,
+      "sha256": "598b8a2e01172788efd14824fadd72849311c6cedcd5f0e4e7e7c3316607afcf"
+    },
+    "e2e/visual.spec.ts-snapshots/sign-in-dark-1024-visual-chromium-linux.png": {
+      "size": 72147,
+      "sha256": "d8b134618479471690df764fbfbf25ff12f541cbfe793e638a40e7758c0e8428"
+    },
+    "e2e/visual.spec.ts-snapshots/sign-in-dark-1440-visual-chromium-linux.png": {
+      "size": 69601,
+      "sha256": "90aba4bd994e5097e206f153086f2a1745289c0e03f37d7703e7b8ce9d32784e"
+    },
+    "e2e/visual.spec.ts-snapshots/sign-in-dark-390-visual-chromium-linux.png": {
+      "size": 59651,
+      "sha256": "c711a0aebb03eebfac251a6db8061f609708b68f5babe3a0d5320f49e8bcd61b"
+    },
+    "e2e/visual.spec.ts-snapshots/sign-in-help-dark-1024-visual-chromium-linux.png": {
+      "size": 61702,
+      "sha256": "fde8497a5957f60b7660e6d4e5ec2d8bf96a33b65255b05d314b94bab070f5e8"
+    },
+    "e2e/visual.spec.ts-snapshots/sign-in-help-dark-1440-visual-chromium-linux.png": {
+      "size": 62338,
+      "sha256": "1738740b32e381d1f417bb21ab9f763e9e7f108c42367faee61aab1706a5b87c"
+    },
+    "e2e/visual.spec.ts-snapshots/sign-in-help-dark-390-visual-chromium-linux.png": {
+      "size": 50173,
+      "sha256": "ffd5b0c101e77bdb347663ff309ef02f90e458b61234a5eee4d39df50936e2b8"
+    },
+    "e2e/visual.spec.ts-snapshots/sign-in-help-light-1024-visual-chromium-linux.png": {
+      "size": 61914,
+      "sha256": "1f1610c43888fc5ffbce78399a45b676193a77bc9810c1aab638ae60319ef81d"
+    },
+    "e2e/visual.spec.ts-snapshots/sign-in-help-light-1440-visual-chromium-linux.png": {
+      "size": 62634,
+      "sha256": "0786357752c8aa0a91046afff7ff832a3c9d50254f7534c9cbab4ef15e84ffda"
+    },
+    "e2e/visual.spec.ts-snapshots/sign-in-help-light-390-visual-chromium-linux.png": {
+      "size": 50487,
+      "sha256": "f069b2a91abb84dba0b1a437d0d8a06a3fc2346d0c330ab62c5b58eead5f418e"
+    },
+    "e2e/visual.spec.ts-snapshots/sign-in-light-1024-visual-chromium-linux.png": {
+      "size": 72398,
+      "sha256": "64d146ec5cf7fd7605c0b32183c0b2b635f186f475b5455fc440343cbaa41c40"
+    },
+    "e2e/visual.spec.ts-snapshots/sign-in-light-1440-visual-chromium-linux.png": {
+      "size": 69775,
+      "sha256": "52e300bb7062fd5c0c0fe8781fc3cb49d742caaf06920c756c538604bae0d698"
+    },
+    "e2e/visual.spec.ts-snapshots/sign-in-light-390-visual-chromium-linux.png": {
+      "size": 59845,
+      "sha256": "cd473e6472b97a47ab1d407f3acb473615bcd9984e1a21c478cda179aded13db"
+    },
+    "e2e/visual.spec.ts-snapshots/specifications-dark-1024-visual-chromium-linux.png": {
+      "size": 136024,
+      "sha256": "9bc2dc6dcfbc07c0b06639104240687a4f8ca97d01c9d9e9a707ff8f81017204"
+    },
+    "e2e/visual.spec.ts-snapshots/specifications-dark-1440-visual-chromium-linux.png": {
+      "size": 170625,
+      "sha256": "203c6dda880b4d2c0bf01370fbf25bde9fda065a2f013a149e60216f2bed6287"
+    },
+    "e2e/visual.spec.ts-snapshots/specifications-dark-390-visual-chromium-linux.png": {
+      "size": 61071,
+      "sha256": "232f4eebb88456b5f6f1718ecd7998302e080c8ad056b8fd33b67b504fc76efe"
+    },
+    "e2e/visual.spec.ts-snapshots/specifications-light-1024-visual-chromium-linux.png": {
+      "size": 135982,
+      "sha256": "408f0e91478fc9c76a9cfa5e86c824d9e6e273de1a3f321bd2ee52215796c6c8"
+    },
+    "e2e/visual.spec.ts-snapshots/specifications-light-1440-visual-chromium-linux.png": {
+      "size": 170854,
+      "sha256": "1042a511d22dd169e6bd1f9c57c6d79373d09c8f259231226eb1d80378903e5a"
+    },
+    "e2e/visual.spec.ts-snapshots/specifications-light-390-visual-chromium-linux.png": {
+      "size": 60374,
+      "sha256": "84431e465eaa8f7edfa6616f29cd6accffe9936a6bf6a6690d73c9dbddc0f1f3"
+    },
+    "e2e/visual.spec.ts-snapshots/tenancy-dark-1024-visual-chromium-linux.png": {
+      "size": 147575,
+      "sha256": "10bd1c8021f9adad5111b7fdcd6d7c7267c738b6db61637aa3c6887a8e222a03"
+    },
+    "e2e/visual.spec.ts-snapshots/tenancy-dark-1440-visual-chromium-linux.png": {
+      "size": 160126,
+      "sha256": "3a3af7fec4a8c73b430138e0e48196654cf370faa11a3eadcf0a6ae07768e48e"
+    },
+    "e2e/visual.spec.ts-snapshots/tenancy-dark-390-visual-chromium-linux.png": {
+      "size": 59299,
+      "sha256": "8ce9731abccb507209e9038c667bdffde93a7174d8c78f8d3e0717bace5b17e4"
+    },
+    "e2e/visual.spec.ts-snapshots/tenancy-light-1024-visual-chromium-linux.png": {
+      "size": 146886,
+      "sha256": "c7c58e80e2ae0f19d87e5f557967b849b3efe28a9eeb32992df618a5b8902318"
+    },
+    "e2e/visual.spec.ts-snapshots/tenancy-light-1440-visual-chromium-linux.png": {
+      "size": 159577,
+      "sha256": "35fa47d537131ded8d757825b67eb6cd0724debd77449006afba40a2f12b1bd7"
+    },
+    "e2e/visual.spec.ts-snapshots/tenancy-light-390-visual-chromium-linux.png": {
+      "size": 58437,
+      "sha256": "67a36b470e06835067e5437b9b55e22ec404967c9a3bd048f26c0fef833151c6"
+    },
+    "e2e/visual.spec.ts-snapshots/workflow-dark-1024-visual-chromium-linux.png": {
+      "size": 141112,
+      "sha256": "a0be401e35d88a0a0f48e0a7d10b2a0792d863090ce102463e3841a95fd2f15a"
+    },
+    "e2e/visual.spec.ts-snapshots/workflow-dark-1440-visual-chromium-linux.png": {
+      "size": 152096,
+      "sha256": "8052222751f65b3b5ed7c9d087979cfeb8b91658c9153610fbfd0e73d79cfbdc"
+    },
+    "e2e/visual.spec.ts-snapshots/workflow-dark-390-visual-chromium-linux.png": {
+      "size": 64019,
+      "sha256": "b5547d8aa817e63cd69517bc4c6594cefcbcf27b723b0a525139827e611d16ba"
+    },
+    "e2e/visual.spec.ts-snapshots/workflow-light-1024-visual-chromium-linux.png": {
+      "size": 140924,
+      "sha256": "22f63734c4b1502182c13511fb5ec6bbadaa1221a42b53b1c1d2a6dafec857a0"
+    },
+    "e2e/visual.spec.ts-snapshots/workflow-light-1440-visual-chromium-linux.png": {
+      "size": 151728,
+      "sha256": "3721a943e6baffd7e291fa34a5ab3ccabdb7232f68653629ba0b78744b6b6696"
+    },
+    "e2e/visual.spec.ts-snapshots/workflow-light-390-visual-chromium-linux.png": {
+      "size": 62476,
+      "sha256": "2e18b7af16c7ba282f7173526277df83157834dcedbf31f0ac48c63368075d95"
+    },
+    "playwright.config.ts": {
+      "size": 2031,
+      "sha256": "edbbe2d6b5b67f66cae60cb36dec48cb74ea65625970f7398cf08deb126f5a3a"
+    },
+    "playwright.review.config.ts": {
+      "size": 1170,
+      "sha256": "938f3d646046123f4d6affd45b99f9caa5613721d673b229fef42cc29296e9ea"
+    },
+    "playwright.staging.config.ts": {
+      "size": 1703,
+      "sha256": "d009e5e1ee23579ac9e8b40b234be715a2359d7ce20a153af5fcda4525cde15f"
+    }
+  },
+  "fileCount": 172,
+  "digest": "2f125738b3e0c075362fa99f028ee1bb2c3337b36be93f087e850df311f5b5b3",
+  "allMatchLocalCommit": true,
+  "note": "Runtime start/end digest is in the runner summary. This separate test/config/baseline snapshot was captured during the run and matches the unchanged local documentation/source commit; it is not a pre-run observation."
+}

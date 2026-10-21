@@ -1,0 +1,122 @@
+[
+  {
+    "sha": "50011ba6fb56904b7b73dd0ec586ef951670aee6",
+    "title": "Enforce SRS grants, scope and session authority"
+  },
+  {
+    "sha": "c396e93dfc748cf739cd87363d2949f0f826e413",
+    "title": "Refactor Archive execution into the workspace shell"
+  },
+  {
+    "sha": "01eff2c292c344be80b769fe2c15e541a520c27f",
+    "title": "Implement dedicated scene and account layouts from design sources"
+  },
+  {
+    "sha": "c4d2e1da0cef71326152cbe4cd09c0c9adf0ad53",
+    "title": "Improve responsive IDE loading and local draft integrity"
+  },
+  {
+    "sha": "e83226c4c37b8f229fb7adb6d93d75dde141bf17",
+    "title": "Expand UI quality gates, browser coverage and visual baselines"
+  },
+  {
+    "sha": "169d23c730ed846710eceb47370976335011d3d8",
+    "title": "Document UI review, source provenance and pending acceptance gates"
+  },
+  {
+    "sha": "4677d819ad5e424e4fb0a02d5448f26d1990b5be",
+    "title": "Adopt Monaco and scoped realtime service adapters"
+  },
+  {
+    "sha": "19e32220e2ed60c2f69f9a686d6967859f274ca2",
+    "title": "Add Current UI panels and accessible task graph primitives"
+  },
+  {
+    "sha": "2e67bab3ed695a5e1318a31364962adbe41cf453",
+    "title": "Isolate Observer and implement the native Current UI states"
+  },
+  {
+    "sha": "f8a389bab485b46c96f538eab8eabcbc78014fd3",
+    "title": "Integrate Archive organization setup and readiness"
+  },
+  {
+    "sha": "25be91448ac542792c0b789f888ffb0717a172bc",
+    "title": "Integrate Archive membership and effective access"
+  },
+  {
+    "sha": "e432e88f751271046b14f1f2dec44f36a95d08ba",
+    "title": "Integrate Archive agent resource customization hub"
+  },
+  {
+    "sha": "9890b96867ad737efcb71b029c689ddb6beace3b",
+    "title": "Integrate Archive memory layers and knowledge review queue"
+  },
+  {
+    "sha": "840bfd8c164062dee7279dbd2e1bdde5ba4b5041",
+    "title": "Integrate Archive plan-first workflow proposals"
+  },
+  {
+    "sha": "2b3f6748c873bacc6aba29db2f93c96cfb7f00f2",
+    "title": "Integrate realtime execution graph and activity views"
+  },
+  {
+    "sha": "cf198e3a4d19848361a48714a05e4a745e22ab5b",
+    "title": "Resolve governance risk policy and independent gate classification"
+  },
+  {
+    "sha": "aefa492d9186be09b620c6acf84430717f380755",
+    "title": "Resolve Gateway budgets and configuration inheritance"
+  },
+  {
+    "sha": "ac0d5e22cdf81a6bc26c376913875bfce38dc2b3",
+    "title": "Switch tenant scope only after matching command readback"
+  },
+  {
+    "sha": "56da1781c9b9b4250c2135532403489f6d0ac912",
+    "title": "Integrate scoped collaboration presence and notification inbox"
+  },
+  {
+    "sha": "ae4576ea754c0d3a1872436c3568e63ad265c3a7",
+    "title": "Verify native states and realtime contracts on three browser engines"
+  },
+  {
+    "sha": "e48edd9578c92b022fd68ed11d9d23f84cb52232",
+    "title": "Show disconnected Observer status with a warning tone"
+  },
+  {
+    "sha": "619a0d3ffd3d2f61968218d52413e959accd3451",
+    "title": "Wait for the rendered module before measuring text parity"
+  },
+  {
+    "sha": "ee2e5befb91336f1e2ac25aee709ac9d793e3b97",
+    "title": "Await restored service authority for the second collaboration peer"
+  },
+  {
+    "sha": "bdef273e41d7f6589bf46c0a3c9fc45efe123d25",
+    "title": "Run browser acceptance in independent CI matrix jobs"
+  },
+  {
+    "sha": "2f91253b4fb136d8027405fe4d4dc9d0275160d8",
+    "title": "Preserve user focus while lazy workspace headings mount"
+  },
+  {
+    "sha": "f8a47aa7c11fb564c118cc20d65fc58fffa3a7ee",
+    "title": "Identify actual Monaco chunks in cold-load performance checks"
+  },
+  {
+    "sha": "71ca7294f1796fe44e1c6bd7f4874bf36233f5ed",
+    "title": "Refresh Current UI visual baselines after stack and mobile changes"
+  },
+  {
+    "sha": "e1e9ca81d4b84e1a903fa0ceff7eda92c2ed8401",
+    "title": "Document integration boundaries and regenerate truthful UI review evidence"
+  },
+  {
+    "sha": "fc7d2cf84c605b73ceb49c3a8d5e87b66b8de21d",
+    "title": "Keep DAG dependency edges visible under responsive SVG styles"
+  },
+  {
+    "sha": "b598ec62c53c30108c036722d21c52229593f27a",
+    "title": "Record final DAG paint verification and affected UI checks"
+  }
+]

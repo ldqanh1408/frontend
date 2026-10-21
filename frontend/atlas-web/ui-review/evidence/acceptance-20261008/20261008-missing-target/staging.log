@@ -1,0 +1,11 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+Error: Staging acceptance requires WORKSPACE_URL, OBSERVER_URL and EXPECTED_BUILD_ID.
+    at file:///workspace/scratch/a98056651892/project/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/playwright.staging.config.ts:4:70
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at node:internal/modules/esm/loader:643:26
+    at requireOrImport (/workspace/scratch/a98056651892/project/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/node_modules/playwright/lib/transform/transform.js:214:12)
+    at loadUserConfig (/workspace/scratch/a98056651892/project/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/node_modules/playwright/lib/common/configLoader.js:107:46)
+    at loadConfig (/workspace/scratch/a98056651892/project/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/node_modules/playwright/lib/common/configLoader.js:119:22)
+    at loadConfigFromFile (/workspace/scratch/a98056651892/project/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/node_modules/playwright/lib/common/configLoader.js:331:10)
+    at runTests (/workspace/scratch/a98056651892/project/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/node_modules/playwright/lib/program.js:206:18)
+    at i.<anonymous> (/workspace/scratch/a98056651892/project/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/node_modules/playwright/lib/program.js:71:7)

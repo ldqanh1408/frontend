@@ -1,12 +1,42 @@
 {
-  "deployedAt": "2026-10-05T11:26:08Z",
-  "method": "Cloudflare plugin (mcp__cloudflare__execute): PUT /workers/scripts/atlas-web-staging (module upload), POST …/subdomain {enabled:true, previews_enabled:false}",
-  "worker": "atlas-web-staging",
-  "scriptEtag": "c69f0bbbb768d64d09705de421176ded1c90e6aacb7bdd2fbbcf5192250a4cc1",
-  "workerSourceSha256": "5a6e4eb920abd5da9177848ef5f6f2d0b5fb86ea30b6a0c50c86ff25da00ee20",
+  "deployedAt": "2026-10-21T11:11:37Z",
+  "method": "wrangler 4.151.3 deploy --no-bundle (module upload), one Worker per audience",
+  "release": "0a0bba532b1b",
+  "sourceCommit": "0a0bba532b1b5026855b324f6de6df6947148be3",
+  "artifactCommit": "875cb4140c50024d7ffc6aa733c95b56ba45aab3",
+  "manifestSha256": "71a1627a4dfc36c4f9521b9047a8d40c185565bd7bc3d937bb926df3737dc526",
   "compatibilityDate": "2026-10-04",
-  "bindings": [],
-  "url": "https://atlas-web-staging.ekko-okke666.workers.dev",
-  "release": "1b0288142653",
-  "productionUntouched": "sparkling-snow-090d"
+  "audiences": [
+    {
+      "audience": "workspace",
+      "worker": "atlas-web-staging",
+      "versionId": "b094d99f-2149-42e4-99c9-9387188f345e",
+      "url": "https://atlas-web-staging.ekko-okke666.workers.dev",
+      "entry": "/index.html",
+      "scriptSha256": "9334e1f9411dadcca3d5841bafc9d8531968f64fdf5604a83b2e30259e0d2ba2"
+    },
+    {
+      "audience": "observer",
+      "worker": "atlas-web-observer",
+      "versionId": "2183f7e7-a641-4854-a17c-c45f16455395",
+      "url": "https://atlas-web-observer.ekko-okke666.workers.dev",
+      "entry": "/telemetry-console.html",
+      "scriptSha256": "3c03d2a0b3f728e7479add7603dff57f5cfe0f7ab95dbdddbfcd3fd61e6377a1"
+    }
+  ],
+  "acceptance": {
+    "run": "staging-0a0bba532b1b",
+    "result": "PASS",
+    "engines": ["chromium", "firefox", "webkit"],
+    "expected": 18,
+    "unexpected": 0,
+    "flaky": 0,
+    "finishedAt": "2026-10-21T11:11:23.924Z"
+  },
+  "rollback": {
+    "workspacePreviousVersionId": "2a14923a-8d3c-4434-8da9-8fd0ba8ef886",
+    "note": "A rollback restores a previously accepted matching Workspace and Observer pair. The Observer Worker did not exist before this deployment, so rolling it back removes it."
+  },
+  "productionUntouched": "sparkling-snow-090d",
+  "note": "Staging only. The Workspace and the Observer run on independent origins, so they share no browser session or cookie scope."
 }

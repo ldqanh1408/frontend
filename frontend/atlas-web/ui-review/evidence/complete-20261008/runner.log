@@ -1,0 +1,18 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> atlas-web@1.0.0-rc.1 verify
+> node tools/verify.mjs local
+
+Starting check
+check: PASS
+Starting tooling
+tooling: PASS
+Starting functional
+functional: PASS
+Starting visual-performance
+visual-performance: PASS
+Starting build-review
+build-review: PASS
+Starting review
+review: PASS
+Acceptance PASS: /workspace/scratch/a98056651892/project/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/test-results/acceptance/20261008-complete/summary.json

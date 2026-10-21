@@ -9,7 +9,10 @@ import { bytes, relativeTime } from '../../lib/format';
 import { downloadJson } from '../../lib/definitions';
 import { Badge, Banner, Button, EmptyState, PageHeader, Panel } from '../../components/ui';
 import { Dialog } from '../../components/overlays';
-import { CodeEditor, languageFor, type EditorHandle } from '../../components/CodeEditor';
+import type { EditorHandle } from '../../components/CodeEditor';
+import { languageFor } from '../../components/editor-language';
+import { LazyCodeEditor as CodeEditor } from '../../components/LazyCodeEditor';
+import { ResponsiveIde } from '../../components/ResponsiveIde';
 import { usePageMeta } from '../../shell/page-meta';
 import { ProvenanceBanner } from '../shared';
 import { ModuleViews } from '../modules/common';
@@ -71,13 +74,13 @@ export default function CodePage() {
   return (
     <div className="page page-ide">
       <PageHeader title={m.title} purpose={m.purpose} actions={<>
-        <Button blocked={connect.ok ? undefined : connect.reason} reasonId={connect.ok ? undefined : 'repo-reason'}>Connect repository</Button>
+        <Button blocked={connect.ok ? 'Requires an authorized repository connection contract.' : connect.reason} reasonId="repo-reason">Connect repository</Button>
         <Button variant="primary" onClick={pickImport} disabled={!!progress}>{progress ? `Importing ${progress.done}/${progress.total}…` : 'Import folder'}</Button>
         <input ref={dirRef} type="file" hidden multiple {...{ webkitdirectory: '', directory: '' }} onChange={(e) => { if (e.target.files?.length) onImport(e.target.files); e.target.value = ''; }} />
       </>} />
       {!connect.ok && <p id="repo-reason" className="caption">Connect repository: repository connections, refs and full commit IDs come from an authorized repository integration. Import a local folder to browse source now.</p>}
       <ProvenanceBanner detail="A local snapshot is read-only and is not a Git commit." />
-      <div className="ide">
+      <ResponsiveIde activeKey={file?.path}>
         <section className="panel ide-side" aria-labelledby="snap-h">
           <div className="panel-pad stack">
             <h2 id="snap-h" className="eyebrow">Local source snapshot</h2>
@@ -90,7 +93,7 @@ export default function CodePage() {
                 </select>
               </div>
             )}
-            {snap && <p className="caption mono" title={snap.digest}>{snap.files.length} files · digest {snap.digest.slice(0, 12)}… · {relativeTime(snap.importedAt)}</p>}
+            {snap && <p className="caption mono source-stamp" title={snap.digest}><span>{snap.files.length} files · digest {snap.digest.slice(0, 12)}…</span><time dateTime={snap.importedAt}>{relativeTime(snap.importedAt)}</time></p>}
           </div>
           {snap ? (
             <div className="ide-tree">
@@ -125,7 +128,7 @@ export default function CodePage() {
           )}
         </div>
         <CodeInspector snap={snap} file={file} onOpen={openFile} analysis={analysis} onAnalyze={() => snap && setAnalysis(analyze(snap))} symbol={symbol} onSymbol={setSymbol} focus={focus} />
-      </div>
+      </ResponsiveIde>
       <ModuleViews module="code" />
       <Dialog open={confirmDelete} onOpenChange={setConfirmDelete} title={`Remove “${snap?.name ?? ''}”?`} description="The snapshot and its file contents are deleted from this browser. Your folder on disk is not touched."
         footer={<><Button onClick={() => setConfirmDelete(false)}>Cancel</Button><Button variant="danger" onClick={async () => { const id = snap!.id; setConfirmDelete(false); await deleteSnapshot(id); setParams(new URLSearchParams()); toast({ tone: 'success', title: 'Snapshot removed' }); }}>Remove snapshot</Button></>} />
@@ -182,8 +185,8 @@ function FileView({ file, editorRef, symbol, defs, onFocus, onOpen }: {
           <Button blocked={noSymbol} reasonId="file-gate" onClick={() => { onFocus('definition'); if (defs[0]) onOpen(defs[0].path, defs[0].line); }}>Definition</Button>
           <Button blocked={noSymbol} reasonId="file-gate" onClick={() => onFocus('references')}>References</Button>
           <Button blocked="A local snapshot has no Git history." reasonId="file-gate">History</Button>
-          <Button blocked={ctx.ok ? undefined : ctx.reason} reasonId="file-gate">Add to context</Button>
-          <Button blocked={edit.ok ? undefined : edit.reason} reasonId="file-gate">Edit workspace</Button>
+          <Button blocked={ctx.ok ? 'Requires an authorized context package and service command.' : ctx.reason} reasonId="file-gate">Add to context</Button>
+          <Button blocked={edit.ok ? 'Requires an authorized workspace and service command.' : edit.reason} reasonId="file-gate">Edit workspace</Button>
         </div>
         <ul id="file-gate" className="caption stack" style={{ gap: 2, margin: 0, paddingLeft: 'var(--space-16)' }}>
           {noSymbol && <li>Definition, References: {noSymbol}</li>}

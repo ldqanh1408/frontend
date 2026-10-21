@@ -1,6 +1,7 @@
-import { forwardRef, useId, type ButtonHTMLAttributes, type ReactNode } from 'react';
+import { forwardRef, useId, useLayoutEffect, useRef, useState, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { Link } from 'react-router';
 import { Icon } from './Icon';
+import { domainTone } from '../data/states';
 
 type Variant = 'primary' | 'secondary' | 'quiet' | 'danger';
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,12 +32,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   return (
     <span className="blocked-action">
       {btn}
-      <span id={rid} className="blocked-reason">{blocked}</span>
+      <span id={rid} className="blocked-reason" data-gate-kind={/plan|entitlement/i.test(blocked) ? 'entitlement' : /^Limit/.test(blocked) ? 'quota' : /session|connect/i.test(blocked) ? 'session' : 'permission'}>{blocked}</span>
     </span>
   );
 });
 
 export function ButtonLink({ to, variant = 'secondary', compact, icon, children, className, 'aria-label': ariaLabel }: { to: string; variant?: Variant; compact?: boolean; icon?: string; children: ReactNode; className?: string; 'aria-label'?: string }) {
+  if (to.startsWith('/observer')) return <a href={import.meta.env.VITE_OBSERVER_URL ? new URL(to, import.meta.env.VITE_OBSERVER_URL).toString() : to} aria-label={ariaLabel} className={cls(variant, compact, false, false, className)}>{icon && <Icon name={icon} />}{children}</a>;
   return <Link to={to} aria-label={ariaLabel} className={cls(variant, compact, false, false, className)}>{icon && <Icon name={icon} />}{children}</Link>;
 }
 
@@ -48,7 +50,7 @@ const TONES: Record<string, string> = {
 };
 export function toneFor(status: string): string {
   const s = status.toLowerCase();
-  return TONES[s] ?? Object.entries(TONES).find(([k]) => s.includes(k))?.[1] ?? 'neutral';
+  return domainTone(status) ?? TONES[s] ?? Object.entries(TONES).find(([k]) => s.includes(k))?.[1] ?? 'neutral';
 }
 export function Badge({ children, tone, className }: { children: ReactNode; tone?: string; className?: string }) {
   const t = tone ?? (typeof children === 'string' ? toneFor(children) : 'neutral');
@@ -124,6 +126,41 @@ export function Stages({ stage }: { stage: string }) {
 
 export function Kbd({ children }: { children: ReactNode }) {
   return <kbd className="kbd">{children}</kbd>;
+}
+
+/**
+ * A table inside a horizontally scrollable region. When the region actually overflows, the wrapper
+ * becomes focusable so a keyboard user can scroll it (WCAG 2.1.1); a table that fits is not given a
+ * focus stop. The accessible name is required whenever the region is focusable.
+ */
+export function ScrollableTable({ label, className, children }: { label: string; className?: string; children: ReactNode }) {
+  const [scrollable, setScrollable] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  // The measurement runs in the layout phase: an accessibility audit that starts as soon as the page
+  // is painted must already see the focus stop on a region that overflows.
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    // The region is focusable whenever it reports any horizontal overflow. A table whose content is
+    // a fraction of a pixel wider than the column is still a region a keyboard user cannot reach
+    // without a focus stop, and the accessibility audit measures exactly this overflow.
+    const measure = () => setScrollable(el.scrollWidth > el.clientWidth);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return (
+    <div
+      ref={ref}
+      className={`table-wrap ${className ?? ''}`.trim()}
+      tabIndex={scrollable ? 0 : undefined}
+      role={scrollable ? 'region' : undefined}
+      aria-label={scrollable ? label : undefined}
+    >
+      {children}
+    </div>
+  );
 }
 
 /** Placeholder bars sized like the content they stand in for, so nothing shifts when it arrives (CLS ≈ 0). */

@@ -1,0 +1,1518 @@
+[
+  {
+    "key": "SP-Catalog",
+    "module": "specifications",
+    "dark": "250:2813",
+    "light": "254:2321",
+    "title": "Specifications · catalog, outline and relationships",
+    "purpose": "Browse a large document workspace without conflating folders, headings and business traceability.",
+    "panels": [
+      {
+        "title": "Catalog controls",
+        "rows": [
+          {
+            "label": "Location",
+            "example": "Business / Billing / Invoices · illustrative folder path"
+          },
+          {
+            "label": "Catalog search",
+            "example": "Name, folder, status, owner and revision filters"
+          },
+          {
+            "label": "Open document",
+            "example": "Stable document ID; selected body loads independently"
+          },
+          {
+            "label": "Outline",
+            "example": "Headings of the selected document only"
+          },
+          {
+            "label": "Relationships",
+            "example": "Requirements, agents, plans and source evidence; separate view"
+          },
+          {
+            "label": "Large collections",
+            "example": "Bounded mounted rows; cursor and partial counts come from service"
+          }
+        ]
+      },
+      {
+        "title": "Import and recovery",
+        "rows": [
+          {
+            "label": "Editable formats",
+            "example": "Markdown / TXT within import limits"
+          },
+          {
+            "label": "Attachments",
+            "example": "Read-only binary files; download original bytes separately"
+          },
+          {
+            "label": "Partial import",
+            "example": "Show per-file accepted, rejected and failed outcomes"
+          },
+          {
+            "label": "Unsaved change",
+            "example": "Save draft, discard explicitly or keep recovery draft"
+          },
+          {
+            "label": "Shared update",
+            "example": "Revision conflict review; never overwrite silently"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Workspace",
+        "example": "Device drafts and shared service documents use separate sources"
+      },
+      {
+        "label": "Source status",
+        "example": "This frame contains illustrative content"
+      },
+      {
+        "label": "Next step",
+        "example": "Choose a document, inspect revision, then review acceptance"
+      }
+    ],
+    "actions": [
+      "New folder",
+      "New document",
+      "Import files",
+      "Open relationships"
+    ]
+  },
+  {
+    "key": "SP-Conflict",
+    "module": "specifications",
+    "dark": "250:2909",
+    "light": "254:2389",
+    "title": "Specifications · resolve a revision conflict",
+    "purpose": "Keep base, current saved revision and the user's draft visible before creating a resolved revision.",
+    "panels": [
+      {
+        "title": "Compare revisions",
+        "rows": [
+          {
+            "label": "Base",
+            "example": "Example r4 · revision originally edited"
+          },
+          {
+            "label": "Current saved",
+            "example": "Example r5 · saved by another editor"
+          },
+          {
+            "label": "Local draft",
+            "example": "Unsaved content based on r4; retained for recovery"
+          },
+          {
+            "label": "Resolved draft",
+            "example": "User chooses final content; no automatic semantic merge"
+          },
+          {
+            "label": "Save precondition",
+            "example": "Expected current revision must still match"
+          }
+        ]
+      },
+      {
+        "title": "Resolution choices",
+        "rows": [
+          {
+            "label": "Keep recovery",
+            "example": "Preserve the unsaved draft on this device"
+          },
+          {
+            "label": "Discard local",
+            "example": "Explicitly acknowledge that local edits will be discarded"
+          },
+          {
+            "label": "Save resolution",
+            "example": "Creates a new revision; rechecks current revision"
+          },
+          {
+            "label": "Conflict repeats",
+            "example": "Read the newer revision and reopen comparison"
+          },
+          {
+            "label": "AI suggestion",
+            "example": "Suggestion remains a draft until reviewed and saved"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Scope",
+        "example": "Device conflict example; shared collaboration contract is separate"
+      },
+      {
+        "label": "Lifecycle",
+        "example": "Resolving a draft does not merge or freeze a shared document"
+      },
+      {
+        "label": "Accessibility",
+        "example": "Focus stays in the dialog; error summary links to fields"
+      }
+    ],
+    "actions": [
+      "Keep recovery",
+      "Discard local",
+      "Save resolution"
+    ]
+  },
+  {
+    "key": "SP-Freeze",
+    "module": "specifications",
+    "dark": "250:2991",
+    "light": "254:2453",
+    "title": "Specifications · freeze and submit deliberately",
+    "purpose": "A local revision cut is distinct from a durable shared freeze and a deliberate AI submission.",
+    "panels": [
+      {
+        "title": "Freeze manifest",
+        "rows": [
+          {
+            "label": "Selected documents",
+            "example": "Stable IDs and exact revisions; include required closure"
+          },
+          {
+            "label": "Local cut",
+            "example": "Digest of saved device revisions; downloadable manifest"
+          },
+          {
+            "label": "Durable cuts",
+            "example": "Server must acknowledge every required persisted cut"
+          },
+          {
+            "label": "Closure",
+            "example": "Dependencies and required acceptance entries must be included"
+          },
+          {
+            "label": "Finalize freeze",
+            "example": "Only after all required durable cuts are observed"
+          },
+          {
+            "label": "Submit to AI",
+            "example": "Separate action with an explicit frozen manifest"
+          }
+        ]
+      },
+      {
+        "title": "Change after freeze",
+        "rows": [
+          {
+            "label": "New draft",
+            "example": "Remains distinct from the verified frozen revision"
+          },
+          {
+            "label": "Supersede",
+            "example": "Explicitly select a new manifest; never upgrade silently"
+          },
+          {
+            "label": "Unknown command",
+            "example": "Reconcile the original operation ID before another submission"
+          },
+          {
+            "label": "Implemented",
+            "example": "Requires independent mandatory acceptance at merged revision"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "State example",
+        "example": "Cuts staged; final shared manifest not observed"
+      },
+      {
+        "label": "Blocking reason",
+        "example": "Durable closure and session grants are required"
+      },
+      {
+        "label": "Boundary",
+        "example": "No claim of a distributed atomic CRDT freeze"
+      }
+    ],
+    "actions": [
+      "Create local cut",
+      "Request freeze",
+      "Inspect manifest",
+      "Submit to AI"
+    ]
+  },
+  {
+    "key": "CI-Coverage",
+    "module": "code",
+    "dark": "251:3305",
+    "light": "254:3137",
+    "title": "Code intelligence · exact source and semantic coverage",
+    "purpose": "Explain what the IDE actually knows before presenting symbols, impact or AI context.",
+    "panels": [
+      {
+        "title": "Source identity",
+        "rows": [
+          {
+            "label": "Repository ref",
+            "example": "Selected provider ref; full object ID when available"
+          },
+          {
+            "label": "Local import",
+            "example": "Actual file bytes and SHA-256 digest; not a Git commit"
+          },
+          {
+            "label": "File location",
+            "example": "Repository path, snapshot ID and line range"
+          },
+          {
+            "label": "History / blame",
+            "example": "Provider-backed data; never invented from local timestamps"
+          },
+          {
+            "label": "Diff",
+            "example": "Exact compared snapshots or provider revisions"
+          },
+          {
+            "label": "Editing",
+            "example": "Separate authorized workspace; read-only analysis does not grant write"
+          }
+        ]
+      },
+      {
+        "title": "Analysis matrix",
+        "rows": [
+          {
+            "label": "JavaScript / TypeScript",
+            "example": "Local compiler AST, definitions, references and diagnostics"
+          },
+          {
+            "label": "External library types",
+            "example": "Excluded in standalone local analysis"
+          },
+          {
+            "label": "tsconfig / generated files",
+            "example": "Excluded from the standalone coverage claim"
+          },
+          {
+            "label": "Java",
+            "example": "Highlighting available; semantic adapter is required"
+          },
+          {
+            "label": "AST candidate",
+            "example": "Syntax structure does not establish business semantics"
+          },
+          {
+            "label": "Impact / CI",
+            "example": "Show incomplete coverage and unobserved CI explicitly"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Quality",
+        "example": "Coverage is scoped, not a global green verdict"
+      },
+      {
+        "label": "Source export",
+        "example": "Manifest includes real file digest and limits"
+      },
+      {
+        "label": "Journey",
+        "example": "Source selection → analysis → cited context → specification / task"
+      }
+    ],
+    "actions": [
+      "Analyze JS/TS",
+      "Definition",
+      "References",
+      "Inspect coverage",
+      "Export manifest",
+      "Edit workspace"
+    ]
+  },
+  {
+    "key": "AG-Readiness",
+    "module": "agents",
+    "dark": "250:3078",
+    "light": "254:2518",
+    "title": "Agent · readiness is independent from publication",
+    "purpose": "Inspect each prerequisite at the pinned definition revision before making an assignment.",
+    "panels": [
+      {
+        "title": "Readiness dimensions",
+        "rows": [
+          {
+            "label": "Definition format",
+            "example": "Configured locally; this does not prove model availability"
+          },
+          {
+            "label": "Provider / model",
+            "example": "Not observed; requires a scoped capability report"
+          },
+          {
+            "label": "Tools",
+            "example": "Discovery does not grant invocation permission"
+          },
+          {
+            "label": "Resources",
+            "example": "Exact immutable versions must resolve"
+          },
+          {
+            "label": "Memory",
+            "example": "Access policy and budget must be checked"
+          },
+          {
+            "label": "Guardrails",
+            "example": "Required boundaries must be evaluated"
+          },
+          {
+            "label": "Runtime",
+            "example": "Sandbox availability and entitlement not observed"
+          },
+          {
+            "label": "Output / acceptance",
+            "example": "Schema and mandatory acceptance have not been executed"
+          }
+        ]
+      },
+      {
+        "title": "Version and consumers",
+        "rows": [
+          {
+            "label": "Agent definition",
+            "example": "Example draft r3; unpublished device definition"
+          },
+          {
+            "label": "Pinned inputs",
+            "example": "Exact resource and context revisions; no latest upgrade"
+          },
+          {
+            "label": "Consumers",
+            "example": "Service must return active plans, assignments and runs"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Overall readiness",
+        "example": "Blocked · provider, tools and runtime not observed"
+      },
+      {
+        "label": "Publication",
+        "example": "Published does not mean runnable"
+      },
+      {
+        "label": "Journey",
+        "example": "Define → evaluate → publish → assign → admit → accept"
+      }
+    ],
+    "actions": [
+      "Validate draft",
+      "Evaluate",
+      "Publish",
+      "Assign"
+    ]
+  },
+  {
+    "key": "AG-Guardrails",
+    "module": "agents",
+    "dark": "250:3168",
+    "light": "254:2586",
+    "title": "Agent · guardrails and tool permissions",
+    "purpose": "Make scope, effects, approval requirements and immutable resource versions reviewable.",
+    "panels": [
+      {
+        "title": "Execution boundaries",
+        "rows": [
+          {
+            "label": "Network",
+            "example": "Allowed destinations and denied egress are explicit"
+          },
+          {
+            "label": "Files",
+            "example": "Approved roots, read/write policy and output paths"
+          },
+          {
+            "label": "Tools",
+            "example": "Allowlisted tool IDs; no permission inferred from discovery"
+          },
+          {
+            "label": "Approval",
+            "example": "Human checkpoint before actions with required review"
+          },
+          {
+            "label": "Secrets",
+            "example": "Opaque secret references; credentials never exported"
+          },
+          {
+            "label": "Cleanup",
+            "example": "Lease and runtime release require verified cleanup"
+          }
+        ]
+      },
+      {
+        "title": "Resource selection",
+        "rows": [
+          {
+            "label": "Tool server",
+            "example": "Pinned MCP server definition and capability revision"
+          },
+          {
+            "label": "Tool capability",
+            "example": "Review input schema and effect classification"
+          },
+          {
+            "label": "Context",
+            "example": "Pin exact package revision and access policy"
+          },
+          {
+            "label": "Changed version",
+            "example": "New pin requires evaluation; existing runs keep their pins"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Policy example",
+        "example": "Draft policies are illustrative and not active grants"
+      },
+      {
+        "label": "Output",
+        "example": "JSON format validation is distinct from business acceptance"
+      },
+      {
+        "label": "Runtime",
+        "example": "Source editing does not confer terminal access"
+      }
+    ],
+    "actions": [
+      "Save draft",
+      "Inspect tools",
+      "Inspect resources",
+      "Evaluate guardrails"
+    ]
+  },
+  {
+    "key": "RS-MCP",
+    "module": "resources",
+    "dark": "250:3255",
+    "light": "254:2651",
+    "title": "Resources · MCP lifecycle and consumers",
+    "purpose": "Validate definitions, inspect actual runtime capabilities and retain safe revocation paths.",
+    "panels": [
+      {
+        "title": "Resource lifecycle",
+        "rows": [
+          {
+            "label": "Definition",
+            "example": "Draft → validate → publish version"
+          },
+          {
+            "label": "Runtime",
+            "example": "Deployment, readiness and health require observed service evidence"
+          },
+          {
+            "label": "Capabilities",
+            "example": "Discovered tools include schema, version and effect scope"
+          },
+          {
+            "label": "Invocation",
+            "example": "Explicit allowlist and session grant; discovery is insufficient"
+          },
+          {
+            "label": "Consumer pins",
+            "example": "Show agent and plan revisions using each immutable resource"
+          },
+          {
+            "label": "Revoke / retire",
+            "example": "Inspect active consumers and current leases before action"
+          }
+        ]
+      },
+      {
+        "title": "Failure and cleanup",
+        "rows": [
+          {
+            "label": "Connection lost",
+            "example": "Retain last observed timestamp and stale warning"
+          },
+          {
+            "label": "Secret invalid",
+            "example": "Re-authenticate using references; never print secret contents"
+          },
+          {
+            "label": "Health unknown",
+            "example": "Show unknown separately from failed or healthy"
+          },
+          {
+            "label": "Cleanup pending",
+            "example": "Hold relevant lease until verified fence and cleanup"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Runtime example",
+        "example": "Unavailable · no deployment or health result observed"
+      },
+      {
+        "label": "Release boundary",
+        "example": "A completed task is not a cleanup receipt"
+      },
+      {
+        "label": "Journey",
+        "example": "Resource definition → agent pin → task → cleanup"
+      }
+    ],
+    "actions": [
+      "Validate",
+      "Publish version",
+      "Inspect capabilities",
+      "Revoke",
+      "Inspect cleanup"
+    ]
+  },
+  {
+    "key": "MM-Context",
+    "module": "memory",
+    "dark": "250:3347",
+    "light": "254:2717",
+    "title": "Memory · source lineage and context budget",
+    "purpose": "Build explicit context candidates with immutable pins and a visible inclusion decision.",
+    "panels": [
+      {
+        "title": "Candidate inspection",
+        "rows": [
+          {
+            "label": "Source locator",
+            "example": "File path, line range and content digest"
+          },
+          {
+            "label": "Quality",
+            "example": "Standalone JS/TS analysis scope; external semantic coverage excluded"
+          },
+          {
+            "label": "Access",
+            "example": "Workspace audience and policy must permit each source"
+          },
+          {
+            "label": "Pin",
+            "example": "Exact source snapshot and memory revision"
+          },
+          {
+            "label": "Required candidate",
+            "example": "Cannot be silently omitted or truncated"
+          },
+          {
+            "label": "Excluded candidate",
+            "example": "Show the exclusion reason and preserve its provenance"
+          }
+        ]
+      },
+      {
+        "title": "Package budget",
+        "rows": [
+          {
+            "label": "Bytes",
+            "example": "Measure actual UTF-8 bytes before export"
+          },
+          {
+            "label": "Token count",
+            "example": "Unknown unless an identified tokenizer produced the count"
+          },
+          {
+            "label": "Budget overflow",
+            "example": "Block package creation; user changes inclusion or budget"
+          },
+          {
+            "label": "Expiry / recall",
+            "example": "Service-owned access and recall lifecycle remain separate"
+          },
+          {
+            "label": "Download",
+            "example": "Export actual selected bytes and the package digest"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Package example",
+        "example": "Illustrative selection; no live provider context submitted"
+      },
+      {
+        "label": "Integrity",
+        "example": "Content digest is not a Git commit ID"
+      },
+      {
+        "label": "Journey",
+        "example": "Repository source → candidate → package → agent pin"
+      }
+    ],
+    "actions": [
+      "Select candidates",
+      "Build package",
+      "Inspect provenance",
+      "Export package"
+    ]
+  },
+  {
+    "key": "WF-Task",
+    "module": "workflow",
+    "dark": "250:3437",
+    "light": "254:2785",
+    "title": "Workflow · task inspector and immutable inputs",
+    "purpose": "Design a dependency graph, review every task input and acceptance boundary, then activate explicitly.",
+    "panels": [
+      {
+        "title": "Task definition",
+        "rows": [
+          {
+            "label": "Task",
+            "example": "Example: implement invitation expiry"
+          },
+          {
+            "label": "Agent pin",
+            "example": "Exact saved agent definition revision"
+          },
+          {
+            "label": "Dependencies",
+            "example": "Stable task IDs; cyclic and missing edges are rejected"
+          },
+          {
+            "label": "Input contract",
+            "example": "Pinned specification manifest and context package"
+          },
+          {
+            "label": "Output contract",
+            "example": "Schema, expected artifacts and business outcome"
+          },
+          {
+            "label": "Human checkpoint",
+            "example": "Approval point and allowed decisions are explicit"
+          },
+          {
+            "label": "Acceptance",
+            "example": "Given / When / Then; mandatory cases are not optional"
+          }
+        ]
+      },
+      {
+        "title": "Activation gates",
+        "rows": [
+          {
+            "label": "Draft validation",
+            "example": "Checks graph, task fields, dependencies and stale pins"
+          },
+          {
+            "label": "Generated plan",
+            "example": "AI output remains a reviewable draft"
+          },
+          {
+            "label": "Activate",
+            "example": "Separate command after required reviews"
+          },
+          {
+            "label": "Admit",
+            "example": "Separate run admission with resource and budget evidence"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Plan state",
+        "example": "Device draft; no admitted run"
+      },
+      {
+        "label": "Editing",
+        "example": "Graph and task table are both supported"
+      },
+      {
+        "label": "Journey",
+        "example": "Specifications → agent pins → plan → admission → delivery"
+      }
+    ],
+    "actions": [
+      "Save plan",
+      "Add task",
+      "Validate graph",
+      "Activate",
+      "Admit run"
+    ]
+  },
+  {
+    "key": "EX-TaskAttempt",
+    "module": "execution",
+    "dark": "251:2903",
+    "light": "254:2854",
+    "title": "Execution · task, attempt and agent activity",
+    "purpose": "Inspect dependency, input, output, tool and approval state independently for every task attempt.",
+    "panels": [
+      {
+        "title": "Selected task inspector",
+        "rows": [
+          {
+            "label": "Task ID",
+            "example": "Fixture task-02 · not a live execution"
+          },
+          {
+            "label": "Dependencies",
+            "example": "Fixture task-01 output; exact revision required"
+          },
+          {
+            "label": "Agent / attempt",
+            "example": "Pinned definition r3 · example attempt 1"
+          },
+          {
+            "label": "Input manifest",
+            "example": "Specification freeze, context and resource pins"
+          },
+          {
+            "label": "Output",
+            "example": "Public artifact references returned by service"
+          },
+          {
+            "label": "Approval",
+            "example": "Awaiting human checkpoint; no implicit approval"
+          },
+          {
+            "label": "Retry",
+            "example": "New attempt only if admitted; preserve the previous evidence"
+          }
+        ]
+      },
+      {
+        "title": "Activity and logs",
+        "rows": [
+          {
+            "label": "Public events",
+            "example": "Sequence, actor, attempt, timestamp and gap marker"
+          },
+          {
+            "label": "Tool call",
+            "example": "Schema and granted effect scope; no secret inputs displayed"
+          },
+          {
+            "label": "Logs",
+            "example": "Bounded, redacted service snapshot with truncation marker"
+          },
+          {
+            "label": "PTY",
+            "example": "Separate entitlement and session; logs do not grant terminal access"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Frame data",
+        "example": "Task cards are illustrative fixtures"
+      },
+      {
+        "label": "Readiness",
+        "example": "Runtime and provider availability have not been observed"
+      },
+      {
+        "label": "Journey",
+        "example": "Input pins → attempt → output → independent acceptance"
+      }
+    ],
+    "actions": [
+      "Pause",
+      "Resume",
+      "Approve",
+      "Reject",
+      "Retry task",
+      "Inspect logs"
+    ]
+  },
+  {
+    "key": "CMD-Unknown",
+    "module": "connection",
+    "dark": "251:3018",
+    "light": "254:2927",
+    "title": "Operation · reconcile an unknown outcome",
+    "purpose": "Keep the original request identity and last acknowledgement when transport fails.",
+    "panels": [
+      {
+        "title": "Original command identity",
+        "rows": [
+          {
+            "label": "Operation",
+            "example": "Fixture operation-pause-01; never treated as a live receipt"
+          },
+          {
+            "label": "Scope",
+            "example": "Subject, audience, tenant and project from the session"
+          },
+          {
+            "label": "Target",
+            "example": "Stable resource ID and expected revision"
+          },
+          {
+            "label": "Input fingerprint",
+            "example": "SHA-256 of canonical input; journal omits raw secrets"
+          },
+          {
+            "label": "Last acknowledgement",
+            "example": "Accepted example; effective effect is not observed"
+          },
+          {
+            "label": "Current outcome",
+            "example": "Unknown; reconnect and reconcile the original operation ID"
+          }
+        ]
+      },
+      {
+        "title": "Readback checks",
+        "rows": [
+          {
+            "label": "Match",
+            "example": "Operation, scope, resource, fingerprint and expected revision"
+          },
+          {
+            "label": "Evidence",
+            "example": "Observed revision, timestamp and allowed evidence references"
+          },
+          {
+            "label": "Do not retry blindly",
+            "example": "PR creation, charge, merge and run admission may be non-repeatable"
+          },
+          {
+            "label": "Reconciliation",
+            "example": "Read-only GET for the original operation; no repeated POST"
+          },
+          {
+            "label": "Terminal result",
+            "example": "Only matching readback can establish an effective effect"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Displayed stage",
+        "example": "Unknown · last acknowledgement preserved"
+      },
+      {
+        "label": "Journal",
+        "example": "Persist command identity before transmission"
+      },
+      {
+        "label": "Session",
+        "example": "An expired or different audience cannot reconcile as authority"
+      }
+    ],
+    "actions": [
+      "Reconnect",
+      "Reconcile original ID",
+      "Export evidence"
+    ]
+  },
+  {
+    "key": "EX-Cleanup",
+    "module": "execution",
+    "dark": "251:3107",
+    "light": "254:2995",
+    "title": "Execution · cancellation, fencing and cleanup",
+    "purpose": "Keep leases and locks visible until the service proves the relevant fence and cleanup.",
+    "panels": [
+      {
+        "title": "Cancellation example",
+        "rows": [
+          {
+            "label": "Cancel command",
+            "example": "Received / accepted are acknowledgement stages"
+          },
+          {
+            "label": "Execution state",
+            "example": "Cancelling is distinct from cancelled"
+          },
+          {
+            "label": "Outstanding effects",
+            "example": "Inspect task attempts, tools and delivery boundaries"
+          },
+          {
+            "label": "Lease",
+            "example": "Held until the required fence is observed"
+          },
+          {
+            "label": "Cleanup",
+            "example": "Pending, failed and verified are separate outcomes"
+          },
+          {
+            "label": "Release",
+            "example": "Allowed only after matching fenced cleanup evidence"
+          }
+        ]
+      },
+      {
+        "title": "Recovery paths",
+        "rows": [
+          {
+            "label": "Lost connection",
+            "example": "Reconcile original cancel operation ID"
+          },
+          {
+            "label": "Cleanup failure",
+            "example": "Expose failure, logs and operator-approved recovery"
+          },
+          {
+            "label": "Forced action",
+            "example": "Explicit policy, authorization and evidence required"
+          },
+          {
+            "label": "Post-merge cancellation",
+            "example": "Use corrective delivery; already merged code is not undone"
+          },
+          {
+            "label": "Acceptance conflict",
+            "example": "EX-LOCK-03 and the newer fence policy require a BA decision"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Fixture state",
+        "example": "Cleanup pending; no lease release result"
+      },
+      {
+        "label": "Delivery",
+        "example": "Run completion is distinct from business acceptance"
+      },
+      {
+        "label": "Open decision",
+        "example": "Original BA ambiguity is preserved, not silently resolved"
+      }
+    ],
+    "actions": [
+      "Cancel",
+      "Inspect fence",
+      "Inspect cleanup",
+      "Reconcile",
+      "Release lease"
+    ]
+  },
+  {
+    "key": "RV-Acceptance",
+    "module": "governance",
+    "dark": "251:3202",
+    "light": "254:3064",
+    "title": "Delivery · independent acceptance at the merged revision",
+    "purpose": "Treat execution completion, repository delivery, CI and business acceptance as separate evidence.",
+    "panels": [
+      {
+        "title": "Evidence bundle",
+        "rows": [
+          {
+            "label": "Run",
+            "example": "Completed is an execution outcome only"
+          },
+          {
+            "label": "Change",
+            "example": "Provider-owned branch and PR identifiers"
+          },
+          {
+            "label": "Merge",
+            "example": "Exact merged commit ID returned by the repository provider"
+          },
+          {
+            "label": "CI",
+            "example": "Observed status and immutable check references"
+          },
+          {
+            "label": "Acceptance",
+            "example": "Every mandatory requirement evaluated at merged revision"
+          },
+          {
+            "label": "Implemented",
+            "example": "Only after the required independent acceptance succeeds"
+          }
+        ]
+      },
+      {
+        "title": "Review and exception paths",
+        "rows": [
+          {
+            "label": "Requirement mismatch",
+            "example": "Keep delivery review open; do not report implemented"
+          },
+          {
+            "label": "Stale CI",
+            "example": "Read the exact revision instead of accepting earlier checks"
+          },
+          {
+            "label": "Reviewer role",
+            "example": "Enforce session grant and required independence"
+          },
+          {
+            "label": "Rejected delivery",
+            "example": "Record reason, corrective action and revision"
+          },
+          {
+            "label": "After merge",
+            "example": "Corrective PR or explicit compensating workflow"
+          },
+          {
+            "label": "Cleanup",
+            "example": "Inspect independently; merged does not imply cleaned up"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Review state",
+        "example": "Illustrative incomplete evidence; acceptance NOT_RUN"
+      },
+      {
+        "label": "Repository",
+        "example": "No live PR, merge or CI result is asserted"
+      },
+      {
+        "label": "Journey",
+        "example": "Run output → review → merge → acceptance → closure"
+      }
+    ],
+    "actions": [
+      "Inspect PR",
+      "Inspect CI",
+      "Approve review",
+      "Reject review",
+      "Record acceptance",
+      "Corrective PR"
+    ]
+  },
+  {
+    "key": "IAM-Scope",
+    "module": "identity",
+    "dark": "251:3408",
+    "light": "254:3210",
+    "title": "Access · session recovery and audience boundaries",
+    "purpose": "Recover access without inventing a role, widening scope or confusing UI disconnect with server revocation.",
+    "panels": [
+      {
+        "title": "Session and membership",
+        "rows": [
+          {
+            "label": "Session",
+            "example": "Subject, expiry, audience and CSRF material returned by service"
+          },
+          {
+            "label": "Invitation",
+            "example": "Accept, expired, revoked and already-used states"
+          },
+          {
+            "label": "Membership",
+            "example": "Explicit tenant / project membership and effective grants"
+          },
+          {
+            "label": "Role change",
+            "example": "Re-read authority and invalidate stale capabilities"
+          },
+          {
+            "label": "Workspace audience",
+            "example": "Cannot be reused as observer authority"
+          },
+          {
+            "label": "Offboarding",
+            "example": "Server-confirmed revocation; local disconnect is not revocation"
+          }
+        ]
+      },
+      {
+        "title": "Recovery and isolation",
+        "rows": [
+          {
+            "label": "401 / expired",
+            "example": "Discard stale authority and reconnect"
+          },
+          {
+            "label": "403 / denied",
+            "example": "Explain required grant; keep the action visible"
+          },
+          {
+            "label": "Tenant switch",
+            "example": "Clear scoped selection and re-read session/capabilities"
+          },
+          {
+            "label": "Existing operation",
+            "example": "Preserve original scope in the command journal"
+          },
+          {
+            "label": "Cross-tenant access",
+            "example": "Deny by server policy; UI filtering is not the security boundary"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "State example",
+        "example": "Session expired · no effective role inferred"
+      },
+      {
+        "label": "Navigation",
+        "example": "Preserve a safe return location after re-authentication"
+      },
+      {
+        "label": "Audit",
+        "example": "Public action history; secrets and internal reasoning excluded"
+      }
+    ],
+    "actions": [
+      "Reconnect",
+      "Inspect grants",
+      "Switch project",
+      "Revoke session"
+    ]
+  },
+  {
+    "key": "CFG-Policy",
+    "module": "configuration",
+    "dark": "251:3498",
+    "light": "254:3278",
+    "title": "Configuration · review, activate and roll back policy",
+    "purpose": "Separate editable local policy drafts from shared evaluation, approval and effective activation.",
+    "panels": [
+      {
+        "title": "Policy change review",
+        "rows": [
+          {
+            "label": "Draft",
+            "example": "Provider, tools, resources, memory and runtime boundaries"
+          },
+          {
+            "label": "Diff",
+            "example": "Compare exact policy revisions and changed effects"
+          },
+          {
+            "label": "Evaluate",
+            "example": "Check consumers, incompatible pins and required review"
+          },
+          {
+            "label": "Approval",
+            "example": "Required reviewer and scope returned by service"
+          },
+          {
+            "label": "Activate",
+            "example": "Expected current revision and immutable new revision"
+          },
+          {
+            "label": "Roll back",
+            "example": "Explicit compensating change; keep the command audit trail"
+          }
+        ]
+      },
+      {
+        "title": "Collaboration and audit",
+        "rows": [
+          {
+            "label": "Conflict",
+            "example": "Base/current/resolved policy content; no silent overwrite"
+          },
+          {
+            "label": "Presence",
+            "example": "Service-observed collaborators only"
+          },
+          {
+            "label": "Change request",
+            "example": "Draft suggestion remains distinct from accepted policy"
+          },
+          {
+            "label": "Sensitive fields",
+            "example": "Use secret references; public summaries are redacted"
+          },
+          {
+            "label": "Consumers",
+            "example": "Display affected agents, plans and current runs"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Policy state",
+        "example": "Local draft; no active shared policy changed"
+      },
+      {
+        "label": "Change risk",
+        "example": "Effect classification and reviewer policy are explicit"
+      },
+      {
+        "label": "Journey",
+        "example": "Draft → compare → evaluate → approve → activate → observe"
+      }
+    ],
+    "actions": [
+      "Save draft",
+      "Compare revision",
+      "Evaluate",
+      "Request approval",
+      "Activate",
+      "Roll back"
+    ]
+  },
+  {
+    "key": "SAAS-Budget",
+    "module": "saas",
+    "dark": "251:3598",
+    "light": "254:3348",
+    "title": "Budget and billing · reserve, observe and reconcile",
+    "purpose": "Expose entitlement, provider readiness and financial outcomes without fabricated balances or payments.",
+    "panels": [
+      {
+        "title": "Run and provider limits",
+        "rows": [
+          {
+            "label": "Entitlement",
+            "example": "Service-returned product limits and allowed runtimes"
+          },
+          {
+            "label": "Provider readiness",
+            "example": "Credential, model and budget results are distinct"
+          },
+          {
+            "label": "Reservation",
+            "example": "Admission-scoped reservation and exact policy revision"
+          },
+          {
+            "label": "Budget hold",
+            "example": "Explain amount, scope, expiry and release conditions"
+          },
+          {
+            "label": "Usage",
+            "example": "Observed usage window and source; no guessed counters"
+          },
+          {
+            "label": "Rate / provider failure",
+            "example": "Visible retry policy and unknown outcome reconciliation"
+          }
+        ]
+      },
+      {
+        "title": "Billing and data",
+        "rows": [
+          {
+            "label": "Checkout / invoice",
+            "example": "Provider-owned identifiers and observed state"
+          },
+          {
+            "label": "Payment result",
+            "example": "Accepted request does not prove a successful charge"
+          },
+          {
+            "label": "Retry",
+            "example": "Never blindly repeat a charge after timeout"
+          },
+          {
+            "label": "Export",
+            "example": "Authenticated data export lifecycle and actual artifact"
+          },
+          {
+            "label": "Delete / retention",
+            "example": "Required confirmation, scope, hold and completion evidence"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Displayed values",
+        "example": "No live balance, charge or invoice is asserted"
+      },
+      {
+        "label": "Cross-module",
+        "example": "Provider configuration and run admission depend on these gates"
+      },
+      {
+        "label": "Journey",
+        "example": "Plan → entitlement → reserve → execute → usage → reconcile"
+      }
+    ],
+    "actions": [
+      "Inspect usage",
+      "Inspect entitlement",
+      "Manage provider",
+      "Reconcile payment",
+      "Export data"
+    ]
+  },
+  {
+    "key": "DT-Unavailable",
+    "module": "desktop",
+    "dark": "251:3693",
+    "light": "254:3417",
+    "title": "Desktop · runtime installation and recovery",
+    "purpose": "Describe actual device and sandbox capabilities rather than assuming a runtime is available.",
+    "panels": [
+      {
+        "title": "Runtime readiness",
+        "rows": [
+          {
+            "label": "Device connection",
+            "example": "Observed agent version and signed capability report"
+          },
+          {
+            "label": "Install / update",
+            "example": "Progress, interruption, signature and rollback results"
+          },
+          {
+            "label": "gVisor",
+            "example": "Selected baseline; availability still requires device evidence"
+          },
+          {
+            "label": "Firecracker",
+            "example": "Template definition is not an available runtime"
+          },
+          {
+            "label": "Workspace",
+            "example": "Approved directory scope and file access mode"
+          },
+          {
+            "label": "Terminal",
+            "example": "Separate runtime grant and authenticated session"
+          }
+        ]
+      },
+      {
+        "title": "Failure and recovery",
+        "rows": [
+          {
+            "label": "Offline device",
+            "example": "Stale timestamp, queued request policy and reconnect"
+          },
+          {
+            "label": "Unsupported host",
+            "example": "Explain the missing runtime capability"
+          },
+          {
+            "label": "Port conflict",
+            "example": "Inspect actual mapping and a permitted retry"
+          },
+          {
+            "label": "Interrupted update",
+            "example": "Resume or roll back based on actual installation state"
+          },
+          {
+            "label": "Cleanup",
+            "example": "Fenced lease release and verified workspace cleanup"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Runtime example",
+        "example": "Unavailable · installation not observed"
+      },
+      {
+        "label": "Source",
+        "example": "Importing files does not grant native device access"
+      },
+      {
+        "label": "Journey",
+        "example": "Connect device → inspect → install → admit → cleanup"
+      }
+    ],
+    "actions": [
+      "Connect device",
+      "Inspect readiness",
+      "Install runtime",
+      "Open workspace",
+      "Inspect cleanup"
+    ]
+  },
+  {
+    "key": "OB-Stale",
+    "module": "observer",
+    "dark": "251:3788",
+    "light": "254:3486",
+    "title": "Observer · stale data, alerts and operator actions",
+    "purpose": "Keep operational observation separate from workspace membership and user execution authority.",
+    "panels": [
+      {
+        "title": "Observation health",
+        "rows": [
+          {
+            "label": "Audience",
+            "example": "Observer session and grants checked independently"
+          },
+          {
+            "label": "Snapshot",
+            "example": "Observed timestamp, source and retention window"
+          },
+          {
+            "label": "Stream gaps",
+            "example": "Sequence gap and last observed event remain visible"
+          },
+          {
+            "label": "Stale data",
+            "example": "Do not report healthy from an old successful observation"
+          },
+          {
+            "label": "Alert",
+            "example": "Trigger, severity, acknowledgement and resolution evidence"
+          },
+          {
+            "label": "Unknown state",
+            "example": "Unknown, degraded and failed are not conflated"
+          }
+        ]
+      },
+      {
+        "title": "Operator journey",
+        "rows": [
+          {
+            "label": "Investigate",
+            "example": "Correlate run, task, attempt, lease and operation IDs"
+          },
+          {
+            "label": "Evidence",
+            "example": "Public redacted logs and safe exported diagnostics"
+          },
+          {
+            "label": "Action",
+            "example": "Requires separate operational grant and effect scope"
+          },
+          {
+            "label": "Recovery",
+            "example": "Reconcile original request before repeating an effect"
+          },
+          {
+            "label": "Close incident",
+            "example": "Record resolution evidence and the resulting state"
+          }
+        ]
+      }
+    ],
+    "scope": [
+      {
+        "label": "Observer example",
+        "example": "Stale / disconnected; no health inferred"
+      },
+      {
+        "label": "Boundary",
+        "example": "Workspace authority cannot enable operator controls"
+      },
+      {
+        "label": "Journey",
+        "example": "Observe → investigate → act → readback → resolve"
+      }
+    ],
+    "actions": [
+      "Connect observer",
+      "Refresh snapshot",
+      "Acknowledge alert",
+      "Inspect incident",
+      "Reconcile"
+    ]
+  }
+]

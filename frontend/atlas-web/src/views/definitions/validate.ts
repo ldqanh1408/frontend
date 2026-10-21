@@ -1,4 +1,5 @@
 import type { FieldSpec, SchemaSpec } from '../../data/types';
+import { isSecretRefKey, secretFieldError } from '../../lib/secret-policy';
 
 /** Form values are kept as strings/booleans while editing and converted to typed JSON on save. */
 export type FormValue = string | boolean | null;
@@ -7,6 +8,8 @@ export type Errors = Record<string, string>;
 
 const ISO_TZ = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d{1,9})?)?(Z|[+-]\d{2}:\d{2})$/;
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export { isSecretRefKey };
 
 export function toFormValue(f: FieldSpec, v: unknown): FormValue {
   if (v === undefined || v === null) {
@@ -32,6 +35,10 @@ export function validateField(f: FieldSpec, raw: FormValue, complete: boolean): 
   const empty = raw === null || raw === '' || (typeof raw === 'string' && raw.trim() === '');
   if (empty) return complete && f.required ? `${f.label} is required for complete validation.` : null;
   const s = typeof raw === 'string' ? raw : String(raw);
+  let policyValue: unknown = raw;
+  if (f.control === 'json' || f.control === 'pins') { try { policyValue = JSON.parse(s); } catch { /* Shape validation below reports JSON errors. */ } }
+  const secretError = secretFieldError(f.key, policyValue);
+  if (secretError) return secretError;
   switch (f.control) {
     case 'number': {
       const n = Number(s);
@@ -85,7 +92,6 @@ export function validateField(f: FieldSpec, raw: FormValue, complete: boolean): 
           if (u.protocol !== 'https:' && !(u.protocol === 'http:' && ['localhost', '127.0.0.1'].includes(u.hostname))) return 'Use HTTPS (HTTP only for localhost development).';
         } catch { return 'Enter a full URL, e.g. https://api.example.com.'; }
       }
-      if (/credentialReference|vault/i.test(f.key) && !/^vault:\/\//.test(s)) return 'Use a vault reference such as vault://team/provider. Never paste secret values.';
       return null;
     }
   }

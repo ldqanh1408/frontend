@@ -2,13 +2,13 @@ import {
   Activity, Archive, ArchiveRestore, ArrowLeft, Ban, Bell, Bot, Boxes, Brain, Building2, ChevronDown, ChevronRight, CircleAlert, CircleCheck,
   CircleHelp, CirclePlay, Clock, Code, Copy, Database, Download, Ellipsis, ExternalLink, Eye, File, FileText, Filter, Folder, FolderOpen,
   Gauge, GitCompare, GitMerge, GitPullRequest, History, House, Inbox, Info, KeyRound, Keyboard, Layers, Link, ListTree, Lock, LogIn, LogOut,
-  Mail, Menu, Monitor, Moon, Network, Pause, Pin, Play, Plug, Plus, Receipt, RefreshCw, RotateCcw, Save, ScrollText, Search, Settings,
+  Mail, Menu, Minus, Monitor, Moon, Network, Pause, Pin, Play, Plug, Plus, Receipt, RefreshCw, RotateCcw, Save, ScrollText, Search, Settings,
   Shield, ShieldCheck, SlidersHorizontal, EyeOff, Pencil, FolderPlus, FilePlus, Sparkles, GitBranch, Hash, ListChecks, Send, Snowflake, Braces, CircleDot, Square, Sun, Terminal, Trash2, TriangleAlert, Unplug, Upload, UserCog, Users, Workflow, X,
   type LucideIcon,
 } from 'lucide-react';
 
 const MAP: Record<string, LucideIcon> = {
-  home: House, 'file-text': FileText, code: Code, bot: Bot, boxes: Boxes, workflow: Workflow, 'play-circle': CirclePlay, 'shield-check': ShieldCheck,
+  home: House, minus: Minus, 'arrow-left': ArrowLeft, 'file-text': FileText, code: Code, bot: Bot, boxes: Boxes, workflow: Workflow, 'play-circle': CirclePlay, 'shield-check': ShieldCheck,
   brain: Brain, 'key-round': KeyRound, users: Users, settings: Settings, 'user-cog': UserCog, 'building-2': Building2, receipt: Receipt,
   monitor: Monitor, eye: Eye, link: Link, search: Search, sun: Sun, moon: Moon, help: CircleHelp, menu: Menu, close: X, 'chevron-right': ChevronRight,
   'chevron-down': ChevronDown, info: Info, warning: TriangleAlert, danger: CircleAlert, success: CircleCheck, lock: Lock, plug: Plug, unplug: Unplug,

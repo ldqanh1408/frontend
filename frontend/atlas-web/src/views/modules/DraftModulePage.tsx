@@ -1,3 +1,5 @@
+import { HubPanel, MemoryPanel } from './ArchivePanels';
+import { ConfigurationResolution } from './ConfigurationResolution';
 import { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router';
 import type { ModuleRoute } from '../../data/types';
@@ -6,7 +8,7 @@ import { DRAFT_MODULES } from '../../data/module-specs';
 import { toast } from '../../data/app-store';
 import { createDefinition } from '../../lib/definitions';
 import { useAsync } from '../../lib/hooks';
-import { Button, PageHeader, Spinner } from '../../components/ui';
+import { Button, ButtonLink, PageHeader, Spinner } from '../../components/ui';
 import { usePageMeta } from '../../shell/page-meta';
 import { ProvenanceBanner, NotFound } from '../shared';
 import { DraftWorkbench } from './DraftWorkbench';
@@ -38,6 +40,12 @@ export default function DraftModulePage({ module }: { module: ModuleRoute }) {
   return (
     <div className="page">
       <PageHeader title={m.title} purpose={m.purpose} actions={<>
+        {module === 'resources' && (
+          <>
+            <ButtonLink to="/resources/ssh-connections" icon="terminal">SSH connections</ButtonLink>
+            <ButtonLink to="/resources/connectors" icon="link">Connector catalog</ButtonLink>
+          </>
+        )}
         <a className="btn" href="#service-lifecycle">Service lifecycle</a>
         <Button variant="primary" icon="plus" onClick={onCreate} disabled={busy || !schema}>{spec.newLabel}</Button>
       </>} />
@@ -54,6 +62,9 @@ export default function DraftModulePage({ module }: { module: ModuleRoute }) {
         <LifecycleChain states={null} ids={spec.lifecycleIds} label={m.title} />
         <OperationReceipts module={module} />
       </div>
+      {module === 'configuration' && <ConfigurationResolution />}
+      {(module === 'resources' || module === 'agents') && <HubPanel/>}
+      {module === 'memory' && <MemoryPanel/>}
       <ModuleViews module={module} />
     </div>
   );

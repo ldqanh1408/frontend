@@ -1,20 +1,24 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { OnboardingPanel, MembershipPanel } from './ArchivePanels';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router';
 import type { ModuleRoute } from '../../data/types';
 import { loadSourceActions, nav } from '../../data/catalog';
 import { SERVICE_MODULES } from '../../data/module-specs';
-import { actionGate, loadCollection, sendCommand, ServiceError, type Collection, type ServiceAction, type ServiceRecord } from '../../data/service';
-import { toast, useApp } from '../../data/app-store';
+import { actionGate, isSecretInput, loadCollection, sendCommand, ServiceError, type Collection, type ServiceAction, type ServiceRecord } from '../../data/service';
+import { app, toast, useApp } from '../../data/app-store';
 import { useAsync } from '../../lib/hooks';
 import { relativeTime, isoUtc } from '../../lib/format';
 import type { JournalEntry } from '../../lib/storage';
-import { Badge, Banner, Button, ButtonLink, EmptyState, KeyValue, PageHeader, Stages } from '../../components/ui';
+import { Badge, Banner, Button, ButtonLink, EmptyState, KeyValue, PageHeader, ScrollableTable, Stages } from '../../components/ui';
 import { Dialog, Tabs } from '../../components/overlays';
 import { usePageMeta } from '../../shell/page-meta';
 import { ProvenanceBanner } from '../shared';
 import { ContinueJourney, LifecycleChain, LifecycleSection, ModuleDefinitions, ModuleViews, NotObserved, OperationReceipts } from './common';
+import { SrsDetails } from './SrsDetails';
 
 /** Destructive or irreversible controls use the Danger button style (Figma Current UI: Cancel, Reject…). */
+const NotificationInbox = lazy(() => import('../live/NotificationInbox'));
+const CollaborationWorkspace = lazy(() => import('../live/CollaborationWorkspace'));
 const DESTRUCTIVE = /^(cancel|reject|revoke|offboard|request deletion|request erasure)/i;
 
 function InspectFirst({ connected }: { connected: boolean }) {
@@ -31,6 +35,7 @@ export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
   const spec = SERVICE_MODULES[module]!;
   usePageMeta(m.title, [{ label: m.label }]);
   const connection = useApp((s) => s.connection);
+  const session = useApp((s) => s.session);
   const audience = useApp((s) => s.session?.audience);
   const [col, setCol] = useState<Collection | null>(null);
   const [err, setErr] = useState<string | null>(null);
@@ -38,12 +43,13 @@ export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
   const [selId, setSelId] = useState<string | null>(null);
   const [pending, setPending] = useState<{ action: ServiceAction; label: string } | null>(null);
   const refresh = useCallback(async () => {
+    if (!session) return;
     setLoading(true); setErr(null);
-    try { const c = await loadCollection(module); setCol(c); setSelId((id) => (id && c.items.some((r) => r.id === id) ? id : null)); }
-    catch (e) { setErr(e instanceof Error ? e.message : String(e)); }
-    finally { setLoading(false); }
-  }, [module]);
-  useEffect(() => { if (connection === 'connected') refresh(); else { setCol(null); setSelId(null); } }, [connection, refresh]);
+    try { const c = await loadCollection(module); if (app.get().session !== session) return; setCol(c); setSelId((id) => (id && c.items.some((r) => r.id === id) ? id : null)); }
+    catch (e) { if (app.get().session === session) { setCol(null); setErr(e instanceof Error ? e.message : String(e)); } }
+    finally { if (app.get().session === session) setLoading(false); }
+  }, [module, session]);
+  useEffect(() => { setCol(null); setSelId(null); setPending(null); setErr(null); setLoading(false); if (session && connection === 'connected') void refresh(); }, [connection, session, refresh]);
   const record = col?.items.find((r) => r.id === selId) ?? null;
   const { data: sourceActions } = useAsync(loadSourceActions, []);
   const saById = useMemo(() => new Map((sourceActions ?? []).map((a) => [a.id, a])), [sourceActions]);
@@ -63,8 +69,8 @@ export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
         <section className="panel service-records" aria-label={`${m.title} records`}>
           {col && <p className="caption service-observed">Observed {relativeTime(col.observedAt)}{col.complete ? '' : ' · partial'}</p>}
           {err && <div className="panel-pad"><Banner tone="danger" title="Records could not be loaded" role="alert">{err}</Banner></div>}
-          <RecordsTable col={col} loading={loading} selId={selId} onSelect={setSelId} label={m.title} />
-          <LifecycleSection states={spec.lifecycle} ids={spec.lifecycleIds} label={m.title} />
+          <RecordsTable col={col} loading={loading} selId={selId} onSelect={setSelId} label={m.title}
+            emptyHint={module === 'gateway' ? 'This frontend stores only references. Create the first credential in the service, or ask an administrator.' : undefined} />          <LifecycleSection states={spec.lifecycle} ids={spec.lifecycleIds} label={m.title} />
           <ContinueJourney links={spec.links} />
         </section>
         <aside className="panel service-inspect" aria-labelledby="iba-h">
@@ -99,6 +105,11 @@ export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
           <OperationReceipts module={module} bare />
         </aside>
       </div>
+      {module === 'collaboration' && <Suspense fallback={<p className="caption">Loading collaboration workspace…</p>}><CollaborationWorkspace record={record}/></Suspense>}
+      {module === 'tenancy' && <OnboardingPanel record={record}/>}
+      {module === 'identity' && <MembershipPanel record={record}/>}
+      {module === 'collaboration' && <Suspense fallback={<p className="caption">Loading notifications…</p>}><NotificationInbox/></Suspense>}
+      <SrsDetails module={module} record={record} />
       <div className="split">
         <details className="panel panel-pad">
           <summary className="label" style={{ cursor: 'pointer' }}>Authorization requirements</summary>
@@ -123,17 +134,16 @@ export default function ServiceModulePage({ module }: { module: ModuleRoute }) {
   );
 }
 
-function RecordsTable({ col, loading, selId, onSelect, label }: { col: Collection | null; loading: boolean; selId: string | null; onSelect: (id: string) => void; label: string }) {
-  const connection = useApp((s) => s.connection);
+function RecordsTable({ col, loading, selId, onSelect, label, emptyHint }: { col: Collection | null; loading: boolean; selId: string | null; onSelect: (id: string) => void; label: string; emptyHint?: string }) {  const connection = useApp((s) => s.connection);
   // Figma keeps the column structure visible even before the service returns records.
   const head = <thead><tr><th scope="col">Name</th><th scope="col">State</th><th scope="col">Revision</th><th scope="col">Observed</th></tr></thead>;
   const empty = !col ? (
     <EmptyState icon="play" headingLevel={3} title={loading ? 'Loading records…' : 'Connect this lifecycle'}>
       {connection === 'connected' ? 'Loading authorized records for this scope.' : 'Records, states and revisions come from an authorized service. Nothing is shown until the service returns it.'}
     </EmptyState>
-  ) : !col.items.length ? <EmptyState icon="inbox" headingLevel={3} title="No records in this scope">The connected service returned no {label.toLowerCase()} records for your current scope.</EmptyState> : null;
+  ) : !col.items.length ? <EmptyState icon="inbox" headingLevel={3} title="No records in this scope">The connected service returned no {label.toLowerCase()} records for your current scope.{emptyHint && <> {emptyHint}</>}</EmptyState>: null;
   return (
-    <div className="table-wrap">
+    <ScrollableTable label={`${label} records`}>
       <table className="table">
         <caption className="sr-only">{label} records. Select one to inspect actions.</caption>
         {head}
@@ -148,7 +158,7 @@ function RecordsTable({ col, loading, selId, onSelect, label }: { col: Collectio
           ))}
         </tbody>
       </table>
-    </div>
+    </ScrollableTable>
   );
 }
 
@@ -169,7 +179,7 @@ function RecordTab({ record, tab }: { record: ServiceRecord; tab: string }) {
   return <pre className="code-block">{typeof v === 'string' ? v : JSON.stringify(v, null, 2)}</pre>;
 }
 
-function CommandDialog({ module, record, action, onClose, onDone }: { module: string; record: ServiceRecord; action: ServiceAction; onClose: () => void; onDone: () => void }) {
+export function CommandDialog({ module, record, action, onClose, onDone }: { module: string; record: ServiceRecord; action: ServiceAction; onClose: () => void; onDone: () => void }) {
   const session = useApp((s) => s.session);
   const [input, setInput] = useState<Record<string, string>>({});
   const [result, setResult] = useState<JournalEntry | null>(null);
@@ -182,27 +192,32 @@ function CommandDialog({ module, record, action, onClose, onDone }: { module: st
     try {
       const e = await sendCommand(module, record, action, input);
       setResult(e);
+      setInput({});
       toast({ tone: e.stage === 'Effective' ? 'success' : e.stage === 'Rejected' ? 'danger' : e.stage === 'Unknown' ? 'warning' : 'info', title: `${action.label}: ${e.stage}`, body: e.message, kind: 'operation' });
       onDone();
     } catch (e) {
       setErr(e instanceof ServiceError || e instanceof Error ? e.message : String(e));
-    } finally { setSending(false); }
+    } finally { setInput({}); setSending(false); }
   };
   return (
     <Dialog open onOpenChange={(o) => !o && onClose()} title={result ? `${action.label} · ${result.stage}` : `Send “${action.label}”?`}
       description={result ? undefined : 'Review the exact resource, revision and scope. The request is sent once; an unclear outcome is recorded as Unknown and is never re-sent automatically.'}
       footer={result ? <Button variant="primary" onClick={onClose}>Close</Button> : <>
         <Button onClick={onClose}>Cancel</Button>
-        <Button variant="primary" onClick={send} disabled={sending || missing.length > 0}>{sending ? 'Sending…' : `Send ${action.label}`}</Button>
+        <Button variant={DESTRUCTIVE.test(action.label) ? 'danger' : 'primary'} onClick={send} disabled={sending || missing.length > 0} blocked={actionGate(record, action) ?? undefined}>{sending ? 'Sending…' : `Send ${action.label}`}</Button>
       </>}>
       <div className="stack-12">
         <KeyValue items={[['Resource', record.name], ['Expected revision', `r${action.expectedRevision}`], ['Scope', session?.scope.label ?? '—'], ['Grant', action.grant]]} />
+        {DESTRUCTIVE.test(action.label) && <Banner tone="warning" title="Destructive request">Confirm the exact run or task scope. Cancelling a task releases its worktree locks and cleans up its sandbox; inspect the resulting receipts.</Banner>}
         {!result && (action.inputs ?? []).map((i) => (
           <div className="field" key={i.key}>
             <label className="field-label" htmlFor={`cmd-${i.key}`}>{i.label}{i.required && <span className="req" aria-hidden="true"> *</span>}</label>
-            <input id={`cmd-${i.key}`} className="input" required={i.required} value={input[i.key] ?? ''} onChange={(e) => setInput((s) => ({ ...s, [i.key]: e.target.value }))} />
+            <input id={`cmd-${i.key}`} className="input" type={isSecretInput(i) ? 'password' : 'text'} autoComplete={isSecretInput(i) ? 'new-password' : 'off'} spellCheck={isSecretInput(i) ? false : undefined} aria-describedby={isSecretInput(i) ? `cmd-${i.key}-hint` : undefined} required={i.required} value={input[i.key] ?? ''} onChange={(e) => setInput((s) => ({ ...s, [i.key]: e.target.value }))} />
+            {isSecretInput(i) && <small id={`cmd-${i.key}-hint`} className="field-hint">Write-only. Sent to the authenticated service, cleared after sending and excluded from device receipts.</small>}
           </div>
         ))}
+
+
         {err && <Banner tone="danger" title="Not sent" role="alert">{err}</Banner>}
         {result && (
           <div className="stack" role="status">

@@ -1,0 +1,83 @@
+{
+  "format": "atlas-continuation-verification/v1",
+  "date": "2026-10-08",
+  "status": "LOCAL_FRONTEND_CHECKS_COMPLETE_WITH_TARGETED_RECHECK",
+  "singleGreenFullFunctionalRun": false,
+  "typecheck": "PASS",
+  "localCIReproducibilityStep": {
+    "status": "PASS",
+    "identicalFiles": 125,
+    "log": "ci-repro-final.log",
+    "githubRun": false
+  },
+  "unit": {
+    "passed": 56,
+    "log": "unit-and-build-final.log"
+  },
+  "releaseTooling": {
+    "passed": 7,
+    "log": "tooling-final.log"
+  },
+  "fullFunctionalRun": {
+    "passed": 1694,
+    "failed": 1,
+    "skipped": 9,
+    "result": "FAIL",
+    "source": "20261008-local-03/functional.json"
+  },
+  "targetedFinal": {
+    "functionalPassed": 48,
+    "visualPassed": 150,
+    "performancePassed": 8,
+    "stats": {
+      "startTime": "2026-10-08T12:18:08.512Z",
+      "duration": 182576.10499999998,
+      "expected": 206,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "source": "20261008-final/targeted.json"
+  },
+  "focusRepeat": {
+    "passed": 30,
+    "source": "20261008-final/focus-repeat.json"
+  },
+  "review": {
+    "passed": 174,
+    "source": "20261008-final/review.json"
+  },
+  "derivedFunctionalCoverage": {
+    "expected": 1695,
+    "skipped": 9,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "localRelease": {
+    "format": "atlas-local-release-verification/v1",
+    "status": "PASS",
+    "buildId": "source-64e0c7e1432138b0",
+    "sourceDigest": "64e0c7e1432138b0d9e2f084a2e354b526a2f05ac092335e900c0fe06fcc28bb",
+    "sourceKind": "archive",
+    "sourceCommit": null,
+    "fileCount": 125,
+    "identicalFiles": 125,
+    "rebuilds": 2,
+    "deployed": false,
+    "remotelyPinned": false,
+    "productionOriginsConfigured": false
+  },
+  "stagingConfigurationNegativeCheck": "PASS: missing targets fails before requests",
+  "archiveWorkerNegativeCheck": "PASS: archived source cannot generate remotely pinned Workers",
+  "liveBackendAcceptance": false,
+  "manualAssistiveTechnology": false,
+  "currentSourceCI": false,
+  "deployed": false,
+  "evidenceDirectory": "evidence/acceptance-20261008",
+  "limitations": [
+    "Local Linux results do not certify Ubuntu CI visual baselines.",
+    "Protocol peers do not establish live backend persistence or business effects.",
+    "Independent frontend entries do not establish authentication cookie or service audience isolation.",
+    "Performance is desktop local, without network throttling; not production NFR/RUM certification."
+  ]
+}
