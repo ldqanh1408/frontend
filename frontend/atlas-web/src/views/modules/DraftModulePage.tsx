@@ -41,7 +41,10 @@ export default function DraftModulePage({ module }: { module: ModuleRoute }) {
     <div className="page">
       <PageHeader title={m.title} purpose={m.purpose} actions={<>
         {module === 'resources' && (
-          <ButtonLink to="/resources/ssh-connections" icon="terminal">SSH connections</ButtonLink>
+          <>
+            <ButtonLink to="/resources/ssh-connections" icon="terminal">SSH connections</ButtonLink>
+            <ButtonLink to="/resources/connectors" icon="link">Connector catalog</ButtonLink>
+          </>
         )}
         <a className="btn" href="#service-lifecycle">Service lifecycle</a>
         <Button variant="primary" icon="plus" onClick={onCreate} disabled={busy || !schema}>{spec.newLabel}</Button>

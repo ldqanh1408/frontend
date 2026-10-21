@@ -10,6 +10,7 @@ import {
 import {
   CONNECTORS,
   CATEGORIES,
+  assertConnectorDraftSecretPolicy,
   blankConnectorValues,
   conditionMatches,
   getDatabasePort,
@@ -21,6 +22,7 @@ import {
   type ConnectorValues,
 } from '../../data/connectorCatalog';
 import { usePageMeta } from '../../shell/page-meta';
+import { ProvenanceBanner } from '../shared';
 
 function safeFileName(value: string) {
   return (
@@ -180,6 +182,19 @@ export default function ConnectorCatalogPage() {
   }
 
   function exportDraft(draft: (typeof drafts)[number]) {
+    // The export writes a file to disk, so the shared device secret policy runs first.
+    // A blocked export explains the reason and writes nothing.
+    try {
+      assertConnectorDraftSecretPolicy(draft.values);
+    } catch (error) {
+      setNotice(
+        error instanceof Error
+          ? error.message
+          : 'This draft was not exported. Review its credential fields.',
+      );
+      return;
+    }
+
     const blob = new Blob(
       [
         JSON.stringify(
@@ -221,6 +236,8 @@ export default function ConnectorCatalogPage() {
           </ButtonLink>
         }
       />
+
+      <ProvenanceBanner detail="Connector profiles are device drafts. No provider is contacted, no credential is stored and no live connection is proven. Credentials are Vault references only." />
 
       <div className="connector-toolbar">
         <div className="field connector-search">

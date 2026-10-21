@@ -1,3 +1,5 @@
+import { assertDraftSecretPolicy } from '../lib/secret-policy';
+
 export type ConnectorKind =
   | 'ssh'
   | 'aws'
@@ -1120,4 +1122,13 @@ export function blankConnectorValues(
 
 export function getDatabasePort(engine: string): number {
   return DATABASE_DEFAULT_PORTS[engine] ?? 5432;
+}
+
+/**
+ * A connector draft is exported to a file on the user's disk, so it crosses the same boundary as
+ * every other device draft: the shared secret policy must pass before any bytes are written.
+ * The guard is a heuristic; it does not prove the file is free of secret values.
+ */
+export function assertConnectorDraftSecretPolicy(values: ConnectorValues): void {
+  assertDraftSecretPolicy(values);
 }

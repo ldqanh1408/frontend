@@ -2,7 +2,8 @@ import { test, expect, type Page } from '@playwright/test';
 import path from 'node:path';
 
 // Public CI checks layout without publishing images. Pixel comparisons use private baselines.
-const modules = ['home', 'specifications', 'code', 'agents', 'resources', 'workflow', 'execution', 'governance', 'memory', 'gateway', 'collaboration', 'configuration', 'identity', 'tenancy', 'saas', 'desktop', 'observer', 'connection', 'sign-in', 'sign-in/help', 'invitations', 'observer/sign-in'];
+const modules = ['home', 'specifications', 'code', 'agents', 'resources', 'workflow', 'execution', 'governance', 'memory', 'gateway', 'collaboration', 'configuration', 'identity', 'tenancy', 'saas', 'desktop', 'observer', 'connection', 'sign-in', 'sign-in/help', 'invitations', 'observer/sign-in',
+  'resources/ssh-connections', 'resources/connectors'];
 for (const theme of ['dark', 'light'] as const) for (const width of [390, 1024, 1440]) {
   test.describe(`${theme} · ${width}`, () => {
     test.use({ viewport: { width, height: 1000 }, colorScheme: theme });

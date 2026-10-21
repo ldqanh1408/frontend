@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   CONNECTORS,
+  assertConnectorDraftSecretPolicy,
   blankConnectorValues,
   getDatabasePort,
   validateConnector,
@@ -133,5 +134,37 @@ describe('connector auth-dependent schema', () => {
 
     expect(ssh.fields).toHaveLength(0);
     expect(validateConnector(ssh, {})).toEqual({});
+  });
+});
+
+describe('connector draft export policy', () => {
+  it('exports a draft whose credential fields are scoped Vault references', () => {
+    const registry = connector('registry');
+
+    const values: ConnectorValues = {
+      ...blankConnectorValues(registry),
+      registryUrl: 'https://registry.example.com',
+      namespace: 'platform',
+      credentialRef: 'vault://registry/prod/robot',
+    };
+
+    expect(() =>
+      assertConnectorDraftSecretPolicy(values),
+    ).not.toThrow();
+  });
+
+  it('refuses to export a draft that carries a literal secret value', () => {
+    const registry = connector('registry');
+
+    const values: ConnectorValues = {
+      ...blankConnectorValues(registry),
+      registryUrl: 'https://registry.example.com',
+      namespace: 'platform',
+      credentialRef: 'secret://registry/prod/robot',
+    };
+
+    expect(() =>
+      assertConnectorDraftSecretPolicy(values),
+    ).toThrow(/vault:\/\//);
   });
 });

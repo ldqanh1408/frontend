@@ -107,3 +107,43 @@ For all 51 SRS entities, server storage, ownership and migrations remain require
 The 2026-10-08 conformance checkpoint is retained in `ui-review/verification-conformance-20261008.json`. Final frontend source `06c4f25404b5b20a5e2bf6261936792f137ee740` passed the three-engine CI run linked in [UI-UX-ACCEPTANCE.md](UI-UX-ACCEPTANCE.md), including 1,725 functional checks and 174 review checks. That result establishes the documented frontend gates, not a full-system green run.
 
 Live journeys J0–J7 and O1 are **NOT_RUN / BLOCKED** pending the backend source/API contract, GitHub App test installation, scoped test tenants, Test Compose fixtures and independent authenticated HTTPS origins. `LIVE-E2E-ACCEPTANCE.md` defines the exact positive and negative outcomes and proof to collect. Authorized source/evidence push has completed on `handoff/frontend-e2e`. Deployment remains subject to the UI review gate; no PR review comment, merge, deployment or staging write was performed.
+
+## Integrated branch — 2026-10-21
+
+The three open branches and the handoff line were merged into `merge/all-branches` on top of `claude/sharp-thompson-5tff91`. The merge is a source integration only: it changes no backend contract and makes no production-readiness claim.
+
+### What was integrated
+
+| Branch | Content | Merge disposition |
+|---|---|---|
+| `handoff/frontend-e2e` | Three-engine CI gate, SRS/ADR conformance registry, design-source imports, native state views, release tooling, full Playwright suite | Merged unchanged except where the other branches overlapped |
+| `fix/secret-handling` | Draft-boundary secret policy, write-only command inputs | Secret policy unified onto the shared `src/lib/secret-policy.ts`; the branch's constant `[secret]` fingerprint placeholder was **rejected** (see below) |
+| `feature/ssh-connection` | SSH connection workspace, Vault references, host-key fingerprints, Agent access bindings, scoped `workspaceApi` client | Merged; the `scopeIds` contract was folded into the handoff session shape instead of replacing it |
+| `feat/connector-management-ux` | Connector catalog with a typed credential schema, connection management UX | Merged unchanged |
+
+### Conflict decisions
+
+1. **Receipt fingerprint stays bound to the exact payload.** `fix/secret-handling` replaced each sensitive input with a constant `[secret]` before hashing. That makes two different credentials produce the same fingerprint while the real POST body differs, so a service hashing the real input can never match the acknowledgement and a service hashing the placeholder cannot distinguish credential changes. The exact-payload fingerprint is retained; secret values are still excluded from the device journal, masked in the UI, and cleared after every send. `src/data/service.test.ts` asserts both properties.
+2. **One secret policy, one source of truth.** The branch carried a second, weaker implementation in `src/views/definitions/validate.ts` whose environment-map exemption let a literal under a `KEY`/`name`/`key`/`env`/`variable` key escape the reference check. The shared `src/lib/secret-policy.ts` is used by the form validator, the draft store, the device export and the connection page; its descriptor exemption applies only to explicit `{name, valueRef}` shapes.
+3. **The Observer audience hint keeps the Figma label verbatim.** The Current UI parity gate compares page text with the Figma control labels; the sentence "Observer uses a separate session." is unchanged and the extra guidance follows it.
+4. **Scope identifiers are explicit UUIDs.** The SSH workflow needs a `workspaceId` and must not derive one from a human-readable label. Capability and session scope identifiers must agree and must match the UUID shape before any scope-specific operation is enabled.
+
+### Verification on the integrated source
+
+| Gate | Result |
+|---|---|
+| Typecheck (app + tooling) | Pass |
+| Unit tests | 93 passed (15 files) |
+| Release tooling tests | 7 passed |
+| Production build | Pass; no review-mode copy in the production bundle |
+| Chromium functional + axe | 575 passed, 3 skipped, 0 failed |
+| Chromium layout + performance | 158 passed |
+| Chromium review fixtures | 58 passed |
+| Firefox functional + axe | 575 passed, 3 skipped, 0 failed |
+| WebKit functional + axe (local Windows) | 203 passed, 6 failed — reproduced identically on the unmodified `handoff/frontend-e2e` head `f5c1dfd` in an isolated worktree, so these are local Windows WebKit environment differences, not a regression from the merge. The Ubuntu CI run is the authoritative WebKit result. |
+
+The three skipped checks are the release/staging acceptance checks. They are not acceptance: staging acceptance requires an explicitly configured target and an exact expected release build, and no deployment or staging write was performed.
+
+### Still required and not delivered by this merge
+
+Backend implementation and acceptance remain outstanding in full: PostgreSQL RLS and tenant isolation, Temporal durable execution and recovery, the sandbox runtime, the GitHub App and webhook contracts, the encrypted BYOK key pool with three-tier budget enforcement, server-side diff and entropy secret scanning, the two-host Observer cookie perimeter, and the observability backends. The frontend gates above establish that the client surface behaves as specified; they do not establish any of those server obligations. The SSH and connector surfaces in this merge are frontend presentations of a **draft** backend route contract (`/api/workspace/ssh-connections/*`); no backend implements them yet.

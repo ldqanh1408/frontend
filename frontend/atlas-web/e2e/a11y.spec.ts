@@ -4,7 +4,8 @@ import routes from '../src/generated/routes.json' with { type: 'json' };
 import { SAMPLE_TEXT } from './sample-text';
 
 const modules = ['/', '/specifications', '/code', '/agents', '/resources', '/workflow', '/execution', '/governance', '/memory', '/gateway', '/collaboration',
-  '/configuration', '/identity', '/tenancy', '/saas', '/desktop', '/observer', '/connection', '/definitions', '/definitions/agent', '/resources/drafts/mcp-resource', '/no-such-view'];
+  '/configuration', '/identity', '/tenancy', '/saas', '/desktop', '/observer', '/connection', '/definitions', '/definitions/agent', '/resources/drafts/mcp-resource',
+  '/resources/ssh-connections', '/resources/connectors', '/no-such-view'];
 const views = (routes as { route: string }[]).map((r) => r.route).filter((r) => r !== '/');
 
 async function audit(page: import('@playwright/test').Page, path: string, theme: 'dark' | 'light') {

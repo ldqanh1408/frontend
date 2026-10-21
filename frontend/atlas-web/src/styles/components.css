@@ -627,4 +627,77 @@ a.card:hover, button.card:hover { border-color: var(--color-control-border); }
 .ssh-permission > span { display: flex; flex-direction: column; gap: var(--space-4); }
 .ssh-permission strong { font: var(--text-label); }
 .ssh-permission small { line-height: 1.4; }
+.ssh-wizard-steps { display: flex; flex-wrap: wrap; gap: var(--space-8); }
+.ssh-wizard-step {
+  display: flex; align-items: center; gap: var(--space-8); flex: 1 1 160px; min-width: 0;
+  padding: var(--space-8) var(--space-12); border: 1px solid var(--color-border); border-radius: var(--radius-control);
+  color: var(--color-secondary);
+}
+.ssh-wizard-step[data-active='true'] { border-color: var(--color-accent); background: var(--color-accent-soft); color: var(--color-text); }
+.ssh-wizard-step[data-complete='true'] { color: var(--color-success); border-color: var(--color-success); }
+.ssh-wizard-step > span:last-child { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.ssh-wizard-step strong { font: var(--text-label); }
+.ssh-wizard-step small { font: var(--text-caption); color: var(--color-muted); }
+.ssh-wizard-number {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: var(--radius-pill);
+  background: var(--color-raised); color: var(--color-secondary); font: 600 12px/1 var(--font-sans);
+}
+.ssh-wizard-step[data-active='true'] .ssh-wizard-number { background: var(--color-accent); color: var(--color-on-accent); }
+.ssh-wizard-step[data-complete='true'] .ssh-wizard-number { background: var(--color-success-soft); color: var(--color-success); }
+.ssh-review-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: var(--space-12); }
+.ssh-review-list > div { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
+.ssh-review-list span { font: var(--text-caption); color: var(--color-muted); }
+.ssh-review-list strong { font: var(--text-label); overflow-wrap: anywhere; }
 @media (max-width: 640px) { .ssh-binding-row { flex-direction: column; } }
+
+/* Connector catalog (device drafts only, Vault references only). */
+
+.connector-page .connector-toolbar { display: flex; flex-wrap: wrap; gap: var(--space-16); align-items: flex-end; }
+.connector-page .connector-search { flex: 1 1 260px; min-width: 0; }
+.connector-page .connector-category { flex: 0 1 auto; min-width: 0; }
+.connector-category-filters { display: flex; flex-wrap: wrap; gap: var(--space-6); }
+.connector-category-chip {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--control-compact); padding: 0 var(--space-12); border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border); background: var(--color-panel); color: var(--color-secondary);
+  font: var(--text-control); cursor: pointer;
+}
+.connector-category-chip:hover { color: var(--color-text); border-color: var(--color-control-border); }
+.connector-category-chip[data-selected='true'] { background: var(--color-accent-soft); border-color: transparent; color: var(--color-accent); }
+.connector-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-16); align-items: start; margin-top: var(--space-16); }
+.connector-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: var(--space-8); }
+.connector-card {
+  display: flex; align-items: flex-start; gap: var(--space-12); width: 100%; min-width: 0; text-align: left;
+  padding: var(--space-12); border: 1px solid var(--color-border); border-radius: var(--radius-control);
+  background: var(--color-bg); color: var(--color-text); cursor: pointer; font: inherit;
+}
+.connector-card:hover { border-color: var(--color-control-border); }
+.connector-card[aria-selected='true'] { border-color: var(--color-accent); background: var(--color-accent-soft); }
+.connector-icon {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: var(--radius-control);
+  background: var(--color-raised); color: var(--color-secondary); font: 600 11px/1 var(--font-sans);
+}
+.connector-icon-large { width: 48px; height: 48px; font-size: 20px; }
+.connector-add-button { border: 1px dashed var(--color-control-border); background: transparent; cursor: pointer; }
+.connector-add-button:hover { color: var(--color-text); border-color: var(--color-accent); }
+.connector-card-main { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
+.connector-card-main > strong { font: var(--text-label); }
+.connector-card-main > small { font: var(--text-caption); color: var(--color-muted); }
+.connector-card-main > span { font: var(--text-caption); color: var(--color-secondary); overflow-wrap: anywhere; }
+.connector-arrow { flex: none; color: var(--color-muted); }
+.connector-empty { padding: var(--space-12); }
+.connector-placeholder { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-8); padding: var(--space-16); }
+.connector-placeholder h3 { margin: 0; font: var(--text-heading); }
+.connector-placeholder ul { margin: 0; padding-left: var(--space-20); color: var(--color-secondary); font: var(--text-caption); }
+.connector-form { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-16); }
+.connector-form-intro { display: flex; align-items: center; gap: var(--space-8); flex-wrap: wrap; }
+.connector-form-intro .caption { margin: 0; }
+.connector-textarea { min-height: 72px; }
+.connector-form-actions { display: flex; gap: var(--space-8); flex-wrap: wrap; padding-top: var(--space-4); }
+.connector-drafts-empty { padding: var(--space-16); }
+.connector-draft-list { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-16); }
+.connector-draft { display: flex; justify-content: space-between; align-items: center; gap: var(--space-12); flex-wrap: wrap; }
+.connector-draft > :first-child { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 1023px) { .connector-layout { grid-template-columns: minmax(0, 1fr); } }
