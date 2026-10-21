@@ -74,7 +74,7 @@ export default function ConnectionPage() {
                 <select id="service-audience" className="select" value={audience} onChange={(e) => setAudience(e.target.value as Audience)} aria-describedby="service-audience-hint">
                   <option value="workspace">Workspace</option>
                 </select>
-                <small id="service-audience-hint" className="field-hint">Observer uses a separate session and a separate application. <a href={import.meta.env.VITE_OBSERVER_URL || '/observer/sign-in'}>Open independent Observer</a></small>
+                <small id="service-audience-hint" className="field-hint">Observer uses a separate session. Observer runs as a separate application. <a href={import.meta.env.VITE_OBSERVER_URL || '/observer/sign-in'}>Open independent Observer</a></small>
               </div>
               <p className="secondary">This page does not sign you in. Sign in to the service in this browser first, then connect.</p>
               <p className="secondary">The service must expose compatible capabilities and an audience-bound session. No admin role is created by this frontend.</p>
