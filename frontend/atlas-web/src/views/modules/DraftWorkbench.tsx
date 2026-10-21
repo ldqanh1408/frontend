@@ -105,7 +105,7 @@ function ModuleEditor({ spec, schema, rec, basePath }: { spec: DraftModuleSpec; 
         </div>
         <div className="row" role="group" aria-label="Definition controls">
           <Button onClick={validate}>Validate draft</Button>
-          {actions.map((a, i) => <Button key={a} blocked={gates[i].ok ? undefined : gates[i].reason} reasonId={gates[i].ok ? undefined : reasonId}>{a}</Button>)}
+          {actions.map((a, i) => <Button key={a} blocked={gates[i].ok ? 'Requires an authorized definition revision and service command contract.' : gates[i].reason} reasonId={reasonId}>{a}</Button>)}
           <Button variant="primary" onClick={d.save} disabled={d.base.archived || !!d.conflict} aria-keyshortcuts="Control+S">Save draft</Button>
         </div>
         <p id={reasonId} className="caption">Publishing and runnable readiness require service receipts.{spec.note.startsWith('Publishing') ? '' : ` ${spec.note}`}{connection !== 'connected' ? <> <Link to="/connection">Connect a service</Link> to evaluate, publish or assign.</> : ''}</p>

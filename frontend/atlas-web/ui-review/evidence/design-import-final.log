@@ -1,0 +1,59 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> atlas-web@1.0.0-rc.1 import:design
+> node tools/import-design.mjs && node tools/import-native-states.mjs
+
+{
+ "generatedFrom": "d9316bc1fcaa3eed0270587d162a1eb183a4c54dfcda03150e9f49bed559b619",
+ "figmaFile": "0md9BEFI1rU0aRAvf98TWO",
+ "counts": {
+  "views": 210,
+  "scenes": 751,
+  "schemas": 49,
+  "fields": 852,
+  "lifecycles": 39,
+  "lifecycleStates": 303,
+  "sourceActions": 55,
+  "uxJourneys": 42,
+  "uxSteps": 174,
+  "scenesWithoutTarget": 0
+ },
+ "sizes": {
+  "nav": 15197,
+  "views": 253804,
+  "routes": 40882,
+  "sceneIndex": 203357,
+  "schemas": 331066,
+  "preferences": 463,
+  "lifecycles": 52963,
+  "actions": 50144,
+  "journeys": 54089,
+  "tokens": 1187,
+  "scenes": {
+   "J01": 85303,
+   "J02": 65359,
+   "J03": 190419,
+   "J04": 129152,
+   "J05": 48011,
+   "J06": 53661,
+   "J07": 92074,
+   "J08": 78735,
+   "J09": 12324,
+   "J10": 88166,
+   "J11": 30255,
+   "J12": 50156,
+   "J13": 187659,
+   "J14": 42066,
+   "X01": 10400,
+   "X02": 12751,
+   "X03": 15694,
+   "X04": 45780,
+   "X05": 17626,
+   "X06": 38548,
+   "X07": 25159,
+   "X08": 72758
+  }
+ },
+ "sha": "4ede6b2434cb7621"
+}
+Generated 18 native states and 16 independent Observer routes.

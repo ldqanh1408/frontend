@@ -1,0 +1,17 @@
+{
+  "format": "atlas-conformance-source/v1",
+  "date": "2026-10-08",
+  "patchBaseCommit": "91a7e7e5fcf6b6e2bd3091da4c93def364ba9644",
+  "localImplementationCommit": "12627631dba60e6e15ddc94baaf9a8de169a75f3",
+  "localDocumentationEvidenceCommit": "0e3dfc9982e1e583c71d9c081a4a5fa89c5b2833",
+  "sourceKind": "archive",
+  "sourceDigest": "77cdc3b38905142365bb758b060be0a16e4f7b5335fe91c4c7a79d1054ce8bf3",
+  "remotePRHead": "0e8cf8340f0f90bc3dee5a5e37019450bfcda24f",
+  "remotePRModified": false,
+  "patches": [
+    "continuation-patches/0005-secret-policy-and-pr-gates.patch",
+    "continuation-patches/0006-srs-adr-conformance-evidence.patch"
+  ],
+  "pushed": false,
+  "deployed": false
+}

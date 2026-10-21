@@ -11,8 +11,8 @@ test('specifications: create, edit, save, outline, preview, history', async ({ p
   await page.getByRole('button', { name: 'New document' }).first().click();
   await page.getByLabel('Name').fill('Checkout');
   await page.getByRole('button', { name: 'Create' }).click();
-  await expect(page.locator('.cm-content')).toBeVisible();
-  await page.locator('.cm-content').click();
+  await expect(page.locator('.monaco-editor')).toBeVisible();
+  await page.locator('.monaco-editor').click();
   await page.keyboard.press('Control+End');
   await page.keyboard.type('\n## Payments\n\nREQ-9: charge once\n');
   await expect(page.getByText('Unsaved changes')).toBeVisible();
@@ -41,7 +41,7 @@ test('specifications: preview never runs scripts from Markdown', async ({ page }
   await page.getByRole('button', { name: 'New document' }).first().click();
   await page.getByLabel('Name').fill('XSS probe');
   await page.getByRole('button', { name: 'Create' }).click();
-  await page.locator('.cm-content').click();
+  await page.locator('.monaco-editor').click();
   await page.keyboard.press('Control+End');
   await page.keyboard.type('\n<img src=x onerror="window.__pwned=1"><script>window.__pwned=2</script>[x](javascript:window.__pwned=3)\n');
   await page.getByRole('tab', { name: 'Preview' }).click();
@@ -56,7 +56,7 @@ test('code intelligence: import folder, search, outline symbols', async ({ page 
   await page.locator('input[type=file]').setInputFiles(path.resolve('src/lib'));
   await expect(page.getByRole('tree')).toBeVisible();
   await page.getByRole('treeitem', { name: /storage\.ts/ }).click();
-  await expect(page.locator('.cm-content')).toBeVisible();
+  await expect(page.locator('.monaco-editor')).toBeVisible();
   await page.getByLabel('Search source').fill('putVersioned');
   await expect(page.getByRole('status').filter({ hasText: 'matches' })).toBeVisible();
   await page.getByRole('button', { name: 'Analyze JS/TS' }).click();

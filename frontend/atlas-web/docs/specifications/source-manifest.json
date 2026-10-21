@@ -1,0 +1,18 @@
+{
+  "format": "atlas-specification-baseline/v1",
+  "date": "2026-10-08",
+  "documents": [
+    {
+      "uploadedName": "SYSTEM_REQUIREMENTS(1).md",
+      "path": "docs/specifications/SYSTEM_REQUIREMENTS.md",
+      "sha256": "908da151956c4dc87e74b964423ee2b91db082ad1ef3b255347957230c4b6b60",
+      "size": 168586
+    },
+    {
+      "uploadedName": "Atlas_Tech_Stack_and_ADR_SaaS(2).md",
+      "path": "docs/specifications/Atlas_Tech_Stack_and_ADR_SaaS.md",
+      "sha256": "03b0e31105b33a3a3fa37d4e0136af610c0fdb5ad7de6c3ac94b20fb6f982df1",
+      "size": 44297
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import nativeStates from '../../generated/native-states.json';
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { loadLifecycles, loadSchemas, nav, routes } from '../../data/catalog';
@@ -20,6 +21,7 @@ export function ModuleViews({ module, title = 'Views in this module' }: { module
   if (!mine.length) return null;
   return (
     <Panel title={title} actions={<span className="caption">{screens.length} screens{states.length ? ` · ${states.length} states` : ''}</span>}>
+      {nativeStates.filter(s => s.module === module).length > 0 && <nav className="panel-pad chip-row" aria-label="Detailed module states">{nativeStates.filter(s => s.module === module).map(s => <Link key={s.key} className="chip" to={`/states/${s.key}`}>{s.title}</Link>)}</nav>}
       <ul className="view-links" role="list">
         {screens.map((r) => <li key={r.id}><Link to={r.route} className="list-item"><Icon name="chevron-right" /><span className="grow">{r.title}</span></Link></li>)}
       </ul>

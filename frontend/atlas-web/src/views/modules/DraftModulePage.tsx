@@ -1,3 +1,5 @@
+import { HubPanel, MemoryPanel } from './ArchivePanels';
+import { ConfigurationResolution } from './ConfigurationResolution';
 import { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router';
 import type { ModuleRoute } from '../../data/types';
@@ -54,6 +56,9 @@ export default function DraftModulePage({ module }: { module: ModuleRoute }) {
         <LifecycleChain states={null} ids={spec.lifecycleIds} label={m.title} />
         <OperationReceipts module={module} />
       </div>
+      {module === 'configuration' && <ConfigurationResolution />}
+      {(module === 'resources' || module === 'agents') && <HubPanel/>}
+      {module === 'memory' && <MemoryPanel/>}
       <ModuleViews module={module} />
     </div>
   );

@@ -1,0 +1,29 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:32) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22mnpm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:45) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:79) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:79) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › e2e/a11y.spec.ts:40:26 › all planned views · dark › /specifications/ide-state-large-file (2.8s)
+  ✓  2 [chromium] › e2e/a11y.spec.ts:40:26 › all planned views · light › /specifications/ide-state-large-file (3.4s)
+(node:213) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:213) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [firefox] › e2e/a11y.spec.ts:40:26 › all planned views · dark › /specifications/ide-state-large-file (6.7s)
+  ✓  4 [firefox] › e2e/a11y.spec.ts:40:26 › all planned views · light › /specifications/ide-state-large-file (3.2s)
+(node:525) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:525) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [webkit] › e2e/a11y.spec.ts:40:26 › all planned views · dark › /specifications/ide-state-large-file (4.8s)
+  ✓  6 [webkit] › e2e/a11y.spec.ts:40:26 › all planned views · light › /specifications/ide-state-large-file (4.2s)
+
+  6 passed (35.1s)

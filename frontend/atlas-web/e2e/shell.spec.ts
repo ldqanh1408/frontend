@@ -4,6 +4,8 @@ import { axe, trackErrors } from './helpers';
 test('skip link, route focus, title and breadcrumb', async ({ page }) => {
   const errors = trackErrors(page);
   await page.goto('/');
+  // Navigation load may finish before React commits the shell, especially in WebKit.
+  await expect(page.getByRole('link', { name: 'Skip to workspace' })).toBeVisible();
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Skip to workspace' })).toBeFocused();
   await page.keyboard.press('Enter');
@@ -18,6 +20,7 @@ test('skip link, route focus, title and breadcrumb', async ({ page }) => {
 
 test('command palette searches views and navigates', async ({ page }) => {
   await page.goto('/');
+  await expect(page.getByRole('button', { name: 'Search workspace' })).toBeVisible();
   await page.keyboard.press('Control+k');
   const input = page.getByRole('combobox', { name: 'Search workspace' });
   await expect(input).toBeFocused();
@@ -81,3 +84,19 @@ for (const width of [320, 768, 1024, 1280, 1920]) {
     }
   });
 }
+
+test('mobile breadcrumb labels stay within the header and scope remains compact', async ({ page }) => {
+  await page.setViewportSize({width:390,height:844});
+  await page.goto('/states/SP-Freeze');
+  await expect(page.getByRole('heading',{level:1})).toBeVisible();
+  const layout=await page.evaluate(()=>{
+    const trail=document.querySelector('.breadcrumb')!.getBoundingClientRect();
+    const actions=document.querySelector('.bar-actions')!.getBoundingClientRect();
+    const labels=[...document.querySelectorAll('.breadcrumb li')].filter(e=>getComputedStyle(e).display!=='none');
+    const scope=document.querySelector('.tenant-context')!.getBoundingClientRect();
+    return {overlap:trail.right>actions.left,labels:labels.length,scopeHeight:scope.height};
+  });
+  expect(layout.overlap).toBe(false);
+  expect(layout.labels).toBe(1);
+  expect(layout.scopeHeight).toBeLessThan(160);
+});

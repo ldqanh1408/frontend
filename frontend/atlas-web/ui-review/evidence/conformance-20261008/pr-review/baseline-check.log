@@ -1,0 +1,131 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> atlas-web@1.0.0-rc.1 check
+> npm run typecheck && npm run test && npm run build
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> atlas-web@1.0.0-rc.1 typecheck
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.node.json
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> atlas-web@1.0.0-rc.1 test
+> vitest run
+
+
+ RUN  v5.0.3 /workspace/scratch/a98056651892/review-pr-1/frontend/atlas-web
+
+
+ Test Files  4 passed (4)
+      Tests  29 passed (29)
+   Start at  13:23:01
+   Duration  1.13s (environment 54%, transform 26%, setup 11%, import 5%, tests 3%, worker 1%)
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> atlas-web@1.0.0-rc.1 build
+> npm run typecheck && vite build
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> atlas-web@1.0.0-rc.1 typecheck
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.node.json
+
+vite v8.3.2 building client environment for production...
+
+ WARN  advancedChunks option is deprecated, please use codeSplitting instead.
+
+transforming...
+✓ 2142 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                      1.07 kB │ gzip:   0.51 kB
+dist/assets/jetbrains-mono-cyrillic-ext-400-normal-C_uLvvQ5.woff2    1.16 kB
+dist/assets/jetbrains-mono-cyrillic-ext-500-normal-C9ShMxGR.woff2    1.17 kB
+dist/assets/jetbrains-mono-cyrillic-ext-500-normal-CEVyPk4Y.woff     1.74 kB
+dist/assets/jetbrains-mono-cyrillic-ext-400-normal-Bh0R7Dhr.woff     1.74 kB
+dist/assets/jetbrains-mono-vietnamese-400-normal-ByoDsISC.woff2      3.92 kB
+dist/assets/jetbrains-mono-vietnamese-500-normal-BvH7FW2L.woff2      4.04 kB
+dist/assets/jetbrains-mono-greek-400-normal-C190GLew.woff2           4.22 kB
+dist/assets/jetbrains-mono-greek-500-normal-JpySY46c.woff2           4.28 kB
+dist/assets/jetbrains-mono-cyrillic-400-normal-BEIGL1Tu.woff2        5.32 kB
+dist/assets/jetbrains-mono-cyrillic-500-normal-DmUKJPL_.woff2        5.35 kB
+dist/assets/jetbrains-mono-vietnamese-400-normal-CqNFfHCs.woff       5.37 kB
+dist/assets/jetbrains-mono-vietnamese-500-normal-DNRqzVM1.woff       5.47 kB
+dist/assets/jetbrains-mono-greek-400-normal-B9oWc5Lo.woff            5.66 kB
+dist/assets/jetbrains-mono-greek-500-normal-D7SFKleX.woff            5.72 kB
+dist/assets/jetbrains-mono-cyrillic-400-normal-ugxPyKxw.woff         6.97 kB
+dist/assets/jetbrains-mono-cyrillic-500-normal-DJqRU3vO.woff         7.02 kB
+dist/assets/jetbrains-mono-latin-ext-400-normal-Bc8Ftmh3.woff2       7.33 kB
+dist/assets/jetbrains-mono-latin-ext-500-normal-Cut-4mMH.woff2       7.52 kB
+dist/assets/jetbrains-mono-latin-ext-400-normal-fXTG6kC5.woff       10.12 kB
+dist/assets/inter-vietnamese-wght-normal-CBcvBZtf.woff2             10.25 kB
+dist/assets/jetbrains-mono-latin-ext-500-normal-ckzbgY84.woff       10.33 kB
+dist/assets/inter-greek-ext-wght-normal-DlzME5K_.woff2              11.23 kB
+dist/assets/inter-cyrillic-wght-normal-DqGufNeO.woff2               18.74 kB
+dist/assets/inter-greek-wght-normal-CkhJZR-_.woff2                  18.99 kB
+dist/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2          21.16 kB
+dist/assets/jetbrains-mono-latin-500-normal-BWZEU5yA.woff2          21.83 kB
+dist/assets/inter-cyrillic-ext-wght-normal-BOeWTOD4.woff2           25.96 kB
+dist/assets/jetbrains-mono-latin-400-normal-6-qcROiO.woff           27.49 kB
+dist/assets/jetbrains-mono-latin-500-normal-CJOVTJB7.woff           28.20 kB
+dist/assets/inter-latin-wght-normal-Dx4kXJAl.woff2                  48.25 kB
+dist/assets/inter-latin-ext-wght-normal-DO1Apj_S.woff2              85.06 kB
+dist/assets/index-BEYtfVdK.css                                      44.47 kB │ gzip:   8.31 kB
+dist/assets/ModuleLanding-DYOLNKJE.js                                0.49 kB │ gzip:   0.29 kB
+dist/assets/rolldown-runtime-CbXtAM7H.js                             0.58 kB │ gzip:   0.36 kB
+dist/assets/format-A2Y5zJrE.js                                       0.74 kB │ gzip:   0.46 kB
+dist/assets/DefinitionTypePage-Cwrkqc1N.js                           0.85 kB │ gzip:   0.49 kB
+dist/assets/hooks-LxRL_ESe.js                                        0.88 kB │ gzip:   0.43 kB
+dist/assets/LifecycleBody-Dl1MET87.js                                1.63 kB │ gzip:   0.83 kB
+dist/assets/SchemaSceneForm-DcWAD6zP.js                              1.64 kB │ gzip:   0.91 kB
+dist/assets/definitions-DYzW1cmN.js                                  2.29 kB │ gzip:   1.09 kB
+dist/assets/DefinitionsCatalog-BNincpYE.js                           2.80 kB │ gzip:   1.30 kB
+dist/assets/Overview-Bcd-IUUW.js                                     4.01 kB │ gzip:   1.49 kB
+dist/assets/ConnectionPage-UNYyKJfp.js                               5.77 kB │ gzip:   2.29 kB
+dist/assets/common-pTrqF3Pa.js                                       6.69 kB │ gzip:   2.25 kB
+dist/assets/DocTree-DkeDW2_n.js                                      7.55 kB │ gzip:   3.06 kB
+dist/assets/X01-BnLgvFwp.js                                         10.35 kB │ gzip:   2.28 kB
+dist/assets/ServiceModulePage-Cp79-x7a.js                           10.70 kB │ gzip:   3.86 kB
+dist/assets/validate-DO2z2FFV.js                                    11.48 kB │ gzip:   4.28 kB
+dist/assets/J09-C_-ccyUn.js                                         12.27 kB │ gzip:   2.35 kB
+dist/assets/DraftModulePage-DeklUgH2.js                             12.54 kB │ gzip:   4.42 kB
+dist/assets/X02-B-y_CjRo.js                                         12.66 kB │ gzip:   2.61 kB
+dist/assets/ViewPage-DMwL-yKn.js                                    12.91 kB │ gzip:   4.24 kB
+dist/assets/X03-BDPUsfZc.js                                         15.57 kB │ gzip:   2.86 kB
+dist/assets/X05-mf9FCeUs.js                                         17.54 kB │ gzip:   3.55 kB
+dist/assets/CodePage-D-Yr4j6V.js                                    17.81 kB │ gzip:   6.55 kB
+dist/assets/DefinitionWorkspace-Cf8Ue77Y.js                         18.00 kB │ gzip:   6.03 kB
+dist/assets/WorkflowPage-pCQKUp5J.js                                24.18 kB │ gzip:   7.60 kB
+dist/assets/X07-bWFQkoa8.js                                         25.10 kB │ gzip:   3.54 kB
+dist/assets/J11-BDWYg8oR.js                                         30.04 kB │ gzip:   4.01 kB
+dist/assets/X06-C6ezGwQM.js                                         38.27 kB │ gzip:   4.40 kB
+dist/assets/J14-CwPvMO2f.js                                         41.74 kB │ gzip:   5.99 kB
+dist/assets/index-CRgt1hCY.js                                       45.24 kB │ gzip:  14.61 kB
+dist/assets/X04-E8ot7-6F.js                                         45.42 kB │ gzip:   5.22 kB
+dist/assets/J05-t-_Mwcst.js                                         47.70 kB │ gzip:   6.94 kB
+dist/assets/lifecycles-BK5i1G0i.js                                  49.63 kB │ gzip:   9.57 kB
+dist/assets/J12-B2EbFVno.js                                         49.91 kB │ gzip:   5.71 kB
+dist/assets/source-actions-bGCVBVUK.js                              50.18 kB │ gzip:   9.68 kB
+dist/assets/J06-D0DmuTs2.js                                         53.41 kB │ gzip:   6.04 kB
+dist/assets/journeys-Cf9Dd-I8.js                                    54.01 kB │ gzip:  13.35 kB
+dist/assets/radix-DN457fY8.js                                       62.38 kB │ gzip:  20.80 kB
+dist/assets/J02-uH7IsfSt.js                                         64.94 kB │ gzip:   8.14 kB
+dist/assets/X08-pAy19nZk.js                                         72.16 kB │ gzip:   5.46 kB
+dist/assets/J08-bnVIy9Uh.js                                         78.18 kB │ gzip:   8.46 kB
+dist/assets/J01-Ces79D6H.js                                         84.68 kB │ gzip:  10.38 kB
+dist/assets/J10-DbFypRIx.js                                         87.85 kB │ gzip:   7.24 kB
+dist/assets/J07-BLOldovg.js                                         91.56 kB │ gzip:   8.40 kB
+dist/assets/ui-BkPhszO6.js                                          99.21 kB │ gzip:  23.14 kB
+dist/assets/SpecificationsPage-CohRye7d.js                         100.32 kB │ gzip:  33.28 kB
+dist/assets/J04-duq3o3q-.js                                        128.32 kB │ gzip:  14.99 kB
+dist/assets/J13-91cK3Fvd.js                                        186.62 kB │ gzip:  19.06 kB
+dist/assets/scene-index-DnykmSxS.js                                187.76 kB │ gzip:  24.04 kB
+dist/assets/J03-BJaAcStL.js                                        189.19 kB │ gzip:  21.61 kB
+dist/assets/views-tmt-_cZN.js                                      253.84 kB │ gzip:  18.88 kB
+dist/assets/react-BLiU7QIV.js                                      312.43 kB │ gzip:  98.50 kB
+dist/assets/schemas-B0lsjKeu.js                                    331.10 kB │ gzip:  22.43 kB
+dist/assets/codemirror-DprKlXvl.js                                 538.35 kB │ gzip: 185.60 kB
+
+✓ built in 652ms

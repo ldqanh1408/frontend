@@ -1,4 +1,5 @@
 import { useSyncExternalStore } from 'react';
+import { createStore as createZustandStore } from 'zustand/vanilla';
 
 export interface Store<T> {
   get: () => T;
@@ -6,21 +7,13 @@ export interface Store<T> {
   subscribe: (fn: () => void) => () => void;
 }
 
-/** Minimal external store (no global framework); components subscribe to selected slices. */
+/** Zustand's vanilla store behind the existing API; stores remain scoped to their SPA. */
 export function createStore<T extends object>(initial: T): Store<T> {
-  let state = initial;
-  const subs = new Set<() => void>();
+  const state = createZustandStore<T>(() => initial);
   return {
-    get: () => state,
-    set: (patch) => {
-      const next = typeof patch === 'function' ? patch(state) : patch;
-      state = { ...state, ...next };
-      subs.forEach((fn) => fn());
-    },
-    subscribe: (fn) => {
-      subs.add(fn);
-      return () => subs.delete(fn);
-    },
+    get: state.getState,
+    set: (patch) => state.setState(patch),
+    subscribe: state.subscribe,
   };
 }
 

@@ -1,0 +1,250 @@
+{
+  "format": "atlas-complete-frontend-verification/v1",
+  "date": "2026-10-08",
+  "status": "PASS_LOCAL_FRONTEND",
+  "scope": "One complete local frontend pipeline; protocol-peer checks do not establish live backend business effects",
+  "userSelectedScope": "FRONTEND_IN_THIS_REPOSITORY",
+  "backendAcceptanceRequestedInCurrentScope": false,
+  "run": "20261008-complete",
+  "startedAt": "2026-10-08T14:26:10.117Z",
+  "finishedAt": "2026-10-08T15:07:39.803Z",
+  "sourceDigest": "77cdc3b38905142365bb758b060be0a16e4f7b5335fe91c4c7a79d1054ce8bf3",
+  "sourceKind": "archive",
+  "sourceCommit": null,
+  "runtimeSourceUnchanged": true,
+  "acceptanceInputsMatchLocalCommit": true,
+  "acceptanceInputDigest": "2f125738b3e0c075362fa99f028ee1bb2c3337b36be93f087e850df311f5b5b3",
+  "unit": {
+    "passed": 78,
+    "failed": 0
+  },
+  "releaseTooling": {
+    "passed": 7,
+    "failed": 0
+  },
+  "typecheck": "PASS",
+  "productionBuild": "PASS",
+  "reviewBuild": "PASS",
+  "singleGreenFullFunctionalRun": true,
+  "functional": {
+    "stats": {
+      "startTime": "2026-10-08T14:26:18.849Z",
+      "duration": 1849538.341,
+      "expected": 1701,
+      "skipped": 9,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "byEngine": {
+      "chromium": {
+        "passed": 567,
+        "skipped": 3,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "firefox": {
+        "passed": 567,
+        "skipped": 3,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "webkit": {
+        "passed": 567,
+        "skipped": 3,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "report": "20261008-complete/functional.json"
+  },
+  "visual": {
+    "passed": 150,
+    "threshold": 0.005,
+    "engine": "chromium",
+    "environment": "local Linux"
+  },
+  "performance": {
+    "passed": 8,
+    "measurements": [
+      {
+        "route": "/",
+        "lcp": 280,
+        "dcl": 146,
+        "jsFiles": 10,
+        "jsBytes": 166977,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 269742,
+        "cls": 0.001
+      },
+      {
+        "route": "/specifications",
+        "lcp": 364,
+        "dcl": 126,
+        "jsFiles": 14,
+        "jsBytes": 210527,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 292124,
+        "cls": 0.001
+      },
+      {
+        "route": "/code",
+        "lcp": 256,
+        "dcl": 146,
+        "jsFiles": 16,
+        "jsBytes": 186370,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 267967,
+        "cls": 0.002
+      },
+      {
+        "route": "/agents",
+        "lcp": 332,
+        "dcl": 148,
+        "jsFiles": 20,
+        "jsBytes": 231537,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 313134,
+        "cls": 0.006
+      },
+      {
+        "route": "/workflow",
+        "lcp": 208,
+        "dcl": 97,
+        "jsFiles": 18,
+        "jsBytes": 203846,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 285443,
+        "cls": 0.031
+      },
+      {
+        "route": "/execution",
+        "lcp": 260,
+        "dcl": 107,
+        "jsFiles": 19,
+        "jsBytes": 223778,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 326543,
+        "cls": 0.001
+      },
+      {
+        "route": "/definitions/agent",
+        "lcp": 608,
+        "dcl": 80,
+        "jsFiles": 15,
+        "jsBytes": 197547,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 279144,
+        "cls": 0.001
+      },
+      {
+        "route": "/execution/runs",
+        "lcp": 280,
+        "dcl": 141,
+        "jsFiles": 16,
+        "jsBytes": 228249,
+        "editorLoaded": false,
+        "editorResources": [],
+        "totalBytes": 309846,
+        "cls": 0.001
+      }
+    ],
+    "budgets": {
+      "lcpMs": 2500,
+      "cls": 0.1,
+      "initialJavaScriptBytes": 524288
+    },
+    "desktopLocalNoThrottling": true
+  },
+  "review": {
+    "stats": {
+      "startTime": "2026-10-08T14:58:44.200Z",
+      "duration": 535555.671,
+      "expected": 174,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "engines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ]
+  },
+  "release": {
+    "format": "atlas-local-release-verification/v1",
+    "status": "PASS",
+    "identicalFiles": 126,
+    "buildId": "source-77cdc3b389051423",
+    "sourceDigest": "77cdc3b38905142365bb758b060be0a16e4f7b5335fe91c4c7a79d1054ce8bf3",
+    "sourceKind": "archive",
+    "sourceCommit": null,
+    "manifest": "release/local-conformance/release-manifest.json",
+    "deployed": false,
+    "productionOriginsConfigured": false
+  },
+  "releaseRebuiltThisRun": false,
+  "peerTimingObservations": [
+    {
+      "presenceObservedMs": 45,
+      "environment": "local protocol peer"
+    },
+    {
+      "crdtPeerObservedMs": 21,
+      "environment": "local protocol peer"
+    },
+    {
+      "presenceObservedMs": 483,
+      "environment": "local protocol peer"
+    },
+    {
+      "crdtPeerObservedMs": 18,
+      "environment": "local protocol peer"
+    },
+    {
+      "presenceObservedMs": 534,
+      "environment": "local protocol peer"
+    },
+    {
+      "crdtPeerObservedMs": 177,
+      "environment": "local protocol peer"
+    }
+  ],
+  "nfrLatencyAccepted": false,
+  "liveJourneys": {
+    "J0": "NOT_RUN_BACKEND_REQUIRED",
+    "J1": "NOT_RUN_BACKEND_REQUIRED",
+    "J2": "NOT_RUN_BACKEND_REQUIRED",
+    "J3": "NOT_RUN_BACKEND_REQUIRED",
+    "J4": "NOT_RUN_BACKEND_REQUIRED",
+    "J5": "NOT_RUN_BACKEND_REQUIRED",
+    "J6": "NOT_RUN_BACKEND_REQUIRED",
+    "J7": "NOT_RUN_BACKEND_REQUIRED",
+    "O1": "NOT_RUN_BACKEND_REQUIRED"
+  },
+  "liveBackendAcceptance": false,
+  "currentSourceGitHubCI": false,
+  "pushed": false,
+  "deployed": false,
+  "stagingAcceptance": false,
+  "manualNVDAOrVoiceOver": false,
+  "githubObservation": "github-source-observation-20261008.json",
+  "previousEvidence": {
+    "checkpoint15": "verification-conformance-20261008.json",
+    "checkpoint14": "verification-20261008.json",
+    "olderFailuresPreserved": true
+  },
+  "evidenceDirectory": "ui-review/evidence/complete-20261008",
+  "limitations": [
+    "Three existing release/staging tests per engine are skipped without configured deployed targets.",
+    "Local Linux visual/performance results do not certify Ubuntu CI or production NFRs.",
+    "Protocol peers do not establish live persistence, tenant/authentication isolation or business E2E.",
+    "Release reproducibility was already verified on this unchanged runtime digest at checkpoint15; it is not a fresh Git-pinned release or deployment."
+  ]
+}

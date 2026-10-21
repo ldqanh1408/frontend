@@ -1,0 +1,14 @@
+{
+  "url": "https://github.com/ldqanh1408/frontend/pull/1",
+  "head": "0e8cf8340f0f90bc3dee5a5e37019450bfcda24f",
+  "base": "4737b155e9f106bc7351c271d19ef207cfbb9a66",
+  "state": "open",
+  "merged": false,
+  "observedDate": "2026-10-08",
+  "commitStatuses": 0,
+  "checkRuns": 0,
+  "localBaselineTestsPassed": 29,
+  "addedSecurityExpectationsFailed": 4,
+  "recommendation": "FIX_BEFORE_MERGE",
+  "remoteWrites": false
+}

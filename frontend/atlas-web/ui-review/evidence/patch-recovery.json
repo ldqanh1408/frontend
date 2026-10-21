@@ -1,0 +1,8 @@
+{
+  "base_commit": "4737b155e9f106bc7351c271d19ef207cfbb9a66",
+  "source_checkpoint": "b598ec62c53c30108c036722d21c52229593f27a",
+  "patches": 30,
+  "keep_cr": true,
+  "applied_sequentially": true,
+  "resulting_tree_matches": true
+}

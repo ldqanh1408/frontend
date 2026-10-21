@@ -1,6 +1,29 @@
 import { test, expect } from '@playwright/test';
 import { axe, trackErrors } from './helpers';
 
+test('secret-bearing imports and unsaved exports are blocked before persistence or download', async ({ page }) => {
+  const errors = trackErrors(page); let downloads = 0; page.on('download', () => downloads++);
+  await page.goto('/definitions/mcp-resource');
+  await page.locator('input[type="file"]').setInputFiles({ name: 'unsafe.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify({ environmentRefs: { KEY: 'browser-synthetic-secret' } })) });
+  await expect(page.getByText('Import failed', { exact: true })).toBeVisible();
+  await expect(page.locator('#definition-name')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Create local definition' }).click();
+  await page.locator('#definition-environmentRefs').fill(JSON.stringify({ KEY: 'browser-synthetic-secret' }));
+  await page.getByRole('button', { name: 'Save local revision' }).click();
+  await expect(page.locator('.error-summary')).toContainText('vault');
+  await page.getByRole('button', { name: 'Export definition & draft' }).click();
+  await expect(page.getByText('Export blocked', { exact: true })).toBeVisible();
+  expect(downloads).toBe(0);
+  const stored = await page.evaluate(async () => {
+    const db = await new Promise<IDBDatabase>((resolve, reject) => { const req = indexedDB.open('atlas-device'); req.onsuccess = () => resolve(req.result); req.onerror = () => reject(req.error); });
+    const records = await Promise.all(['definitions', 'revisions'].map(store => new Promise<unknown[]>((resolve, reject) => { const req = db.transaction(store).objectStore(store).getAll(); req.onsuccess = () => resolve(req.result); req.onerror = () => reject(req.error); })));
+    db.close(); return records;
+  });
+  expect(stored.map(rows => rows.length)).toEqual([1, 1]);
+  expect(JSON.stringify(stored)).not.toContain('browser-synthetic-secret');
+  expect(errors).toEqual([]);
+});
+
 test('author, validate, save, compare and archive a definition', async ({ page }) => {
   const errors = trackErrors(page);
   await page.goto('/definitions/routing-policy');

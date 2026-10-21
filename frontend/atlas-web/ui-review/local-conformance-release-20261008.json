@@ -1,0 +1,12 @@
+{
+  "format": "atlas-local-release-verification/v1",
+  "status": "PASS",
+  "identicalFiles": 126,
+  "buildId": "source-77cdc3b389051423",
+  "sourceDigest": "77cdc3b38905142365bb758b060be0a16e4f7b5335fe91c4c7a79d1054ce8bf3",
+  "sourceKind": "archive",
+  "sourceCommit": null,
+  "manifest": "release/local-conformance/release-manifest.json",
+  "deployed": false,
+  "productionOriginsConfigured": false
+}

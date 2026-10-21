@@ -1,0 +1,7 @@
+import { useConfiguration, resolveConfiguration } from '../../data/configuration';
+import { Banner, Panel } from '../../components/ui';
+const KEYS = ['drift_sync_threshold','drift_warning_threshold','risk_low_threshold','risk_high_threshold','budget_warning_threshold','budget_block_threshold','lock_ttl_seconds','lock_queue_timeout_seconds','invite_ttl_hours','default_role','presence_timeout_seconds','crdt_snapshot_interval_seconds','crdt_debounce_ms'];
+export function ConfigurationResolution() {
+  const {snapshot,error}=useConfiguration();
+  return <Panel title="Effective configuration · Project → Workspace → Org → System"><div className="panel-pad stack-12">{error&&<Banner tone="danger" title="Configuration unavailable" role="alert">{error}</Banner>}<p className="caption">Overrides retain their source layer and revision. Values are read from the current tenant service.</p><div className="table-wrap"><table className="table"><caption className="sr-only">Resolved runtime thresholds</caption><thead><tr><th scope="col">Parameter</th><th scope="col">Effective value</th><th scope="col">Source layer</th><th scope="col">Revision</th></tr></thead><tbody>{KEYS.map(key=>{const resolved=snapshot?resolveConfiguration(snapshot,key):null;return <tr key={key}><th scope="row" className="mono break">{key}</th><td>{resolved?JSON.stringify(resolved.value):'Not observed'}</td><td>{resolved?.layer??'Not observed'}</td><td>{resolved?.revision??'Not observed'}</td></tr>;})}</tbody></table></div></div></Panel>;
+}

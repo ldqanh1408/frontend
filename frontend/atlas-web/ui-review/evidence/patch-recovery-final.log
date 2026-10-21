@@ -1,0 +1,17 @@
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/.git/worktrees/atlas-patch-verify-dc0d5a84/rebase-apply/patch:46: new blank line at EOF.
++
+warning: 1 line adds whitespace errors.
+warning: quoted CRLF detected
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/.git/worktrees/atlas-patch-verify-dc0d5a84/rebase-apply/patch:68: trailing whitespace.
+# SYSTEM REQUIREMENTS SPECIFICATION (SRS)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/.git/worktrees/atlas-patch-verify-dc0d5a84/rebase-apply/patch:69: trailing whitespace.
+## Multi-User Collaborative AI Engineering & Specification Workspace
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/.git/worktrees/atlas-patch-verify-dc0d5a84/rebase-apply/patch:70: trailing whitespace.
+
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/.git/worktrees/atlas-patch-verify-dc0d5a84/rebase-apply/patch:71: trailing whitespace.
+> **Phiên bản:** 1.1 (Addendum hoàn thiện E2E Pipeline, khép kín vòng lặp Doc-Code Drift)  
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/.git/worktrees/atlas-patch-verify-dc0d5a84/rebase-apply/patch:72: trailing whitespace.
+> **Cấp độ:** Toàn diện hệ thống (End-to-End System Requirements)  
+warning: squelched 1278 whitespace errors
+warning: 1283 lines add whitespace errors.
+PASS: 30 patches applied with --keep-cr; tree equals b598ec62c53c30108c036722d21c52229593f27a.

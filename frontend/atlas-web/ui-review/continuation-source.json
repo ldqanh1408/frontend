@@ -1,0 +1,47 @@
+{
+  "format": "atlas-continuation-source/v1",
+  "applicationFiles": 146,
+  "originalApplicationFiles": 145,
+  "applicationDigest": "d76d8d185f5d55231610d73208600ec005579e127029dae6450d785b89388a89",
+  "originalApplicationDigest": "3258978333bf3b3ea059b3be43a99fb1f18b20d77a5b884310e85a5a3c5032dd",
+  "digestAlgorithm": "SHA256 of sorted relative path + NUL + per-file SHA256 + LF",
+  "unchangedApplicationSources": false,
+  "changedApplicationFiles": [
+    "src/shell/page-meta.tsx"
+  ],
+  "addedApplicationFiles": [
+    "src/shell/page-meta.test.tsx"
+  ],
+  "uploadedApplicationFilesCompared": 145,
+  "sourceDigests": {
+    "release": "64e0c7e1432138b0d9e2f084a2e354b526a2f05ac092335e900c0fe06fcc28bb"
+  },
+  "localFixCommits": [
+    "f7f6237ac83c508b03c476871aa7b669c1a31b81",
+    "ed8fb17fb6132ac3497e8933e6e26e385084c4e5",
+    "e28cc33c503539316208656f0bccd9745a4c4965"
+  ],
+  "repository": "ldqanh1408/frontend",
+  "branch": "claude/sharp-thompson-5tff91",
+  "pushStatus": "blocked_by_automatic_approval_review_pending_explicit_source_export_authorization",
+  "deployed": false,
+  "cloudflareWrites": false,
+  "githubWrites": false,
+  "changedAreas": [
+    "release integrity and independent Worker routing",
+    "staging acceptance and CI failure propagation",
+    "fresh local acceptance runner and raw reports",
+    "StrictMode initial route focus",
+    "keyboard E2E waits for mounted controls",
+    "two-worker browser budget and disabled automation updater"
+  ],
+  "suppliedEvidenceRestoreCommit": "b2e29967e20b04de46e193fcd331f9f75935e495",
+  "acceptanceInputHashes": {
+    "playwright.config.ts": "edbbe2d6b5b67f66cae60cb36dec48cb74ea65625970f7398cf08deb126f5a3a",
+    "playwright.review.config.ts": "938f3d646046123f4d6affd45b99f9caa5613721d673b229fef42cc29296e9ea",
+    "playwright.staging.config.ts": "d009e5e1ee23579ac9e8b40b234be715a2359d7ce20a153af5fcda4525cde15f",
+    "e2e/shell.spec.ts": "ece7763fd561cd75c25faff5bbde89fcf678705b8377b481f170aef08f166259",
+    "e2e/staging.spec.ts": "6e8069abfd5c0087ef9119a87b29b9c5a25a7dc1497883f03a58c55e18a3a6dc",
+    "../../.github/workflows/atlas-web.yml": "5653aadbcc17e571c850780e7fd383fc60d5c0a58df178847f2dfaaed191a835"
+  }
+}

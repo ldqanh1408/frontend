@@ -1,0 +1,12 @@
+Local acceptance summary; detailed raw outcomes are retained beside this file.
+Typecheck app + node: PASS
+Production + review build: PASS
+Unit/component: 54 PASS
+Functional unique case coverage from retained runs: 1695 PASS, 9 conditional release skips
+Full initial run and UI/focus failures were retained and rechecked; this is not one green full-matrix run.
+Review: 174 PASS; final graph recheck: 6 PASS
+Visual: 150 PASS; mobile recheck: 50 PASS; affected graph routes: 12 PASS
+Performance: 8 PASS
+Offline gallery: 242 selections, 10 section audits + dialog, no axe violations/console errors/overflow
+Patch recovery: 30 patches with --keep-cr, exact checkpoint tree match
+No staging, no deployment, no live business backend or manual screen-reader acceptance.

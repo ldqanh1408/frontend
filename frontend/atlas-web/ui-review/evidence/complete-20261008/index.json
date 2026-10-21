@@ -1,0 +1,79 @@
+{
+  "format": "atlas-evidence-index/v1",
+  "rawReportsPreserved": true,
+  "singleRun": "20261008-complete",
+  "files": {
+    "20261008-complete/build-review.log": {
+      "size": 13170,
+      "sha256": "bd3b2f641e0be62a966c3c75a174cbf4d8bf2568f16d19e102119e48ea62926a"
+    },
+    "20261008-complete/check.log": {
+      "size": 13391,
+      "sha256": "09a6889c2384194d43d84f44ba0198a216f7581885fdfd6052d7a79a37339aca"
+    },
+    "20261008-complete/functional/.last-run.json": {
+      "size": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    "20261008-complete/functional.json": {
+      "size": 1958739,
+      "sha256": "0024213a33f5840f8beecdef9bc197cefb4c1b77d30e454a65fea804ca41a02d"
+    },
+    "20261008-complete/functional.log": {
+      "size": 197927,
+      "sha256": "96e8e72c9220354ffdde2206e22560ccd303dc23a39c02559cb7301021b7d179"
+    },
+    "20261008-complete/review/.last-run.json": {
+      "size": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    "20261008-complete/review.json": {
+      "size": 183188,
+      "sha256": "f3edc416ccbd5bd8d7d8f67e4c99c92b438c48485bd4d4551d97f059c4831252"
+    },
+    "20261008-complete/review.log": {
+      "size": 19595,
+      "sha256": "17ea8d45fb948256529fd00e95e59615ff003b432ac4e1f1b15a7ba9bbfb9b18"
+    },
+    "20261008-complete/summary.json": {
+      "size": 1895,
+      "sha256": "35ed53e516a975136138ec135a506bcda286c8804ecf7d1a6b1c682cdf75c234"
+    },
+    "20261008-complete/tooling.log": {
+      "size": 891,
+      "sha256": "b996b6530d64bf95fc694496cb5b3cb44bbe158559479a81c698682d7eec3092"
+    },
+    "20261008-complete/visual-performance/.last-run.json": {
+      "size": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    "20261008-complete/visual-performance.json": {
+      "size": 190902,
+      "sha256": "bf84370737bf4197410749bc97ddc62ec60fcbacfa26199c667338c8fbf2eb33"
+    },
+    "20261008-complete/visual-performance.log": {
+      "size": 18841,
+      "sha256": "2a4d3e03695578ea17f02a929fbabb11c611016727f44fa055b4921b6c4567ed"
+    },
+    "README.md": {
+      "size": 1124,
+      "sha256": "2fd0dec1c27f3445882a9d254619a319803a94536ed1b3f81f300243bfbf80c8"
+    },
+    "acceptance-inputs.json": {
+      "size": 33035,
+      "sha256": "7c213b0820b25814ca34123951b06efa3bd76e568f05353010998269cba7456f"
+    },
+    "functional-cases.json": {
+      "size": 520495,
+      "sha256": "720769c25b8e848de358c6f50bc19f5511c05ba5564c198f9940b9715041c761"
+    },
+    "github-source-observation.json": {
+      "size": 1509,
+      "sha256": "1263400ef14d796e76ff4968514c4e5d606b048c301b43cfa915079b9526db03"
+    },
+    "runner.log": {
+      "size": 548,
+      "sha256": "5f728b5f1e854335728f4c25a94308a3b0aa751d0764adb97bff21240b857647"
+    }
+  }
+}

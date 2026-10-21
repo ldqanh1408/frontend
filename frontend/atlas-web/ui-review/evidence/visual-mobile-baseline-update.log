@@ -1,0 +1,103 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:132) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22mnpm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[2m[WebServer] [22m(node:145) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 50 tests using 1 worker
+
+(node:179) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:179) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/home-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓   1 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual home (3.4s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/specifications-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓   2 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual specifications (2.2s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/code-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓   3 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual code (2.3s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/agents-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓   4 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual agents (2.7s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/resources-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓   5 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual resources (2.2s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/workflow-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓   6 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual workflow (2.5s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/execution-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓   7 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual execution (2.1s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/governance-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓   8 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual governance (3.1s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/memory-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓   9 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual memory (2.5s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/gateway-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  10 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual gateway (3.5s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/collaboration-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  11 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual collaboration (3.6s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/configuration-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  12 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual configuration (2.9s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/identity-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  13 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual identity (2.7s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/tenancy-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  14 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual tenancy (2.4s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/saas-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  15 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual saas (2.0s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/desktop-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  16 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual desktop (2.0s)
+  ✓  17 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual observer (1.5s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/connection-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  18 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual connection (1.7s)
+  ✓  19 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual sign-in (1.4s)
+  ✓  20 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual sign-in/help (1.4s)
+  ✓  21 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual invitations (1.5s)
+  ✓  22 [visual-chromium] › e2e/visual.spec.ts:19:102 › dark · 390 › visual observer/sign-in (1.4s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/open-specifications-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  23 [visual-chromium] › e2e/visual.spec.ts:31:64 › dark · 390 › visual open specifications (3.5s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/open-code-dark-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  24 [visual-chromium] › e2e/visual.spec.ts:31:64 › dark · 390 › visual open code (3.5s)
+  ✓  25 [visual-chromium] › e2e/visual.spec.ts:31:64 › dark · 390 › visual open agents (1.5s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/home-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  26 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual home (2.1s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/specifications-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  27 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual specifications (1.8s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/code-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  28 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual code (1.8s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/agents-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  29 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual agents (1.8s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/resources-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  30 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual resources (1.9s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/workflow-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  31 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual workflow (2.0s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/execution-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  32 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual execution (2.3s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/governance-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  33 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual governance (3.4s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/memory-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  34 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual memory (2.0s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/gateway-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  35 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual gateway (1.6s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/collaboration-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  36 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual collaboration (1.7s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/configuration-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  37 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual configuration (1.5s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/identity-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  38 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual identity (1.3s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/tenancy-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  39 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual tenancy (1.4s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/saas-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  40 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual saas (1.4s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/desktop-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  41 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual desktop (1.3s)
+  ✓  42 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual observer (1.0s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/connection-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  43 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual connection (1.2s)
+  ✓  44 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual sign-in (1.2s)
+  ✓  45 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual sign-in/help (1.1s)
+  ✓  46 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual invitations (1.3s)
+  ✓  47 [visual-chromium] › e2e/visual.spec.ts:19:102 › light · 390 › visual observer/sign-in (825ms)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/open-specifications-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  48 [visual-chromium] › e2e/visual.spec.ts:31:64 › light · 390 › visual open specifications (2.3s)
+/workspace/scratch/0378bdb0cdb3/frontend-claude-sharp-thompson-5tff91/frontend/atlas-web/e2e/visual.spec.ts-snapshots/open-code-light-390-visual-chromium-linux.png is re-generated, writing actual.
+  ✓  49 [visual-chromium] › e2e/visual.spec.ts:31:64 › light · 390 › visual open code (1.9s)
+  ✓  50 [visual-chromium] › e2e/visual.spec.ts:31:64 › light · 390 › visual open agents (1.4s)
+
+  50 passed (1.8m)

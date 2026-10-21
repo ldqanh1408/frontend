@@ -1,0 +1,112 @@
+[
+  {
+    "name": "home",
+    "overflow": false,
+    "jsBytes": 166759
+  },
+  {
+    "name": "specifications",
+    "overflow": false,
+    "jsBytes": 47596
+  },
+  {
+    "name": "code",
+    "overflow": false,
+    "jsBytes": 7901
+  },
+  {
+    "name": "agents",
+    "overflow": false,
+    "jsBytes": 51615
+  },
+  {
+    "name": "resources",
+    "overflow": false,
+    "jsBytes": 0
+  },
+  {
+    "name": "workflow",
+    "overflow": false,
+    "jsBytes": 8007
+  },
+  {
+    "name": "execution",
+    "overflow": false,
+    "jsBytes": 8513
+  },
+  {
+    "name": "governance",
+    "overflow": false,
+    "jsBytes": 9645
+  },
+  {
+    "name": "memory",
+    "overflow": false,
+    "jsBytes": 0
+  },
+  {
+    "name": "gateway",
+    "overflow": false,
+    "jsBytes": 0
+  },
+  {
+    "name": "collaboration",
+    "overflow": false,
+    "jsBytes": 2635
+  },
+  {
+    "name": "configuration",
+    "overflow": false,
+    "jsBytes": 0
+  },
+  {
+    "name": "identity",
+    "overflow": false,
+    "jsBytes": 0
+  },
+  {
+    "name": "tenancy",
+    "overflow": false,
+    "jsBytes": 0
+  },
+  {
+    "name": "saas",
+    "overflow": false,
+    "jsBytes": 0
+  },
+  {
+    "name": "desktop",
+    "overflow": false,
+    "jsBytes": 0
+  },
+  {
+    "name": "observer",
+    "overflow": false,
+    "jsBytes": 6826
+  },
+  {
+    "name": "connection",
+    "overflow": false,
+    "jsBytes": 2271
+  },
+  {
+    "name": "sign-in",
+    "overflow": false,
+    "jsBytes": 58796
+  },
+  {
+    "name": "sign-in/help",
+    "overflow": false,
+    "jsBytes": 0
+  },
+  {
+    "name": "invitations",
+    "overflow": false,
+    "jsBytes": 0
+  },
+  {
+    "name": "observer/sign-in",
+    "overflow": false,
+    "jsBytes": 0
+  }
+]

@@ -1,4 +1,5 @@
-import { app, endSession, toast, type ServiceSession } from './app-store';
+import { app, capability, endSession, toast, type ServiceSession, type StreamKind, type StreamEndpoint } from './app-store';
+import { actionPermission } from './permissions';
 import { sha256Hex, stableJson } from '../lib/hash';
 import { uuid } from '../lib/ids';
 import { getAll, put, safeLocal, type JournalEntry } from '../lib/storage';
@@ -6,7 +7,7 @@ import { getAll, put, safeLocal, type JournalEntry } from '../lib/storage';
 /**
  * Atlas UI service adapter — protocol `atlas-ui/v1` (PROPOSED; not an approved DTO, see BE-01).
  *   GET  {base}/v1/capabilities?audience=…  → { protocol, audience, scope, serviceSessionHref, modules: { m: { collectionHref } } }
- *   GET  serviceSessionHref                  → { subject, scope, audience, grants[], expiresAt, csrfToken?, logoutHref? }
+ *   GET  serviceSessionHref                  → { subject, scope, audience, grants[], expiresAt, csrfToken?, logoutHref?, scopeContext?, entitlements?, limits? }
  *   GET  collectionHref                      → { items: ServiceRecord[], complete, observedAt }
  *   POST action.href  (Idempotency-Key, X-CSRF-Token, If-Match) { operationId, scope, resourceId, actionId, expectedRevision, fingerprint, input }
  *   GET  statusHref / effectHref             → operation stage / effect readback
@@ -15,10 +16,14 @@ import { getAll, put, safeLocal, type JournalEntry } from '../lib/storage';
  */
 export type Audience = 'workspace' | 'observer';
 export type Stage = 'Requested' | 'Received' | 'Accepted' | 'Effective' | 'Rejected' | 'Unknown';
-export interface ServiceActionInput { key: string; label: string; type?: string; required?: boolean }
+export interface ServiceActionInput { key: string; label: string; type?: string; required?: boolean; secret?: boolean }
+export function isSecretInput(input: ServiceActionInput): boolean {
+  return input.secret === true || input.type === 'password' || /^(?:api[_-]?key|access[_-]?token|refresh[_-]?token|password|secret|client[_-]?secret)$/i.test(input.key);
+}
 export interface ServiceAction {
   id: string; grant: string; label: string; href: string; statusHref?: string; effectHref?: string; resourceId: string; expectedRevision: number;
   inputs?: ServiceActionInput[]; blockedReason?: string;
+  entitlement?: string; quotaResource?: string;
 }
 export interface ServiceRecord {
   id: string; name: string; revision: number; scope: string; observedAt: string; status: string; etag?: string;
@@ -32,6 +37,7 @@ export class ServiceError extends Error {
 
 let csrf: string | null = null; // memory only; never persisted or rendered
 let expiryTimer: ReturnType<typeof setTimeout> | null = null;
+let connectionAttempt = 0;
 const TIMEOUT_MS = 15000;
 
 export function validateServiceUrl(raw: string): string | null {
@@ -85,38 +91,47 @@ async function json<T>(res: Response): Promise<T> {
 }
 
 export async function connect(url: string, audience: Audience): Promise<void> {
+  if (audience !== 'workspace') throw new ServiceError('Use the independent Observer application to connect an Observer session.', 'policy');
   const err = validateServiceUrl(url);
   if (err) throw new ServiceError(err, 'policy');
   const b = base(url);
   safeLocal.set('atlas.serviceUrl', b);
-  app.set((s) => ({ connection: 'connecting', serviceUrl: b, endReason: null, toasts: s.toasts.filter((x) => x.kind === 'local') }));
+  const attempt = ++connectionAttempt;
+  app.set((s) => ({ connection: 'connecting', session: null, serviceUrl: b, endReason: null, toasts: s.toasts.filter((x) => x.kind === 'local') }));
   try {
     const capsRes = await request(`${b}/v1/capabilities?audience=${audience}`, {}, { session: false });
     if (capsRes.status === 401) throw new ServiceError('Sign in to the service first, then connect again.', 'session', 401);
-    const caps = await json<{ protocol: string; audience: string; scope: string; serviceSessionHref: string; modules: Record<string, { collectionHref: string }> }>(capsRes);
+    const caps = await json<{ protocol: string; audience: string; scope: string; serviceSessionHref: string; modules: Record<string, { collectionHref: string }>; streams?: Partial<Record<StreamKind, StreamEndpoint>>; collaboration?: ServiceSession['collaboration']; scopeSwitchHref?: string; configurationHref?: string }>(capsRes);
     if (caps.protocol !== 'atlas-ui/v1') throw new ServiceError(`Unsupported protocol “${String(caps.protocol)}”. Atlas expects atlas-ui/v1.`, 'protocol');
     if (caps.audience !== audience) throw new ServiceError(`The service offered a ${caps.audience} session instead of ${audience}.`, 'protocol');
     const origin = new URL(b).origin;
     const check = (h: string) => { const u = new URL(h, b); if (u.origin !== origin) throw new ServiceError('The service advertised links on another origin.', 'policy'); return u.toString(); };
     const sesRes = await request(check(caps.serviceSessionHref), {}, { session: false });
     if (sesRes.status === 401) throw new ServiceError('No authenticated session. Sign in with your identity provider, then connect.', 'session', 401);
-    const ses = await json<{ subject: string; scope: string; audience: string; grants: string[]; expiresAt: string | null; csrfToken?: string; logoutHref?: string; displayName?: string }>(sesRes);
+    const ses = await json<{ subject: string; scope: string; audience: string; grants: string[]; expiresAt: string | null; csrfToken?: string; logoutHref?: string; displayName?: string; scopeContext?: { org?: string; workspace?: string; project?: string }; entitlements?: Record<string, boolean>; limits?: Record<string, { used: number; limit: number }> }>(sesRes);
     if (ses.audience !== audience) throw new ServiceError('Session audience does not match the requested audience.', 'protocol');
     if (ses.scope !== caps.scope) throw new ServiceError('Session scope does not match the advertised scope.', 'protocol');
-    if (ses.expiresAt && Date.parse(ses.expiresAt) <= Date.now()) throw new ServiceError('The service returned an expired session.', 'session');
+    if (typeof ses.subject !== 'string' || !ses.subject.trim() || typeof ses.scope !== 'string' || !ses.scope.trim() || !Array.isArray(ses.grants) || ses.grants.some(g => typeof g !== 'string')) throw new ServiceError('The service returned an invalid identity, scope or grant list.', 'protocol');
+    if (ses.expiresAt && (!Number.isFinite(Date.parse(ses.expiresAt)) || Date.parse(ses.expiresAt) <= Date.now())) throw new ServiceError('The service returned an expired session.', 'session');
+    if (ses.entitlements && Object.values(ses.entitlements).some(v => typeof v !== 'boolean')) throw new ServiceError('Invalid plan entitlements.', 'protocol');
+    if (ses.limits && Object.values(ses.limits).some(v => !v || !Number.isFinite(v.used) || !Number.isFinite(v.limit) || v.used < 0 || v.limit < 0)) throw new ServiceError('Invalid resource limits.', 'protocol');
+    if (attempt !== connectionAttempt || app.get().connection !== 'connecting') throw new ServiceError('The connection attempt was withdrawn.', 'session');
     csrf = ses.csrfToken ?? null;
     const session: ServiceSession = {
       serviceUrl: b, audience, actor: { id: ses.subject, name: ses.displayName ?? ses.subject },
-      scope: { org: null, workspace: null, project: null, label: ses.scope }, grants: Array.isArray(ses.grants) ? ses.grants.map(String) : [],
+      scope: { org: typeof ses.scopeContext?.org === 'string' ? ses.scopeContext.org : null, workspace: typeof ses.scopeContext?.workspace === 'string' ? ses.scopeContext.workspace : null, project: typeof ses.scopeContext?.project === 'string' ? ses.scopeContext.project : null, label: ses.scope }, grants: ses.grants,
+      entitlements: ses.entitlements, limits: ses.limits,
       expiresAt: ses.expiresAt, collections: Object.fromEntries(Object.entries(caps.modules ?? {}).map(([m, v]) => [m, check(v.collectionHref)])),
       logoutHref: ses.logoutHref ? check(ses.logoutHref) : null, capabilityVersion: caps.protocol,
+      streams: caps.streams, collaboration: caps.collaboration,
+      scopeSwitchHref: caps.scopeSwitchHref ? check(caps.scopeSwitchHref) : undefined,
+      configurationHref: caps.configurationHref ? check(caps.configurationHref) : undefined,
     };
     app.set({ connection: 'connected', session });
     armExpiry(session.expiresAt);
     safeLocal.set('atlas.serviceRestore', audience);
   } catch (e) {
-    app.set({ connection: 'disconnected', session: null });
-    csrf = null;
+    if (attempt === connectionAttempt) { app.set({ connection: 'disconnected', session: null }); csrf = null; }
     throw e;
   }
 }
@@ -130,6 +145,7 @@ function armExpiry(expiresAt: string | null) {
 }
 
 export function disconnect() {
+  connectionAttempt++;
   safeLocal.set('atlas.serviceRestore', '');
   if (expiryTimer) clearTimeout(expiryTimer);
   csrf = null;
@@ -138,11 +154,30 @@ export function disconnect() {
 }
 
 export async function loadCollection(module: string): Promise<Collection> {
-  const href = app.get().session?.collections[module];
+  const session = app.get().session;
+  const href = session?.collections[module];
   if (!href) throw new ServiceError('The connected service does not advertise this module.', 'protocol');
-  const c = await json<Collection>(await request(sameOrigin(href)));
+  const { serviceQuery } = await import('./service-query');
+  if (app.get().session !== session) throw new ServiceError('The session changed before loading records.', 'session');
+  let c: Collection;
+  try {
+    c = await serviceQuery.fetchQuery({ queryKey: ['collection', session!.serviceUrl, session!.audience, session!.actor.id, session!.scope.label, module], queryFn: async () => json<Collection>(await request(sameOrigin(href))) });
+  } catch (error) {
+    if (app.get().session !== session) throw new ServiceError('The scope or session changed while loading records. Refresh in the current scope.', 'session');
+    throw error;
+  }
+  if (app.get().session !== session || app.get().connection !== 'connected') throw new ServiceError('The scope or session changed while loading records. Refresh in the current scope.', 'session');
   if (!c || !Array.isArray(c.items)) throw new ServiceError('The collection response is missing items.', 'protocol');
-  return { items: c.items.filter((r) => r && typeof r.id === 'string'), complete: c.complete !== false, observedAt: c.observedAt ?? new Date().toISOString() };
+  if (c.items.some(r => !r || typeof r.id !== 'string' || typeof r.name !== 'string' || !Number.isSafeInteger(r.revision) || typeof r.scope !== 'string')) throw new ServiceError('The collection contains an invalid identity, revision or scope.', 'protocol');
+  if (c.items.some(r => r.scope !== session!.scope.label)) throw new ServiceError('The service returned records outside the authorized tenant scope. No records were displayed.', 'policy');
+  return { items: c.items, complete: c.complete !== false, observedAt: c.observedAt ?? new Date().toISOString() };
+}
+
+export async function readService<T>(href: string): Promise<T> {
+  const session = app.get().session;
+  const data = await json<T>(await request(sameOrigin(href)));
+  if (!session || app.get().session !== session) throw new ServiceError('The session changed while reading service data.', 'session');
+  return data;
 }
 
 export function actionGate(record: ServiceRecord | null, action: ServiceAction | undefined): string | null {
@@ -151,8 +186,18 @@ export function actionGate(record: ServiceRecord | null, action: ServiceAction |
   if (session.audience === 'observer') return 'Observer sessions are read-only and cannot send workspace commands.';
   if (!record) return 'Select a resource. Grants and a resource revision are required before acting.';
   if (!action) return `The service did not offer this action for ${record.name} at revision ${record.revision}.`;
+  if (record.scope !== session.scope.label) return 'The resource does not belong to the current authorized scope.';
+  if (action.resourceId !== record.id || action.expectedRevision !== record.revision) return 'The action resource or revision is stale. Refresh before acting.';
   if (action.blockedReason) return action.blockedReason;
-  if (!session.grants.includes(action.grant) && !session.grants.includes('*')) return `Requires ${action.grant} in ${session.scope.label}.`;
+  if (/^gov:approve_(medium|high)$/.test(action.grant)) {
+    const author = record.fields?.author_id ?? record.fields?.authorId;
+    if (author === session.actor.id) return 'Authors cannot approve their own change. An independent reviewer is required.';
+    if (typeof author !== 'string') return 'Independent reviewer eligibility is not observed. Refresh before approving.';
+  }
+  const required = actionPermission(action.label);
+  if (required && action.grant !== required) return `The action contract must require ${required}. Refresh or contact the service owner.`;
+  const gate = capability(action.grant, action.label, { entitlement: action.entitlement, resource: action.quotaResource });
+  if (!gate.ok) return gate.reason;
   return null;
 }
 
@@ -174,12 +219,16 @@ async function doSend(module: string, record: ServiceRecord, action: ServiceActi
   const session = app.get().session!;
   const operationId = uuid();
   const payload = { scope: session.scope.label, resourceId: action.resourceId, actionId: action.id, expectedRevision: action.expectedRevision, input };
+  // Hash the exact canonical input sent to the service. A constant redaction would
+  // let different credentials share the same receipt fingerprint.
   const fingerprint = await sha256Hex(stableJson(payload));
+  if (app.get().session !== session) throw new ServiceError('The scope or session changed before sending. Inspect the current resource again.', 'session');
   const now = new Date().toISOString();
   let entry: JournalEntry = {
     id: operationId, module, resourceId: action.resourceId, resourceName: record.name, actionId: action.id, label: action.label, stage: 'Requested',
     idempotencyKey: operationId, fingerprint, scope: session.scope.label, createdAt: now, updatedAt: now, message: 'Request prepared.', evidence: null,
     statusHref: action.statusHref ?? null, effectHref: action.effectHref ?? null, expectedRevision: action.expectedRevision,
+    hasSecretInputs: (action.inputs ?? []).some(isSecretInput),
   };
   await put('journal', entry);
   const update = async (patch: Partial<JournalEntry>) => { entry = { ...entry, ...patch, updatedAt: new Date().toISOString() }; await put('journal', entry); return entry; };
@@ -208,9 +257,9 @@ async function applyStage(update: (p: Partial<JournalEntry>) => Promise<JournalE
   switch (stage) {
     case 'Received': return update({ stage: 'Received', message: 'Received by the service. Acknowledgement only — the effect is not yet verified.' });
     case 'Accepted': return update({ stage: 'Accepted', message: 'Accepted for processing. Acknowledgement only — the effect is not yet verified.' });
-    case 'Rejected': return update({ stage: 'Rejected', message: reason ? `Rejected: ${reason}` : 'Rejected by the service. Nothing was applied.' });
+    case 'Rejected': return update({ stage: 'Rejected', message: entry.hasSecretInputs ? 'Rejected by the service. Sensitive response details are not retained; inspect the service using this operation ID.' : reason ? `Rejected: ${reason}` : 'Rejected by the service. Nothing was applied.' });
     case 'Effective': return verifyEffect(update, entry);
-    default: return update({ stage: 'Unknown', message: `Unrecognized stage “${String(stage)}”. Reconcile before retrying.` });
+    default: return update({ stage: 'Unknown', message: 'Unrecognized acknowledgement stage. Reconcile before retrying.' });
   }
 }
 
@@ -221,9 +270,9 @@ async function verifyEffect(update: (p: Partial<JournalEntry>) => Promise<Journa
     if (eff.operationId !== entry.id || eff.scope !== entry.scope || eff.resourceId !== entry.resourceId || eff.fingerprint !== entry.fingerprint) {
       return update({ stage: 'Unknown', message: 'The effect readback does not match this operation. Effective is not shown; reconcile.' });
     }
-    return update({ stage: 'Effective', message: `Effect read back${eff.revision ? ` at revision ${eff.revision}` : ''}.`, evidence: eff.evidenceId ?? null });
+    return update({ stage: 'Effective', message: `Effect read back${Number.isSafeInteger(eff.revision) ? ` at revision ${eff.revision}` : ''}.`, evidence: entry.hasSecretInputs ? null : eff.evidenceId ?? null });
   } catch (e) {
-    return update({ stage: 'Unknown', message: `Effect readback failed: ${e instanceof Error ? e.message : String(e)} Reconcile before retrying.` });
+    return update({ stage: 'Unknown', message: entry.hasSecretInputs ? 'Effect readback failed. Reconcile before retrying.' : `Effect readback failed: ${e instanceof Error ? e.message : String(e)} Reconcile before retrying.` });
   }
 }
 
@@ -242,7 +291,7 @@ export async function reconcile(entry: JournalEntry): Promise<JournalEntry> {
     return applyStage(update, st.stage, st.reason, cur);
   } catch (e) {
     if (e instanceof ServiceError && e.status === 404) return update({ stage: 'Unknown', message: 'The service has no record of this operation. It was probably not received; confirm in the service before retrying.' });
-    return update({ message: `Reconcile failed: ${e instanceof Error ? e.message : String(e)}` });
+    return update({ message: entry.hasSecretInputs ? 'Reconcile failed. Inspect the service using this operation ID.' : `Reconcile failed: ${e instanceof Error ? e.message : String(e)}` });
   }
 }
 
@@ -258,7 +307,7 @@ export async function listJournal(module?: string): Promise<JournalEntry[]> {
 export async function restoreSession(): Promise<void> {
   const audience = safeLocal.get('atlas.serviceRestore');
   const url = app.get().serviceUrl;
-  if (!url || (audience !== 'workspace' && audience !== 'observer')) return;
+  if (!url || audience !== 'workspace') return;
   try { await connect(url, audience); }
   catch (e) {
     safeLocal.set('atlas.serviceRestore', '');

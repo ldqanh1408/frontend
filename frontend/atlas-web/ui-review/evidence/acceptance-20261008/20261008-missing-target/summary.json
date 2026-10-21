@@ -1,0 +1,23 @@
+{
+  "format": "atlas-acceptance/v1",
+  "mode": "staging",
+  "run": "20261008-missing-target",
+  "node": "v24.19.0",
+  "startedAt": "2026-10-08T11:43:05.055Z",
+  "sourceDigest": "cd13aff76798dbf6f2248ccac180b1a77f30ae443710604b68f1f696fa956453",
+  "gates": [
+    {
+      "name": "staging",
+      "code": 1,
+      "durationMs": 1367,
+      "status": "FAIL",
+      "log": "staging.log"
+    }
+  ],
+  "result": "FAIL",
+  "limitations": [
+    "Live backend business acceptance and manual NVDA/VoiceOver are not established by this command."
+  ],
+  "finishedAt": "2026-10-08T11:43:06.455Z",
+  "sourceUnchanged": true
+}
