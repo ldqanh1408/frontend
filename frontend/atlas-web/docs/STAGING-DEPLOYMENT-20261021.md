@@ -26,6 +26,7 @@ The machine-readable record is [../deploy/staging-deployment.json](../deploy/sta
 - The run covered: the published manifest and every artifact byte on both origins; the release and audience headers; cross-audience routing refusals; the missing-asset contract; the `HEAD` contract; and browser rendering of the planned routes with no console errors and no axe violations.
 - The source digest was unchanged across the run.
 - The acceptance summary is at `test-results/acceptance/staging-0a0bba532b1b/summary.json`.
+- The same acceptance was then run by CI against the same live origins: workflow run `39622768897` (dispatched with `check_staging=true` and `expected_release=0a0bba532b1b`) reports `staging: PASS` and `Acceptance PASS`, with the three engine jobs successful.
 
 ## Two defects found and fixed before this release
 
@@ -44,6 +45,8 @@ This is a property of the host, not of the release. It was measured, not assumed
 | `0f5a569` — the deployed source | 43 failed, 546 passed | 589 passed, 0 failed (CI run 39590304469) |
 
 The failure count fell by 62 with the fix in place, so the fix removed failures rather than adding any. The remaining 43 failures are the same one-pixel overflow, unchanged across both sources. The CI host runs the identical command, `npx playwright test --project=webkit`, and reports 589 passed with no failure. Chromium and Firefox pass locally and on CI.
+
+All other local gates pass on the deployed source: layout and performance 170 passed, review fixtures 58 passed, typecheck and release tooling passed.
 
 ## Production is untouched
 
