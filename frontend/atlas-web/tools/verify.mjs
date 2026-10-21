@@ -7,7 +7,8 @@ import { fileURLToPath } from 'node:url';
 import { sourceDigest } from './release-manifest.mjs';
 const root = fileURLToPath(new URL('..', import.meta.url));
 const mode = process.argv[2] || 'local';
-// On Windows the `npm` executable is `npm.cmd`; a bare `npm` is not resolvable by spawn.
+// On Windows the `npm` executable is `npm.cmd`, and a `.cmd` shim can only be spawned through a shell.
+// Every argument passed to it here is a fixed literal, never user input.
 const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 if (!['local', 'staging'].includes(mode)) throw new Error('Use local or staging.');
 const run = process.env.ATLAS_VERIFY_RUN || new Date().toISOString().replace(/[:.]/g, '-');
@@ -28,7 +29,7 @@ async function gate(name, command, args, report) {
   const env = { ...process.env, ...(report ? { PLAYWRIGHT_JSON_OUTPUT_NAME: join(out, report + '.json'), ATLAS_TEST_OUTPUT: join(out, report) } : {}) };
   let error = null;
   const code = await new Promise(resolveCode => {
-    const child = spawn(command, args, { cwd: root, env, stdio: ['ignore', 'pipe', 'pipe'] });
+    const child = spawn(command, args, { cwd: root, env, stdio: ['ignore', 'pipe', 'pipe'], shell: process.platform === 'win32' && command.endsWith('.cmd') });
     activeChild = child;
     child.stdout.pipe(log, { end: false }); child.stderr.pipe(log, { end: false });
     child.once('error', e => { error = e.message; resolveCode(1); });

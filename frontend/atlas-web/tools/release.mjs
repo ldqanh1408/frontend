@@ -8,15 +8,17 @@ import { channelName, hashFiles, sourceDigest, validateManifest } from './releas
 
 const channel = channelName(process.argv[2] || 'staging');
 const root = fileURLToPath(new URL('..', import.meta.url));
-// On Windows the `npm` executable is `npm.cmd`; a bare `npm` is not resolvable by spawn.
+// On Windows the `npm` executable is `npm.cmd`, and a `.cmd` shim can only be spawned through a shell.
+// Every argument passed to it here is a fixed literal, never user input.
 const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+const npmShell = process.platform === 'win32';
 const git = args => { try { return execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim(); } catch { return null; } };
 const source = git(['rev-parse', 'HEAD']);
 const dirty = source ? git(['status', '--porcelain', '--', 'src', 'tools', 'public', 'index.html', 'telemetry-console.html', 'package.json', 'package-lock.json', 'vite.config.ts', 'tsconfig.json', 'tsconfig.node.json']) : null;
 if (dirty && process.env.ATLAS_ALLOW_DIRTY_RELEASE !== '1') throw new Error('Commit source changes before releasing; ATLAS_ALLOW_DIRTY_RELEASE=1 explicitly marks a local draft.');
 const digest = sourceDigest(root);
 const id = source && !dirty ? source.slice(0, 12) : `source-${digest.slice(0, 16)}`;
-execFileSync(npm, ['run', 'build'], { cwd: root, stdio: 'inherit', env: { ...process.env, ATLAS_BUILD_ID: id } });
+execFileSync(npm, ['run', 'build'], { cwd: root, stdio: 'inherit', shell: npmShell, env: { ...process.env, ATLAS_BUILD_ID: id } });
 if (sourceDigest(root) !== digest) throw new Error('Source changed during the build. Retry from a stable checkout.');
 const files = hashFiles(join(root, 'dist'), ['/release-manifest.json']);
 const manifest = validateManifest({ format: 'atlas-web-release/v1', channel, buildId: id, sourceCommit: source, sourceKind: source ? 'git' : 'archive', sourceDirty: Boolean(dirty), sourceDigest: digest, node: process.version, entries: { workspace: '/index.html', observer: '/telemetry-console.html' }, fileCount: Object.keys(files).length, files });
