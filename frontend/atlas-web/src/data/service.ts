@@ -201,6 +201,18 @@ export function actionGate(record: ServiceRecord | null, action: ServiceAction |
   return null;
 }
 
+
+/**
+ * Secret inputs are write-only: the value reaches the authenticated service and is cleared locally,
+ * but it is never written to the device journal and never rendered back to the user.
+ * The receipt fingerprint is bound to the exact canonical payload that was sent, so two different
+ * credentials can never share a receipt. A constant redaction placeholder would break that contract.
+ */
+export function secretInputKeys(action: ServiceAction): Set<string> {
+  return new Set((action.inputs ?? []).filter((i) => isSecretInput(i)).map((i) => i.key));
+}
+
+
 const inflight = new Map<string, Promise<JournalEntry>>();
 
 /** Sends one command. A second activation while the first is in flight returns the same operation (exactly one POST). */

@@ -7,28 +7,50 @@ const isSecretFlag = (flag: string) => flag.replace(/([a-z])([A-Z])/g, '$1-$2').
 const SECRET_TEXT = /(?:\bsk-[A-Za-z0-9_-]{8,}|\bgh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|\bxox[abprs]-[A-Za-z0-9-]{10,}|\bAKIA[0-9A-Z]{16}\b|\beyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.|\bBearer\s+\S+|:\/\/[^\s/:@]+:[^\s/@]+@|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----)/;
 const HINT = 'Use vault references such as vault://team/provider. Never save secret values in device drafts.';
 
+/** True for keys that name a reference to a secret rather than the secret itself. */
+export const isSecretRefKey = (key: string) => REF_KEY.test(key);
+
 function isRef(value: unknown): boolean {
   return value == null || value === '' || (typeof value === 'string' && VAULT_REF.test(value));
 }
 
-function environmentIsSafe(value: unknown): boolean {
-  if (value == null) return true;
-  if (typeof value === 'string') return isRef(value);
-  if (Array.isArray(value)) return value.every(environmentIsSafe);
-  if (typeof value !== 'object') return false;
+/**
+ * An environment map is safe only when every value is a vault reference.
+ * A descriptor carries an explicit reference slot; arbitrary map keys named KEY/name stay environment
+ * variables and must never receive a metadata exemption.
+ */
+function environmentError(value: unknown, path: string): string | null {
+  if (value == null) return null;
+  if (typeof value === 'string') return isRef(value) ? null : `${path} must be a vault reference such as vault://team/provider, not a secret value.`;
+  if (Array.isArray(value)) {
+    for (const [i, item] of value.entries()) {
+      const error = environmentError(item, `${path}[${i}]`);
+      if (error) return error;
+    }
+    return null;
+  }
+  if (typeof value !== 'object') return `${path} must be a vault reference such as vault://team/provider, not a secret value.`;
   const obj = value as Record<string, unknown>;
-  // A descriptor has an explicit reference slot. Arbitrary map keys named KEY/name
-  // remain environment variables and must never receive a global metadata exemption.
   const descriptor = Object.keys(obj).some(k => /^(?:valueRef|secretRef|credentialRef|reference|ref)$/.test(k));
-  return Object.entries(obj).every(([key, item]) => descriptor && /^(?:name|key|env|variable)$/.test(key)
-    ? typeof item === 'string' : environmentIsSafe(item));
+  for (const [key, item] of Object.entries(obj)) {
+    if (descriptor && /^(?:name|key|env|variable)$/.test(key)) {
+      if (typeof item !== 'string') return `${path}.${key} must name the environment variable.`;
+      continue;
+    }
+    const error = environmentError(item, `${path}.${key}`);
+    if (error) return error;
+  }
+  return null;
 }
 
 export function secretFieldError(key: string, value: unknown): string | null {
   if (value == null || value === '') return null;
   if (typeof value === 'string' && /:\/\/[^\s/:@]+:[^\s/@]+@/.test(value)) return 'Remove credentials from the URL. Use vault references for secrets.';
   if ((REF_KEY.test(key) || SECRET_KEY.test(key)) && !isRef(value)) return HINT;
-  if (/^environmentRefs$/i.test(key) && !environmentIsSafe(value)) return HINT;
+  if (/^environmentRefs$/i.test(key)) {
+    const error = environmentError(value, key);
+    if (error) return error;
+  }
   if (/^args$/i.test(key)) {
     const args = Array.isArray(value) ? value.map(String) : String(value).split('\n');
     for (let i = 0; i < args.length; i++) {
@@ -48,7 +70,7 @@ export function assertDraftSecretPolicy(value: unknown): void {
   if (!value || typeof value !== 'object') return;
   for (const [key, item] of Object.entries(value)) {
     const error = secretFieldError(key, item);
-    if (error) throw new Error(error); // Never echo the submitted value or key.
+    if (error) throw new Error(error); // Never echo the submitted value.
     assertDraftSecretPolicy(item);
   }
 }
