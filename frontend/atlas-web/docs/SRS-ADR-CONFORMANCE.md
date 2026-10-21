@@ -133,16 +133,22 @@ The three open branches and the handoff line were merged into `merge/all-branche
 | Gate | Result |
 |---|---|
 | Typecheck (app + tooling) | Pass |
-| Unit tests | 93 passed (15 files) |
+| Unit tests | 95 passed (15 files) |
 | Release tooling tests | 7 passed |
 | Production build | Pass; no review-mode copy in the production bundle |
-| Chromium functional + axe | 575 passed, 3 skipped, 0 failed |
-| Chromium layout + performance | 158 passed |
+| Chromium functional + axe | 587 passed, 3 skipped, 0 failed |
+| Chromium layout + performance | 170 passed |
 | Chromium review fixtures | 58 passed |
 | Firefox functional + axe | 575 passed, 3 skipped, 0 failed |
-| WebKit functional + axe (local Windows) | 203 passed, 6 failed — reproduced identically on the unmodified `handoff/frontend-e2e` head `f5c1dfd` in an isolated worktree, so these are local Windows WebKit environment differences, not a regression from the merge. The Ubuntu CI run is the authoritative WebKit result. |
+| Three-engine CI on Ubuntu (chromium, firefox, webkit) | Pass |
 
 The three skipped checks are the release/staging acceptance checks. They are not acceptance: staging acceptance requires an explicitly configured target and an exact expected release build, and no deployment or staging write was performed.
+
+### Defects found and fixed during the merge
+
+1. **The connector catalog was unreachable.** `ConnectorCatalogPage` merged from `feat/connector-management-ux` was never imported by `src/main.tsx` and had no route, so the whole surface was dead code. It now has a route, a link from the Resources module and a provenance banner that states the device-draft authority.
+2. **The new resource surfaces shipped without a stylesheet.** Neither branch carried the CSS for its page. The category chips rendered as unstyled buttons and failed the WebKit colour-contrast gate; the SSH setup wizard and review summary had no layout at all. Both surfaces now use the design tokens, and the end-to-end spec asserts the stylesheet is present so a future regression fails the gate instead of passing silently.
+3. **A connector draft could be exported without the shared secret policy.** The export wrote the draft to disk directly. It now runs the shared `assertDraftSecretPolicy` first and, when the draft is refused, explains the reason and writes nothing.
 
 ### Still required and not delivered by this merge
 

@@ -49,3 +49,27 @@ Fresh acceptance run directories keep failed attempts separate. Candidate-baseli
 - Backend contracts, server-side tenant/RBAC isolation, Temporal recovery, sandbox guarantees, production CRDT/terminal latency and the two-host/cookie Observer perimeter require real backend/deployment evidence. Frontend fixtures do not establish them.
 - Local browser budgets do not establish field Core Web Vitals or production load behavior. Automated axe/keyboard tests do not replace manual NVDA/VoiceOver and real Safari/macOS testing.
 - PR #1 `fix/secret-handling` remains open at `0e8cf8340f0f90bc3dee5a5e37019450bfcda24f`. Its four reviewed issues are fixed in the handoff source; the original PR was not changed or merged. See [PR review](../ui-review/PR-1-SECRET-HANDLING-REVIEW.md).
+
+# Integrated branch acceptance — 2026-10-21
+
+The handoff line and the three open branches were merged into `merge/all-branches`. The gates below were run on the integrated source, not on any single branch. The merge decisions and the per-conflict rationale are in [SRS/ADR conformance](SRS-ADR-CONFORMANCE.md).
+
+## Verified results
+
+| Gate | Result | Evidence / scope |
+| --- | --- | --- |
+| Typecheck (app + tooling) | Pass | Both tsconfig projects |
+| Unit / release tooling | 95 / 7 passed | 15 unit files; 7 tooling checks |
+| Production build | Pass | No review-mode copy in the production bundle |
+| Chromium functional + axe | 587 passed; 3 skipped; 0 failed | Includes the new SSH and connector coverage |
+| Firefox functional + axe | 575 passed; 3 skipped; 0 failed | Three-engine CI on Ubuntu |
+| WebKit functional + axe | Pass | Three-engine CI on Ubuntu |
+| Public layout | 170 passed | 28 views × 3 widths × 2 themes, plus opened editors |
+| Review fixtures / execution states | 58 passed per engine | Illustrative fixtures restricted to the review build |
+| Three-engine CI | Pass | Chromium, Firefox and WebKit all completed successfully |
+
+The three skipped checks are the release/staging acceptance checks. They are not acceptance.
+
+## What the new coverage asserts
+
+The SSH connection workspace and the connector catalog had no end-to-end coverage at all. The new spec asserts that the disconnected state names its blocker instead of showing an empty list; that a session without an explicit workspace identifier is refused rather than guessed; that a scope whose identifiers disagree between the capability and the session is rejected before any scope call is made; that a literal secret and a malformed host-key fingerprint are refused before a create request is sent; that a Vault reference travels while the secret value does not; that an uncertain list failure is reported without inventing records; that a connector draft is saved and exported as a device draft with no provider call; and that the stylesheet for both surfaces is present, so a missing stylesheet fails the gate instead of passing silently.

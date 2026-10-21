@@ -35,8 +35,8 @@
       "owner": "M1",
       "journeys": "J0",
       "status": "PARTIAL_FRONTEND_BACKEND_EVIDENCE_REQUIRED",
-      "implemented": "Scope bar, cross-scope response rejection; session-keyed query cache",
-      "sourceAndClientChecks": "src/data/service.ts; src/data/service-query.ts; e2e/scope-presence.spec.ts",
+      "implemented": "Scope bar, cross-scope response rejection; session-keyed query cache; an explicit scope identifier is required for a scope-specific operation and is never derived from a human-readable label; capability and session identifiers must agree",
+      "sourceAndClientChecks": "src/data/service.ts; src/data/service-query.ts; src/data/ssh.ts; e2e/scope-presence.spec.ts; e2e/connectors.spec.ts",
       "remainingAcceptance": "OAuth onboarding and org/workspace/project ownership plus PostgreSQL RLS, object/vector tenant isolation"
     },
     {
@@ -347,8 +347,8 @@
       "owner": "M6",
       "journeys": "J5",
       "status": "PARTIAL_FRONTEND_BACKEND_EVIDENCE_REQUIRED",
-      "implemented": "Draft/import/export guards; masked inputs; sensitive response exclusion",
-      "sourceAndClientChecks": "src/lib/secret-policy.ts; src/lib/secret-policy.test.ts; src/data/service.test.ts; e2e/definitions.spec.ts; e2e/service.spec.ts",
+      "implemented": "Draft/import/export guards; masked inputs; sensitive response exclusion; SSH and connector credential fields accept scoped vault:// references only and a connector export re-checks the shared policy before writing to disk",
+      "sourceAndClientChecks": "src/lib/secret-policy.ts; src/lib/secret-policy.test.ts; src/data/service.test.ts; src/data/connectorCatalog.ts; src/data/connectorCatalog.test.ts; src/data/ssh.ts; e2e/definitions.spec.ts; e2e/service.spec.ts; e2e/connectors.spec.ts",
       "remainingAcceptance": "100% generated diff regex+Shannon entropy scan BEFORE Gate/commit/PR, remediation and server log/trace/artifact redaction"
     },
     {
